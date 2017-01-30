@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<core:IFMLModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/IFML/core" xmlns:ext="http://www.omg.org/spec/IFML/ext" xsi:schemaLocation="http://www.omg.org/spec/IFML/core ifml.ecore#/0/core http://www.omg.org/spec/IFML/ext ifml.ecore#/0/extensions" name="Mockup">
+  <interactionFlowModel name="Pages">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="b2391adf" name="Page1" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewElements.0/@viewElementEvents.0/@navigationFlows.0">
+      <viewElements xsi:type="core:ViewContainer" id="c7965bbd" name="container">
+        <viewElements xsi:type="ext:Button" id="2cb20b1b" name="button" ButtonText="Submit" Align="left"/>
+      </viewElements>
+      <viewElements xsi:type="core:ViewContainer" id="6fd134b7" name="container">
+        <viewElements xsi:type="ext:List" id="71027724" name="table">
+          <viewElementEvents xsi:type="ext:SelectEvent" id="71027724" name="table">
+            <navigationFlows srcInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewElements.0/@viewElementEvents.0" trgtInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0"/>
+          </viewElementEvents>
+        </viewElements>
+      </viewElements>
+    </interactionFlowModelElements>
+  </interactionFlowModel>
+</core:IFMLModel>

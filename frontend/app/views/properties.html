@@ -1,0 +1,76 @@
+<div ng-if="models.selected" class="box box-grey box-padding">
+    <h3>Selected</h3>
+    <div class="selected-box">
+        <strong>Type: </strong> {{models.selected.type}}<br>
+        <input type="text" ng-model="models.selected.name" class="form-control" style="margin-top: 5px" />
+        <div ng-repeat="(key,prop) in models.selected.properties">
+            <div ng-if="key == 'landmark' || key == 'default'" class="squaredThree">
+              <input type="checkbox" ng-model="models.selected.properties[key]" id="{{key}}"/>
+               {{key}}: <label for="{{key}}"></label>
+            </div>
+            <div ng-if="key != 'landmark' && key != 'default' && key != 'url' && key != 'align'">
+                <strong>{{key}}</strong>
+                <input ng-if="key != 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
+                <input ng-if="key == 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
+            </div>
+            <div ng-if="key == 'align'" >
+                <label>align</label>
+                <select ng-model="models.selected.properties.align"
+                    ng-options="e for e in ['left', 'center', 'right']">
+                </select>
+            </div>
+            <div ng-if="key == 'url'" >
+                <label>URL:</label>
+                <input type="url" ng-model="models.selected.properties.url" class="form-control">
+            </div>
+        </div>
+        <hr>
+
+        <!-- Submit -->
+        <div class="event-box" ng-if="models.selected.type == 'submit_button' || models.selected.type == 'table'" layout="column">
+            <label> {{models.selected.events[0].type}}:
+            <select ng-model="models.selected.events[0].link">
+                <option
+                    ng-repeat="p in models.result.pages"
+                    value="{{p.id}}">{{p.name}}</option>
+            </select>
+            </label>
+        </div>
+
+        <!-- Item and Button-->
+        <div class="event-box" ng-if="models.selected.type == 'item' || models.selected.type == 'button'" layout="column" layout-align="space-between center">
+            <label>Events:
+            <select
+                ng-model="models.eventSelected"
+                ng-options="e.type for e in models.events | filter: filterEventsAlreadyAdded">
+            </select>
+            </label>
+            <label> To:
+            <select ng-model="models.eventSelected.link">
+                <option
+                    ng-repeat="p in models.result.pages"
+                    value="{{p.id}}">{{p.name}}</option>
+            </select>
+            </label>
+            <button class="btn btn-primary" ng-click='addEvent()'>Agregar</button>
+
+            <div ng-hide="models.selected.events.length === 0">Interactions</div>
+            <div>
+                <ul class="events">
+                    <li class="event-row" ng-repeat="se in models.selected.events">
+                        <span class="gray-text">{{ se.type }}:</span> {{ se.link }} <a ng-click="removeEvent(se.type)" class="delete-event">x</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="trashcan box box-grey box-padding">
+    <!-- If you use [] as referenced list, the dropped elements will be lost -->
+    <h3>Trashcan</h3>
+    <div dnd-list="[]" style="text-align:center">
+        <img width="80" src="images/icons/trashcan.png">
+    </div>
+</div>

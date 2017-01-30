@@ -1,0 +1,7 @@
+<div class="form-group">
+  <label for="input_{{item.id}}" class="col-lg-2 control-label">{{item.properties.label}}</label>
+  <div class="col-lg-10">
+    <input type="text" class="form-control" id="input_{{item.id}}" placeholder="{{item.properties.placeholder}}" value="{{item.properties.value}}">
+  </div>
+</div>
+<span class="item-name" ng-if="models.selected === item">{{item.name}}</span>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<core:IFMLModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:core="http://www.omg.org/spec/IFML/core"
+    xmlns:ext="http://www.omg.org/spec/IFML/ext"
+    xsi:schemaLocation="http://www.omg.org/spec/IFML/core ifml.ecore#/0/core http://www.omg.org/spec/IFML/ext ifml.ecore#/0/extensions"
+    name="Mockup">
+  <interactionFlowModel
+      name="Pages">
+    <interactionFlowModelElements
+        xsi:type="core:ViewContainer"
+        id="Gerald Rice"
+        name="Page1">
+      <viewElements
+          xsi:type="core:ViewContainer"
+          id="3"
+          name="container">
+        <viewElements
+            id="2"
+            name="itemPage1">
+          <viewElementEvents>
+            <navigationFlows
+                srcInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElements.0/@viewElementEvents.0"
+                trgtInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
+          </viewElementEvents>
+        </viewElements>
+      </viewElements>
+      <viewElements
+          xsi:type="ext:Button"/>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements
+        xsi:type="core:ViewContainer"
+        id="Aiden Bishop"
+        name="Page2"
+        inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElements.0/@viewElementEvents.0/@navigationFlows.0">
+      <viewElements
+          xsi:type="core:ViewContainer"
+          id="2"
+          name="container">
+        <viewElements
+            id="1"
+            name="itemPage2"/>
+      </viewElements>
+    </interactionFlowModelElements>
+  </interactionFlowModel>
+</core:IFMLModel>

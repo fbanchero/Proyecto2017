@@ -1,0 +1,688 @@
+$primary-bgcolor: #333;
+$secondary-bgcolor: #373737;
+
+/***************************** font declaration *****************************/
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('fonts/AvenirLTStd-LightOblique.eot');
+  src: url('fonts/AvenirLTStd-LightOblique.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirLTStd-LightOblique.woff') format('woff'),
+    url('fonts/AvenirLTStd-LightOblique.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('fonts/AvenirLTStd-Medium.eot');
+  src: url('fonts/AvenirLTStd-Medium.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirLTStd-Medium.woff') format('woff'),
+    url('fonts/AvenirLTStd-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('fonts/AvenirLTStd-Black.eot');
+  src: url('fonts/AvenirLTStd-Black.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirLTStd-Black.woff') format('woff'),
+    url('fonts/AvenirLTStd-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('fonts/AvenirLTStd-HeavyOblique.eot');
+  src: url('fonts/AvenirLTStd-HeavyOblique.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirLTStd-HeavyOblique.woff') format('woff'),
+    url('fonts/AvenirLTStd-HeavyOblique.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('fonts/AvenirLTStd-BookOblique.eot');
+  src: url('fonts/AvenirLTStd-BookOblique.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirLTStd-BookOblique.woff') format('woff'),
+    url('fonts/AvenirLTStd-BookOblique.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('fonts/AvenirLTStd-MediumOblique.eot');
+  src: url('fonts/AvenirLTStd-MediumOblique.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirLTStd-MediumOblique.woff') format('woff'),
+    url('fonts/AvenirLTStd-MediumOblique.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('fonts/AvenirLTStd-Heavy.eot');
+  src: url('fonts/AvenirLTStd-Heavy.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirLTStd-Heavy.woff') format('woff'),
+    url('fonts/AvenirLTStd-Heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('fonts/AvenirLTStd-Roman.eot');
+  src: url('fonts/AvenirLTStd-Roman.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirLTStd-Roman.woff') format('woff'),
+    url('fonts/AvenirLTStd-Roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('fonts/AvenirLTStd-BlackOblique.eot');
+  src: url('fonts/AvenirLTStd-BlackOblique.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirLTStd-BlackOblique.woff') format('woff'),
+    url('fonts/AvenirLTStd-BlackOblique.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('fonts/AvenirLTStd-Book.eot');
+  src: url('fonts/AvenirLTStd-Book.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirLTStd-Book.woff') format('woff'),
+    url('fonts/AvenirLTStd-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('fonts/AvenirLTStd-Oblique.eot');
+  src: url('fonts/AvenirLTStd-Oblique.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirLTStd-Oblique.woff') format('woff'),
+    url('fonts/AvenirLTStd-Oblique.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('fonts/AvenirLTStd-Light.eot');
+  src: url('fonts/AvenirLTStd-Light.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirLTStd-Light.woff') format('woff'),
+    url('fonts/AvenirLTStd-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+/***************************** Required styles *****************************/
+
+/**
+ * For the correct positioning of the placeholder element, the dnd-list and
+ * it's children must have position: relative
+ */
+div[dnd-list],
+div[dnd-list] > div {
+  position: relative;
+}
+
+/***************************** Dropzone Styling *****************************/
+
+/**
+ * The dnd-list shodivd always have a min-height,
+ * otherwise you can't drop to it once it's empty
+ */
+.dropzone div[dnd-list] {
+    min-height: 42px;
+    margin: 0px;
+    padding-left: 0px;
+    height: 100%;
+}
+
+/**
+ * The dnd-lists's child elements currently MUST have
+ * position: relative. Otherwise we can not determine
+ * whether the mouse pointer is in the upper or lower
+ * half of the element we are dragging over. In other
+ * browsers we can use event.offsetY for this.
+ */
+.dropzone > div {
+    background-color: #fff;
+    border: 1px solid white;
+    display: block;
+    padding: 0px;
+    border: 1px solid #ddd;
+}
+
+/**
+ * Reduce opacity of elements during the drag operation. This allows the user
+ * to see where he is dropping his element, even if the element is huge. The
+ * .dndDragging class is automatically set during the drag operation.
+ */
+.dropzone .dndDragging {
+    opacity: 0.7;
+}
+
+/**
+ * The dndDraggingSource class will be applied to the source element of a drag
+ * operation. It makes sense to hide it to give the user the feeling that he's
+ * actually moving it. Note that the source element has also .dndDragging class.
+ */
+.dropzone .dndDraggingSource {
+    display: none;
+}
+
+/**
+ * An element with .dndPlaceholder class will be added as child of the dnd-list
+ * while the user is dragging over it.
+ */
+.dropzone .dndPlaceholder {
+    background-color: #e7e7e7;
+    min-height: 50px;
+    display: block;
+    position: relative;
+}
+
+/***************************** Element Selection *****************************/
+
+.dropzone .selected {
+    border: 2px solid #2eb2d0 !important;
+}
+
+.dropzone .selected .box > h3 {
+    color: #3c763d;
+    background-color: #dff0d8;
+    background-image: linear-gradient(to bottom,#dff0d8 0,#d0e9c6 100%);
+    border-color: #d6e9c6;
+}
+
+/***************************** Element type specific styles *****************************/
+
+.dropzone {
+
+  .item {
+    padding: 10px 15px;
+    width: 100%;
+    border:none;
+
+    &:focus {
+        outline: none;
+    }
+  }
+
+  form {
+    padding: 1% 15%;
+    width: 100%;
+    fieldset {
+      border-color: #373737;
+      min-height: 25px;
+    }
+    legend {
+      padding: 10px;
+      margin-bottom: 0;
+    }
+    input {
+      border: solid 1px gray;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      margin-right: 5px;
+      margin-top: 15px;
+    }
+  }
+
+}
+
+.column {
+    > div {
+      margin: 4px;
+    }
+}
+
+/***************************** Toolbox *****************************/
+
+.toolbox div {
+    list-style: none;
+    padding-left: 0px;
+    cursor: move;
+}
+
+.toolbox button {
+    margin: 5px;
+    width: 123px;
+    opacity: 1.0;
+}
+
+.toolbox .dndDragging {
+    opacity: 0.5;
+}
+
+.toolbox .dndDraggingSource {
+    opacity: 1.0;
+}
+
+/***************************** Trashcan *****************************/
+
+.trashcan li {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.trashcan .dndDragover img {
+    -webkit-filter: sepia(100%); /* Chrome, Safari, Opera */
+    filter: sepia(100%);
+}
+
+.trashcan .dndPlaceholder {
+    display: none;
+}
+
+body {
+   background-color: $primary-bgcolor;
+   font-family: 'Avenir LT Std';
+   overflow-x: hidden;
+   padding-bottom: 30px;
+}
+
+.box {
+    h3 {
+       border-top: 1px solid #676767;
+       padding: 10px 15px;
+       margin-top: 0;
+       margin-bottom: 0;
+    }
+}
+
+.box-grey {
+    background-color: $secondary-bgcolor;
+    border-color: $secondary-bgcolor;
+
+  h3 {
+      background-color: $primary-bgcolor;
+      color: white;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 1.5px;
+  }
+}
+
+.panel {
+  cursor: pointer;
+  border: none;
+  border-radius: 0 !important;
+
+  .panel-heading {
+    background-color: #404040;
+    border-radius: 0 !important;
+    color: white;
+    border-bottom: 1px solid #775316;
+  }
+
+  .panel-body {
+    background-color: #373737;
+    border-top: none !important;
+    padding: 0;
+    padding-top: 15px;
+  }
+}
+
+.box-blue {
+   border-color: #bce8f1;
+}
+
+.box-blue > h3 {
+   color: #31708f;
+   background-color: #d9edf7;
+   border-color: #bce8f1;
+   background-image: -webkit-linear-gradient(top,#d9edf7 0,#c4e3f3 100%);
+   background-image: linear-gradient(to bottom,#d9edf7 0,#c4e3f3 100%);
+}
+
+.box-yellow {
+   border-color: #faebcc;
+}
+
+.box-yellow > h3 {
+   color: #8a6d3b;
+   background-color: #fcf8e3;
+   border-color: #faebcc;
+   background-image: -webkit-linear-gradient(top,#fcf8e3 0,#faf2cc 100%);
+   background-image: linear-gradient(to bottom,#fcf8e3 0,#faf2cc 100%);
+}
+
+
+.large-container {
+    width: 100%;
+    height: calc(100% - 50px);
+}
+
+.sidebar {
+    background-color: #373737;
+    color: white;
+    padding: 0;
+}
+
+.canvas {
+  padding: 1px;
+  background-color:white;
+}
+
+.component {
+    width: 80px;
+    height: 80px;
+    background-color: #404040;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 300;
+
+    img {
+        width: 40px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.item-name {
+    position: absolute;
+    padding: 5px 10px;
+    background-color: #2eb2d0;
+    color: white;
+    right: -2px;
+    z-index: 1;
+}
+
+.header {
+  height:50px;
+}
+
+html, body {
+  height:100%
+}
+
+.selected-box {
+  padding: 0px 10px;
+}
+
+.tab {
+
+    &.modal-tab {
+      background-color: #331244;
+    }
+
+    background-color: #404040;
+    padding: 10px 15px;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    margin-left: 1px;
+
+    &.selected {
+      border-top: 1px solid orange;
+    }
+
+    input {
+      background-color: transparent;
+      width: 100%;
+      letter-spacing: 1.5px;
+      border: none;
+      
+      &:focus {
+        outline: none;
+      }
+    }
+}
+
+select {
+  color: black;
+}
+
+.close-tab {
+    color: #8a8a8a;
+    font-family: fantasy;
+    margin-left: 7px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/******************************************/
+.event-box {
+  min-height: 200px;
+
+  label {
+    width:100%;
+  }
+}
+
+select {
+    font-weight: 400;
+    color: #d8d8d8;
+    border: 1px solid #111;
+    background: transparent;
+    width: 100%;
+    padding: 5px 35px 5px 5px;
+    font-size: 12px;
+    border: 1px solid #676767;
+    height: 25px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(arrow-204-xl.png) 95%/10% no-repeat #4b4b4b;
+
+    &:focus {
+      outline:none;
+    }
+}
+
+input#loadjson {
+  display: none;
+}
+
+.toolbar-btn {
+    cursor: pointer;
+    padding: 7px 8px 5px 20px;
+    background-size: 15px !important;
+    font-size: 10px;
+    color: orange;
+    border: 1px;
+
+    &:hover {
+      color: orange;
+      text-decoration: none;
+      filter:invert(40%);
+    }
+
+    &.json {
+      background: transparent url('../images/icons/jsonIcon.png') no-repeat left center;
+    }
+
+    &.ifml {
+      background: transparent url('../images/icons/ifmlIcon.png') no-repeat left center;
+    }
+
+    &.save {
+      background: transparent url('../images/icons/jsonIcon.png') no-repeat left center;
+    }
+
+    &.load {
+      background: transparent url('../images/icons/jsonIcon.png') no-repeat left center;
+    }
+}
+
+.separator {
+  color: gray;
+  margin: 10px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: rgb(75, 75, 75);
+    border-color: #676767;
+    box-shadow: 0px 0px 2px orange;
+}
+
+.button {
+    color: #000;
+    background-color: #ffffff;
+    border-color: #000000;
+    box-shadow: 0px 0px 2px black;
+}
+
+.divButton {
+  width: 68px;
+}
+
+.modal-content {
+  min-height: 50px;
+}
+
+.dropdown {
+
+  list-style-type: none;
+  margin-top: 12px;
+
+  .dropdown-menu {
+    margin-top: 0px;
+    z-index: 1200;
+  }
+
+  .add {
+    background-color: #404040;
+    color: white;
+    cursor: pointer;
+    margin-left: 1px;
+    padding: 13px 15px;
+  }
+
+}
+
+/********* CHECKBOX ***********/
+/* .squaredThree */
+.squaredThree {
+  font-weight: bold;
+  position: relative;
+  margin: 10px 0px;
+  label {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    right: 10px;
+    border-radius: 4px;
+    float: right;
+    background-color: #4b4b4b;
+    border: 1px solid #676767;
+
+  &:after {
+    content: '';
+    width: 11px;
+    height: 5px;
+    position: absolute;
+    top: 3px;
+    left: 1px;
+    border: 2px solid #ffa500;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    opacity: 0;
+    transform: rotate(-45deg);
+    transition: opacity .25s ease-in-out;
+
+    }
+    // &:hover::after {
+    //   opacity: 0.3;
+    // }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    position: absolute;
+    &:checked + label:after {
+      opacity: 1;
+    }
+  }
+}
+ul.events {
+  padding-left: 0 !important;
+  .event-row {
+    cursor: default;
+    a {
+      cursor: pointer;
+    }
+  }
+}
+.gray-text {
+  color: #707175;
+}
+/* end .squaredThree */
+
+.align-left {
+  display: block;
+}
+
+.align-right {
+  display: block;
+  margin-left: auto;
+}
+
+.align-center {
+  display: block;
+  margin: auto;
+}
+
+
+.modal-page {
+  display: inline;
+  position: relative;
+}
+
+.inner-selected {
+    border-bottom: 1px solid white;
+    margin-bottom: -1px;
+}
+.inner-tabs {
+    border-bottom: 1px solid;
+
+   .add-tab {
+      margin-top: 4px;
+      padding: 2px 10px;
+      border-left: 1px solid #333333;
+      cursor: pointer;
+  }
+}
+.inner-tab:last-child {
+    border-right: 1px solid;
+}
+.inner-tab {
+    padding: 5px 10px;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.sidebar-item {
+  > div:first-child {
+    max-width: 20%;
+    flex: 0 0 20%;
+  }
+}
+
+div#main {
+    height: 100%;
+    min-height: 50px;
+}
+
+.modal-page .modal-content {
+    min-height: 50px;
+    padding: 2px;
+    box-shadow: 0 5px 15px rgba(245, 245, 245, 0.75);
+}

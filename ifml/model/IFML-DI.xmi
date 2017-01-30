@@ -1,0 +1,684 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+    xmlns:uml="http://www.omg.org/spec/UML/20110701"
+    xmlns:mofext="http://www.omg.org/spec/MOF/20110701">
+    <uml:Package xmi:id="ifmldi" xmi:uuid="725A27D7-D3CE-43C7-9326-B3823A2EB048"
+        xmi:type="uml:Package">
+        <ownedComment xmi:id="ifmldi-ownedComment" xmi:uuid="725A27D7-D3CE-4CA7-9CFE-B382B7957BF4"
+            xmi:type="uml:Comment">
+            <annotatedElement xmi:idref="ifmldi"/>
+            <body>The IFML DI metamodel extends the DI metamodel, where appropriate. The class IFMLDiagram represents the diagram, which composes IFMLDiagramElements. An IFMLDiagram is an IFMLNode because it may be rendered as a figure and be connected to other figures. IFMLDiagramElements optionally reference elements of an IFML model, the latter denoted by the ifml:core:Element class. IFMLDiagramElements that do not reference elements of an IFML model are purely notational diagram elements such as notes and the link that connects the note with the model element. IFMLDiagramElements may also be styled with instances of class IFMLStyle (e.g. font type and size). Classes are defined for interchanging shapes and edges of the interaction flow diagram and the content diagram, based on the following notational patterns: * pattern (a): a shape that has a label and an optional list of compartments, each of which having an optional list of labels or other shapes (e.g., the view container box, view component part box, entry view component rounded box or the classes of the content model). * pattern (b): a shape that has a label only (e.g., the event ball or action hexagon notation) * pattern (c): an edge that may be dashed or solid (e.g., navigation flows and data flows) Based on these patterns, three shape classes (IFMLNode, IFMLLabel and IFMLCompartment) and one edge class (IFMLConnection) are defined and related to realize the patterns. These classes (except IFMLCompartment) are subclasses of IFMLDiagramElement to allow them to be styled independently and to reference their own IFML element. Some classes have properties to disambiguate the notation and a corresponding enumeration. For instance labels may be of different kinds such as Parameter, ViewContainer, etc., which will determine how the text decoration will be rendered. ed.
+</body>
+        </ownedComment>
+        <packagedElement xmi:id="ifmldi-IFMLConnection"
+            xmi:uuid="725A27D7-D3CE-4BE1-9B4B-B382BD7A9F16" xmi:type="uml:Class">
+            <ownedComment xmi:id="ifmldi-IFMLConnection-ownedComment"
+                xmi:uuid="725A27D7-D3CE-4A60-993B-B3823C24990B" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-IFMLConnection"/>
+                <body>An IFMLConnection represents a depiction of a connection between two (source and target) IFMLDiagramElements. It specializes di::dd::Edge. IFMLConnections do not contain labels. All IFMLConnections are owned directly by an IFMLDiagram. The way-points of IFMLConnections are always relative to that diagrams’s origin point and must be positive coordinates.  </body>
+            </ownedComment>
+            <generalization xmi:id="ifmldi-IFMLConnection-generalization-1"
+                xmi:uuid="725A27D7-D3CE-4552-9F8D-B382085C2FC9" xmi:type="uml:Generalization">
+                <general xmi:idref="ifmldi-IFMLDiagramElement"/>
+            </generalization>
+            <generalization xmi:id="ifmldi-IFMLConnection-generalization-2"
+                xmi:uuid="725A27D7-D3CE-45A2-9F68-B38263ECDD85" xmi:type="uml:Generalization">
+                <general href="http://www.omg.org/spec/DD/20110901/DI.cmof#Edge"> </general>
+            </generalization>
+            <ownedAttribute xmi:id="ifmldi-IFMLConnection-targetElement"
+                xmi:uuid="725A27D7-D3CE-4242-9DFD-B382CEB97C33" xmi:type="uml:Property">
+                <name>targetElement</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLDiagramElement"/>
+                <association xmi:idref="ifmldi-A_connection_targetElement"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="ifmldi-IFMLConnection-sourceElement"
+                xmi:uuid="725A27D7-D3CE-4B96-9FB4-B382A98B3091" xmi:type="uml:Property">
+                <name>sourceElement</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLDiagramElement"/>
+                <association xmi:idref="ifmldi-A_connection_sourceElement"/>
+            </ownedAttribute>
+            <name>IFMLConnection</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-IFMLCompartment"
+            xmi:uuid="725A27D7-D3CE-4C14-9390-B382AA0506D1" xmi:type="uml:Class">
+            <ownedComment xmi:id="ifmldi-IFMLCompartment-ownedComment"
+                xmi:uuid="725A27D7-D3CE-48DF-9FF0-B382B497BBD5" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-IFMLCompartment"/>
+                <body>An IFMLCompartment is a section within an IFMLDiagramElement. An IFMLCompartment organizes the items in an IFMLDiagramElement so that it is easy to differentiate between them. IFMLCompartments may contain IFMLNodes or IFMLLabels.</body>
+            </ownedComment>
+            <generalization xmi:id="ifmldi-IFMLCompartment-generalization"
+                xmi:uuid="725A27D7-D3CE-4F50-9DE9-B3829849C39A" xmi:type="uml:Generalization">
+                <general href="http://www.omg.org/spec/DD/20110901/DI.cmof#Shape"> </general>
+            </generalization>
+            <ownedAttribute xmi:id="ifmldi-IFMLCompartment-ownedLabels"
+                xmi:uuid="725A27D7-D3CE-4D73-9C79-B382780B9FC5" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-IFMLCompartment-ownedLabels-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4109-9A75-B38289796B01" xmi:type="uml:LiteralInteger"/>
+                <upperValue xmi:id="ifmldi-IFMLCompartment-ownedLabels-upperValue"
+                    xmi:uuid="725A27D7-D3CE-4BD3-9B31-B3826B588F3C"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </upperValue>
+                <name>ownedLabels</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="ifmldi-IFMLLabel"/>
+                <association xmi:idref="ifmldi-A_compartment_ownedLabels"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="ifmldi-IFMLCompartment-ownedNodes"
+                xmi:uuid="725A27D7-D3CE-42A1-9935-B382E20C25DF" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-IFMLCompartment-ownedNodes-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4DDE-9D20-B382E7118A9B" xmi:type="uml:LiteralInteger"/>
+                <upperValue xmi:id="ifmldi-IFMLCompartment-ownedNodes-upperValue"
+                    xmi:uuid="725A27D7-D3CE-441A-963E-B382EB3A06B0"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </upperValue>
+                <name>ownedNodes</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="ifmldi-IFMLNode"/>
+                <association xmi:idref="ifmldi-A_compartment_ownedNodes"/>
+            </ownedAttribute>
+            <name>IFMLCompartment</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-IFMLLabel" xmi:uuid="725A27D7-D3CE-4E8A-9529-B3825FF4C098"
+            xmi:type="uml:Class">
+            <ownedComment xmi:id="ifmldi-IFMLLabel-ownedComment"
+                xmi:uuid="725A27D7-D3CE-4378-9BEB-B3828832AB3D" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-IFMLLabel"/>
+                <body>An IFMLLabel is a label that depicts textual information about an IFMLElement. An IFMLLabel is always contained (but not always rendered) in an IFMLNode directly or through an IFMLCompartment. In IFML, labels are not found in Connections. IFMLLabels may derive the textual information to be depicted from a referenced IFML model element that contains the property with the label text.</body>
+            </ownedComment>
+            <generalization xmi:id="ifmldi-IFMLLabel-generalization-1"
+                xmi:uuid="725A27D7-D3CE-450A-91E1-B38205EDB09E" xmi:type="uml:Generalization">
+                <general xmi:idref="ifmldi-IFMLDiagramElement"/>
+            </generalization>
+            <generalization xmi:id="ifmldi-IFMLLabel-generalization-2"
+                xmi:uuid="725A27D7-D3CE-43A8-9FAD-B382D5447D94" xmi:type="uml:Generalization">
+                <general href="http://www.omg.org/spec/DD/20110901/DI.cmof#Shape"> </general>
+            </generalization>
+            <ownedAttribute xmi:id="ifmldi-IFMLLabel-kind"
+                xmi:uuid="725A27D7-D3CE-4ECD-9849-B382C0BD47AA" xmi:type="uml:Property">
+                <ownedComment xmi:id="ifmldi-IFMLLabel-kind-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-4F29-94CD-B38244718E7C" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-IFMLLabel-kind"/>
+                    <body>Determines to what kind of level corresponds the current IFMLParameter e.g. label of a Parameter, a ViewContainer, an Action etc..</body>
+                </ownedComment>
+                <name>kind</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-LabelKind"/>
+            </ownedAttribute>
+            <name>IFMLLabel</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-IFMLStyle" xmi:uuid="725A27D7-D3CE-4655-90EC-B382A2E5D163"
+            xmi:type="uml:Class">
+            <ownedComment xmi:id="ifmldi-IFMLStyle-ownedComment"
+                xmi:uuid="725A27D7-D3CE-4313-943D-B382CE256185" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-IFMLStyle"/>
+                <body>IFMLStyle represents the appearance options for IFMLDiagramElements. One or more elements may reference the same IFMLStyle element, which must be owned by an IFMLDiagramElement.</body>
+            </ownedComment>
+            <generalization xmi:id="ifmldi-IFMLStyle-generalization"
+                xmi:uuid="725A27D7-D3CE-4DFF-9145-B382A4D73E1F" xmi:type="uml:Generalization">
+                <general href="http://www.omg.org/spec/DD/20110901/DI.cmof#Style"> </general>
+            </generalization>
+            <ownedAttribute xmi:id="ifmldi-IFMLStyle-fontName"
+                xmi:uuid="725A27D7-D3CE-4BCF-9C76-B3829D9A49FE" xmi:type="uml:Property">
+                <type href="http://www.omg.org/spec/DD/20110901/DI.cmof#String"> </type>
+                <ownedComment xmi:id="ifmldi-IFMLStyle-fontName-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-4CA5-95ED-B3822859E860" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-IFMLStyle-fontName"/>
+                    <body>Name of the font used by the styled IFMLDiagramElement</body>
+                </ownedComment>
+                <name>fontName</name>
+                <visibility>public</visibility>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="ifmldi-IFMLStyle-fontSize"
+                xmi:uuid="725A27D7-D3CE-4847-9570-B3826C55D377" xmi:type="uml:Property">
+                <type href="http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Real"> </type>
+                <ownedComment xmi:id="ifmldi-IFMLStyle-fontSize-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-48A4-9A85-B382F1A19951" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-IFMLStyle-fontSize"/>
+                    <body>Size of the font used by the styled IFMLDiagramElement</body>
+                </ownedComment>
+                <name>fontSize</name>
+                <visibility>public</visibility>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="ifmldi-IFMLStyle-fillColor"
+                xmi:uuid="725A27D7-D3CE-4239-9F62-B38247B0132A" xmi:type="uml:Property">
+                <type href="http://www.omg.org/spec/DD/20110901/DC.cmof#Color"> </type>
+                <ownedComment xmi:id="ifmldi-IFMLStyle-fillColor-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-465C-9241-B3825DE0A7BC" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-IFMLStyle-fillColor"/>
+                    <body>Background color of the figure.</body>
+                </ownedComment>
+                <name>fillColor</name>
+                <visibility>public</visibility>
+            </ownedAttribute>
+            <name>IFMLStyle</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-A_owningNode_ownedNode"
+            xmi:uuid="725A27D7-D3CE-4D1B-94A6-B3822DB6FE86" xmi:type="uml:Association">
+            <memberEnd xmi:idref="ifmldi-IFMLNode-ownedNodes"/>
+            <memberEnd xmi:idref="ifmldi-A_owningNode_ownedNode-owningNode"/>
+            <ownedComment xmi:id="ifmldi-A_owningNode_ownedNode-ownedComment"
+                xmi:uuid="725A27D7-D3CE-476F-9AEB-B3822AB2F7F4" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-A_owningNode_ownedNode"/>
+                <body>Nested nodes of the current node. This relation is only valid if the nested node is fixed to the parent node side.</body>
+            </ownedComment>
+            <ownedEnd xmi:id="ifmldi-A_owningNode_ownedNode-owningNode"
+                xmi:uuid="725A27D7-D3CE-46E5-99EE-B3821598D0EF" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-A_owningNode_ownedNode-owningNode-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4136-9D29-B382F0A85708" xmi:type="uml:LiteralInteger"/>
+                <name>owningNode</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLNode"/>
+                <association xmi:idref="ifmldi-A_owningNode_ownedNode"/>
+            </ownedEnd>
+            <name>A_owningNode_ownedNode</name>
+            <visibility>private</visibility>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-A_node_ownedCompartment"
+            xmi:uuid="725A27D7-D3CE-4EF3-9E8D-B382003DD74A" xmi:type="uml:Association">
+            <memberEnd xmi:idref="ifmldi-IFMLNode-ownedCompartments"/>
+            <memberEnd xmi:idref="ifmldi-A_node_ownedCompartment-node"/>
+            <ownedComment xmi:id="ifmldi-A_node_ownedCompartment-ownedComment"
+                xmi:uuid="725A27D7-D3CE-422B-92FC-B3823F9B715A" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-A_node_ownedCompartment"/>
+                <body>Composite associations to the IFMLCompartments owned by the node. </body>
+            </ownedComment>
+            <ownedEnd xmi:id="ifmldi-A_node_ownedCompartment-node"
+                xmi:uuid="725A27D7-D3CE-4D58-908F-B38219D588B4" xmi:type="uml:Property">
+                <name>node</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLNode"/>
+                <association xmi:idref="ifmldi-A_node_ownedCompartment"/>
+            </ownedEnd>
+            <name>A_node_ownedCompartment</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-A_compartment_ownedNodes"
+            xmi:uuid="725A27D7-D3CE-4C94-9A29-B3820FB4635D" xmi:type="uml:Association">
+            <memberEnd xmi:idref="ifmldi-IFMLCompartment-ownedNodes"/>
+            <memberEnd xmi:idref="ifmldi-A_compartment_ownedNodes-compartment"/>
+            <ownedComment xmi:id="ifmldi-A_compartment_ownedNodes-ownedComment"
+                xmi:uuid="725A27D7-D3CE-4357-9C42-B3825634F725" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-A_compartment_ownedNodes"/>
+                <body>Composite association to the IFMLNodes owned by the compartment</body>
+            </ownedComment>
+            <ownedEnd xmi:id="ifmldi-A_compartment_ownedNodes-compartment"
+                xmi:uuid="725A27D7-D3CE-4774-90DE-B3823F6AC465" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-A_compartment_ownedNodes-compartment-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4AE7-9CF8-B382C62D6CB0" xmi:type="uml:LiteralInteger"/>
+                <name>compartment</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLCompartment"/>
+                <association xmi:idref="ifmldi-A_compartment_ownedNodes"/>
+            </ownedEnd>
+            <name>A_compartment_ownedNodes</name>
+            <visibility>private</visibility>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-A_owningElement_ownedElement"
+            xmi:uuid="725A27D7-D3CE-4879-9422-B3825140BCBC" xmi:type="uml:Association">
+            <memberEnd xmi:idref="ifmldi-IFMLDiagramElement-ownedElement"/>
+            <memberEnd xmi:idref="ifmldi-A_owningElement_ownedElement-owningElement"/>
+            <ownedComment xmi:id="ifmldi-A_owningElement_ownedElement-ownedComment"
+                xmi:uuid="725A27D7-D3CE-40A0-9FB3-B3824E130ED7" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-A_owningElement_ownedElement"/>
+                <body>Composite association to the IFMLDiagramElements owned by the current IFMLDiagramElement.</body>
+            </ownedComment>
+            <ownedEnd xmi:id="ifmldi-A_owningElement_ownedElement-owningElement"
+                xmi:uuid="725A27D7-D3CE-4BC2-9B7F-B382E30697FF" xmi:type="uml:Property">
+                <name>owningElement</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLDiagramElement"/>
+                <association xmi:idref="ifmldi-A_owningElement_ownedElement"/>
+            </ownedEnd>
+            <name>A_owningElement_ownedElement</name>
+            <visibility>private</visibility>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-A_compartment_ownedLabels"
+            xmi:uuid="725A27D7-D3CE-4B4E-9C1C-B3825AB73261" xmi:type="uml:Association">
+            <memberEnd xmi:idref="ifmldi-IFMLCompartment-ownedLabels"/>
+            <memberEnd xmi:idref="ifmldi-A_compartment_ownedLabels-compartment"/>
+            <ownedComment xmi:id="ifmldi-A_compartment_ownedLabels-ownedComment"
+                xmi:uuid="725A27D7-D3CE-4CE8-9743-B38236D5C4D7" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-A_compartment_ownedLabels"/>
+                <body>Composite association to the IFMLLabels owned by the compartment</body>
+            </ownedComment>
+            <ownedEnd xmi:id="ifmldi-A_compartment_ownedLabels-compartment"
+                xmi:uuid="725A27D7-D3CE-4F3E-90E1-B382A50C05A2" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-A_compartment_ownedLabels-compartment-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4CA0-9A9D-B382C42E4F2F" xmi:type="uml:LiteralInteger"/>
+                <name>compartment</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLCompartment"/>
+                <association xmi:idref="ifmldi-A_compartment_ownedLabels"/>
+            </ownedEnd>
+            <name>A_compartment_ownedLabels</name>
+            <visibility>private</visibility>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-A_diagram_diagramElement"
+            xmi:uuid="725A27D7-D3CE-4934-965C-B38212E60EBE" xmi:type="uml:Association">
+            <memberEnd xmi:idref="ifmldi-IFMLDiagram-diagramElements"/>
+            <memberEnd xmi:idref="ifmldi-A_diagram_diagramElement-diagram"/>
+            <ownedEnd xmi:id="ifmldi-A_diagram_diagramElement-diagram"
+                xmi:uuid="725A27D7-D3CE-4650-91D4-B3826387FBDD" xmi:type="uml:Property">
+                <name>diagram</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLDiagram"/>
+                <association xmi:idref="ifmldi-A_diagram_diagramElement"/>
+            </ownedEnd>
+            <name>A_diagram_diagramElement</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-A_ifmlDiagramElement_modelElement"
+            xmi:uuid="725A27D7-D3CE-48A5-974A-B382DD93F713" xmi:type="uml:Association">
+            <memberEnd xmi:idref="ifmldi-IFMLDiagramElement-modelElement"/>
+            <memberEnd xmi:idref="ifmldi-A_ifmlDiagramElement_modelElement-ifmlDiagarmElement"/>
+            <ownedComment xmi:id="ifmldi-A_ifmlDiagramElement_modelElement-ownedComment"
+                xmi:uuid="725A27D7-D3CE-4B08-9EA9-B382C1246B82" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-A_ifmlDiagramElement_modelElement"/>
+                <body>Referenced Element from and IFML model.</body>
+            </ownedComment>
+            <ownedEnd xmi:id="ifmldi-A_ifmlDiagramElement_modelElement-ifmlDiagarmElement"
+                xmi:uuid="725A27D7-D3CE-4E77-950F-B38262EC2D7E" xmi:type="uml:Property">
+                <name>ifmlDiagarmElement</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLDiagramElement"/>
+                <association xmi:idref="ifmldi-A_ifmlDiagramElement_modelElement"/>
+            </ownedEnd>
+            <name>A_ifmlDiagramElement_modelElement</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-LabelKind" xmi:uuid="725A27D7-D3CE-49EC-9018-B3825D8D762C"
+            xmi:type="uml:Enumeration">
+            <ownedComment xmi:id="ifmldi-LabelKind-ownedComment"
+                xmi:uuid="725A27D7-D3CE-464E-9DB4-B382DFFE2A74" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-LabelKind"/>
+                <body>Enumeration defining the kinds of parameters, which will determine how to render the label decoration.</body>
+            </ownedComment>
+            <ownedLiteral xmi:id="ifmldi-LabelKind-parameter"
+                xmi:uuid="725A27D7-D3CE-4569-9215-B382FFB05858" xmi:type="uml:EnumerationLiteral">
+                <ownedComment xmi:id="ifmldi-LabelKind-parameter-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-465E-9DCE-B38256D95689" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-LabelKind-parameter"/>
+                    <body>Label of a Parameter.</body>
+                </ownedComment>
+                <name>parameter</name>
+            </ownedLiteral>
+            <ownedLiteral xmi:id="ifmldi-LabelKind-viewContainer"
+                xmi:uuid="725A27D7-D3CE-4F23-9031-B38246223A93" xmi:type="uml:EnumerationLiteral">
+                <ownedComment xmi:id="ifmldi-LabelKind-viewContainer-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-43A5-9F79-B38298E94131" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-LabelKind-viewContainer"/>
+                    <body>Label of a ViewContainer.</body>
+                </ownedComment>
+                <name>viewContainer</name>
+            </ownedLiteral>
+            <ownedLiteral xmi:id="ifmldi-LabelKind-action"
+                xmi:uuid="725A27D7-D3CE-4B64-9EEF-B382AC73572F" xmi:type="uml:EnumerationLiteral">
+                <ownedComment xmi:id="ifmldi-LabelKind-action-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-4B9E-9CDB-B382556DD006" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-LabelKind-action"/>
+                    <body>Label of an Action.</body>
+                </ownedComment>
+                <name>action</name>
+            </ownedLiteral>
+            <ownedLiteral xmi:id="ifmldi-LabelKind-namedElement"
+                xmi:uuid="725A27D7-D3CE-4DC8-9BAE-B382316F0CBC" xmi:type="uml:EnumerationLiteral">
+                <ownedComment xmi:id="ifmldi-LabelKind-namedElement-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-4ED4-9193-B3826D2970F9" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-LabelKind-namedElement"/>
+                    <body>Label of any NamedElement without additional decoration.</body>
+                </ownedComment>
+                <name>namedElement</name>
+            </ownedLiteral>
+            <ownedLiteral xmi:id="ifmldi-LabelKind-parameterBindingGroup"
+                xmi:uuid="725A27D7-D3CE-458A-92AF-B382EAA0BAF1" xmi:type="uml:EnumerationLiteral">
+                <ownedComment xmi:id="ifmldi-LabelKind-parameterBindingGroup-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-4E72-917B-B382E4DB2A0F" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-LabelKind-parameterBindingGroup"/>
+                    <body>Label of a ParameterBindingGroup.</body>
+                </ownedComment>
+                <name>parameterBindingGroup</name>
+            </ownedLiteral>
+            <ownedLiteral xmi:id="ifmldi-LabelKind-actionExpression"
+                xmi:uuid="725A27D7-D3CE-4721-90EE-B3829FDA20AD" xmi:type="uml:EnumerationLiteral">
+                <ownedComment xmi:id="ifmldi-LabelKind-actionExpression-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-49F5-9494-B382D4D2EDE0" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-LabelKind-actionExpression"/>
+                    <body>Label of an ActivationExpression.</body>
+                </ownedComment>
+                <name>actionExpression</name>
+            </ownedLiteral>
+            <ownedLiteral xmi:id="ifmldi-LabelKind-interactionFlowExpression"
+                xmi:uuid="725A27D7-D3CE-45C6-97BA-B382284CBC8A" xmi:type="uml:EnumerationLiteral">
+                <ownedComment xmi:id="ifmldi-LabelKind-interactionFlowExpression-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-48CC-974F-B3828A3797A1" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-LabelKind-interactionFlowExpression"/>
+                    <body>Label of an InteractionFlowExpression.</body>
+                </ownedComment>
+                <name>interactionFlowExpression</name>
+            </ownedLiteral>
+            <ownedLiteral xmi:id="ifmldi-LabelKind-entry"
+                xmi:uuid="725A27D7-D3CE-4F2E-9B92-B3823C1A2C42" xmi:type="uml:EnumerationLiteral">
+                <ownedComment xmi:id="ifmldi-LabelKind-entry-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-4450-92C2-B382CD5FE752" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-LabelKind-entry"/>
+                    <body>Label of an Entry.</body>
+                </ownedComment>
+                <name>entry</name>
+            </ownedLiteral>
+            <ownedLiteral xmi:id="ifmldi-LabelKind-list"
+                xmi:uuid="725A27D7-D3CE-47BE-903B-B3825696D96E" xmi:type="uml:EnumerationLiteral">
+                <ownedComment xmi:id="ifmldi-LabelKind-list-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-4EFC-9B25-B38214A844B7" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-LabelKind-list"/>
+                    <body>Label of a List.</body>
+                </ownedComment>
+                <name>list</name>
+            </ownedLiteral>
+            <ownedLiteral xmi:id="ifmldi-LabelKind-simpleField"
+                xmi:uuid="725A27D7-D3CE-4D26-9A3B-B382A286F5A9" xmi:type="uml:EnumerationLiteral">
+                <ownedComment xmi:id="ifmldi-LabelKind-simpleField-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-4E65-966A-B382A32F6ADE" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-LabelKind-simpleField"/>
+                    <body>Label of a SimpleField.</body>
+                </ownedComment>
+                <name>simpleField</name>
+            </ownedLiteral>
+            <ownedLiteral xmi:id="ifmldi-LabelKind-selectionField"
+                xmi:uuid="725A27D7-D3CE-4D20-9E0B-B3825C2255E5" xmi:type="uml:EnumerationLiteral">
+                <ownedComment xmi:id="ifmldi-LabelKind-selectionField-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-4F9F-9A2B-B3827B09BA6D" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-LabelKind-selectionField"/>
+                    <body>Label of a SelectionField.</body>
+                </ownedComment>
+                <name>selectionField</name>
+            </ownedLiteral>
+            <ownedLiteral xmi:id="ifmldi-LabelKind-validationRule"
+                xmi:uuid="725A27D7-D3CE-4375-9F45-B38281FF9077" xmi:type="uml:EnumerationLiteral">
+                <ownedComment xmi:id="ifmldi-LabelKind-validationRule-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-475E-9355-B3826A94BE14" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-LabelKind-validationRule"/>
+                    <body>Label of a ValidationRule.</body>
+                </ownedComment>
+                <name>validationRule</name>
+            </ownedLiteral>
+            <name>LabelKind</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-IFMLNode" xmi:uuid="725A27D7-D3CE-4FE1-98D7-B3827C5072F9"
+            xmi:type="uml:Class">
+            <ownedComment xmi:id="ifmldi-IFMLNode-ownedComment"
+                xmi:uuid="725A27D7-D3CE-405E-934B-B3829BA8B4DA" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-IFMLNode"/>
+                <body>IFMLNode represents figures with bounds that are laid out relative to the origin of the diagram. Note that the bounds’ x and y coordinates are the position of the upper left corner of the node (relative to the upper left corner of the diagram). IFMLNodes may contain compartments and other figures and may be connected by IFMLConnections.  </body>
+            </ownedComment>
+            <generalization xmi:id="ifmldi-IFMLNode-generalization-1"
+                xmi:uuid="725A27D7-D3CE-4117-97A0-B382CAA956EE" xmi:type="uml:Generalization">
+                <general xmi:idref="ifmldi-IFMLDiagramElement"/>
+            </generalization>
+            <generalization xmi:id="ifmldi-IFMLNode-generalization-2"
+                xmi:uuid="725A27D7-D3CE-408F-947F-B38274ACDF09" xmi:type="uml:Generalization">
+                <general href="http://www.omg.org/spec/DD/20110901/DI.cmof#Shape"> </general>
+            </generalization>
+            <ownedAttribute xmi:id="ifmldi-IFMLNode-ownedCompartments"
+                xmi:uuid="725A27D7-D3CE-4096-9422-B38218E4DA22" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-IFMLNode-ownedCompartments-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4C87-932C-B38249C9E01E" xmi:type="uml:LiteralInteger"/>
+                <upperValue xmi:id="ifmldi-IFMLNode-ownedCompartments-upperValue"
+                    xmi:uuid="725A27D7-D3CE-4D2D-990E-B382D2003B83"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </upperValue>
+                <name>ownedCompartments</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="ifmldi-IFMLCompartment"/>
+                <association xmi:idref="ifmldi-A_node_ownedCompartment"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="ifmldi-IFMLNode-ownedLabel"
+                xmi:uuid="725A27D7-D3CE-4C91-955F-B38203AACB52" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-IFMLNode-ownedLabel-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4FC8-945C-B38253B436F9" xmi:type="uml:LiteralInteger"/>
+                <name>ownedLabel</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="ifmldi-IFMLLabel"/>
+                <association xmi:idref="ifmldi-A_node_ownedLabel"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="ifmldi-IFMLNode-ownedNodes"
+                xmi:uuid="725A27D7-D3CE-49EA-947D-B382A4FD4EA3" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-IFMLNode-ownedNodes-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4F3A-9AAE-B38202F706B4" xmi:type="uml:LiteralInteger"/>
+                <upperValue xmi:id="ifmldi-IFMLNode-ownedNodes-upperValue"
+                    xmi:uuid="725A27D7-D3CE-400A-903F-B3824B212C72"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </upperValue>
+                <name>ownedNodes</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="ifmldi-IFMLNode"/>
+                <association xmi:idref="ifmldi-A_owningNode_ownedNode"/>
+            </ownedAttribute>
+            <name>IFMLNode</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-IFMLDiagramElement"
+            xmi:uuid="725A27D7-D3CE-40F0-926C-B3828F853FE6" xmi:type="uml:Class">
+            <ownedComment xmi:id="ifmldi-IFMLDiagramElement-ownedComment"
+                xmi:uuid="725A27D7-D3CE-4139-9016-B382D6CC68A1" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-IFMLDiagramElement"/>
+                <body>IFMLDiagramElement extends the DiagramElement and is the super type of all elements in diagrams, including diagrams themselves. When contained in a diagram, diagram elements are laid out relative to the diagram’s origin. An IFMLDiagramElement can be useful on its own (i.e. purely notational) or more commonly used as a depiction of another IFML element from an IFML model. A IFMLDiagramElement can own other diagram elements in a graph-like hierarchy. IFMLDiagramElements can own and/or share IFMLStyle elements. Shared IFMLStyle elements are owned by other IFMLDiagramElements..</body>
+            </ownedComment>
+            <generalization xmi:id="ifmldi-IFMLDiagramElement-generalization"
+                xmi:uuid="725A27D7-D3CE-43FA-984E-B38260795D35" xmi:type="uml:Generalization">
+                <general href="http://www.omg.org/spec/DD/20110901/DI.cmof#DiagramElement"
+                > </general>
+            </generalization>
+            <ownedAttribute xmi:id="ifmldi-IFMLDiagramElement-modelElement"
+                xmi:uuid="725A27D7-D3CE-4523-9103-B382E96B96DA" xmi:type="uml:Property">
+                <type
+                    href="http://www.omg.org/spec/IFML/20130218/IFML-Metamodel.xmi#ifml-core-Element"> </type>
+                <ownedComment xmi:id="ifmldi-IFMLDiagramElement-modelElement-ownedComment"
+                    xmi:uuid="725A27D7-D3CE-4961-90B1-B3821556548B" xmi:type="uml:Comment">
+                    <annotatedElement xmi:idref="ifmldi-IFMLDiagramElement-modelElement"/>
+                    <body>Model element of the referenced IFML model.</body>
+                </ownedComment>
+                <lowerValue xmi:id="ifmldi-IFMLDiagramElement-modelElement-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-49DE-929C-B3822F03A512" xmi:type="uml:LiteralInteger"/>
+                <name>modelElement</name>
+                <visibility>public</visibility>
+                <association xmi:idref="ifmldi-A_ifmlDiagramElement_modelElement"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="ifmldi-IFMLDiagramElement-localStyle"
+                xmi:uuid="725A27D7-D3CE-4735-9D07-B382BD89B467" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-IFMLDiagramElement-localStyle-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-45E8-9B53-B38238B4AD0A" xmi:type="uml:LiteralInteger"/>
+                <name>localStyle</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="ifmldi-IFMLStyle"/>
+                <association xmi:idref="ifmldi-A_diagramElement_localStyle"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="ifmldi-IFMLDiagramElement-sharedStyle"
+                xmi:uuid="725A27D7-D3CE-4A45-92DE-B3821A422A84" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-IFMLDiagramElement-sharedStyle-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4305-9B0C-B3828A8ACDBF" xmi:type="uml:LiteralInteger"/>
+                <name>sharedStyle</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLStyle"/>
+                <association xmi:idref="ifmldi-A_diagramElement_sharedStyle"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="ifmldi-IFMLDiagramElement-ownedElement"
+                xmi:uuid="725A27D7-D3CE-4606-9E40-B382D0EC2E5B" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-IFMLDiagramElement-ownedElement-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4EC7-9BAD-B38231AD51E5" xmi:type="uml:LiteralInteger"/>
+                <upperValue xmi:id="ifmldi-IFMLDiagramElement-ownedElement-upperValue"
+                    xmi:uuid="725A27D7-D3CE-46C8-9325-B382C8872629"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </upperValue>
+                <name>ownedElement</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="ifmldi-IFMLDiagramElement"/>
+                <association xmi:idref="ifmldi-A_owningElement_ownedElement"/>
+            </ownedAttribute>
+            <name>IFMLDiagramElement</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-A_connection_sourceElement"
+            xmi:uuid="725A27D7-D3CE-4EE8-9242-B382EA564CB3" xmi:type="uml:Association">
+            <memberEnd xmi:idref="ifmldi-IFMLConnection-sourceElement"/>
+            <memberEnd xmi:idref="ifmldi-A_connection_sourceElement-connection"/>
+            <ownedComment xmi:id="ifmldi-A_connection_sourceElement-ownedComment"
+                xmi:uuid="725A27D7-D3CE-45C1-99AE-B382F754C31B" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-A_connection_sourceElement"/>
+                <body>Source IFMLDiagramElement of the connection.</body>
+            </ownedComment>
+            <ownedEnd xmi:id="ifmldi-A_connection_sourceElement-connection"
+                xmi:uuid="725A27D7-D3CE-4643-9F45-B382E93EEE56" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-A_connection_sourceElement-connection-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4599-9BAA-B38206414FCA" xmi:type="uml:LiteralInteger"/>
+                <upperValue xmi:id="ifmldi-A_connection_sourceElement-connection-upperValue"
+                    xmi:uuid="725A27D7-D3CE-4B67-9B28-B3821AE8277B"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </upperValue>
+                <name>connection</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLConnection"/>
+                <association xmi:idref="ifmldi-A_connection_sourceElement"/>
+            </ownedEnd>
+            <name>A_connection_sourceElement</name>
+            <visibility>private</visibility>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-A_diagramElement_localStyle"
+            xmi:uuid="725A27D7-D3CE-4A6A-98FE-B3821C7BB186" xmi:type="uml:Association">
+            <memberEnd xmi:idref="ifmldi-IFMLDiagramElement-localStyle"/>
+            <memberEnd xmi:idref="ifmldi-A_diagramElement_localStyle-diagramElement"/>
+            <ownedComment xmi:id="ifmldi-A_diagramElement_localStyle-ownedComment"
+                xmi:uuid="725A27D7-D3CE-4F4C-930C-B382AEA582C8" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-A_diagramElement_localStyle"/>
+                <body>Composite associations to IFMLStyles owned by the diagram element.</body>
+            </ownedComment>
+            <ownedEnd xmi:id="ifmldi-A_diagramElement_localStyle-diagramElement"
+                xmi:uuid="725A27D7-D3CE-461D-9024-B382111A0196" xmi:type="uml:Property">
+                <name>diagramElement</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLDiagramElement"/>
+                <association xmi:idref="ifmldi-A_diagramElement_localStyle"/>
+            </ownedEnd>
+            <name>A_diagramElement_localStyle</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-A_node_ownedLabel"
+            xmi:uuid="725A27D7-D3CE-4513-9EC5-B38274DF1879" xmi:type="uml:Association">
+            <memberEnd xmi:idref="ifmldi-IFMLNode-ownedLabel"/>
+            <memberEnd xmi:idref="ifmldi-A_node_ownedLabel-node"/>
+            <ownedComment xmi:id="ifmldi-A_node_ownedLabel-ownedComment"
+                xmi:uuid="725A27D7-D3CE-4572-9E04-B38241F8A675" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-A_node_ownedLabel"/>
+                <body>Composite association to the label owned by the node.</body>
+            </ownedComment>
+            <ownedEnd xmi:id="ifmldi-A_node_ownedLabel-node"
+                xmi:uuid="725A27D7-D3CE-41CC-9907-B3820D5BF8AC" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-A_node_ownedLabel-node-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4773-9E64-B38233DCAAF9" xmi:type="uml:LiteralInteger"/>
+                <name>node</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLNode"/>
+                <association xmi:idref="ifmldi-A_node_ownedLabel"/>
+            </ownedEnd>
+            <name>A_node_ownedLabel</name>
+            <visibility>private</visibility>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-A_diagramElement_sharedStyle"
+            xmi:uuid="725A27D7-D3CE-475A-95CF-B3824F52F942" xmi:type="uml:Association">
+            <memberEnd xmi:idref="ifmldi-IFMLDiagramElement-sharedStyle"/>
+            <memberEnd xmi:idref="ifmldi-A_diagramElement_sharedStyle-diagramElement"/>
+            <ownedComment xmi:id="ifmldi-A_diagramElement_sharedStyle-ownedComment"
+                xmi:uuid="725A27D7-D3CE-4497-9F2E-B382F83ED757" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-A_diagramElement_sharedStyle"/>
+                <body>Reference to IFMLStyles shared with other diagram elements.</body>
+            </ownedComment>
+            <ownedEnd xmi:id="ifmldi-A_diagramElement_sharedStyle-diagramElement"
+                xmi:uuid="725A27D7-D3CE-4CBF-9550-B382E96B1F22" xmi:type="uml:Property">
+                <upperValue xmi:id="ifmldi-A_diagramElement_sharedStyle-diagramElement-upperValue"
+                    xmi:uuid="725A27D7-D3CE-49C3-95EC-B382E270B111"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </upperValue>
+                <name>diagramElement</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLDiagramElement"/>
+                <association xmi:idref="ifmldi-A_diagramElement_sharedStyle"/>
+            </ownedEnd>
+            <name>A_diagramElement_sharedStyle</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-A_connection_targetElement"
+            xmi:uuid="725A27D7-D3CE-4AC2-9BD9-B3821F02D31F" xmi:type="uml:Association">
+            <memberEnd xmi:idref="ifmldi-IFMLConnection-targetElement"/>
+            <memberEnd xmi:idref="ifmldi-A_connection_targetElement-connection"/>
+            <ownedComment xmi:id="ifmldi-A_connection_targetElement-ownedComment"
+                xmi:uuid="725A27D7-D3CE-41E6-9017-B3828F4DB282" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-A_connection_targetElement"/>
+                <body>Target IFMLDiagramElement of the connection.</body>
+            </ownedComment>
+            <ownedEnd xmi:id="ifmldi-A_connection_targetElement-connection"
+                xmi:uuid="725A27D7-D3CE-4117-910F-B382B8DE0D97" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-A_connection_targetElement-connection-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4F37-9204-B3828F4A9FCD" xmi:type="uml:LiteralInteger"/>
+                <upperValue xmi:id="ifmldi-A_connection_targetElement-connection-upperValue"
+                    xmi:uuid="725A27D7-D3CE-493A-9104-B382FFA859E9"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </upperValue>
+                <name>connection</name>
+                <visibility>public</visibility>
+                <type xmi:idref="ifmldi-IFMLConnection"/>
+                <association xmi:idref="ifmldi-A_connection_targetElement"/>
+            </ownedEnd>
+            <name>A_connection_targetElement</name>
+        </packagedElement>
+        <packagedElement xmi:id="ifmldi-IFMLDiagram" xmi:uuid="725A27D7-D3CE-4EF1-9E50-B3829EAB0987"
+            xmi:type="uml:Class">
+            <ownedComment xmi:id="ifmldi-IFMLDiagram-ownedComment"
+                xmi:uuid="725A27D7-D3CE-4476-96C0-B3824C13EFEC" xmi:type="uml:Comment">
+                <annotatedElement xmi:idref="ifmldi-IFMLDiagram"/>
+                <body>IFMLDiagram represents a depiction of all or part of an IFML model. It specializes DI::Diagram and IFMLNode, since a diagram may be seen as a node as is the case of ViewPoint and Module.</body>
+            </ownedComment>
+            <generalization xmi:id="ifmldi-IFMLDiagram-generalization-1"
+                xmi:uuid="725A27D7-D3CE-42EA-9CD9-B3823B9A3A1E" xmi:type="uml:Generalization">
+                <general xmi:idref="ifmldi-IFMLNode"/>
+            </generalization>
+            <generalization xmi:id="ifmldi-IFMLDiagram-generalization-2"
+                xmi:uuid="725A27D7-D3CE-4E92-9C5A-B382281A4D9D" xmi:type="uml:Generalization">
+                <general href="http://www.omg.org/spec/DD/20110901/DI.cmof#Diagram"> </general>
+            </generalization>
+            <ownedAttribute xmi:id="ifmldi-IFMLDiagram-diagramElements"
+                xmi:uuid="725A27D7-D3CE-4253-919E-B382A1D06F09" xmi:type="uml:Property">
+                <lowerValue xmi:id="ifmldi-IFMLDiagram-diagramElements-lowerValue"
+                    xmi:uuid="725A27D7-D3CE-4A98-9E83-B3820998EE21" xmi:type="uml:LiteralInteger"/>
+                <upperValue xmi:id="ifmldi-IFMLDiagram-diagramElements-upperValue"
+                    xmi:uuid="725A27D7-D3CE-4ED0-9D7D-B3822290E9C8"
+                    xmi:type="uml:LiteralUnlimitedNatural">
+                    <value>*</value>
+                </upperValue>
+                <name>diagramElements</name>
+                <visibility>public</visibility>
+                <aggregation>composite</aggregation>
+                <type xmi:idref="ifmldi-IFMLDiagramElement"/>
+                <association xmi:idref="ifmldi-A_diagram_diagramElement"/>
+            </ownedAttribute>
+            <name>IFMLDiagram</name>
+        </packagedElement>
+        <name>ifmldi</name>
+        <URI>http://www.omg.org/spec/IFML/20130218/IFML-DI</URI>
+    </uml:Package>
+    <mofext:Tag xmi:id="_-Tag" xmi:uuid="725A27D7-D3CE-44FC-97B5-B382B995B8D6" xmi:type="mofext:Tag">
+        <name>org.omg.xmi.nsPrefix</name>
+        <value>ifml-di</value>
+        <element>
+            <idref>ifmldi</idref>
+        </element>
+    </mofext:Tag>
+</xmi:XMI>

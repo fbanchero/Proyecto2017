@@ -1,0 +1,74 @@
+<div class="panel-group" id="accordion_reg" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne_reg"  data-toggle="collapse" data-target="#collapseOne_reg" aria-expanded="false" aria-controls="collapseOne_reg">
+            <h4 class="panel-title">
+                <a href="" role="button" class="collapsed">
+                Layouts
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne_reg" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne_reg" aria-expanded="false">
+            <div class="panel-body">
+                <div layout="row" layout-wrap layout-align="space-around center">
+                    <div ng-repeat="item in models.templates.composite"
+                        dnd-draggable="item"
+                        dnd-effect-allowed="copy"
+                        dnd-copied="changeid(item)"
+                        class="component"
+                        layout="column" layout-align="center center">
+                        <img ng-src="images/icons/{{$index+1}}columns.png" alt="">
+                        <span>{{$index+1}} {{item.type}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo_reg"  data-toggle="collapse" data-target="#collapseTwo_reg" aria-expanded="false" aria-controls="collapseTwo_reg">
+            <h4 class="panel-title">
+                <a href="" class="collapsed" role="button">
+                Basic elements
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo_reg" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo_reg" aria-expanded="false">
+            <div class="panel-body">
+                <div layout="row" layout-wrap layout-align="space-around center">
+                    <div ng-repeat="item in models.templates.simple"
+                        dnd-draggable="item"
+                        dnd-effect-allowed="copy"
+                        dnd-copied="changeid(item)"
+                        class="component"
+                        layout="column" layout-align="center center">
+                        <img ng-src="images/icons/{{item.type}}.png" alt="">
+                        <span>{{item.type}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree_reg" data-toggle="collapse" data-target="#collapseThree_reg" aria-expanded="false" aria-controls="collapseThree_reg">
+            <h4 class="panel-title">
+                <a href="" class="collapsed" role="button">
+                Form elements
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree_reg" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree_reg" aria-expanded="false">
+            <div class="panel-body">
+                <div layout="row" layout-wrap layout-align="space-around center">
+                    <div ng-repeat="item in models.templates.form"
+                        dnd-draggable="item"
+                        dnd-effect-allowed="copy"
+                        dnd-copied="changeid(item)"
+                        class="component"
+                        layout="column" layout-align="center center">
+                        <img ng-src="images/icons/{{item.type}}.png" alt="">
+                        <span>{{item.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

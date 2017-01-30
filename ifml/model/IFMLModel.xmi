@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<core:IFMLModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/IFML/core" name="customJson">
+    <interactionFlowModel name="Pages">
+        <interactionFlowModelElements xsi:type="core:ViewContainer" id="1" name="page1">
+            <viewElements xsi:type="core:ViewContainer" id="11" name="div1">
+                <outInteractionFlows xsi:type="core:NavigationFlow" srcInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0" trgtInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
+            </viewElements>
+            <viewElements xsi:type="core:ViewContainer" id="12" name="div2">
+                <viewElements xsi:type="core:ViewContainer" id="14" name="div2_1"/>
+                <viewElements xsi:type="core:ViewContainer" id="15" name="div2_2"/></viewElements>
+            <viewElements id="13" name="item1"/>
+        </interactionFlowModelElements>
+        <interactionFlowModelElements xsi:type="core:ViewContainer" id="16" name="page2" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@outInteractionFlows.0"/>
+    </interactionFlowModel>
+</core:IFMLModel>

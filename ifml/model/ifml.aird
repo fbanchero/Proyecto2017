@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/IFML/core" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis xmi:id="_JELkcHoeEeajRt_1AAf4Bg" selectedViews="_g4x3wINCEealdumnHzkbKw" version="11.1.0.201608251200">
+    <semanticResources>ifml.ecore</semanticResources>
+    <semanticResources>ifml.genmodel</semanticResources>
+    <semanticResources>IFMLModel.xmi</semanticResources>
+    <semanticResources>IFMLModel1.xmi</semanticResources>
+    <semanticResources>IFML-Metamodel.genmodel</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_JIRaQHoeEeajRt_1AAf4Bg">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_7pybYd0DEear07mq6X695A" name="ifml" representation="_JK1mEHoeEeajRt_1AAf4Bg">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+        <target xmi:type="ecore:EPackage" href="ifml.ecore#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_g4x3wINCEealdumnHzkbKw">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_7pybYN0DEear07mq6X695A" name="new IFMLDiagram" representation="_qZVP4INhEealdumnHzkbKw">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']"/>
+        <target xmi:type="core:IFMLModel" href="IFMLModel.xmi#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram xmi:id="_qZVP4INhEealdumnHzkbKw" name="new IFMLDiagram">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_qZVP4YNhEealdumnHzkbKw" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_qZVP4oNhEealdumnHzkbKw"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_qZVP5INhEealdumnHzkbKw" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_qZVP5YNhEealdumnHzkbKw" type="Sirius" element="_qZVP4INhEealdumnHzkbKw" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_qZVP5oNhEealdumnHzkbKw"/>
+      </data>
+    </ownedAnnotationEntries>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_qZVP44NhEealdumnHzkbKw"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer"/>
+    <target xmi:type="core:IFMLModel" href="IFMLModel.xmi#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_JK1mEHoeEeajRt_1AAf4Bg" name="ifml">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_JK1mEXoeEeajRt_1AAf4Bg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_JK1mEnoeEeajRt_1AAf4Bg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_JK5QcHoeEeajRt_1AAf4Bg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_JK5QcXoeEeajRt_1AAf4Bg" type="Sirius" element="_JK1mEHoeEeajRt_1AAf4Bg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_JK53gHoeEeajRt_1AAf4Bg" type="2001" element="_JK1mE3oeEeajRt_1AAf4Bg">
+          <children xmi:type="notation:Node" xmi:id="_JK8TwHoeEeajRt_1AAf4Bg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_JK8TwXoeEeajRt_1AAf4Bg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_JMImkHoeEeajRt_1AAf4Bg" type="3005" element="_JK1mFHoeEeajRt_1AAf4Bg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_JMImkXoeEeajRt_1AAf4Bg" fontName="Ubuntu"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JMImknoeEeajRt_1AAf4Bg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_JK53gXoeEeajRt_1AAf4Bg" fontName="Ubuntu" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JK53gnoeEeajRt_1AAf4Bg" width="640" height="85"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_JK5QcnoeEeajRt_1AAf4Bg"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_JK1mE3oeEeajRt_1AAf4Bg" width="-1" height="-1">
+      <target xmi:type="ecore:EPackage" href="ifml.ecore#/"/>
+      <semanticElements xmi:type="ecore:EPackage" href="ifml.ecore#/"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_JK1mFHoeEeajRt_1AAf4Bg" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_JK1mFXoeEeajRt_1AAf4Bg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+    <target xmi:type="ecore:EPackage" href="ifml.ecore#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

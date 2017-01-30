@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<core:IFMLModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/IFML/core" name="Mockup">
+    <interactionFlowModel name="Pages">
+        <interactionFlowModelElements xsi:type="core:ViewContainer" id="Fannie Owens" name="Page1">
+            <viewElements xsi:type="core:ViewContainer" id="5" name="container">
+                <viewElements xsi:type="core:ViewContainer" id="2" name="container">
+                    <viewElements id="1" name="item">
+                        <viewElementEvents>
+                            <navigationFlows srcInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElements.0/@viewElements.0/@viewElementEvents.0" trgtInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
+                        </viewElementEvents>
+                    </viewElements>
+                </viewElements>
+                <viewElements xsi:type="core:ViewContainer" id="3" name="container"/>
+                <viewElements xsi:type="core:ViewContainer" id="4" name="container"/>
+                <viewElements xsi:type="core:ViewContainer" id="5" name="container"/></viewElements>
+        </interactionFlowModelElements>
+        <interactionFlowModelElements xsi:type="core:ViewContainer" id="Edwin Dixon" name="Page2" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElements.0/@viewElements.0/@viewElementEvents.0/@navigationFlows.0">
+            <viewElements xsi:type="core:ViewContainer" id="4" name="container">
+                <viewElements xsi:type="core:ViewContainer" id="6" name="container"/>
+                <viewElements xsi:type="core:ViewContainer" id="7" name="container"/>
+                <viewElements xsi:type="core:ViewContainer" id="8" name="container"/></viewElements>
+        </interactionFlowModelElements>
+    </interactionFlowModel>
+</core:IFMLModel>

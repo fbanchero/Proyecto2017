@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="uml" nsURI="http://www.omg.org/spec/UML" nsPrefix="uml">
+  <eClassifiers xsi:type="ecore:EClass" name="Association" eSuperTypes="#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Classifier" eSuperTypes="#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BehavioralFeature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Behavior"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TemplaetableElement" eSuperTypes="#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedElement" eSuperTypes="#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiplicityElement" eSuperTypes="#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StructuralFeature"/>
+</ecore:EPackage>

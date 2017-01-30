@@ -1,0 +1,80 @@
+<div class="header" layout="row" layout-align="center center">
+  <div class="toolbar-btn save" ng-click="saveJsonFile()">Save Mockup</div>
+  <span class="separator"> | </span>
+  <div class="toolbar-btn load" ng-click="loadJsonFile()" >Load Mockup</div>
+  <input type="file" on-read-file="loadFileContents(contents)" id="loadjson">
+  <span class="separator"> | </span>
+  <div class="toolbar-btn json" data-toggle="modal" data-target="#jsonModal">JSON</div>
+  <span class="separator"> | </span>
+  <div class="toolbar-btn ifml" data-toggle="modal" data-target="#ifmlModal" ng-click='getIfml()'>IFML</div>
+</div>
+
+<div class="tabs" offset="15" layout="row">
+	<div class="tab" ng-class="{'selected': models.pageSelected == page.id, 'modal-tab': page.type == 'modal'}" ng-repeat="page in models.result.pages" ng-click="models.pageSelected = page.id">
+		<span style="float: left" ng-if="page.type == 'modal'">[M]&nbsp;</span>
+    <inline-editor style="float: left" ng-model="page.name"></inline-editor> 
+    <!--span style="float: left" inline-edit="page.name" inline-edit-btn-edit="" inline-edit-on-click></span-->
+		<span class="close-tab" ng-if="models.pageSelected == page.id" ng-click="removePage(page.id)">x</span>
+	</div>
+  <li class="dropdown">
+    <a href="" class="dropdown-toggle add" data-toggle="dropdown" role="button" aria-expanded="false">+</a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a ng-click="addPage()" href="">Page</a></li>
+      <li><a ng-click="addModal()" href="">Modal</a></li>
+    </ul>
+  </li>
+</div>
+<div layout="row" layout-fill>
+    <div id="components" flex="15" class="sidebar" ng-include="'views/components.html'"></div>
+    <div ng-repeat="page in models.result.pages" flex="70"  ng-hide="page.id != models.pageSelected">
+       <div ng-if="page.type == 'page'" id="main"  ng-click="models.selected = undefined"
+       dnd-list="page.children" class="dropzone box canvas"
+       ng-include="'views/canvas.html'"></div>
+
+        <div class="modal modal-page" ng-if="page.type === 'modal'">
+          <div class="modal-dialog">
+            <div class="modal-content">
+               <div id="main" ng-click="models.selected = undefined"
+               dnd-list="page.children" class="dropzone box canvas"
+               ng-include="'views/canvas.html'"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div id="properties" flex="15" class="sidebar" ng-include="'views/properties.html'"></div>
+</div>
+
+<!-- Modal -->
+<div id="jsonModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">JSON Representation</h4>
+      </div>
+      <div class="modal-body">
+        <pre>{{modelAsJson}}</pre>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="ifmlModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">IFML Representation</h4>
+      </div>
+      <div class="modal-body">
+        <pre>{{modelAsIfml}}</pre>
+      </div>
+    </div>
+
+  </div>
+</div>

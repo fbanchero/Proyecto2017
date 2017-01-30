@@ -1,0 +1,11 @@
+<div class="inner-tabs" layout="row">
+	<div class="inner-tab" ng-class="{'inner-selected': item.contSelected == page.id}" ng-repeat="page in item.children[0]" ng-click="item.contSelected = page.id">
+		<inline-editor style="float: left" ng-model="page.name"></inline-editor>
+		<span class="close-tab" ng-if="item.contSelected == page.id" ng-click="removeTab(item, page)">x</span>
+	</div>
+	<div class="add-tab" ng-click="addTab(item)"> + </div>
+</div>
+<div ng-hide="page.id != item.contSelected" ng-repeat="page in item.children[0]">
+	<div ng-repeat="list in page.children" ng-include="'components/list.html'"></div>
+</div>
+<span class="item-name" ng-if="models.selected === item">{{item.name}}</span>
