@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ifml.core.IFMLModel#getInteractionFlowModel <em>Interaction Flow Model</em>}</li>
  *   <li>{@link ifml.core.IFMLModel#getContentModel <em>Content Model</em>}</li>
  *   <li>{@link ifml.core.IFMLModel#getInteractionFlowModelViewPoints <em>Interaction Flow Model View Points</em>}</li>
+ *   <li>{@link ifml.core.IFMLModel#getDomainModel <em>Domain Model</em>}</li>
  * </ul>
  *
  * @see ifml.core.CorePackage#getIFMLModel()
@@ -90,5 +91,31 @@ public interface IFMLModel extends NamedElement {
 	 * @generated
 	 */
 	EList<ViewPoint> getInteractionFlowModelViewPoints();
+
+	/**
+	 * Returns the value of the '<em><b>Domain Model</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Domain Model</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Domain Model</em>' containment reference.
+	 * @see #setDomainModel(DomainModel)
+	 * @see ifml.core.CorePackage#getIFMLModel_DomainModel()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	DomainModel getDomainModel();
+
+	/**
+	 * Sets the value of the '{@link ifml.core.IFMLModel#getDomainModel <em>Domain Model</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Domain Model</em>' containment reference.
+	 * @see #getDomainModel()
+	 * @generated
+	 */
+	void setDomainModel(DomainModel value);
 
 } // IFMLModel

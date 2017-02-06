@@ -2,8 +2,6 @@
  */
 package ifml.core;
 
-import uml.Behavior;
-import uml.BehavioralFeature;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,8 +12,8 @@ import uml.BehavioralFeature;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ifml.core.DynamicBehavior#getBehavioralFeature <em>Behavioral Feature</em>}</li>
- *   <li>{@link ifml.core.DynamicBehavior#getBehavior <em>Behavior</em>}</li>
+ *   <li>{@link ifml.core.DynamicBehavior#getBehavioralFeatureConcept <em>Behavioral Feature Concept</em>}</li>
+ *   <li>{@link ifml.core.DynamicBehavior#getBehaviorConcept <em>Behavior Concept</em>}</li>
  * </ul>
  *
  * @see ifml.core.CorePackage#getDynamicBehavior()
@@ -24,55 +22,55 @@ import uml.BehavioralFeature;
  */
 public interface DynamicBehavior extends ContentBinding {
 	/**
-	 * Returns the value of the '<em><b>Behavioral Feature</b></em>' reference.
+	 * Returns the value of the '<em><b>Behavioral Feature Concept</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Behavioral Feature</em>' reference isn't clear,
+	 * If the meaning of the '<em>Behavioral Feature Concept</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Behavioral Feature</em>' reference.
-	 * @see #setBehavioralFeature(BehavioralFeature)
-	 * @see ifml.core.CorePackage#getDynamicBehavior_BehavioralFeature()
+	 * @return the value of the '<em>Behavioral Feature Concept</em>' reference.
+	 * @see #setBehavioralFeatureConcept(BehavioralFeatureConcept)
+	 * @see ifml.core.CorePackage#getDynamicBehavior_BehavioralFeatureConcept()
 	 * @model
 	 * @generated
 	 */
-	BehavioralFeature getBehavioralFeature();
+	BehavioralFeatureConcept getBehavioralFeatureConcept();
 
 	/**
-	 * Sets the value of the '{@link ifml.core.DynamicBehavior#getBehavioralFeature <em>Behavioral Feature</em>}' reference.
+	 * Sets the value of the '{@link ifml.core.DynamicBehavior#getBehavioralFeatureConcept <em>Behavioral Feature Concept</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Behavioral Feature</em>' reference.
-	 * @see #getBehavioralFeature()
+	 * @param value the new value of the '<em>Behavioral Feature Concept</em>' reference.
+	 * @see #getBehavioralFeatureConcept()
 	 * @generated
 	 */
-	void setBehavioralFeature(BehavioralFeature value);
+	void setBehavioralFeatureConcept(BehavioralFeatureConcept value);
 
 	/**
-	 * Returns the value of the '<em><b>Behavior</b></em>' reference.
+	 * Returns the value of the '<em><b>Behavior Concept</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Behavior</em>' reference isn't clear,
+	 * If the meaning of the '<em>Behavior Concept</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Behavior</em>' reference.
-	 * @see #setBehavior(Behavior)
-	 * @see ifml.core.CorePackage#getDynamicBehavior_Behavior()
+	 * @return the value of the '<em>Behavior Concept</em>' reference.
+	 * @see #setBehaviorConcept(BehaviorConcept)
+	 * @see ifml.core.CorePackage#getDynamicBehavior_BehaviorConcept()
 	 * @model
 	 * @generated
 	 */
-	Behavior getBehavior();
+	BehaviorConcept getBehaviorConcept();
 
 	/**
-	 * Sets the value of the '{@link ifml.core.DynamicBehavior#getBehavior <em>Behavior</em>}' reference.
+	 * Sets the value of the '{@link ifml.core.DynamicBehavior#getBehaviorConcept <em>Behavior Concept</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Behavior</em>' reference.
-	 * @see #getBehavior()
+	 * @param value the new value of the '<em>Behavior Concept</em>' reference.
+	 * @see #getBehaviorConcept()
 	 * @generated
 	 */
-	void setBehavior(Behavior value);
+	void setBehaviorConcept(BehaviorConcept value);
 
 } // DynamicBehavior

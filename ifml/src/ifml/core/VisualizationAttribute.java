@@ -2,7 +2,6 @@
  */
 package ifml.core;
 
-import uml.StructuralFeature;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +12,7 @@ import uml.StructuralFeature;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ifml.core.VisualizationAttribute#getStructuralFeature <em>Structural Feature</em>}</li>
+ *   <li>{@link ifml.core.VisualizationAttribute#getFeatureConcept <em>Feature Concept</em>}</li>
  * </ul>
  *
  * @see ifml.core.CorePackage#getVisualizationAttribute()
@@ -22,29 +21,29 @@ import uml.StructuralFeature;
  */
 public interface VisualizationAttribute extends ViewComponentPart {
 	/**
-	 * Returns the value of the '<em><b>Structural Feature</b></em>' reference.
+	 * Returns the value of the '<em><b>Feature Concept</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Structural Feature</em>' reference isn't clear,
+	 * If the meaning of the '<em>Feature Concept</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Structural Feature</em>' reference.
-	 * @see #setStructuralFeature(StructuralFeature)
-	 * @see ifml.core.CorePackage#getVisualizationAttribute_StructuralFeature()
-	 * @model
+	 * @return the value of the '<em>Feature Concept</em>' reference.
+	 * @see #setFeatureConcept(FeatureConcept)
+	 * @see ifml.core.CorePackage#getVisualizationAttribute_FeatureConcept()
+	 * @model required="true"
 	 * @generated
 	 */
-	StructuralFeature getStructuralFeature();
+	FeatureConcept getFeatureConcept();
 
 	/**
-	 * Sets the value of the '{@link ifml.core.VisualizationAttribute#getStructuralFeature <em>Structural Feature</em>}' reference.
+	 * Sets the value of the '{@link ifml.core.VisualizationAttribute#getFeatureConcept <em>Feature Concept</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Structural Feature</em>' reference.
-	 * @see #getStructuralFeature()
+	 * @param value the new value of the '<em>Feature Concept</em>' reference.
+	 * @see #getFeatureConcept()
 	 * @generated
 	 */
-	void setStructuralFeature(StructuralFeature value);
+	void setFeatureConcept(FeatureConcept value);
 
 } // VisualizationAttribute

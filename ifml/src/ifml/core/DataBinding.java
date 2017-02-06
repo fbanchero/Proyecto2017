@@ -4,8 +4,6 @@ package ifml.core;
 
 import org.eclipse.emf.common.util.EList;
 
-import uml.Classifier;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Data Binding</b></em>'.
@@ -17,7 +15,7 @@ import uml.Classifier;
  * <ul>
  *   <li>{@link ifml.core.DataBinding#getConditionalExpression <em>Conditional Expression</em>}</li>
  *   <li>{@link ifml.core.DataBinding#getVisualizationAttributes <em>Visualization Attributes</em>}</li>
- *   <li>{@link ifml.core.DataBinding#getClassifier <em>Classifier</em>}</li>
+ *   <li>{@link ifml.core.DataBinding#getDomainConcept <em>Domain Concept</em>}</li>
  * </ul>
  *
  * @see ifml.core.CorePackage#getDataBinding()
@@ -58,29 +56,29 @@ public interface DataBinding extends ContentBinding {
 	EList<VisualizationAttribute> getVisualizationAttributes();
 
 	/**
-	 * Returns the value of the '<em><b>Classifier</b></em>' reference.
+	 * Returns the value of the '<em><b>Domain Concept</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Classifier</em>' reference isn't clear,
+	 * If the meaning of the '<em>Domain Concept</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Classifier</em>' reference.
-	 * @see #setClassifier(Classifier)
-	 * @see ifml.core.CorePackage#getDataBinding_Classifier()
+	 * @return the value of the '<em>Domain Concept</em>' reference.
+	 * @see #setDomainConcept(DomainConcept)
+	 * @see ifml.core.CorePackage#getDataBinding_DomainConcept()
 	 * @model required="true"
 	 * @generated
 	 */
-	Classifier getClassifier();
+	DomainConcept getDomainConcept();
 
 	/**
-	 * Sets the value of the '{@link ifml.core.DataBinding#getClassifier <em>Classifier</em>}' reference.
+	 * Sets the value of the '{@link ifml.core.DataBinding#getDomainConcept <em>Domain Concept</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Classifier</em>' reference.
-	 * @see #getClassifier()
+	 * @param value the new value of the '<em>Domain Concept</em>' reference.
+	 * @see #getDomainConcept()
 	 * @generated
 	 */
-	void setClassifier(Classifier value);
+	void setDomainConcept(DomainConcept value);
 
 } // DataBinding

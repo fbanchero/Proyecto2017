@@ -5,6 +5,7 @@ package ifml.core.impl;
 import ifml.core.ConditionalExpression;
 import ifml.core.CorePackage;
 import ifml.core.DataBinding;
+import ifml.core.DomainConcept;
 import ifml.core.VisualizationAttribute;
 
 import java.util.Collection;
@@ -20,8 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import uml.Classifier;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Data Binding</b></em>'.
@@ -32,7 +31,7 @@ import uml.Classifier;
  * <ul>
  *   <li>{@link ifml.core.impl.DataBindingImpl#getConditionalExpression <em>Conditional Expression</em>}</li>
  *   <li>{@link ifml.core.impl.DataBindingImpl#getVisualizationAttributes <em>Visualization Attributes</em>}</li>
- *   <li>{@link ifml.core.impl.DataBindingImpl#getClassifier <em>Classifier</em>}</li>
+ *   <li>{@link ifml.core.impl.DataBindingImpl#getDomainConcept <em>Domain Concept</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,14 +58,14 @@ public class DataBindingImpl extends ContentBindingImpl implements DataBinding {
 	protected EList<VisualizationAttribute> visualizationAttributes;
 
 	/**
-	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' reference.
+	 * The cached value of the '{@link #getDomainConcept() <em>Domain Concept</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClassifier()
+	 * @see #getDomainConcept()
 	 * @generated
 	 * @ordered
 	 */
-	protected Classifier classifier;
+	protected DomainConcept domainConcept;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,16 +115,16 @@ public class DataBindingImpl extends ContentBindingImpl implements DataBinding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Classifier getClassifier() {
-		if (classifier != null && classifier.eIsProxy()) {
-			InternalEObject oldClassifier = (InternalEObject)classifier;
-			classifier = (Classifier)eResolveProxy(oldClassifier);
-			if (classifier != oldClassifier) {
+	public DomainConcept getDomainConcept() {
+		if (domainConcept != null && domainConcept.eIsProxy()) {
+			InternalEObject oldDomainConcept = (InternalEObject)domainConcept;
+			domainConcept = (DomainConcept)eResolveProxy(oldDomainConcept);
+			if (domainConcept != oldDomainConcept) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.DATA_BINDING__CLASSIFIER, oldClassifier, classifier));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.DATA_BINDING__DOMAIN_CONCEPT, oldDomainConcept, domainConcept));
 			}
 		}
-		return classifier;
+		return domainConcept;
 	}
 
 	/**
@@ -133,8 +132,8 @@ public class DataBindingImpl extends ContentBindingImpl implements DataBinding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Classifier basicGetClassifier() {
-		return classifier;
+	public DomainConcept basicGetDomainConcept() {
+		return domainConcept;
 	}
 
 	/**
@@ -142,11 +141,11 @@ public class DataBindingImpl extends ContentBindingImpl implements DataBinding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClassifier(Classifier newClassifier) {
-		Classifier oldClassifier = classifier;
-		classifier = newClassifier;
+	public void setDomainConcept(DomainConcept newDomainConcept) {
+		DomainConcept oldDomainConcept = domainConcept;
+		domainConcept = newDomainConcept;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.DATA_BINDING__CLASSIFIER, oldClassifier, classifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.DATA_BINDING__DOMAIN_CONCEPT, oldDomainConcept, domainConcept));
 	}
 
 	/**
@@ -161,9 +160,9 @@ public class DataBindingImpl extends ContentBindingImpl implements DataBinding {
 				return getConditionalExpression();
 			case CorePackage.DATA_BINDING__VISUALIZATION_ATTRIBUTES:
 				return getVisualizationAttributes();
-			case CorePackage.DATA_BINDING__CLASSIFIER:
-				if (resolve) return getClassifier();
-				return basicGetClassifier();
+			case CorePackage.DATA_BINDING__DOMAIN_CONCEPT:
+				if (resolve) return getDomainConcept();
+				return basicGetDomainConcept();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,8 +184,8 @@ public class DataBindingImpl extends ContentBindingImpl implements DataBinding {
 				getVisualizationAttributes().clear();
 				getVisualizationAttributes().addAll((Collection<? extends VisualizationAttribute>)newValue);
 				return;
-			case CorePackage.DATA_BINDING__CLASSIFIER:
-				setClassifier((Classifier)newValue);
+			case CorePackage.DATA_BINDING__DOMAIN_CONCEPT:
+				setDomainConcept((DomainConcept)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -206,8 +205,8 @@ public class DataBindingImpl extends ContentBindingImpl implements DataBinding {
 			case CorePackage.DATA_BINDING__VISUALIZATION_ATTRIBUTES:
 				getVisualizationAttributes().clear();
 				return;
-			case CorePackage.DATA_BINDING__CLASSIFIER:
-				setClassifier((Classifier)null);
+			case CorePackage.DATA_BINDING__DOMAIN_CONCEPT:
+				setDomainConcept((DomainConcept)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -225,8 +224,8 @@ public class DataBindingImpl extends ContentBindingImpl implements DataBinding {
 				return conditionalExpression != null && !conditionalExpression.isEmpty();
 			case CorePackage.DATA_BINDING__VISUALIZATION_ATTRIBUTES:
 				return visualizationAttributes != null && !visualizationAttributes.isEmpty();
-			case CorePackage.DATA_BINDING__CLASSIFIER:
-				return classifier != null;
+			case CorePackage.DATA_BINDING__DOMAIN_CONCEPT:
+				return domainConcept != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,6 +2,8 @@
  */
 package ifml.core.impl;
 
+import ifml.core.BehaviorConcept;
+import ifml.core.BehavioralFeatureConcept;
 import ifml.core.CorePackage;
 import ifml.core.DynamicBehavior;
 
@@ -12,9 +14,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import uml.Behavior;
-import uml.BehavioralFeature;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Dynamic Behavior</b></em>'.
@@ -23,32 +22,32 @@ import uml.BehavioralFeature;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ifml.core.impl.DynamicBehaviorImpl#getBehavioralFeature <em>Behavioral Feature</em>}</li>
- *   <li>{@link ifml.core.impl.DynamicBehaviorImpl#getBehavior <em>Behavior</em>}</li>
+ *   <li>{@link ifml.core.impl.DynamicBehaviorImpl#getBehavioralFeatureConcept <em>Behavioral Feature Concept</em>}</li>
+ *   <li>{@link ifml.core.impl.DynamicBehaviorImpl#getBehaviorConcept <em>Behavior Concept</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DynamicBehaviorImpl extends ContentBindingImpl implements DynamicBehavior {
 	/**
-	 * The cached value of the '{@link #getBehavioralFeature() <em>Behavioral Feature</em>}' reference.
+	 * The cached value of the '{@link #getBehavioralFeatureConcept() <em>Behavioral Feature Concept</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBehavioralFeature()
+	 * @see #getBehavioralFeatureConcept()
 	 * @generated
 	 * @ordered
 	 */
-	protected BehavioralFeature behavioralFeature;
+	protected BehavioralFeatureConcept behavioralFeatureConcept;
 
 	/**
-	 * The cached value of the '{@link #getBehavior() <em>Behavior</em>}' reference.
+	 * The cached value of the '{@link #getBehaviorConcept() <em>Behavior Concept</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBehavior()
+	 * @see #getBehaviorConcept()
 	 * @generated
 	 * @ordered
 	 */
-	protected Behavior behavior;
+	protected BehaviorConcept behaviorConcept;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,16 +73,16 @@ public class DynamicBehaviorImpl extends ContentBindingImpl implements DynamicBe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BehavioralFeature getBehavioralFeature() {
-		if (behavioralFeature != null && behavioralFeature.eIsProxy()) {
-			InternalEObject oldBehavioralFeature = (InternalEObject)behavioralFeature;
-			behavioralFeature = (BehavioralFeature)eResolveProxy(oldBehavioralFeature);
-			if (behavioralFeature != oldBehavioralFeature) {
+	public BehavioralFeatureConcept getBehavioralFeatureConcept() {
+		if (behavioralFeatureConcept != null && behavioralFeatureConcept.eIsProxy()) {
+			InternalEObject oldBehavioralFeatureConcept = (InternalEObject)behavioralFeatureConcept;
+			behavioralFeatureConcept = (BehavioralFeatureConcept)eResolveProxy(oldBehavioralFeatureConcept);
+			if (behavioralFeatureConcept != oldBehavioralFeatureConcept) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE, oldBehavioralFeature, behavioralFeature));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE_CONCEPT, oldBehavioralFeatureConcept, behavioralFeatureConcept));
 			}
 		}
-		return behavioralFeature;
+		return behavioralFeatureConcept;
 	}
 
 	/**
@@ -91,8 +90,8 @@ public class DynamicBehaviorImpl extends ContentBindingImpl implements DynamicBe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BehavioralFeature basicGetBehavioralFeature() {
-		return behavioralFeature;
+	public BehavioralFeatureConcept basicGetBehavioralFeatureConcept() {
+		return behavioralFeatureConcept;
 	}
 
 	/**
@@ -100,11 +99,11 @@ public class DynamicBehaviorImpl extends ContentBindingImpl implements DynamicBe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBehavioralFeature(BehavioralFeature newBehavioralFeature) {
-		BehavioralFeature oldBehavioralFeature = behavioralFeature;
-		behavioralFeature = newBehavioralFeature;
+	public void setBehavioralFeatureConcept(BehavioralFeatureConcept newBehavioralFeatureConcept) {
+		BehavioralFeatureConcept oldBehavioralFeatureConcept = behavioralFeatureConcept;
+		behavioralFeatureConcept = newBehavioralFeatureConcept;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE, oldBehavioralFeature, behavioralFeature));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE_CONCEPT, oldBehavioralFeatureConcept, behavioralFeatureConcept));
 	}
 
 	/**
@@ -112,16 +111,16 @@ public class DynamicBehaviorImpl extends ContentBindingImpl implements DynamicBe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Behavior getBehavior() {
-		if (behavior != null && behavior.eIsProxy()) {
-			InternalEObject oldBehavior = (InternalEObject)behavior;
-			behavior = (Behavior)eResolveProxy(oldBehavior);
-			if (behavior != oldBehavior) {
+	public BehaviorConcept getBehaviorConcept() {
+		if (behaviorConcept != null && behaviorConcept.eIsProxy()) {
+			InternalEObject oldBehaviorConcept = (InternalEObject)behaviorConcept;
+			behaviorConcept = (BehaviorConcept)eResolveProxy(oldBehaviorConcept);
+			if (behaviorConcept != oldBehaviorConcept) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.DYNAMIC_BEHAVIOR__BEHAVIOR, oldBehavior, behavior));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.DYNAMIC_BEHAVIOR__BEHAVIOR_CONCEPT, oldBehaviorConcept, behaviorConcept));
 			}
 		}
-		return behavior;
+		return behaviorConcept;
 	}
 
 	/**
@@ -129,8 +128,8 @@ public class DynamicBehaviorImpl extends ContentBindingImpl implements DynamicBe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Behavior basicGetBehavior() {
-		return behavior;
+	public BehaviorConcept basicGetBehaviorConcept() {
+		return behaviorConcept;
 	}
 
 	/**
@@ -138,11 +137,11 @@ public class DynamicBehaviorImpl extends ContentBindingImpl implements DynamicBe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBehavior(Behavior newBehavior) {
-		Behavior oldBehavior = behavior;
-		behavior = newBehavior;
+	public void setBehaviorConcept(BehaviorConcept newBehaviorConcept) {
+		BehaviorConcept oldBehaviorConcept = behaviorConcept;
+		behaviorConcept = newBehaviorConcept;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.DYNAMIC_BEHAVIOR__BEHAVIOR, oldBehavior, behavior));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.DYNAMIC_BEHAVIOR__BEHAVIOR_CONCEPT, oldBehaviorConcept, behaviorConcept));
 	}
 
 	/**
@@ -153,12 +152,12 @@ public class DynamicBehaviorImpl extends ContentBindingImpl implements DynamicBe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE:
-				if (resolve) return getBehavioralFeature();
-				return basicGetBehavioralFeature();
-			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIOR:
-				if (resolve) return getBehavior();
-				return basicGetBehavior();
+			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE_CONCEPT:
+				if (resolve) return getBehavioralFeatureConcept();
+				return basicGetBehavioralFeatureConcept();
+			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIOR_CONCEPT:
+				if (resolve) return getBehaviorConcept();
+				return basicGetBehaviorConcept();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,11 +170,11 @@ public class DynamicBehaviorImpl extends ContentBindingImpl implements DynamicBe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE:
-				setBehavioralFeature((BehavioralFeature)newValue);
+			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE_CONCEPT:
+				setBehavioralFeatureConcept((BehavioralFeatureConcept)newValue);
 				return;
-			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIOR:
-				setBehavior((Behavior)newValue);
+			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIOR_CONCEPT:
+				setBehaviorConcept((BehaviorConcept)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -189,11 +188,11 @@ public class DynamicBehaviorImpl extends ContentBindingImpl implements DynamicBe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE:
-				setBehavioralFeature((BehavioralFeature)null);
+			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE_CONCEPT:
+				setBehavioralFeatureConcept((BehavioralFeatureConcept)null);
 				return;
-			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIOR:
-				setBehavior((Behavior)null);
+			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIOR_CONCEPT:
+				setBehaviorConcept((BehaviorConcept)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -207,10 +206,10 @@ public class DynamicBehaviorImpl extends ContentBindingImpl implements DynamicBe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE:
-				return behavioralFeature != null;
-			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIOR:
-				return behavior != null;
+			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE_CONCEPT:
+				return behavioralFeatureConcept != null;
+			case CorePackage.DYNAMIC_BEHAVIOR__BEHAVIOR_CONCEPT:
+				return behaviorConcept != null;
 		}
 		return super.eIsSet(featureID);
 	}

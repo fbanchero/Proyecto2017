@@ -6,14 +6,12 @@ import ifml.core.CorePackage;
 
 import ifml.core.impl.CorePackageImpl;
 
-import ifml.extensions.Button;
 import ifml.extensions.Details;
 import ifml.extensions.Device;
 import ifml.extensions.ExtensionsFactory;
 import ifml.extensions.ExtensionsPackage;
 import ifml.extensions.Field;
 import ifml.extensions.Form;
-import ifml.extensions.Image;
 import ifml.extensions.List;
 import ifml.extensions.Position;
 import ifml.extensions.SelectEvent;
@@ -24,7 +22,6 @@ import ifml.extensions.Slot;
 import ifml.extensions.SortAttribute;
 import ifml.extensions.SortOrderEnum;
 import ifml.extensions.SubmitEvent;
-import ifml.extensions.TextField;
 import ifml.extensions.UserRole;
 import ifml.extensions.ValidationRule;
 import ifml.extensions.Window;
@@ -36,7 +33,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.emf.ecore.resource.Resource;
 
 import uml.UmlPackage;
 
@@ -56,10 +52,6 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 */
 	private EClass formEClass = null;
 
-	@Override
-	protected Resource createResource(String uri) {
-		return super.createResource("ifml.ecore#/0/extensions");
-	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,27 +156,6 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 * @generated
 	 */
 	private EClass windowEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass imageEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass buttonEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass textFieldEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -465,7 +436,7 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWindow_IsModal() {
+	public EAttribute getWindow_IsXor() {
 		return (EAttribute)windowEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -474,7 +445,7 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getWindow_IsNew() {
+	public EAttribute getWindow_IsModal() {
 		return (EAttribute)windowEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -483,80 +454,8 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getImage() {
-		return imageEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getImage_Align() {
-		return (EAttribute)imageEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getImage_Url() {
-		return (EAttribute)imageEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getButton() {
-		return buttonEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButton_ButtonText() {
-		return (EAttribute)buttonEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getButton_Align() {
-		return (EAttribute)buttonEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTextField() {
-		return textFieldEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextField_FontSize() {
-		return (EAttribute)textFieldEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTextField_TextFieldText() {
-		return (EAttribute)textFieldEClass.getEStructuralFeatures().get(1);
+	public EAttribute getWindow_IsNew() {
+		return (EAttribute)windowEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -633,20 +532,9 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		detailsEClass = createEClass(DETAILS);
 
 		windowEClass = createEClass(WINDOW);
+		createEAttribute(windowEClass, WINDOW__IS_XOR);
 		createEAttribute(windowEClass, WINDOW__IS_MODAL);
 		createEAttribute(windowEClass, WINDOW__IS_NEW);
-
-		imageEClass = createEClass(IMAGE);
-		createEAttribute(imageEClass, IMAGE__ALIGN);
-		createEAttribute(imageEClass, IMAGE__URL);
-
-		buttonEClass = createEClass(BUTTON);
-		createEAttribute(buttonEClass, BUTTON__BUTTON_TEXT);
-		createEAttribute(buttonEClass, BUTTON__ALIGN);
-
-		textFieldEClass = createEClass(TEXT_FIELD);
-		createEAttribute(textFieldEClass, TEXT_FIELD__FONT_SIZE);
-		createEAttribute(textFieldEClass, TEXT_FIELD__TEXT_FIELD_TEXT);
 
 		// Create enums
 		sortOrderEnumEEnum = createEEnum(SORT_ORDER_ENUM);
@@ -699,9 +587,6 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		userRoleEClass.getESuperTypes().add(theCorePackage.getContextDimension());
 		detailsEClass.getESuperTypes().add(theCorePackage.getViewComponent());
 		windowEClass.getESuperTypes().add(theCorePackage.getViewContainer());
-		imageEClass.getESuperTypes().add(theCorePackage.getViewElement());
-		buttonEClass.getESuperTypes().add(theCorePackage.getViewElement());
-		textFieldEClass.getESuperTypes().add(theCorePackage.getViewElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -720,7 +605,7 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		initEClass(sortAttributeEClass, SortAttribute.class, "SortAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSortAttribute_Order(), this.getSortOrderEnum(), "order", null, 1, 1, SortAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(selectEventEClass, SelectEvent.class, "SelectEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(selectEventEClass, SelectEvent.class, "SelectEvent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(listEClass, List.class, "List", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getList_SelectEvent(), this.getSelectEvent(), null, "selectEvent", null, 0, -1, List.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -741,20 +626,9 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		initEClass(detailsEClass, Details.class, "Details", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(windowEClass, Window.class, "Window", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getWindow_IsXor(), ecorePackage.getEBoolean(), "isXor", null, 0, 1, Window.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWindow_IsModal(), ecorePackage.getEBoolean(), "isModal", null, 0, 1, Window.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWindow_IsNew(), ecorePackage.getEBoolean(), "isNew", null, 0, 1, Window.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getImage_Align(), ecorePackage.getEString(), "align", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getImage_Url(), ecorePackage.getEString(), "url", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getButton_ButtonText(), ecorePackage.getEString(), "ButtonText", "", 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getButton_Align(), ecorePackage.getEString(), "Align", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(textFieldEClass, TextField.class, "TextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTextField_FontSize(), ecorePackage.getEString(), "FontSize", null, 0, 1, TextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTextField_TextFieldText(), ecorePackage.getEString(), "TextFieldText", null, 0, 1, TextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(sortOrderEnumEEnum, SortOrderEnum.class, "SortOrderEnum");

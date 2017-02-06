@@ -3,6 +3,7 @@
 package ifml.core.impl;
 
 import ifml.core.CorePackage;
+import ifml.core.FeatureConcept;
 import ifml.core.VisualizationAttribute;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -12,8 +13,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import uml.StructuralFeature;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Visualization Attribute</b></em>'.
@@ -22,21 +21,21 @@ import uml.StructuralFeature;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ifml.core.impl.VisualizationAttributeImpl#getStructuralFeature <em>Structural Feature</em>}</li>
+ *   <li>{@link ifml.core.impl.VisualizationAttributeImpl#getFeatureConcept <em>Feature Concept</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class VisualizationAttributeImpl extends ViewComponentPartImpl implements VisualizationAttribute {
 	/**
-	 * The cached value of the '{@link #getStructuralFeature() <em>Structural Feature</em>}' reference.
+	 * The cached value of the '{@link #getFeatureConcept() <em>Feature Concept</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStructuralFeature()
+	 * @see #getFeatureConcept()
 	 * @generated
 	 * @ordered
 	 */
-	protected StructuralFeature structuralFeature;
+	protected FeatureConcept featureConcept;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,16 +61,16 @@ public class VisualizationAttributeImpl extends ViewComponentPartImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StructuralFeature getStructuralFeature() {
-		if (structuralFeature != null && structuralFeature.eIsProxy()) {
-			InternalEObject oldStructuralFeature = (InternalEObject)structuralFeature;
-			structuralFeature = (StructuralFeature)eResolveProxy(oldStructuralFeature);
-			if (structuralFeature != oldStructuralFeature) {
+	public FeatureConcept getFeatureConcept() {
+		if (featureConcept != null && featureConcept.eIsProxy()) {
+			InternalEObject oldFeatureConcept = (InternalEObject)featureConcept;
+			featureConcept = (FeatureConcept)eResolveProxy(oldFeatureConcept);
+			if (featureConcept != oldFeatureConcept) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.VISUALIZATION_ATTRIBUTE__STRUCTURAL_FEATURE, oldStructuralFeature, structuralFeature));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorePackage.VISUALIZATION_ATTRIBUTE__FEATURE_CONCEPT, oldFeatureConcept, featureConcept));
 			}
 		}
-		return structuralFeature;
+		return featureConcept;
 	}
 
 	/**
@@ -79,8 +78,8 @@ public class VisualizationAttributeImpl extends ViewComponentPartImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StructuralFeature basicGetStructuralFeature() {
-		return structuralFeature;
+	public FeatureConcept basicGetFeatureConcept() {
+		return featureConcept;
 	}
 
 	/**
@@ -88,11 +87,11 @@ public class VisualizationAttributeImpl extends ViewComponentPartImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStructuralFeature(StructuralFeature newStructuralFeature) {
-		StructuralFeature oldStructuralFeature = structuralFeature;
-		structuralFeature = newStructuralFeature;
+	public void setFeatureConcept(FeatureConcept newFeatureConcept) {
+		FeatureConcept oldFeatureConcept = featureConcept;
+		featureConcept = newFeatureConcept;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.VISUALIZATION_ATTRIBUTE__STRUCTURAL_FEATURE, oldStructuralFeature, structuralFeature));
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.VISUALIZATION_ATTRIBUTE__FEATURE_CONCEPT, oldFeatureConcept, featureConcept));
 	}
 
 	/**
@@ -103,9 +102,9 @@ public class VisualizationAttributeImpl extends ViewComponentPartImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorePackage.VISUALIZATION_ATTRIBUTE__STRUCTURAL_FEATURE:
-				if (resolve) return getStructuralFeature();
-				return basicGetStructuralFeature();
+			case CorePackage.VISUALIZATION_ATTRIBUTE__FEATURE_CONCEPT:
+				if (resolve) return getFeatureConcept();
+				return basicGetFeatureConcept();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -118,8 +117,8 @@ public class VisualizationAttributeImpl extends ViewComponentPartImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorePackage.VISUALIZATION_ATTRIBUTE__STRUCTURAL_FEATURE:
-				setStructuralFeature((StructuralFeature)newValue);
+			case CorePackage.VISUALIZATION_ATTRIBUTE__FEATURE_CONCEPT:
+				setFeatureConcept((FeatureConcept)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,8 +132,8 @@ public class VisualizationAttributeImpl extends ViewComponentPartImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorePackage.VISUALIZATION_ATTRIBUTE__STRUCTURAL_FEATURE:
-				setStructuralFeature((StructuralFeature)null);
+			case CorePackage.VISUALIZATION_ATTRIBUTE__FEATURE_CONCEPT:
+				setFeatureConcept((FeatureConcept)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -148,8 +147,8 @@ public class VisualizationAttributeImpl extends ViewComponentPartImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorePackage.VISUALIZATION_ATTRIBUTE__STRUCTURAL_FEATURE:
-				return structuralFeature != null;
+			case CorePackage.VISUALIZATION_ATTRIBUTE__FEATURE_CONCEPT:
+				return featureConcept != null;
 		}
 		return super.eIsSet(featureID);
 	}

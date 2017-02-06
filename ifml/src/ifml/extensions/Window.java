@@ -13,6 +13,7 @@ import ifml.core.ViewContainer;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link ifml.extensions.Window#isIsXor <em>Is Xor</em>}</li>
  *   <li>{@link ifml.extensions.Window#isIsModal <em>Is Modal</em>}</li>
  *   <li>{@link ifml.extensions.Window#isIsNew <em>Is New</em>}</li>
  * </ul>
@@ -22,6 +23,32 @@ import ifml.core.ViewContainer;
  * @generated
  */
 public interface Window extends ViewContainer {
+	/**
+	 * Returns the value of the '<em><b>Is Xor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Xor</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Xor</em>' attribute.
+	 * @see #setIsXor(boolean)
+	 * @see ifml.extensions.ExtensionsPackage#getWindow_IsXor()
+	 * @model
+	 * @generated
+	 */
+	boolean isIsXor();
+
+	/**
+	 * Sets the value of the '{@link ifml.extensions.Window#isIsXor <em>Is Xor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Xor</em>' attribute.
+	 * @see #isIsXor()
+	 * @generated
+	 */
+	void setIsXor(boolean value);
+
 	/**
 	 * Returns the value of the '<em><b>Is Modal</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -4,6 +4,7 @@ package ifml.core.impl;
 
 import ifml.core.ContentModel;
 import ifml.core.CorePackage;
+import ifml.core.DomainModel;
 import ifml.core.IFMLModel;
 import ifml.core.InteractionFlowModel;
 import ifml.core.ViewPoint;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ifml.core.impl.IFMLModelImpl#getInteractionFlowModel <em>Interaction Flow Model</em>}</li>
  *   <li>{@link ifml.core.impl.IFMLModelImpl#getContentModel <em>Content Model</em>}</li>
  *   <li>{@link ifml.core.impl.IFMLModelImpl#getInteractionFlowModelViewPoints <em>Interaction Flow Model View Points</em>}</li>
+ *   <li>{@link ifml.core.impl.IFMLModelImpl#getDomainModel <em>Domain Model</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +70,16 @@ public class IFMLModelImpl extends NamedElementImpl implements IFMLModel {
 	 * @ordered
 	 */
 	protected EList<ViewPoint> interactionFlowModelViewPoints;
+
+	/**
+	 * The cached value of the '{@link #getDomainModel() <em>Domain Model</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDomainModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected DomainModel domainModel;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -191,6 +203,49 @@ public class IFMLModelImpl extends NamedElementImpl implements IFMLModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DomainModel getDomainModel() {
+		return domainModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDomainModel(DomainModel newDomainModel, NotificationChain msgs) {
+		DomainModel oldDomainModel = domainModel;
+		domainModel = newDomainModel;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorePackage.IFML_MODEL__DOMAIN_MODEL, oldDomainModel, newDomainModel);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDomainModel(DomainModel newDomainModel) {
+		if (newDomainModel != domainModel) {
+			NotificationChain msgs = null;
+			if (domainModel != null)
+				msgs = ((InternalEObject)domainModel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorePackage.IFML_MODEL__DOMAIN_MODEL, null, msgs);
+			if (newDomainModel != null)
+				msgs = ((InternalEObject)newDomainModel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorePackage.IFML_MODEL__DOMAIN_MODEL, null, msgs);
+			msgs = basicSetDomainModel(newDomainModel, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.IFML_MODEL__DOMAIN_MODEL, newDomainModel, newDomainModel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -200,6 +255,8 @@ public class IFMLModelImpl extends NamedElementImpl implements IFMLModel {
 				return basicSetContentModel(null, msgs);
 			case CorePackage.IFML_MODEL__INTERACTION_FLOW_MODEL_VIEW_POINTS:
 				return ((InternalEList<?>)getInteractionFlowModelViewPoints()).basicRemove(otherEnd, msgs);
+			case CorePackage.IFML_MODEL__DOMAIN_MODEL:
+				return basicSetDomainModel(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -218,6 +275,8 @@ public class IFMLModelImpl extends NamedElementImpl implements IFMLModel {
 				return getContentModel();
 			case CorePackage.IFML_MODEL__INTERACTION_FLOW_MODEL_VIEW_POINTS:
 				return getInteractionFlowModelViewPoints();
+			case CorePackage.IFML_MODEL__DOMAIN_MODEL:
+				return getDomainModel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -241,6 +300,9 @@ public class IFMLModelImpl extends NamedElementImpl implements IFMLModel {
 				getInteractionFlowModelViewPoints().clear();
 				getInteractionFlowModelViewPoints().addAll((Collection<? extends ViewPoint>)newValue);
 				return;
+			case CorePackage.IFML_MODEL__DOMAIN_MODEL:
+				setDomainModel((DomainModel)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -262,6 +324,9 @@ public class IFMLModelImpl extends NamedElementImpl implements IFMLModel {
 			case CorePackage.IFML_MODEL__INTERACTION_FLOW_MODEL_VIEW_POINTS:
 				getInteractionFlowModelViewPoints().clear();
 				return;
+			case CorePackage.IFML_MODEL__DOMAIN_MODEL:
+				setDomainModel((DomainModel)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -280,6 +345,8 @@ public class IFMLModelImpl extends NamedElementImpl implements IFMLModel {
 				return contentModel != null;
 			case CorePackage.IFML_MODEL__INTERACTION_FLOW_MODEL_VIEW_POINTS:
 				return interactionFlowModelViewPoints != null && !interactionFlowModelViewPoints.isEmpty();
+			case CorePackage.IFML_MODEL__DOMAIN_MODEL:
+				return domainModel != null;
 		}
 		return super.eIsSet(featureID);
 	}

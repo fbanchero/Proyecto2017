@@ -468,6 +468,98 @@ public class CoreSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorePackage.FEATURE_CONCEPT: {
+				FeatureConcept featureConcept = (FeatureConcept)theEObject;
+				T result = caseFeatureConcept(featureConcept);
+				if (result == null) result = caseDomainElement(featureConcept);
+				if (result == null) result = caseNamedElement(featureConcept);
+				if (result == null) result = caseElement(featureConcept);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.DOMAIN_MODEL: {
+				DomainModel domainModel = (DomainModel)theEObject;
+				T result = caseDomainModel(domainModel);
+				if (result == null) result = caseNamedElement(domainModel);
+				if (result == null) result = caseElement(domainModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.DOMAIN_ELEMENT: {
+				DomainElement domainElement = (DomainElement)theEObject;
+				T result = caseDomainElement(domainElement);
+				if (result == null) result = caseNamedElement(domainElement);
+				if (result == null) result = caseElement(domainElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.UML_STRUCTURAL_FEATURE: {
+				UMLStructuralFeature umlStructuralFeature = (UMLStructuralFeature)theEObject;
+				T result = caseUMLStructuralFeature(umlStructuralFeature);
+				if (result == null) result = caseFeatureConcept(umlStructuralFeature);
+				if (result == null) result = caseDomainElement(umlStructuralFeature);
+				if (result == null) result = caseNamedElement(umlStructuralFeature);
+				if (result == null) result = caseElement(umlStructuralFeature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.DOMAIN_CONCEPT: {
+				DomainConcept domainConcept = (DomainConcept)theEObject;
+				T result = caseDomainConcept(domainConcept);
+				if (result == null) result = caseDomainElement(domainConcept);
+				if (result == null) result = caseNamedElement(domainConcept);
+				if (result == null) result = caseElement(domainConcept);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.UML_DOMAIN_CONCEPT: {
+				UMLDomainConcept umlDomainConcept = (UMLDomainConcept)theEObject;
+				T result = caseUMLDomainConcept(umlDomainConcept);
+				if (result == null) result = caseDomainConcept(umlDomainConcept);
+				if (result == null) result = caseDomainElement(umlDomainConcept);
+				if (result == null) result = caseNamedElement(umlDomainConcept);
+				if (result == null) result = caseElement(umlDomainConcept);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.BEHAVIORAL_FEATURE_CONCEPT: {
+				BehavioralFeatureConcept behavioralFeatureConcept = (BehavioralFeatureConcept)theEObject;
+				T result = caseBehavioralFeatureConcept(behavioralFeatureConcept);
+				if (result == null) result = caseDomainElement(behavioralFeatureConcept);
+				if (result == null) result = caseNamedElement(behavioralFeatureConcept);
+				if (result == null) result = caseElement(behavioralFeatureConcept);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.UML_BEHAVIORAL_FEATURE: {
+				UMLBehavioralFeature umlBehavioralFeature = (UMLBehavioralFeature)theEObject;
+				T result = caseUMLBehavioralFeature(umlBehavioralFeature);
+				if (result == null) result = caseBehavioralFeatureConcept(umlBehavioralFeature);
+				if (result == null) result = caseDomainElement(umlBehavioralFeature);
+				if (result == null) result = caseNamedElement(umlBehavioralFeature);
+				if (result == null) result = caseElement(umlBehavioralFeature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.BEHAVIOR_CONCEPT: {
+				BehaviorConcept behaviorConcept = (BehaviorConcept)theEObject;
+				T result = caseBehaviorConcept(behaviorConcept);
+				if (result == null) result = caseDomainElement(behaviorConcept);
+				if (result == null) result = caseNamedElement(behaviorConcept);
+				if (result == null) result = caseElement(behaviorConcept);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorePackage.UML_BEHAVIOR: {
+				UMLBehavior umlBehavior = (UMLBehavior)theEObject;
+				T result = caseUMLBehavior(umlBehavior);
+				if (result == null) result = caseBehaviorConcept(umlBehavior);
+				if (result == null) result = caseDomainElement(umlBehavior);
+				if (result == null) result = caseNamedElement(umlBehavior);
+				if (result == null) result = caseElement(umlBehavior);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1054,6 +1146,156 @@ public class CoreSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAnnotation(Annotation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Feature Concept</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Feature Concept</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFeatureConcept(FeatureConcept object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Domain Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Domain Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDomainModel(DomainModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Domain Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Domain Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDomainElement(DomainElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>UML Structural Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>UML Structural Feature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUMLStructuralFeature(UMLStructuralFeature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Domain Concept</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Domain Concept</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDomainConcept(DomainConcept object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>UML Domain Concept</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>UML Domain Concept</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUMLDomainConcept(UMLDomainConcept object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Behavioral Feature Concept</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Behavioral Feature Concept</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBehavioralFeatureConcept(BehavioralFeatureConcept object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>UML Behavioral Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>UML Behavioral Feature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUMLBehavioralFeature(UMLBehavioralFeature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Behavior Concept</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Behavior Concept</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBehaviorConcept(BehaviorConcept object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>UML Behavior</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>UML Behavior</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUMLBehavior(UMLBehavior object) {
 		return null;
 	}
 

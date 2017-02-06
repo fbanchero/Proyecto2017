@@ -1705,22 +1705,22 @@ public interface CorePackage extends EPackage {
 	int DYNAMIC_BEHAVIOR__UNIFORM_RESOURCE_IDENTIFIER = CONTENT_BINDING__UNIFORM_RESOURCE_IDENTIFIER;
 
 	/**
-	 * The feature id for the '<em><b>Behavioral Feature</b></em>' reference.
+	 * The feature id for the '<em><b>Behavioral Feature Concept</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE = CONTENT_BINDING_FEATURE_COUNT + 0;
+	int DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE_CONCEPT = CONTENT_BINDING_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Behavior</b></em>' reference.
+	 * The feature id for the '<em><b>Behavior Concept</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DYNAMIC_BEHAVIOR__BEHAVIOR = CONTENT_BINDING_FEATURE_COUNT + 1;
+	int DYNAMIC_BEHAVIOR__BEHAVIOR_CONCEPT = CONTENT_BINDING_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Dynamic Behavior</em>' class.
@@ -2405,22 +2405,13 @@ public interface CorePackage extends EPackage {
 	int VIEW_CONTAINER__VIEW_ELEMENTS = VIEW_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Is Xor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW_CONTAINER__IS_XOR = VIEW_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>View Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_CONTAINER_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 4;
+	int VIEW_CONTAINER_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>View Container</em>' class.
@@ -2505,13 +2496,22 @@ public interface CorePackage extends EPackage {
 	int IFML_MODEL__INTERACTION_FLOW_MODEL_VIEW_POINTS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Domain Model</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IFML_MODEL__DOMAIN_MODEL = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>IFML Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IFML_MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int IFML_MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>IFML Model</em>' class.
@@ -2741,13 +2741,13 @@ public interface CorePackage extends EPackage {
 	int DATA_BINDING__VISUALIZATION_ATTRIBUTES = CONTENT_BINDING_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Classifier</b></em>' reference.
+	 * The feature id for the '<em><b>Domain Concept</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_BINDING__CLASSIFIER = CONTENT_BINDING_FEATURE_COUNT + 2;
+	int DATA_BINDING__DOMAIN_CONCEPT = CONTENT_BINDING_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Data Binding</em>' class.
@@ -3559,13 +3559,13 @@ public interface CorePackage extends EPackage {
 	int VISUALIZATION_ATTRIBUTE__PARENT_VIEW_COMPONENT_PART = VIEW_COMPONENT_PART__PARENT_VIEW_COMPONENT_PART;
 
 	/**
-	 * The feature id for the '<em><b>Structural Feature</b></em>' reference.
+	 * The feature id for the '<em><b>Feature Concept</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VISUALIZATION_ATTRIBUTE__STRUCTURAL_FEATURE = VIEW_COMPONENT_PART_FEATURE_COUNT + 0;
+	int VISUALIZATION_ATTRIBUTE__FEATURE_CONCEPT = VIEW_COMPONENT_PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Visualization Attribute</em>' class.
@@ -3796,6 +3796,844 @@ public interface CorePackage extends EPackage {
 	int ANNOTATION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ifml.core.impl.DomainElementImpl <em>Domain Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ifml.core.impl.DomainElementImpl
+	 * @see ifml.core.impl.CorePackageImpl#getDomainElement()
+	 * @generated
+	 */
+	int DOMAIN_ELEMENT = 41;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_ELEMENT__ID = NAMED_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_ELEMENT__CONSTRAINTS = NAMED_ELEMENT__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_ELEMENT__ANNOTATIONS = NAMED_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_ELEMENT__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Domain Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_ELEMENT__DOMAIN_MODEL = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_ELEMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Domain Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_ELEMENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ifml.core.impl.FeatureConceptImpl <em>Feature Concept</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ifml.core.impl.FeatureConceptImpl
+	 * @see ifml.core.impl.CorePackageImpl#getFeatureConcept()
+	 * @generated
+	 */
+	int FEATURE_CONCEPT = 39;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_CONCEPT__ID = DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_CONCEPT__CONSTRAINTS = DOMAIN_ELEMENT__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_CONCEPT__ANNOTATIONS = DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_CONCEPT__NAME = DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Domain Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_CONCEPT__DOMAIN_MODEL = DOMAIN_ELEMENT__DOMAIN_MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Visualization Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_CONCEPT__VISUALIZATION_ATTRIBUTE = DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Feature Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_CONCEPT_FEATURE_COUNT = DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Feature Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_CONCEPT_OPERATION_COUNT = DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ifml.core.impl.DomainModelImpl <em>Domain Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ifml.core.impl.DomainModelImpl
+	 * @see ifml.core.impl.CorePackageImpl#getDomainModel()
+	 * @generated
+	 */
+	int DOMAIN_MODEL = 40;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MODEL__ID = NAMED_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MODEL__CONSTRAINTS = NAMED_ELEMENT__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MODEL__ANNOTATIONS = NAMED_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MODEL__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MODEL__ELEMENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Domain Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Domain Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MODEL_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ifml.core.impl.UMLStructuralFeatureImpl <em>UML Structural Feature</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ifml.core.impl.UMLStructuralFeatureImpl
+	 * @see ifml.core.impl.CorePackageImpl#getUMLStructuralFeature()
+	 * @generated
+	 */
+	int UML_STRUCTURAL_FEATURE = 42;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_STRUCTURAL_FEATURE__ID = FEATURE_CONCEPT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_STRUCTURAL_FEATURE__CONSTRAINTS = FEATURE_CONCEPT__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_STRUCTURAL_FEATURE__ANNOTATIONS = FEATURE_CONCEPT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_STRUCTURAL_FEATURE__NAME = FEATURE_CONCEPT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Domain Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_STRUCTURAL_FEATURE__DOMAIN_MODEL = FEATURE_CONCEPT__DOMAIN_MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Visualization Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_STRUCTURAL_FEATURE__VISUALIZATION_ATTRIBUTE = FEATURE_CONCEPT__VISUALIZATION_ATTRIBUTE;
+
+	/**
+	 * The feature id for the '<em><b>Structural Feature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_STRUCTURAL_FEATURE__STRUCTURAL_FEATURE = FEATURE_CONCEPT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>UML Structural Feature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_STRUCTURAL_FEATURE_FEATURE_COUNT = FEATURE_CONCEPT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>UML Structural Feature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_STRUCTURAL_FEATURE_OPERATION_COUNT = FEATURE_CONCEPT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ifml.core.impl.DomainConceptImpl <em>Domain Concept</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ifml.core.impl.DomainConceptImpl
+	 * @see ifml.core.impl.CorePackageImpl#getDomainConcept()
+	 * @generated
+	 */
+	int DOMAIN_CONCEPT = 43;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CONCEPT__ID = DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CONCEPT__CONSTRAINTS = DOMAIN_ELEMENT__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CONCEPT__ANNOTATIONS = DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CONCEPT__NAME = DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Domain Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CONCEPT__DOMAIN_MODEL = DOMAIN_ELEMENT__DOMAIN_MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Data Binding</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CONCEPT__DATA_BINDING = DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Domain Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CONCEPT_FEATURE_COUNT = DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Domain Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CONCEPT_OPERATION_COUNT = DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ifml.core.impl.UMLDomainConceptImpl <em>UML Domain Concept</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ifml.core.impl.UMLDomainConceptImpl
+	 * @see ifml.core.impl.CorePackageImpl#getUMLDomainConcept()
+	 * @generated
+	 */
+	int UML_DOMAIN_CONCEPT = 44;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_DOMAIN_CONCEPT__ID = DOMAIN_CONCEPT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_DOMAIN_CONCEPT__CONSTRAINTS = DOMAIN_CONCEPT__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_DOMAIN_CONCEPT__ANNOTATIONS = DOMAIN_CONCEPT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_DOMAIN_CONCEPT__NAME = DOMAIN_CONCEPT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Domain Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_DOMAIN_CONCEPT__DOMAIN_MODEL = DOMAIN_CONCEPT__DOMAIN_MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Data Binding</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_DOMAIN_CONCEPT__DATA_BINDING = DOMAIN_CONCEPT__DATA_BINDING;
+
+	/**
+	 * The feature id for the '<em><b>Classifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_DOMAIN_CONCEPT__CLASSIFIER = DOMAIN_CONCEPT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>UML Domain Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_DOMAIN_CONCEPT_FEATURE_COUNT = DOMAIN_CONCEPT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>UML Domain Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_DOMAIN_CONCEPT_OPERATION_COUNT = DOMAIN_CONCEPT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ifml.core.impl.BehavioralFeatureConceptImpl <em>Behavioral Feature Concept</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ifml.core.impl.BehavioralFeatureConceptImpl
+	 * @see ifml.core.impl.CorePackageImpl#getBehavioralFeatureConcept()
+	 * @generated
+	 */
+	int BEHAVIORAL_FEATURE_CONCEPT = 45;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIORAL_FEATURE_CONCEPT__ID = DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIORAL_FEATURE_CONCEPT__CONSTRAINTS = DOMAIN_ELEMENT__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIORAL_FEATURE_CONCEPT__ANNOTATIONS = DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIORAL_FEATURE_CONCEPT__NAME = DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Domain Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIORAL_FEATURE_CONCEPT__DOMAIN_MODEL = DOMAIN_ELEMENT__DOMAIN_MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Dynamic Behavior</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIORAL_FEATURE_CONCEPT__DYNAMIC_BEHAVIOR = DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Behavioral Feature Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIORAL_FEATURE_CONCEPT_FEATURE_COUNT = DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Behavioral Feature Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIORAL_FEATURE_CONCEPT_OPERATION_COUNT = DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ifml.core.impl.UMLBehavioralFeatureImpl <em>UML Behavioral Feature</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ifml.core.impl.UMLBehavioralFeatureImpl
+	 * @see ifml.core.impl.CorePackageImpl#getUMLBehavioralFeature()
+	 * @generated
+	 */
+	int UML_BEHAVIORAL_FEATURE = 46;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIORAL_FEATURE__ID = BEHAVIORAL_FEATURE_CONCEPT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIORAL_FEATURE__CONSTRAINTS = BEHAVIORAL_FEATURE_CONCEPT__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIORAL_FEATURE__ANNOTATIONS = BEHAVIORAL_FEATURE_CONCEPT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIORAL_FEATURE__NAME = BEHAVIORAL_FEATURE_CONCEPT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Domain Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIORAL_FEATURE__DOMAIN_MODEL = BEHAVIORAL_FEATURE_CONCEPT__DOMAIN_MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Dynamic Behavior</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIORAL_FEATURE__DYNAMIC_BEHAVIOR = BEHAVIORAL_FEATURE_CONCEPT__DYNAMIC_BEHAVIOR;
+
+	/**
+	 * The feature id for the '<em><b>Behavioral Feature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIORAL_FEATURE__BEHAVIORAL_FEATURE = BEHAVIORAL_FEATURE_CONCEPT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>UML Behavioral Feature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIORAL_FEATURE_FEATURE_COUNT = BEHAVIORAL_FEATURE_CONCEPT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>UML Behavioral Feature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIORAL_FEATURE_OPERATION_COUNT = BEHAVIORAL_FEATURE_CONCEPT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ifml.core.impl.BehaviorConceptImpl <em>Behavior Concept</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ifml.core.impl.BehaviorConceptImpl
+	 * @see ifml.core.impl.CorePackageImpl#getBehaviorConcept()
+	 * @generated
+	 */
+	int BEHAVIOR_CONCEPT = 47;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_CONCEPT__ID = DOMAIN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_CONCEPT__CONSTRAINTS = DOMAIN_ELEMENT__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_CONCEPT__ANNOTATIONS = DOMAIN_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_CONCEPT__NAME = DOMAIN_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Domain Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_CONCEPT__DOMAIN_MODEL = DOMAIN_ELEMENT__DOMAIN_MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Dynamic Behavior</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_CONCEPT__DYNAMIC_BEHAVIOR = DOMAIN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Behavior Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_CONCEPT_FEATURE_COUNT = DOMAIN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Behavior Concept</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_CONCEPT_OPERATION_COUNT = DOMAIN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ifml.core.impl.UMLBehaviorImpl <em>UML Behavior</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ifml.core.impl.UMLBehaviorImpl
+	 * @see ifml.core.impl.CorePackageImpl#getUMLBehavior()
+	 * @generated
+	 */
+	int UML_BEHAVIOR = 48;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIOR__ID = BEHAVIOR_CONCEPT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIOR__CONSTRAINTS = BEHAVIOR_CONCEPT__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIOR__ANNOTATIONS = BEHAVIOR_CONCEPT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIOR__NAME = BEHAVIOR_CONCEPT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Domain Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIOR__DOMAIN_MODEL = BEHAVIOR_CONCEPT__DOMAIN_MODEL;
+
+	/**
+	 * The feature id for the '<em><b>Dynamic Behavior</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIOR__DYNAMIC_BEHAVIOR = BEHAVIOR_CONCEPT__DYNAMIC_BEHAVIOR;
+
+	/**
+	 * The feature id for the '<em><b>Behavior</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIOR__BEHAVIOR = BEHAVIOR_CONCEPT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>UML Behavior</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIOR_FEATURE_COUNT = BEHAVIOR_CONCEPT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>UML Behavior</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UML_BEHAVIOR_OPERATION_COUNT = BEHAVIOR_CONCEPT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ifml.core.SystemEventTypeEnum <em>System Event Type Enum</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3803,7 +4641,7 @@ public interface CorePackage extends EPackage {
 	 * @see ifml.core.impl.CorePackageImpl#getSystemEventTypeEnum()
 	 * @generated
 	 */
-	int SYSTEM_EVENT_TYPE_ENUM = 39;
+	int SYSTEM_EVENT_TYPE_ENUM = 49;
 
 	/**
 	 * The meta object id for the '{@link ifml.core.ParameterKind <em>Parameter Kind</em>}' enum.
@@ -3813,7 +4651,7 @@ public interface CorePackage extends EPackage {
 	 * @see ifml.core.impl.CorePackageImpl#getParameterKind()
 	 * @generated
 	 */
-	int PARAMETER_KIND = 40;
+	int PARAMETER_KIND = 50;
 
 
 	/**
@@ -4146,26 +4984,26 @@ public interface CorePackage extends EPackage {
 	EClass getDynamicBehavior();
 
 	/**
-	 * Returns the meta object for the reference '{@link ifml.core.DynamicBehavior#getBehavioralFeature <em>Behavioral Feature</em>}'.
+	 * Returns the meta object for the reference '{@link ifml.core.DynamicBehavior#getBehavioralFeatureConcept <em>Behavioral Feature Concept</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Behavioral Feature</em>'.
-	 * @see ifml.core.DynamicBehavior#getBehavioralFeature()
+	 * @return the meta object for the reference '<em>Behavioral Feature Concept</em>'.
+	 * @see ifml.core.DynamicBehavior#getBehavioralFeatureConcept()
 	 * @see #getDynamicBehavior()
 	 * @generated
 	 */
-	EReference getDynamicBehavior_BehavioralFeature();
+	EReference getDynamicBehavior_BehavioralFeatureConcept();
 
 	/**
-	 * Returns the meta object for the reference '{@link ifml.core.DynamicBehavior#getBehavior <em>Behavior</em>}'.
+	 * Returns the meta object for the reference '{@link ifml.core.DynamicBehavior#getBehaviorConcept <em>Behavior Concept</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Behavior</em>'.
-	 * @see ifml.core.DynamicBehavior#getBehavior()
+	 * @return the meta object for the reference '<em>Behavior Concept</em>'.
+	 * @see ifml.core.DynamicBehavior#getBehaviorConcept()
 	 * @see #getDynamicBehavior()
 	 * @generated
 	 */
-	EReference getDynamicBehavior_Behavior();
+	EReference getDynamicBehavior_BehaviorConcept();
 
 	/**
 	 * Returns the meta object for class '{@link ifml.core.DataFlow <em>Data Flow</em>}'.
@@ -4379,17 +5217,6 @@ public interface CorePackage extends EPackage {
 	EReference getViewContainer_ViewElements();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ifml.core.ViewContainer#isIsXor <em>Is Xor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Xor</em>'.
-	 * @see ifml.core.ViewContainer#isIsXor()
-	 * @see #getViewContainer()
-	 * @generated
-	 */
-	EAttribute getViewContainer_IsXor();
-
-	/**
 	 * Returns the meta object for class '{@link ifml.core.IFMLModel <em>IFML Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4431,6 +5258,17 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getIFMLModel_InteractionFlowModelViewPoints();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ifml.core.IFMLModel#getDomainModel <em>Domain Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Domain Model</em>'.
+	 * @see ifml.core.IFMLModel#getDomainModel()
+	 * @see #getIFMLModel()
+	 * @generated
+	 */
+	EReference getIFMLModel_DomainModel();
 
 	/**
 	 * Returns the meta object for class '{@link ifml.core.Event <em>Event</em>}'.
@@ -4550,15 +5388,15 @@ public interface CorePackage extends EPackage {
 	EReference getDataBinding_VisualizationAttributes();
 
 	/**
-	 * Returns the meta object for the reference '{@link ifml.core.DataBinding#getClassifier <em>Classifier</em>}'.
+	 * Returns the meta object for the reference '{@link ifml.core.DataBinding#getDomainConcept <em>Domain Concept</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Classifier</em>'.
-	 * @see ifml.core.DataBinding#getClassifier()
+	 * @return the meta object for the reference '<em>Domain Concept</em>'.
+	 * @see ifml.core.DataBinding#getDomainConcept()
 	 * @see #getDataBinding()
 	 * @generated
 	 */
-	EReference getDataBinding_Classifier();
+	EReference getDataBinding_DomainConcept();
 
 	/**
 	 * Returns the meta object for class '{@link ifml.core.ViewComponent <em>View Component</em>}'.
@@ -4738,15 +5576,15 @@ public interface CorePackage extends EPackage {
 	EClass getVisualizationAttribute();
 
 	/**
-	 * Returns the meta object for the reference '{@link ifml.core.VisualizationAttribute#getStructuralFeature <em>Structural Feature</em>}'.
+	 * Returns the meta object for the reference '{@link ifml.core.VisualizationAttribute#getFeatureConcept <em>Feature Concept</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Structural Feature</em>'.
-	 * @see ifml.core.VisualizationAttribute#getStructuralFeature()
+	 * @return the meta object for the reference '<em>Feature Concept</em>'.
+	 * @see ifml.core.VisualizationAttribute#getFeatureConcept()
 	 * @see #getVisualizationAttribute()
 	 * @generated
 	 */
-	EReference getVisualizationAttribute_StructuralFeature();
+	EReference getVisualizationAttribute_FeatureConcept();
 
 	/**
 	 * Returns the meta object for class '{@link ifml.core.Module <em>Module</em>}'.
@@ -4821,6 +5659,216 @@ public interface CorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAnnotation_Text();
+
+	/**
+	 * Returns the meta object for class '{@link ifml.core.FeatureConcept <em>Feature Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Feature Concept</em>'.
+	 * @see ifml.core.FeatureConcept
+	 * @generated
+	 */
+	EClass getFeatureConcept();
+
+	/**
+	 * Returns the meta object for the reference '{@link ifml.core.FeatureConcept#getVisualizationAttribute <em>Visualization Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Visualization Attribute</em>'.
+	 * @see ifml.core.FeatureConcept#getVisualizationAttribute()
+	 * @see #getFeatureConcept()
+	 * @generated
+	 */
+	EReference getFeatureConcept_VisualizationAttribute();
+
+	/**
+	 * Returns the meta object for class '{@link ifml.core.DomainModel <em>Domain Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Domain Model</em>'.
+	 * @see ifml.core.DomainModel
+	 * @generated
+	 */
+	EClass getDomainModel();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ifml.core.DomainModel#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Elements</em>'.
+	 * @see ifml.core.DomainModel#getElements()
+	 * @see #getDomainModel()
+	 * @generated
+	 */
+	EReference getDomainModel_Elements();
+
+	/**
+	 * Returns the meta object for class '{@link ifml.core.DomainElement <em>Domain Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Domain Element</em>'.
+	 * @see ifml.core.DomainElement
+	 * @generated
+	 */
+	EClass getDomainElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link ifml.core.DomainElement#getDomainModel <em>Domain Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Domain Model</em>'.
+	 * @see ifml.core.DomainElement#getDomainModel()
+	 * @see #getDomainElement()
+	 * @generated
+	 */
+	EReference getDomainElement_DomainModel();
+
+	/**
+	 * Returns the meta object for class '{@link ifml.core.UMLStructuralFeature <em>UML Structural Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>UML Structural Feature</em>'.
+	 * @see ifml.core.UMLStructuralFeature
+	 * @generated
+	 */
+	EClass getUMLStructuralFeature();
+
+	/**
+	 * Returns the meta object for the reference '{@link ifml.core.UMLStructuralFeature#getStructuralFeature <em>Structural Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Structural Feature</em>'.
+	 * @see ifml.core.UMLStructuralFeature#getStructuralFeature()
+	 * @see #getUMLStructuralFeature()
+	 * @generated
+	 */
+	EReference getUMLStructuralFeature_StructuralFeature();
+
+	/**
+	 * Returns the meta object for class '{@link ifml.core.DomainConcept <em>Domain Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Domain Concept</em>'.
+	 * @see ifml.core.DomainConcept
+	 * @generated
+	 */
+	EClass getDomainConcept();
+
+	/**
+	 * Returns the meta object for the reference '{@link ifml.core.DomainConcept#getDataBinding <em>Data Binding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Binding</em>'.
+	 * @see ifml.core.DomainConcept#getDataBinding()
+	 * @see #getDomainConcept()
+	 * @generated
+	 */
+	EReference getDomainConcept_DataBinding();
+
+	/**
+	 * Returns the meta object for class '{@link ifml.core.UMLDomainConcept <em>UML Domain Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>UML Domain Concept</em>'.
+	 * @see ifml.core.UMLDomainConcept
+	 * @generated
+	 */
+	EClass getUMLDomainConcept();
+
+	/**
+	 * Returns the meta object for the reference '{@link ifml.core.UMLDomainConcept#getClassifier <em>Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Classifier</em>'.
+	 * @see ifml.core.UMLDomainConcept#getClassifier()
+	 * @see #getUMLDomainConcept()
+	 * @generated
+	 */
+	EReference getUMLDomainConcept_Classifier();
+
+	/**
+	 * Returns the meta object for class '{@link ifml.core.BehavioralFeatureConcept <em>Behavioral Feature Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Behavioral Feature Concept</em>'.
+	 * @see ifml.core.BehavioralFeatureConcept
+	 * @generated
+	 */
+	EClass getBehavioralFeatureConcept();
+
+	/**
+	 * Returns the meta object for the reference '{@link ifml.core.BehavioralFeatureConcept#getDynamicBehavior <em>Dynamic Behavior</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Dynamic Behavior</em>'.
+	 * @see ifml.core.BehavioralFeatureConcept#getDynamicBehavior()
+	 * @see #getBehavioralFeatureConcept()
+	 * @generated
+	 */
+	EReference getBehavioralFeatureConcept_DynamicBehavior();
+
+	/**
+	 * Returns the meta object for class '{@link ifml.core.UMLBehavioralFeature <em>UML Behavioral Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>UML Behavioral Feature</em>'.
+	 * @see ifml.core.UMLBehavioralFeature
+	 * @generated
+	 */
+	EClass getUMLBehavioralFeature();
+
+	/**
+	 * Returns the meta object for the reference '{@link ifml.core.UMLBehavioralFeature#getBehavioralFeature <em>Behavioral Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Behavioral Feature</em>'.
+	 * @see ifml.core.UMLBehavioralFeature#getBehavioralFeature()
+	 * @see #getUMLBehavioralFeature()
+	 * @generated
+	 */
+	EReference getUMLBehavioralFeature_BehavioralFeature();
+
+	/**
+	 * Returns the meta object for class '{@link ifml.core.BehaviorConcept <em>Behavior Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Behavior Concept</em>'.
+	 * @see ifml.core.BehaviorConcept
+	 * @generated
+	 */
+	EClass getBehaviorConcept();
+
+	/**
+	 * Returns the meta object for the reference '{@link ifml.core.BehaviorConcept#getDynamicBehavior <em>Dynamic Behavior</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Dynamic Behavior</em>'.
+	 * @see ifml.core.BehaviorConcept#getDynamicBehavior()
+	 * @see #getBehaviorConcept()
+	 * @generated
+	 */
+	EReference getBehaviorConcept_DynamicBehavior();
+
+	/**
+	 * Returns the meta object for class '{@link ifml.core.UMLBehavior <em>UML Behavior</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>UML Behavior</em>'.
+	 * @see ifml.core.UMLBehavior
+	 * @generated
+	 */
+	EClass getUMLBehavior();
+
+	/**
+	 * Returns the meta object for the reference '{@link ifml.core.UMLBehavior#getBehavior <em>Behavior</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Behavior</em>'.
+	 * @see ifml.core.UMLBehavior#getBehavior()
+	 * @see #getUMLBehavior()
+	 * @generated
+	 */
+	EReference getUMLBehavior_Behavior();
 
 	/**
 	 * Returns the meta object for enum '{@link ifml.core.SystemEventTypeEnum <em>System Event Type Enum</em>}'.
@@ -5138,20 +6186,20 @@ public interface CorePackage extends EPackage {
 		EClass DYNAMIC_BEHAVIOR = eINSTANCE.getDynamicBehavior();
 
 		/**
-		 * The meta object literal for the '<em><b>Behavioral Feature</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Behavioral Feature Concept</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE = eINSTANCE.getDynamicBehavior_BehavioralFeature();
+		EReference DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE_CONCEPT = eINSTANCE.getDynamicBehavior_BehavioralFeatureConcept();
 
 		/**
-		 * The meta object literal for the '<em><b>Behavior</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Behavior Concept</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DYNAMIC_BEHAVIOR__BEHAVIOR = eINSTANCE.getDynamicBehavior_Behavior();
+		EReference DYNAMIC_BEHAVIOR__BEHAVIOR_CONCEPT = eINSTANCE.getDynamicBehavior_BehaviorConcept();
 
 		/**
 		 * The meta object literal for the '{@link ifml.core.impl.DataFlowImpl <em>Data Flow</em>}' class.
@@ -5332,14 +6380,6 @@ public interface CorePackage extends EPackage {
 		EReference VIEW_CONTAINER__VIEW_ELEMENTS = eINSTANCE.getViewContainer_ViewElements();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Xor</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VIEW_CONTAINER__IS_XOR = eINSTANCE.getViewContainer_IsXor();
-
-		/**
 		 * The meta object literal for the '{@link ifml.core.impl.IFMLModelImpl <em>IFML Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5372,6 +6412,14 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference IFML_MODEL__INTERACTION_FLOW_MODEL_VIEW_POINTS = eINSTANCE.getIFMLModel_InteractionFlowModelViewPoints();
+
+		/**
+		 * The meta object literal for the '<em><b>Domain Model</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IFML_MODEL__DOMAIN_MODEL = eINSTANCE.getIFMLModel_DomainModel();
 
 		/**
 		 * The meta object literal for the '{@link ifml.core.impl.EventImpl <em>Event</em>}' class.
@@ -5470,12 +6518,12 @@ public interface CorePackage extends EPackage {
 		EReference DATA_BINDING__VISUALIZATION_ATTRIBUTES = eINSTANCE.getDataBinding_VisualizationAttributes();
 
 		/**
-		 * The meta object literal for the '<em><b>Classifier</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Domain Concept</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DATA_BINDING__CLASSIFIER = eINSTANCE.getDataBinding_Classifier();
+		EReference DATA_BINDING__DOMAIN_CONCEPT = eINSTANCE.getDataBinding_DomainConcept();
 
 		/**
 		 * The meta object literal for the '{@link ifml.core.impl.ViewComponentImpl <em>View Component</em>}' class.
@@ -5634,12 +6682,12 @@ public interface CorePackage extends EPackage {
 		EClass VISUALIZATION_ATTRIBUTE = eINSTANCE.getVisualizationAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Structural Feature</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Feature Concept</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VISUALIZATION_ATTRIBUTE__STRUCTURAL_FEATURE = eINSTANCE.getVisualizationAttribute_StructuralFeature();
+		EReference VISUALIZATION_ATTRIBUTE__FEATURE_CONCEPT = eINSTANCE.getVisualizationAttribute_FeatureConcept();
 
 		/**
 		 * The meta object literal for the '{@link ifml.core.impl.ModuleImpl <em>Module</em>}' class.
@@ -5702,6 +6750,186 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ANNOTATION__TEXT = eINSTANCE.getAnnotation_Text();
+
+		/**
+		 * The meta object literal for the '{@link ifml.core.impl.FeatureConceptImpl <em>Feature Concept</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ifml.core.impl.FeatureConceptImpl
+		 * @see ifml.core.impl.CorePackageImpl#getFeatureConcept()
+		 * @generated
+		 */
+		EClass FEATURE_CONCEPT = eINSTANCE.getFeatureConcept();
+
+		/**
+		 * The meta object literal for the '<em><b>Visualization Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE_CONCEPT__VISUALIZATION_ATTRIBUTE = eINSTANCE.getFeatureConcept_VisualizationAttribute();
+
+		/**
+		 * The meta object literal for the '{@link ifml.core.impl.DomainModelImpl <em>Domain Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ifml.core.impl.DomainModelImpl
+		 * @see ifml.core.impl.CorePackageImpl#getDomainModel()
+		 * @generated
+		 */
+		EClass DOMAIN_MODEL = eINSTANCE.getDomainModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN_MODEL__ELEMENTS = eINSTANCE.getDomainModel_Elements();
+
+		/**
+		 * The meta object literal for the '{@link ifml.core.impl.DomainElementImpl <em>Domain Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ifml.core.impl.DomainElementImpl
+		 * @see ifml.core.impl.CorePackageImpl#getDomainElement()
+		 * @generated
+		 */
+		EClass DOMAIN_ELEMENT = eINSTANCE.getDomainElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Domain Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN_ELEMENT__DOMAIN_MODEL = eINSTANCE.getDomainElement_DomainModel();
+
+		/**
+		 * The meta object literal for the '{@link ifml.core.impl.UMLStructuralFeatureImpl <em>UML Structural Feature</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ifml.core.impl.UMLStructuralFeatureImpl
+		 * @see ifml.core.impl.CorePackageImpl#getUMLStructuralFeature()
+		 * @generated
+		 */
+		EClass UML_STRUCTURAL_FEATURE = eINSTANCE.getUMLStructuralFeature();
+
+		/**
+		 * The meta object literal for the '<em><b>Structural Feature</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UML_STRUCTURAL_FEATURE__STRUCTURAL_FEATURE = eINSTANCE.getUMLStructuralFeature_StructuralFeature();
+
+		/**
+		 * The meta object literal for the '{@link ifml.core.impl.DomainConceptImpl <em>Domain Concept</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ifml.core.impl.DomainConceptImpl
+		 * @see ifml.core.impl.CorePackageImpl#getDomainConcept()
+		 * @generated
+		 */
+		EClass DOMAIN_CONCEPT = eINSTANCE.getDomainConcept();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Binding</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN_CONCEPT__DATA_BINDING = eINSTANCE.getDomainConcept_DataBinding();
+
+		/**
+		 * The meta object literal for the '{@link ifml.core.impl.UMLDomainConceptImpl <em>UML Domain Concept</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ifml.core.impl.UMLDomainConceptImpl
+		 * @see ifml.core.impl.CorePackageImpl#getUMLDomainConcept()
+		 * @generated
+		 */
+		EClass UML_DOMAIN_CONCEPT = eINSTANCE.getUMLDomainConcept();
+
+		/**
+		 * The meta object literal for the '<em><b>Classifier</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UML_DOMAIN_CONCEPT__CLASSIFIER = eINSTANCE.getUMLDomainConcept_Classifier();
+
+		/**
+		 * The meta object literal for the '{@link ifml.core.impl.BehavioralFeatureConceptImpl <em>Behavioral Feature Concept</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ifml.core.impl.BehavioralFeatureConceptImpl
+		 * @see ifml.core.impl.CorePackageImpl#getBehavioralFeatureConcept()
+		 * @generated
+		 */
+		EClass BEHAVIORAL_FEATURE_CONCEPT = eINSTANCE.getBehavioralFeatureConcept();
+
+		/**
+		 * The meta object literal for the '<em><b>Dynamic Behavior</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEHAVIORAL_FEATURE_CONCEPT__DYNAMIC_BEHAVIOR = eINSTANCE.getBehavioralFeatureConcept_DynamicBehavior();
+
+		/**
+		 * The meta object literal for the '{@link ifml.core.impl.UMLBehavioralFeatureImpl <em>UML Behavioral Feature</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ifml.core.impl.UMLBehavioralFeatureImpl
+		 * @see ifml.core.impl.CorePackageImpl#getUMLBehavioralFeature()
+		 * @generated
+		 */
+		EClass UML_BEHAVIORAL_FEATURE = eINSTANCE.getUMLBehavioralFeature();
+
+		/**
+		 * The meta object literal for the '<em><b>Behavioral Feature</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UML_BEHAVIORAL_FEATURE__BEHAVIORAL_FEATURE = eINSTANCE.getUMLBehavioralFeature_BehavioralFeature();
+
+		/**
+		 * The meta object literal for the '{@link ifml.core.impl.BehaviorConceptImpl <em>Behavior Concept</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ifml.core.impl.BehaviorConceptImpl
+		 * @see ifml.core.impl.CorePackageImpl#getBehaviorConcept()
+		 * @generated
+		 */
+		EClass BEHAVIOR_CONCEPT = eINSTANCE.getBehaviorConcept();
+
+		/**
+		 * The meta object literal for the '<em><b>Dynamic Behavior</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEHAVIOR_CONCEPT__DYNAMIC_BEHAVIOR = eINSTANCE.getBehaviorConcept_DynamicBehavior();
+
+		/**
+		 * The meta object literal for the '{@link ifml.core.impl.UMLBehaviorImpl <em>UML Behavior</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ifml.core.impl.UMLBehaviorImpl
+		 * @see ifml.core.impl.CorePackageImpl#getUMLBehavior()
+		 * @generated
+		 */
+		EClass UML_BEHAVIOR = eINSTANCE.getUMLBehavior();
+
+		/**
+		 * The meta object literal for the '<em><b>Behavior</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UML_BEHAVIOR__BEHAVIOR = eINSTANCE.getUMLBehavior_Behavior();
 
 		/**
 		 * The meta object literal for the '{@link ifml.core.SystemEventTypeEnum <em>System Event Type Enum</em>}' enum.

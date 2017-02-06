@@ -228,6 +228,46 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 				return createAnnotationAdapter();
 			}
 			@Override
+			public Adapter caseFeatureConcept(FeatureConcept object) {
+				return createFeatureConceptAdapter();
+			}
+			@Override
+			public Adapter caseDomainModel(DomainModel object) {
+				return createDomainModelAdapter();
+			}
+			@Override
+			public Adapter caseDomainElement(DomainElement object) {
+				return createDomainElementAdapter();
+			}
+			@Override
+			public Adapter caseUMLStructuralFeature(UMLStructuralFeature object) {
+				return createUMLStructuralFeatureAdapter();
+			}
+			@Override
+			public Adapter caseDomainConcept(DomainConcept object) {
+				return createDomainConceptAdapter();
+			}
+			@Override
+			public Adapter caseUMLDomainConcept(UMLDomainConcept object) {
+				return createUMLDomainConceptAdapter();
+			}
+			@Override
+			public Adapter caseBehavioralFeatureConcept(BehavioralFeatureConcept object) {
+				return createBehavioralFeatureConceptAdapter();
+			}
+			@Override
+			public Adapter caseUMLBehavioralFeature(UMLBehavioralFeature object) {
+				return createUMLBehavioralFeatureAdapter();
+			}
+			@Override
+			public Adapter caseBehaviorConcept(BehaviorConcept object) {
+				return createBehaviorConceptAdapter();
+			}
+			@Override
+			public Adapter caseUMLBehavior(UMLBehavior object) {
+				return createUMLBehaviorAdapter();
+			}
+			@Override
 			public Adapter caseUml_Element(uml.Element object) {
 				return createUml_ElementAdapter();
 			}
@@ -806,6 +846,146 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAnnotationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ifml.core.FeatureConcept <em>Feature Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ifml.core.FeatureConcept
+	 * @generated
+	 */
+	public Adapter createFeatureConceptAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ifml.core.DomainModel <em>Domain Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ifml.core.DomainModel
+	 * @generated
+	 */
+	public Adapter createDomainModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ifml.core.DomainElement <em>Domain Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ifml.core.DomainElement
+	 * @generated
+	 */
+	public Adapter createDomainElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ifml.core.UMLStructuralFeature <em>UML Structural Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ifml.core.UMLStructuralFeature
+	 * @generated
+	 */
+	public Adapter createUMLStructuralFeatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ifml.core.DomainConcept <em>Domain Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ifml.core.DomainConcept
+	 * @generated
+	 */
+	public Adapter createDomainConceptAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ifml.core.UMLDomainConcept <em>UML Domain Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ifml.core.UMLDomainConcept
+	 * @generated
+	 */
+	public Adapter createUMLDomainConceptAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ifml.core.BehavioralFeatureConcept <em>Behavioral Feature Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ifml.core.BehavioralFeatureConcept
+	 * @generated
+	 */
+	public Adapter createBehavioralFeatureConceptAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ifml.core.UMLBehavioralFeature <em>UML Behavioral Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ifml.core.UMLBehavioralFeature
+	 * @generated
+	 */
+	public Adapter createUMLBehavioralFeatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ifml.core.BehaviorConcept <em>Behavior Concept</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ifml.core.BehaviorConcept
+	 * @generated
+	 */
+	public Adapter createBehaviorConceptAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ifml.core.UMLBehavior <em>UML Behavior</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ifml.core.UMLBehavior
+	 * @generated
+	 */
+	public Adapter createUMLBehaviorAdapter() {
 		return null;
 	}
 

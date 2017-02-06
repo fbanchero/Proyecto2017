@@ -1810,7 +1810,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WINDOW__IS_XOR = CorePackage.VIEW_CONTAINER__IS_XOR;
+	int WINDOW__IS_XOR = CorePackage.VIEW_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Is Modal</b></em>' attribute.
@@ -1819,7 +1819,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WINDOW__IS_MODAL = CorePackage.VIEW_CONTAINER_FEATURE_COUNT + 0;
+	int WINDOW__IS_MODAL = CorePackage.VIEW_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Is New</b></em>' attribute.
@@ -1828,7 +1828,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WINDOW__IS_NEW = CorePackage.VIEW_CONTAINER_FEATURE_COUNT + 1;
+	int WINDOW__IS_NEW = CorePackage.VIEW_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Window</em>' class.
@@ -1837,7 +1837,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WINDOW_FEATURE_COUNT = CorePackage.VIEW_CONTAINER_FEATURE_COUNT + 2;
+	int WINDOW_FEATURE_COUNT = CorePackage.VIEW_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Window</em>' class.
@@ -1849,414 +1849,6 @@ public interface ExtensionsPackage extends EPackage {
 	int WINDOW_OPERATION_COUNT = CorePackage.VIEW_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ifml.extensions.impl.ImageImpl <em>Image</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ifml.extensions.impl.ImageImpl
-	 * @see ifml.extensions.impl.ExtensionsPackageImpl#getImage()
-	 * @generated
-	 */
-	int IMAGE = 16;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__ID = CorePackage.VIEW_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__CONSTRAINTS = CorePackage.VIEW_ELEMENT__CONSTRAINTS;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__ANNOTATIONS = CorePackage.VIEW_ELEMENT__ANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__NAME = CorePackage.VIEW_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__PARAMETERS = CorePackage.VIEW_ELEMENT__PARAMETERS;
-
-	/**
-	 * The feature id for the '<em><b>In Interaction Flows</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__IN_INTERACTION_FLOWS = CorePackage.VIEW_ELEMENT__IN_INTERACTION_FLOWS;
-
-	/**
-	 * The feature id for the '<em><b>Out Interaction Flows</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__OUT_INTERACTION_FLOWS = CorePackage.VIEW_ELEMENT__OUT_INTERACTION_FLOWS;
-
-	/**
-	 * The feature id for the '<em><b>View Element Events</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__VIEW_ELEMENT_EVENTS = CorePackage.VIEW_ELEMENT__VIEW_ELEMENT_EVENTS;
-
-	/**
-	 * The feature id for the '<em><b>Activation Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__ACTIVATION_EXPRESSION = CorePackage.VIEW_ELEMENT__ACTIVATION_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>View Container</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__VIEW_CONTAINER = CorePackage.VIEW_ELEMENT__VIEW_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Align</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__ALIGN = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Url</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE__URL = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Image</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE_FEATURE_COUNT = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Image</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMAGE_OPERATION_COUNT = CorePackage.VIEW_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ifml.extensions.impl.ButtonImpl <em>Button</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ifml.extensions.impl.ButtonImpl
-	 * @see ifml.extensions.impl.ExtensionsPackageImpl#getButton()
-	 * @generated
-	 */
-	int BUTTON = 17;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__ID = CorePackage.VIEW_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__CONSTRAINTS = CorePackage.VIEW_ELEMENT__CONSTRAINTS;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__ANNOTATIONS = CorePackage.VIEW_ELEMENT__ANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__NAME = CorePackage.VIEW_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__PARAMETERS = CorePackage.VIEW_ELEMENT__PARAMETERS;
-
-	/**
-	 * The feature id for the '<em><b>In Interaction Flows</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__IN_INTERACTION_FLOWS = CorePackage.VIEW_ELEMENT__IN_INTERACTION_FLOWS;
-
-	/**
-	 * The feature id for the '<em><b>Out Interaction Flows</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__OUT_INTERACTION_FLOWS = CorePackage.VIEW_ELEMENT__OUT_INTERACTION_FLOWS;
-
-	/**
-	 * The feature id for the '<em><b>View Element Events</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__VIEW_ELEMENT_EVENTS = CorePackage.VIEW_ELEMENT__VIEW_ELEMENT_EVENTS;
-
-	/**
-	 * The feature id for the '<em><b>Activation Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__ACTIVATION_EXPRESSION = CorePackage.VIEW_ELEMENT__ACTIVATION_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>View Container</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__VIEW_CONTAINER = CorePackage.VIEW_ELEMENT__VIEW_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Button Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__BUTTON_TEXT = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Align</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON__ALIGN = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Button</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON_FEATURE_COUNT = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Button</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUTTON_OPERATION_COUNT = CorePackage.VIEW_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ifml.extensions.impl.TextFieldImpl <em>Text Field</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ifml.extensions.impl.TextFieldImpl
-	 * @see ifml.extensions.impl.ExtensionsPackageImpl#getTextField()
-	 * @generated
-	 */
-	int TEXT_FIELD = 18;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD__ID = CorePackage.VIEW_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD__CONSTRAINTS = CorePackage.VIEW_ELEMENT__CONSTRAINTS;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD__ANNOTATIONS = CorePackage.VIEW_ELEMENT__ANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD__NAME = CorePackage.VIEW_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD__PARAMETERS = CorePackage.VIEW_ELEMENT__PARAMETERS;
-
-	/**
-	 * The feature id for the '<em><b>In Interaction Flows</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD__IN_INTERACTION_FLOWS = CorePackage.VIEW_ELEMENT__IN_INTERACTION_FLOWS;
-
-	/**
-	 * The feature id for the '<em><b>Out Interaction Flows</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD__OUT_INTERACTION_FLOWS = CorePackage.VIEW_ELEMENT__OUT_INTERACTION_FLOWS;
-
-	/**
-	 * The feature id for the '<em><b>View Element Events</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD__VIEW_ELEMENT_EVENTS = CorePackage.VIEW_ELEMENT__VIEW_ELEMENT_EVENTS;
-
-	/**
-	 * The feature id for the '<em><b>Activation Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD__ACTIVATION_EXPRESSION = CorePackage.VIEW_ELEMENT__ACTIVATION_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>View Container</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD__VIEW_CONTAINER = CorePackage.VIEW_ELEMENT__VIEW_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Font Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD__FONT_SIZE = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Text Field Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD__TEXT_FIELD_TEXT = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Text Field</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD_FEATURE_COUNT = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Text Field</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_FIELD_OPERATION_COUNT = CorePackage.VIEW_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link ifml.extensions.SortOrderEnum <em>Sort Order Enum</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2264,7 +1856,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @see ifml.extensions.impl.ExtensionsPackageImpl#getSortOrderEnum()
 	 * @generated
 	 */
-	int SORT_ORDER_ENUM = 19;
+	int SORT_ORDER_ENUM = 16;
 
 
 	/**
@@ -2494,6 +2086,17 @@ public interface ExtensionsPackage extends EPackage {
 	EClass getWindow();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ifml.extensions.Window#isIsXor <em>Is Xor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Xor</em>'.
+	 * @see ifml.extensions.Window#isIsXor()
+	 * @see #getWindow()
+	 * @generated
+	 */
+	EAttribute getWindow_IsXor();
+
+	/**
 	 * Returns the meta object for the attribute '{@link ifml.extensions.Window#isIsModal <em>Is Modal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2514,102 +2117,6 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getWindow_IsNew();
-
-	/**
-	 * Returns the meta object for class '{@link ifml.extensions.Image <em>Image</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Image</em>'.
-	 * @see ifml.extensions.Image
-	 * @generated
-	 */
-	EClass getImage();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ifml.extensions.Image#getAlign <em>Align</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Align</em>'.
-	 * @see ifml.extensions.Image#getAlign()
-	 * @see #getImage()
-	 * @generated
-	 */
-	EAttribute getImage_Align();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ifml.extensions.Image#getUrl <em>Url</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Url</em>'.
-	 * @see ifml.extensions.Image#getUrl()
-	 * @see #getImage()
-	 * @generated
-	 */
-	EAttribute getImage_Url();
-
-	/**
-	 * Returns the meta object for class '{@link ifml.extensions.Button <em>Button</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Button</em>'.
-	 * @see ifml.extensions.Button
-	 * @generated
-	 */
-	EClass getButton();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ifml.extensions.Button#getButtonText <em>Button Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Button Text</em>'.
-	 * @see ifml.extensions.Button#getButtonText()
-	 * @see #getButton()
-	 * @generated
-	 */
-	EAttribute getButton_ButtonText();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ifml.extensions.Button#getAlign <em>Align</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Align</em>'.
-	 * @see ifml.extensions.Button#getAlign()
-	 * @see #getButton()
-	 * @generated
-	 */
-	EAttribute getButton_Align();
-
-	/**
-	 * Returns the meta object for class '{@link ifml.extensions.TextField <em>Text Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Text Field</em>'.
-	 * @see ifml.extensions.TextField
-	 * @generated
-	 */
-	EClass getTextField();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ifml.extensions.TextField#getFontSize <em>Font Size</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Font Size</em>'.
-	 * @see ifml.extensions.TextField#getFontSize()
-	 * @see #getTextField()
-	 * @generated
-	 */
-	EAttribute getTextField_FontSize();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ifml.extensions.TextField#getTextFieldText <em>Text Field Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text Field Text</em>'.
-	 * @see ifml.extensions.TextField#getTextFieldText()
-	 * @see #getTextField()
-	 * @generated
-	 */
-	EAttribute getTextField_TextFieldText();
 
 	/**
 	 * Returns the meta object for enum '{@link ifml.extensions.SortOrderEnum <em>Sort Order Enum</em>}'.
@@ -2853,6 +2360,14 @@ public interface ExtensionsPackage extends EPackage {
 		EClass WINDOW = eINSTANCE.getWindow();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Xor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WINDOW__IS_XOR = eINSTANCE.getWindow_IsXor();
+
+		/**
 		 * The meta object literal for the '<em><b>Is Modal</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2867,84 +2382,6 @@ public interface ExtensionsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute WINDOW__IS_NEW = eINSTANCE.getWindow_IsNew();
-
-		/**
-		 * The meta object literal for the '{@link ifml.extensions.impl.ImageImpl <em>Image</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ifml.extensions.impl.ImageImpl
-		 * @see ifml.extensions.impl.ExtensionsPackageImpl#getImage()
-		 * @generated
-		 */
-		EClass IMAGE = eINSTANCE.getImage();
-
-		/**
-		 * The meta object literal for the '<em><b>Align</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute IMAGE__ALIGN = eINSTANCE.getImage_Align();
-
-		/**
-		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute IMAGE__URL = eINSTANCE.getImage_Url();
-
-		/**
-		 * The meta object literal for the '{@link ifml.extensions.impl.ButtonImpl <em>Button</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ifml.extensions.impl.ButtonImpl
-		 * @see ifml.extensions.impl.ExtensionsPackageImpl#getButton()
-		 * @generated
-		 */
-		EClass BUTTON = eINSTANCE.getButton();
-
-		/**
-		 * The meta object literal for the '<em><b>Button Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BUTTON__BUTTON_TEXT = eINSTANCE.getButton_ButtonText();
-
-		/**
-		 * The meta object literal for the '<em><b>Align</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BUTTON__ALIGN = eINSTANCE.getButton_Align();
-
-		/**
-		 * The meta object literal for the '{@link ifml.extensions.impl.TextFieldImpl <em>Text Field</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ifml.extensions.impl.TextFieldImpl
-		 * @see ifml.extensions.impl.ExtensionsPackageImpl#getTextField()
-		 * @generated
-		 */
-		EClass TEXT_FIELD = eINSTANCE.getTextField();
-
-		/**
-		 * The meta object literal for the '<em><b>Font Size</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEXT_FIELD__FONT_SIZE = eINSTANCE.getTextField_FontSize();
-
-		/**
-		 * The meta object literal for the '<em><b>Text Field Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEXT_FIELD__TEXT_FIELD_TEXT = eINSTANCE.getTextField_TextFieldText();
 
 		/**
 		 * The meta object literal for the '{@link ifml.extensions.SortOrderEnum <em>Sort Order Enum</em>}' enum.

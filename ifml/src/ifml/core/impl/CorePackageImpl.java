@@ -6,6 +6,8 @@ import ifml.core.Action;
 import ifml.core.ActionEvent;
 import ifml.core.ActivationExpression;
 import ifml.core.Annotation;
+import ifml.core.BehaviorConcept;
+import ifml.core.BehavioralFeatureConcept;
 import ifml.core.BooleanExpression;
 import ifml.core.ConditionalExpression;
 import ifml.core.Constraint;
@@ -17,11 +19,15 @@ import ifml.core.CoreFactory;
 import ifml.core.CorePackage;
 import ifml.core.DataBinding;
 import ifml.core.DataFlow;
+import ifml.core.DomainConcept;
+import ifml.core.DomainElement;
+import ifml.core.DomainModel;
 import ifml.core.DynamicBehavior;
 import ifml.core.Element;
 import ifml.core.Event;
 import ifml.core.Expression;
 import ifml.core.ExternalEvent;
+import ifml.core.FeatureConcept;
 import ifml.core.IFMLModel;
 import ifml.core.InteractionFlow;
 import ifml.core.InteractionFlowElement;
@@ -38,6 +44,10 @@ import ifml.core.ParameterKind;
 import ifml.core.Port;
 import ifml.core.SystemEvent;
 import ifml.core.SystemEventTypeEnum;
+import ifml.core.UMLBehavior;
+import ifml.core.UMLBehavioralFeature;
+import ifml.core.UMLDomainConcept;
+import ifml.core.UMLStructuralFeature;
 import ifml.core.ViewComponent;
 import ifml.core.ViewComponentPart;
 import ifml.core.ViewContainer;
@@ -57,7 +67,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.emf.ecore.resource.Resource;
 
 import uml.UmlPackage;
 
@@ -76,11 +85,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass viewPointEClass = null;
-	
-	@Override
-	protected Resource createResource(String uri) {
-		return super.createResource("ifml.ecore#/0/core");
-	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -346,6 +351,76 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * @generated
 	 */
 	private EClass annotationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass featureConceptEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass domainModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass domainElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass umlStructuralFeatureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass domainConceptEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass umlDomainConceptEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass behavioralFeatureConceptEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass umlBehavioralFeatureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass behaviorConceptEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass umlBehaviorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -714,7 +789,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDynamicBehavior_BehavioralFeature() {
+	public EReference getDynamicBehavior_BehavioralFeatureConcept() {
 		return (EReference)dynamicBehaviorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -723,7 +798,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDynamicBehavior_Behavior() {
+	public EReference getDynamicBehavior_BehaviorConcept() {
 		return (EReference)dynamicBehaviorEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -912,15 +987,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getViewContainer_IsXor() {
-		return (EAttribute)viewContainerEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getIFMLModel() {
 		return ifmlModelEClass;
 	}
@@ -950,6 +1016,15 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EReference getIFMLModel_InteractionFlowModelViewPoints() {
 		return (EReference)ifmlModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIFMLModel_DomainModel() {
+		return (EReference)ifmlModelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1056,7 +1131,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataBinding_Classifier() {
+	public EReference getDataBinding_DomainConcept() {
 		return (EReference)dataBindingEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1218,7 +1293,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVisualizationAttribute_StructuralFeature() {
+	public EReference getVisualizationAttribute_FeatureConcept() {
 		return (EReference)visualizationAttributeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1283,6 +1358,186 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 */
 	public EAttribute getAnnotation_Text() {
 		return (EAttribute)annotationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFeatureConcept() {
+		return featureConceptEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFeatureConcept_VisualizationAttribute() {
+		return (EReference)featureConceptEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDomainModel() {
+		return domainModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDomainModel_Elements() {
+		return (EReference)domainModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDomainElement() {
+		return domainElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDomainElement_DomainModel() {
+		return (EReference)domainElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUMLStructuralFeature() {
+		return umlStructuralFeatureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUMLStructuralFeature_StructuralFeature() {
+		return (EReference)umlStructuralFeatureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDomainConcept() {
+		return domainConceptEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDomainConcept_DataBinding() {
+		return (EReference)domainConceptEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUMLDomainConcept() {
+		return umlDomainConceptEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUMLDomainConcept_Classifier() {
+		return (EReference)umlDomainConceptEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBehavioralFeatureConcept() {
+		return behavioralFeatureConceptEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBehavioralFeatureConcept_DynamicBehavior() {
+		return (EReference)behavioralFeatureConceptEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUMLBehavioralFeature() {
+		return umlBehavioralFeatureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUMLBehavioralFeature_BehavioralFeature() {
+		return (EReference)umlBehavioralFeatureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBehaviorConcept() {
+		return behaviorConceptEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBehaviorConcept_DynamicBehavior() {
+		return (EReference)behaviorConceptEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUMLBehavior() {
+		return umlBehaviorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUMLBehavior_Behavior() {
+		return (EReference)umlBehaviorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1373,8 +1628,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEReference(elementEClass, ELEMENT__ANNOTATIONS);
 
 		dynamicBehaviorEClass = createEClass(DYNAMIC_BEHAVIOR);
-		createEReference(dynamicBehaviorEClass, DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE);
-		createEReference(dynamicBehaviorEClass, DYNAMIC_BEHAVIOR__BEHAVIOR);
+		createEReference(dynamicBehaviorEClass, DYNAMIC_BEHAVIOR__BEHAVIORAL_FEATURE_CONCEPT);
+		createEReference(dynamicBehaviorEClass, DYNAMIC_BEHAVIOR__BEHAVIOR_CONCEPT);
 
 		dataFlowEClass = createEClass(DATA_FLOW);
 
@@ -1404,12 +1659,12 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEAttribute(viewContainerEClass, VIEW_CONTAINER__IS_LAND_MARK);
 		createEAttribute(viewContainerEClass, VIEW_CONTAINER__IS_DEFAULT);
 		createEReference(viewContainerEClass, VIEW_CONTAINER__VIEW_ELEMENTS);
-		createEAttribute(viewContainerEClass, VIEW_CONTAINER__IS_XOR);
 
 		ifmlModelEClass = createEClass(IFML_MODEL);
 		createEReference(ifmlModelEClass, IFML_MODEL__INTERACTION_FLOW_MODEL);
 		createEReference(ifmlModelEClass, IFML_MODEL__CONTENT_MODEL);
 		createEReference(ifmlModelEClass, IFML_MODEL__INTERACTION_FLOW_MODEL_VIEW_POINTS);
+		createEReference(ifmlModelEClass, IFML_MODEL__DOMAIN_MODEL);
 
 		eventEClass = createEClass(EVENT);
 		createEReference(eventEClass, EVENT__ACTIVATION_EXPRESSION);
@@ -1425,7 +1680,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		dataBindingEClass = createEClass(DATA_BINDING);
 		createEReference(dataBindingEClass, DATA_BINDING__CONDITIONAL_EXPRESSION);
 		createEReference(dataBindingEClass, DATA_BINDING__VISUALIZATION_ATTRIBUTES);
-		createEReference(dataBindingEClass, DATA_BINDING__CLASSIFIER);
+		createEReference(dataBindingEClass, DATA_BINDING__DOMAIN_CONCEPT);
 
 		viewComponentEClass = createEClass(VIEW_COMPONENT);
 		createEReference(viewComponentEClass, VIEW_COMPONENT__VIEW_COMPONENT_PARTS);
@@ -1453,7 +1708,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		contextDimensionEClass = createEClass(CONTEXT_DIMENSION);
 
 		visualizationAttributeEClass = createEClass(VISUALIZATION_ATTRIBUTE);
-		createEReference(visualizationAttributeEClass, VISUALIZATION_ATTRIBUTE__STRUCTURAL_FEATURE);
+		createEReference(visualizationAttributeEClass, VISUALIZATION_ATTRIBUTE__FEATURE_CONCEPT);
 
 		moduleEClass = createEClass(MODULE);
 		createEReference(moduleEClass, MODULE__INPUT_PORTS);
@@ -1464,6 +1719,36 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		annotationEClass = createEClass(ANNOTATION);
 		createEAttribute(annotationEClass, ANNOTATION__TEXT);
+
+		featureConceptEClass = createEClass(FEATURE_CONCEPT);
+		createEReference(featureConceptEClass, FEATURE_CONCEPT__VISUALIZATION_ATTRIBUTE);
+
+		domainModelEClass = createEClass(DOMAIN_MODEL);
+		createEReference(domainModelEClass, DOMAIN_MODEL__ELEMENTS);
+
+		domainElementEClass = createEClass(DOMAIN_ELEMENT);
+		createEReference(domainElementEClass, DOMAIN_ELEMENT__DOMAIN_MODEL);
+
+		umlStructuralFeatureEClass = createEClass(UML_STRUCTURAL_FEATURE);
+		createEReference(umlStructuralFeatureEClass, UML_STRUCTURAL_FEATURE__STRUCTURAL_FEATURE);
+
+		domainConceptEClass = createEClass(DOMAIN_CONCEPT);
+		createEReference(domainConceptEClass, DOMAIN_CONCEPT__DATA_BINDING);
+
+		umlDomainConceptEClass = createEClass(UML_DOMAIN_CONCEPT);
+		createEReference(umlDomainConceptEClass, UML_DOMAIN_CONCEPT__CLASSIFIER);
+
+		behavioralFeatureConceptEClass = createEClass(BEHAVIORAL_FEATURE_CONCEPT);
+		createEReference(behavioralFeatureConceptEClass, BEHAVIORAL_FEATURE_CONCEPT__DYNAMIC_BEHAVIOR);
+
+		umlBehavioralFeatureEClass = createEClass(UML_BEHAVIORAL_FEATURE);
+		createEReference(umlBehavioralFeatureEClass, UML_BEHAVIORAL_FEATURE__BEHAVIORAL_FEATURE);
+
+		behaviorConceptEClass = createEClass(BEHAVIOR_CONCEPT);
+		createEReference(behaviorConceptEClass, BEHAVIOR_CONCEPT__DYNAMIC_BEHAVIOR);
+
+		umlBehaviorEClass = createEClass(UML_BEHAVIOR);
+		createEReference(umlBehaviorEClass, UML_BEHAVIOR__BEHAVIOR);
 
 		// Create enums
 		systemEventTypeEnumEEnum = createEEnum(SYSTEM_EVENT_TYPE_ENUM);
@@ -1544,6 +1829,16 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		visualizationAttributeEClass.getESuperTypes().add(this.getViewComponentPart());
 		moduleEClass.getESuperTypes().add(this.getInteractionFlowModelElement());
 		portEClass.getESuperTypes().add(this.getInteractionFlowElement());
+		featureConceptEClass.getESuperTypes().add(this.getDomainElement());
+		domainModelEClass.getESuperTypes().add(this.getNamedElement());
+		domainElementEClass.getESuperTypes().add(this.getNamedElement());
+		umlStructuralFeatureEClass.getESuperTypes().add(this.getFeatureConcept());
+		domainConceptEClass.getESuperTypes().add(this.getDomainElement());
+		umlDomainConceptEClass.getESuperTypes().add(this.getDomainConcept());
+		behavioralFeatureConceptEClass.getESuperTypes().add(this.getDomainElement());
+		umlBehavioralFeatureEClass.getESuperTypes().add(this.getBehavioralFeatureConcept());
+		behaviorConceptEClass.getESuperTypes().add(this.getDomainElement());
+		umlBehaviorEClass.getESuperTypes().add(this.getBehaviorConcept());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(viewPointEClass, ViewPoint.class, "ViewPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1588,8 +1883,8 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEReference(getElement_Annotations(), this.getAnnotation(), null, "annotations", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(dynamicBehaviorEClass, DynamicBehavior.class, "DynamicBehavior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDynamicBehavior_BehavioralFeature(), theUmlPackage.getBehavioralFeature(), null, "behavioralFeature", null, 0, 1, DynamicBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDynamicBehavior_Behavior(), theUmlPackage.getBehavior(), null, "behavior", null, 0, 1, DynamicBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDynamicBehavior_BehavioralFeatureConcept(), this.getBehavioralFeatureConcept(), null, "behavioralFeatureConcept", null, 0, 1, DynamicBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDynamicBehavior_BehaviorConcept(), this.getBehaviorConcept(), null, "behaviorConcept", null, 0, 1, DynamicBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataFlowEClass, DataFlow.class, "DataFlow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1619,12 +1914,12 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEAttribute(getViewContainer_IsLandMark(), ecorePackage.getEBoolean(), "isLandMark", null, 1, 1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getViewContainer_IsDefault(), ecorePackage.getEBoolean(), "isDefault", null, 1, 1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getViewContainer_ViewElements(), this.getViewElement(), null, "viewElements", null, 0, -1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getViewContainer_IsXor(), ecorePackage.getEBoolean(), "isXor", null, 0, 1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ifmlModelEClass, IFMLModel.class, "IFMLModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIFMLModel_InteractionFlowModel(), this.getInteractionFlowModel(), null, "interactionFlowModel", null, 1, 1, IFMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getIFMLModel_ContentModel(), this.getContentModel(), null, "contentModel", null, 1, 1, IFMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getIFMLModel_InteractionFlowModelViewPoints(), this.getViewPoint(), null, "interactionFlowModelViewPoints", null, 0, -1, IFMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getIFMLModel_DomainModel(), this.getDomainModel(), null, "domainModel", null, 1, 1, IFMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvent_ActivationExpression(), this.getActivationExpression(), null, "activationExpression", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1640,7 +1935,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEClass(dataBindingEClass, DataBinding.class, "DataBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataBinding_ConditionalExpression(), this.getConditionalExpression(), null, "conditionalExpression", null, 0, -1, DataBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataBinding_VisualizationAttributes(), this.getVisualizationAttribute(), null, "visualizationAttributes", null, 0, -1, DataBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataBinding_Classifier(), theUmlPackage.getClassifier(), null, "classifier", null, 1, 1, DataBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataBinding_DomainConcept(), this.getDomainConcept(), null, "domainConcept", null, 1, 1, DataBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewComponentEClass, ViewComponent.class, "ViewComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getViewComponent_ViewComponentParts(), this.getViewComponentPart(), null, "viewComponentParts", null, 0, -1, ViewComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1668,7 +1963,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEClass(contextDimensionEClass, ContextDimension.class, "ContextDimension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(visualizationAttributeEClass, VisualizationAttribute.class, "VisualizationAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVisualizationAttribute_StructuralFeature(), theUmlPackage.getStructuralFeature(), null, "structuralFeature", null, 0, 1, VisualizationAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVisualizationAttribute_FeatureConcept(), this.getFeatureConcept(), null, "featureConcept", null, 1, 1, VisualizationAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(moduleEClass, Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModule_InputPorts(), this.getPort(), null, "inputPorts", null, 1, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1679,6 +1974,36 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
 		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAnnotation_Text(), ecorePackage.getEString(), "text", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(featureConceptEClass, FeatureConcept.class, "FeatureConcept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFeatureConcept_VisualizationAttribute(), this.getVisualizationAttribute(), null, "visualizationAttribute", null, 0, 1, FeatureConcept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(domainModelEClass, DomainModel.class, "DomainModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDomainModel_Elements(), this.getDomainElement(), null, "elements", null, 0, -1, DomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(domainElementEClass, DomainElement.class, "DomainElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDomainElement_DomainModel(), this.getDomainModel(), null, "domainModel", null, 1, 1, DomainElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(umlStructuralFeatureEClass, UMLStructuralFeature.class, "UMLStructuralFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUMLStructuralFeature_StructuralFeature(), theUmlPackage.getStructuralFeature(), null, "structuralFeature", null, 0, 1, UMLStructuralFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(domainConceptEClass, DomainConcept.class, "DomainConcept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDomainConcept_DataBinding(), this.getDataBinding(), null, "dataBinding", null, 0, 1, DomainConcept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(umlDomainConceptEClass, UMLDomainConcept.class, "UMLDomainConcept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUMLDomainConcept_Classifier(), theUmlPackage.getClassifier(), null, "classifier", null, 0, 1, UMLDomainConcept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(behavioralFeatureConceptEClass, BehavioralFeatureConcept.class, "BehavioralFeatureConcept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBehavioralFeatureConcept_DynamicBehavior(), this.getDynamicBehavior(), null, "dynamicBehavior", null, 0, 1, BehavioralFeatureConcept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(umlBehavioralFeatureEClass, UMLBehavioralFeature.class, "UMLBehavioralFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUMLBehavioralFeature_BehavioralFeature(), theUmlPackage.getBehavioralFeature(), null, "behavioralFeature", null, 0, 1, UMLBehavioralFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(behaviorConceptEClass, BehaviorConcept.class, "BehaviorConcept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBehaviorConcept_DynamicBehavior(), this.getDynamicBehavior(), null, "dynamicBehavior", null, 0, 1, BehaviorConcept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(umlBehaviorEClass, UMLBehavior.class, "UMLBehavior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUMLBehavior_Behavior(), theUmlPackage.getBehavior(), null, "behavior", null, 0, 1, UMLBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(systemEventTypeEnumEEnum, SystemEventTypeEnum.class, "SystemEventTypeEnum");
