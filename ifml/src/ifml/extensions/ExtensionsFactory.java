@@ -67,6 +67,15 @@ public interface ExtensionsFactory extends EFactory {
 	SortAttribute createSortAttribute();
 
 	/**
+	 * Returns a new object of class '<em>Select Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Select Event</em>'.
+	 * @generated
+	 */
+	SelectEvent createSelectEvent();
+
+	/**
 	 * Returns a new object of class '<em>List</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,6 +155,33 @@ public interface ExtensionsFactory extends EFactory {
 	 * @generated
 	 */
 	Window createWindow();
+
+	/**
+	 * Returns a new object of class '<em>Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Image</em>'.
+	 * @generated
+	 */
+	Image createImage();
+
+	/**
+	 * Returns a new object of class '<em>Button</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Button</em>'.
+	 * @generated
+	 */
+	Button createButton();
+
+	/**
+	 * Returns a new object of class '<em>Text Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Text Field</em>'.
+	 * @generated
+	 */
+	TextField createTextField();
 
 	/**
 	 * Returns the package supported by this factory.

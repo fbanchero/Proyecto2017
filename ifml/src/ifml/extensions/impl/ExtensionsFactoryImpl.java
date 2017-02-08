@@ -62,6 +62,7 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 			case ExtensionsPackage.VALIDATION_RULE: return createValidationRule();
 			case ExtensionsPackage.SLOT: return createSlot();
 			case ExtensionsPackage.SORT_ATTRIBUTE: return createSortAttribute();
+			case ExtensionsPackage.SELECT_EVENT: return createSelectEvent();
 			case ExtensionsPackage.LIST: return createList();
 			case ExtensionsPackage.SIMPLE_FIELD: return createSimpleField();
 			case ExtensionsPackage.SUBMIT_EVENT: return createSubmitEvent();
@@ -71,6 +72,9 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 			case ExtensionsPackage.USER_ROLE: return createUserRole();
 			case ExtensionsPackage.DETAILS: return createDetails();
 			case ExtensionsPackage.WINDOW: return createWindow();
+			case ExtensionsPackage.IMAGE: return createImage();
+			case ExtensionsPackage.BUTTON: return createButton();
+			case ExtensionsPackage.TEXT_FIELD: return createTextField();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -161,6 +165,16 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SelectEvent createSelectEvent() {
+		SelectEventImpl selectEvent = new SelectEventImpl();
+		return selectEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public List createList() {
 		ListImpl list = new ListImpl();
 		return list;
@@ -244,6 +258,36 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 	public Window createWindow() {
 		WindowImpl window = new WindowImpl();
 		return window;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Image createImage() {
+		ImageImpl image = new ImageImpl();
+		return image;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Button createButton() {
+		ButtonImpl button = new ButtonImpl();
+		return button;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TextField createTextField() {
+		TextFieldImpl textField = new TextFieldImpl();
+		return textField;
 	}
 
 	/**

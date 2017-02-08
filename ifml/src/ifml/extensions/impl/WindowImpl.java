@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ifml.extensions.impl.WindowImpl#isIsXor <em>Is Xor</em>}</li>
  *   <li>{@link ifml.extensions.impl.WindowImpl#isIsModal <em>Is Modal</em>}</li>
  *   <li>{@link ifml.extensions.impl.WindowImpl#isIsNew <em>Is New</em>}</li>
  * </ul>
@@ -29,26 +28,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class WindowImpl extends ViewContainerImpl implements Window {
-	/**
-	 * The default value of the '{@link #isIsXor() <em>Is Xor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsXor()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean IS_XOR_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isIsXor() <em>Is Xor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsXor()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean isXor = IS_XOR_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #isIsModal() <em>Is Modal</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -113,27 +92,6 @@ public class WindowImpl extends ViewContainerImpl implements Window {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isIsXor() {
-		return isXor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsXor(boolean newIsXor) {
-		boolean oldIsXor = isXor;
-		isXor = newIsXor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionsPackage.WINDOW__IS_XOR, oldIsXor, isXor));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isIsModal() {
 		return isModal;
 	}
@@ -179,8 +137,6 @@ public class WindowImpl extends ViewContainerImpl implements Window {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExtensionsPackage.WINDOW__IS_XOR:
-				return isIsXor();
 			case ExtensionsPackage.WINDOW__IS_MODAL:
 				return isIsModal();
 			case ExtensionsPackage.WINDOW__IS_NEW:
@@ -197,9 +153,6 @@ public class WindowImpl extends ViewContainerImpl implements Window {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExtensionsPackage.WINDOW__IS_XOR:
-				setIsXor((Boolean)newValue);
-				return;
 			case ExtensionsPackage.WINDOW__IS_MODAL:
 				setIsModal((Boolean)newValue);
 				return;
@@ -218,9 +171,6 @@ public class WindowImpl extends ViewContainerImpl implements Window {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExtensionsPackage.WINDOW__IS_XOR:
-				setIsXor(IS_XOR_EDEFAULT);
-				return;
 			case ExtensionsPackage.WINDOW__IS_MODAL:
 				setIsModal(IS_MODAL_EDEFAULT);
 				return;
@@ -239,8 +189,6 @@ public class WindowImpl extends ViewContainerImpl implements Window {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExtensionsPackage.WINDOW__IS_XOR:
-				return isXor != IS_XOR_EDEFAULT;
 			case ExtensionsPackage.WINDOW__IS_MODAL:
 				return isModal != IS_MODAL_EDEFAULT;
 			case ExtensionsPackage.WINDOW__IS_NEW:
@@ -259,9 +207,7 @@ public class WindowImpl extends ViewContainerImpl implements Window {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (isXor: ");
-		result.append(isXor);
-		result.append(", isModal: ");
+		result.append(" (isModal: ");
 		result.append(isModal);
 		result.append(", isNew: ");
 		result.append(isNew);

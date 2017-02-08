@@ -11,7 +11,7 @@ import ifml.core.ViewElementEvent;
  *
  *
  * @see ifml.extensions.ExtensionsPackage#getSelectEvent()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface SelectEvent extends ViewElementEvent {

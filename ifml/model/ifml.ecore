@@ -20,7 +20,7 @@
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" ordered="false"
             lowerBound="1" eType="#/0/extensions/SortOrderEnum"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="SelectEvent" abstract="true" eSuperTypes="#/0/core/ViewElementEvent"/>
+      <eClassifiers xsi:type="ecore:EClass" name="SelectEvent" eSuperTypes="#/0/core/ViewElementEvent"/>
       <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="#/0/core/ViewComponent">
         <eStructuralFeatures xsi:type="ecore:EReference" name="selectEvent" ordered="false"
             upperBound="-1" eType="#/0/extensions/SelectEvent" containment="true"/>
@@ -39,9 +39,21 @@
       <eClassifiers xsi:type="ecore:EClass" name="UserRole" eSuperTypes="#/0/core/ContextDimension"/>
       <eClassifiers xsi:type="ecore:EClass" name="Details" eSuperTypes="#/0/core/ViewComponent"/>
       <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#/0/core/ViewContainer">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="isXor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="isModal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNew" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#/0/core/ViewElement">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="align" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#/0/core/ViewElement">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="ButtonText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+            defaultValueLiteral=""/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="Align" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="TextField" eSuperTypes="#/0/core/ViewElement">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="FontSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="TextFieldText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="core" nsURI="http://www.omg.org/spec/IFML/core" nsPrefix="core">
@@ -145,6 +157,7 @@
             lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="viewElements" ordered="false"
             upperBound="-1" eType="#/0/core/ViewElement" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="isXor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="IFMLModel" eSuperTypes="#/0/core/NamedElement">
         <eStructuralFeatures xsi:type="ecore:EReference" name="interactionFlowModel"

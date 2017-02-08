@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class SelectEventImpl extends ViewElementEventImpl implements SelectEvent {
+public class SelectEventImpl extends ViewElementEventImpl implements SelectEvent {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

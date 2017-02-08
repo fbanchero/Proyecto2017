@@ -279,6 +279,45 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExtensionsPackage.IMAGE: {
+				Image image = (Image)theEObject;
+				T result = caseImage(image);
+				if (result == null) result = caseViewElement(image);
+				if (result == null) result = caseInteractionFlowElement(image);
+				if (result == null) result = caseNamedElement(image);
+				if (result == null) result = caseInteractionFlowModelElement(image);
+				if (result == null) result = caseTemplaetableElement(image);
+				if (result == null) result = caseElement(image);
+				if (result == null) result = caseUml_Element(image);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExtensionsPackage.BUTTON: {
+				Button button = (Button)theEObject;
+				T result = caseButton(button);
+				if (result == null) result = caseViewElement(button);
+				if (result == null) result = caseInteractionFlowElement(button);
+				if (result == null) result = caseNamedElement(button);
+				if (result == null) result = caseInteractionFlowModelElement(button);
+				if (result == null) result = caseTemplaetableElement(button);
+				if (result == null) result = caseElement(button);
+				if (result == null) result = caseUml_Element(button);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExtensionsPackage.TEXT_FIELD: {
+				TextField textField = (TextField)theEObject;
+				T result = caseTextField(textField);
+				if (result == null) result = caseViewElement(textField);
+				if (result == null) result = caseInteractionFlowElement(textField);
+				if (result == null) result = caseNamedElement(textField);
+				if (result == null) result = caseInteractionFlowModelElement(textField);
+				if (result == null) result = caseTemplaetableElement(textField);
+				if (result == null) result = caseElement(textField);
+				if (result == null) result = caseUml_Element(textField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -520,6 +559,51 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseWindow(Window object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Image</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImage(Image object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Button</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Button</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseButton(Button object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextField(TextField object) {
 		return null;
 	}
 

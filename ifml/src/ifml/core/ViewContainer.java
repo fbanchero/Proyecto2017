@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link ifml.core.ViewContainer#isIsLandMark <em>Is Land Mark</em>}</li>
  *   <li>{@link ifml.core.ViewContainer#isIsDefault <em>Is Default</em>}</li>
  *   <li>{@link ifml.core.ViewContainer#getViewElements <em>View Elements</em>}</li>
+ *   <li>{@link ifml.core.ViewContainer#isIsXor <em>Is Xor</em>}</li>
  * </ul>
  *
  * @see ifml.core.CorePackage#getViewContainer()
@@ -90,5 +91,31 @@ public interface ViewContainer extends ViewElement {
 	 * @generated
 	 */
 	EList<ViewElement> getViewElements();
+
+	/**
+	 * Returns the value of the '<em><b>Is Xor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Xor</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Xor</em>' attribute.
+	 * @see #setIsXor(boolean)
+	 * @see ifml.core.CorePackage#getViewContainer_IsXor()
+	 * @model
+	 * @generated
+	 */
+	boolean isIsXor();
+
+	/**
+	 * Sets the value of the '{@link ifml.core.ViewContainer#isIsXor <em>Is Xor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Xor</em>' attribute.
+	 * @see #isIsXor()
+	 * @generated
+	 */
+	void setIsXor(boolean value);
 
 } // ViewContainer

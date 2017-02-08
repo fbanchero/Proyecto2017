@@ -987,6 +987,15 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getViewContainer_IsXor() {
+		return (EAttribute)viewContainerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIFMLModel() {
 		return ifmlModelEClass;
 	}
@@ -1659,6 +1668,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		createEAttribute(viewContainerEClass, VIEW_CONTAINER__IS_LAND_MARK);
 		createEAttribute(viewContainerEClass, VIEW_CONTAINER__IS_DEFAULT);
 		createEReference(viewContainerEClass, VIEW_CONTAINER__VIEW_ELEMENTS);
+		createEAttribute(viewContainerEClass, VIEW_CONTAINER__IS_XOR);
 
 		ifmlModelEClass = createEClass(IFML_MODEL);
 		createEReference(ifmlModelEClass, IFML_MODEL__INTERACTION_FLOW_MODEL);
@@ -1914,6 +1924,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 		initEAttribute(getViewContainer_IsLandMark(), ecorePackage.getEBoolean(), "isLandMark", null, 1, 1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getViewContainer_IsDefault(), ecorePackage.getEBoolean(), "isDefault", null, 1, 1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getViewContainer_ViewElements(), this.getViewElement(), null, "viewElements", null, 0, -1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getViewContainer_IsXor(), ecorePackage.getEBoolean(), "isXor", null, 0, 1, ViewContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ifmlModelEClass, IFMLModel.class, "IFMLModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIFMLModel_InteractionFlowModel(), this.getInteractionFlowModel(), null, "interactionFlowModel", null, 1, 1, IFMLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

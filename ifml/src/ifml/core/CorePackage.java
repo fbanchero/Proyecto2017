@@ -2405,13 +2405,22 @@ public interface CorePackage extends EPackage {
 	int VIEW_CONTAINER__VIEW_ELEMENTS = VIEW_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Is Xor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CONTAINER__IS_XOR = VIEW_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>View Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_CONTAINER_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 3;
+	int VIEW_CONTAINER_FEATURE_COUNT = VIEW_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>View Container</em>' class.
@@ -5217,6 +5226,17 @@ public interface CorePackage extends EPackage {
 	EReference getViewContainer_ViewElements();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ifml.core.ViewContainer#isIsXor <em>Is Xor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Xor</em>'.
+	 * @see ifml.core.ViewContainer#isIsXor()
+	 * @see #getViewContainer()
+	 * @generated
+	 */
+	EAttribute getViewContainer_IsXor();
+
+	/**
 	 * Returns the meta object for class '{@link ifml.core.IFMLModel <em>IFML Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6378,6 +6398,14 @@ public interface CorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference VIEW_CONTAINER__VIEW_ELEMENTS = eINSTANCE.getViewContainer_ViewElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Xor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW_CONTAINER__IS_XOR = eINSTANCE.getViewContainer_IsXor();
 
 		/**
 		 * The meta object literal for the '{@link ifml.core.impl.IFMLModelImpl <em>IFML Model</em>}' class.

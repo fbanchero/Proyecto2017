@@ -3,260 +3,272 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Vogella/src" modelPluginID="Vogella" modelName="Ifml"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
-  <foreignModel>IFML.ecore</foreignModel>
-  <genPackages prefix="Ifml" disposableProviderFactory="true" ecorePackage="IFML.ecore#/0">
-    <nestedGenPackages prefix="Extensions" disposableProviderFactory="true" ecorePackage="IFML.ecore#/0/extensions">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="IFML.ecore#/0/extensions/SortOrderEnum">
-        <genEnumLiterals ecoreEnumLiteral="IFML.ecore#/0/extensions/SortOrderEnum/ascending"/>
-        <genEnumLiterals ecoreEnumLiteral="IFML.ecore#/0/extensions/SortOrderEnum/descending"/>
+  <foreignModel>ifml.ecore</foreignModel>
+  <genPackages prefix="Ifml" disposableProviderFactory="true" ecorePackage="ifml.ecore#/0">
+    <nestedGenPackages prefix="Extensions" disposableProviderFactory="true" ecorePackage="ifml.ecore#/0/extensions">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="ifml.ecore#/0/extensions/SortOrderEnum">
+        <genEnumLiterals ecoreEnumLiteral="ifml.ecore#/0/extensions/SortOrderEnum/ascending"/>
+        <genEnumLiterals ecoreEnumLiteral="ifml.ecore#/0/extensions/SortOrderEnum/descending"/>
       </genEnums>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/Form">
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/Form">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/extensions/Form/submitEvent"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/extensions/Form/submitEvent"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="IFML.ecore#/0/extensions/Field"/>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/SelectionField">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/extensions/SelectionField/isMultiSelection"/>
+      <genClasses image="false" ecoreClass="ifml.ecore#/0/extensions/Field"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/SelectionField">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/extensions/SelectionField/isMultiSelection"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/ValidationRule"/>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/Slot">
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/ValidationRule"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/Slot">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/extensions/Slot/parameter"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/extensions/Slot/parameter"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/SortAttribute">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/extensions/SortAttribute/order"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/SortAttribute">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/extensions/SortAttribute/order"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="IFML.ecore#/0/extensions/SelectEvent"/>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/List">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/extensions/List/selectEvent"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/SelectEvent"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/List">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/extensions/List/selectEvent"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/extensions/List/submitEvent"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/extensions/List/submitEvent"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/SimpleField"/>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/SubmitEvent"/>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/Selector"/>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/Device"/>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/Position"/>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/UserRole"/>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/Details"/>
-      <genClasses ecoreClass="IFML.ecore#/0/extensions/Window">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/extensions/Window/isXor"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/extensions/Window/isModal"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/extensions/Window/isNew"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/SimpleField"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/SubmitEvent"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/Selector"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/Device"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/Position"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/UserRole"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/Details"/>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/Window">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/extensions/Window/isModal"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/extensions/Window/isNew"/>
+      </genClasses>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/Image">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/extensions/Image/align"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/extensions/Image/url"/>
+      </genClasses>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/Button">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/extensions/Button/ButtonText"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/extensions/Button/Align"/>
+      </genClasses>
+      <genClasses ecoreClass="ifml.ecore#/0/extensions/TextField">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/extensions/TextField/FontSize"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/extensions/TextField/TextFieldText"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Core" disposableProviderFactory="true" ecorePackage="IFML.ecore#/0/core">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="IFML.ecore#/0/core/SystemEventTypeEnum">
-        <genEnumLiterals ecoreEnumLiteral="IFML.ecore#/0/core/SystemEventTypeEnum/time"/>
-        <genEnumLiterals ecoreEnumLiteral="IFML.ecore#/0/core/SystemEventTypeEnum/specialCondition"/>
+    <nestedGenPackages prefix="Core" disposableProviderFactory="true" ecorePackage="ifml.ecore#/0/core">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="ifml.ecore#/0/core/SystemEventTypeEnum">
+        <genEnumLiterals ecoreEnumLiteral="ifml.ecore#/0/core/SystemEventTypeEnum/time"/>
+        <genEnumLiterals ecoreEnumLiteral="ifml.ecore#/0/core/SystemEventTypeEnum/specialCondition"/>
       </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="IFML.ecore#/0/core/ParameterKind">
-        <genEnumLiterals ecoreEnumLiteral="IFML.ecore#/0/core/ParameterKind/ordinary"/>
-        <genEnumLiterals ecoreEnumLiteral="IFML.ecore#/0/core/ParameterKind/input"/>
-        <genEnumLiterals ecoreEnumLiteral="IFML.ecore#/0/core/ParameterKind/output"/>
-        <genEnumLiterals ecoreEnumLiteral="IFML.ecore#/0/core/ParameterKind/input_output"/>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="ifml.ecore#/0/core/ParameterKind">
+        <genEnumLiterals ecoreEnumLiteral="ifml.ecore#/0/core/ParameterKind/ordinary"/>
+        <genEnumLiterals ecoreEnumLiteral="ifml.ecore#/0/core/ParameterKind/input"/>
+        <genEnumLiterals ecoreEnumLiteral="ifml.ecore#/0/core/ParameterKind/output"/>
+        <genEnumLiterals ecoreEnumLiteral="ifml.ecore#/0/core/ParameterKind/input_output"/>
       </genEnums>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ViewPoint">
+      <genClasses ecoreClass="ifml.ecore#/0/core/ViewPoint">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/ViewPoint/interactionFlowModelElements"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/ViewPoint/interactionFlowModelElements"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/ViewPoint/context"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/ViewPoint/context"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="IFML.ecore#/0/core/InteractionFlowElement">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/InteractionFlowElement/parameters"/>
+      <genClasses image="false" ecoreClass="ifml.ecore#/0/core/InteractionFlowElement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/InteractionFlowElement/parameters"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/InteractionFlowElement/inInteractionFlows"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/InteractionFlowElement/outInteractionFlows"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/InteractionFlowElement/inInteractionFlows"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/InteractionFlowElement/outInteractionFlows"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/NavigationFlow">
+      <genClasses ecoreClass="ifml.ecore#/0/core/NavigationFlow">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/NavigationFlow/dataFlows"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/NavigationFlow/dataFlows"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ActionEvent"/>
-      <genClasses ecoreClass="IFML.ecore#/0/core/InteractionFlowModel">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/InteractionFlowModel/interactionFlowModelElements"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/ActionEvent"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/InteractionFlowModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/InteractionFlowModel/interactionFlowModelElements"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ParameterBindingGroup">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/ParameterBindingGroup/parameterBindings"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/ParameterBindingGroup">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/ParameterBindingGroup/parameterBindings"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ParameterBinding">
+      <genClasses ecoreClass="ifml.ecore#/0/core/ParameterBinding">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/ParameterBinding/sourceParameter"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/ParameterBinding/sourceParameter"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/ParameterBinding/targetParameter"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/ParameterBinding/targetParameter"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ContentModel">
+      <genClasses ecoreClass="ifml.ecore#/0/core/ContentModel">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/ContentModel/elements"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/ContentModel/elements"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ViewElement">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/ViewElement/viewElementEvents"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/ViewElement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/ViewElement/viewElementEvents"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/ViewElement/activationExpression"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/ViewElement/activationExpression"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/ViewElement/viewContainer"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/ViewElement/viewContainer"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/Action">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/Action/actionEvents"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/Action">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/Action/actionEvents"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/Action/dynamicBehavior"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/Action/dynamicBehavior"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="IFML.ecore#/0/core/Element">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/core/Element/id"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/Element/constraints"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/Element/annotations"/>
+      <genClasses image="false" ecoreClass="ifml.ecore#/0/core/Element">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/core/Element/id"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/Element/constraints"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/Element/annotations"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/DynamicBehavior">
+      <genClasses ecoreClass="ifml.ecore#/0/core/DynamicBehavior">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/DynamicBehavior/behavioralFeatureConcept"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/DynamicBehavior/behavioralFeatureConcept"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/DynamicBehavior/behaviorConcept"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/DynamicBehavior/behaviorConcept"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/DataFlow"/>
-      <genClasses image="false" ecoreClass="IFML.ecore#/0/core/InteractionFlow">
+      <genClasses ecoreClass="ifml.ecore#/0/core/DataFlow"/>
+      <genClasses image="false" ecoreClass="ifml.ecore#/0/core/InteractionFlow">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/InteractionFlow/srcInteractionFlowElement"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/InteractionFlow/srcInteractionFlowElement"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/InteractionFlow/trgtInteractionFlowElement"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/InteractionFlow/parameterBindingGroup"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/InteractionFlow/trgtInteractionFlowElement"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/InteractionFlow/parameterBindingGroup"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ViewElementEvent"/>
-      <genClasses image="false" ecoreClass="IFML.ecore#/0/core/InteractionFlowModelElement"/>
-      <genClasses image="false" ecoreClass="IFML.ecore#/0/core/NamedElement">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/core/NamedElement/name"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/ViewElementEvent"/>
+      <genClasses image="false" ecoreClass="ifml.ecore#/0/core/InteractionFlowModelElement"/>
+      <genClasses image="false" ecoreClass="ifml.ecore#/0/core/NamedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/core/NamedElement/name"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ExternalEvent"/>
-      <genClasses ecoreClass="IFML.ecore#/0/core/Constraint"/>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ViewComponentPart">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/ViewComponentPart/viewElementEvents"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/ExternalEvent"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/Constraint"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/ViewComponentPart">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/ViewComponentPart/viewElementEvents"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/ViewComponentPart/activationExpression"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/ViewComponentPart/activationExpression"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/ViewComponentPart/subViewComponentParts"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/ViewComponentPart/subViewComponentParts"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/ViewComponentPart/parentViewComponentPart"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/ViewComponentPart/parentViewComponentPart"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ViewContainer">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/core/ViewContainer/isLandMark"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/core/ViewContainer/isDefault"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/ViewContainer/viewElements"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/ViewContainer">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/core/ViewContainer/isLandMark"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/core/ViewContainer/isDefault"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/ViewContainer/viewElements"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/core/ViewContainer/isXor"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/IFMLModel">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/IFMLModel/interactionFlowModel"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/IFMLModel/contentModel"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/IFMLModel/interactionFlowModelViewPoints"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/IFMLModel/domainModel"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/IFMLModel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/IFMLModel/interactionFlowModel"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/IFMLModel/contentModel"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/IFMLModel/interactionFlowModelViewPoints"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/IFMLModel/domainModel"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/Event">
+      <genClasses ecoreClass="ifml.ecore#/0/core/Event">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/Event/activationExpression"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/Event/navigationFlows"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/Event/interactionFlowExpression"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/Event/activationExpression"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/Event/navigationFlows"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/Event/interactionFlowExpression"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="IFML.ecore#/0/core/ContentBinding">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/core/ContentBinding/uniformResourceIdentifier"/>
+      <genClasses image="false" ecoreClass="ifml.ecore#/0/core/ContentBinding">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/core/ContentBinding/uniformResourceIdentifier"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/InteractionFlowExpression">
+      <genClasses ecoreClass="ifml.ecore#/0/core/InteractionFlowExpression">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/InteractionFlowExpression/interactionFlows"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/InteractionFlowExpression/interactionFlows"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/DataBinding">
+      <genClasses ecoreClass="ifml.ecore#/0/core/DataBinding">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/DataBinding/conditionalExpression"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/DataBinding/conditionalExpression"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/DataBinding/visualizationAttributes"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/DataBinding/visualizationAttributes"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/DataBinding/domainConcept"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/DataBinding/domainConcept"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ViewComponent">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/ViewComponent/viewComponentParts"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/ViewComponent">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/ViewComponent/viewComponentParts"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/SystemEvent">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IFML.ecore#/0/core/SystemEvent/triggeringExpressions"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/core/SystemEvent/type"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/SystemEvent">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ifml.ecore#/0/core/SystemEvent/triggeringExpressions"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/core/SystemEvent/type"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/BooleanExpression"/>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ActivationExpression"/>
-      <genClasses image="false" ecoreClass="IFML.ecore#/0/core/Expression">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/core/Expression/language"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/core/Expression/body"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/BooleanExpression"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/ActivationExpression"/>
+      <genClasses image="false" ecoreClass="ifml.ecore#/0/core/Expression">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/core/Expression/language"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/core/Expression/body"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/Parameter">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/core/Parameter/kind"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/Parameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/core/Parameter/kind"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ConditionalExpression"/>
-      <genClasses ecoreClass="IFML.ecore#/0/core/Context">
+      <genClasses ecoreClass="ifml.ecore#/0/core/ConditionalExpression"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/Context">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/Context/contextDimensions"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/Context/contextDimensions"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/ContextDimension"/>
-      <genClasses ecoreClass="IFML.ecore#/0/core/VisualizationAttribute">
+      <genClasses ecoreClass="ifml.ecore#/0/core/ContextDimension"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/VisualizationAttribute">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/VisualizationAttribute/featureConcept"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/VisualizationAttribute/featureConcept"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/Module">
+      <genClasses ecoreClass="ifml.ecore#/0/core/Module">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/Module/inputPorts"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/Module/inputPorts"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/Module/outputPorts"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/Module/outputPorts"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/Module/interactionFlowModelElements"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/Module/interactionFlowModelElements"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/Port"/>
-      <genClasses ecoreClass="IFML.ecore#/0/core/Annotation">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IFML.ecore#/0/core/Annotation/text"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/Port"/>
+      <genClasses ecoreClass="ifml.ecore#/0/core/Annotation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ifml.ecore#/0/core/Annotation/text"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/FeatureConcept">
+      <genClasses ecoreClass="ifml.ecore#/0/core/FeatureConcept">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/FeatureConcept/visualizationAttribute"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/FeatureConcept/visualizationAttribute"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/DomainModel">
+      <genClasses ecoreClass="ifml.ecore#/0/core/DomainModel">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/DomainModel/elements"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/DomainModel/elements"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/DomainElement">
+      <genClasses ecoreClass="ifml.ecore#/0/core/DomainElement">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/DomainElement/domainModel"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/DomainElement/domainModel"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/UMLStructuralFeature">
+      <genClasses ecoreClass="ifml.ecore#/0/core/UMLStructuralFeature">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/UMLStructuralFeature/structuralFeature"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/UMLStructuralFeature/structuralFeature"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/DomainConcept">
+      <genClasses ecoreClass="ifml.ecore#/0/core/DomainConcept">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/DomainConcept/dataBinding"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/DomainConcept/dataBinding"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/UMLDomainConcept">
+      <genClasses ecoreClass="ifml.ecore#/0/core/UMLDomainConcept">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/UMLDomainConcept/classifier"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/UMLDomainConcept/classifier"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/BehavioralFeatureConcept">
+      <genClasses ecoreClass="ifml.ecore#/0/core/BehavioralFeatureConcept">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/BehavioralFeatureConcept/dynamicBehavior"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/BehavioralFeatureConcept/dynamicBehavior"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/UMLBehavioralFeature">
+      <genClasses ecoreClass="ifml.ecore#/0/core/UMLBehavioralFeature">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/UMLBehavioralFeature/behavioralFeature"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/UMLBehavioralFeature/behavioralFeature"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/BehaviorConcept">
+      <genClasses ecoreClass="ifml.ecore#/0/core/BehaviorConcept">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/BehaviorConcept/dynamicBehavior"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/BehaviorConcept/dynamicBehavior"/>
       </genClasses>
-      <genClasses ecoreClass="IFML.ecore#/0/core/UMLBehavior">
+      <genClasses ecoreClass="ifml.ecore#/0/core/UMLBehavior">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference IFML.ecore#/0/core/UMLBehavior/behavior"/>
+            ecoreFeature="ecore:EReference ifml.ecore#/0/core/UMLBehavior/behavior"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>
-  <genPackages prefix="Uml" disposableProviderFactory="true" ecorePackage="IFML.ecore#/1">
-    <genClasses ecoreClass="IFML.ecore#/1/Association"/>
-    <genClasses ecoreClass="IFML.ecore#/1/Classifier"/>
-    <genClasses ecoreClass="IFML.ecore#/1/Element"/>
-    <genClasses ecoreClass="IFML.ecore#/1/BehavioralFeature"/>
-    <genClasses ecoreClass="IFML.ecore#/1/Behavior"/>
-    <genClasses ecoreClass="IFML.ecore#/1/TemplaetableElement"/>
-    <genClasses ecoreClass="IFML.ecore#/1/TypedElement"/>
-    <genClasses ecoreClass="IFML.ecore#/1/MultiplicityElement"/>
-    <genClasses ecoreClass="IFML.ecore#/1/StructuralFeature"/>
+  <genPackages prefix="Uml" disposableProviderFactory="true" ecorePackage="ifml.ecore#/1">
+    <genClasses ecoreClass="ifml.ecore#/1/Association"/>
+    <genClasses ecoreClass="ifml.ecore#/1/Classifier"/>
+    <genClasses ecoreClass="ifml.ecore#/1/Element"/>
+    <genClasses ecoreClass="ifml.ecore#/1/BehavioralFeature"/>
+    <genClasses ecoreClass="ifml.ecore#/1/Behavior"/>
+    <genClasses ecoreClass="ifml.ecore#/1/TemplaetableElement"/>
+    <genClasses ecoreClass="ifml.ecore#/1/TypedElement"/>
+    <genClasses ecoreClass="ifml.ecore#/1/MultiplicityElement"/>
+    <genClasses ecoreClass="ifml.ecore#/1/StructuralFeature"/>
   </genPackages>
 </genmodel:GenModel>

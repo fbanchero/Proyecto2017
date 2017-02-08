@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ifml.core.impl.ViewContainerImpl#isIsLandMark <em>Is Land Mark</em>}</li>
  *   <li>{@link ifml.core.impl.ViewContainerImpl#isIsDefault <em>Is Default</em>}</li>
  *   <li>{@link ifml.core.impl.ViewContainerImpl#getViewElements <em>View Elements</em>}</li>
+ *   <li>{@link ifml.core.impl.ViewContainerImpl#isIsXor <em>Is Xor</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,6 +87,26 @@ public class ViewContainerImpl extends ViewElementImpl implements ViewContainer 
 	 * @ordered
 	 */
 	protected EList<ViewElement> viewElements;
+
+	/**
+	 * The default value of the '{@link #isIsXor() <em>Is Xor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsXor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_XOR_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsXor() <em>Is Xor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsXor()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isXor = IS_XOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,6 +186,27 @@ public class ViewContainerImpl extends ViewElementImpl implements ViewContainer 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isIsXor() {
+		return isXor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsXor(boolean newIsXor) {
+		boolean oldIsXor = isXor;
+		isXor = newIsXor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.VIEW_CONTAINER__IS_XOR, oldIsXor, isXor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -188,6 +230,8 @@ public class ViewContainerImpl extends ViewElementImpl implements ViewContainer 
 				return isIsDefault();
 			case CorePackage.VIEW_CONTAINER__VIEW_ELEMENTS:
 				return getViewElements();
+			case CorePackage.VIEW_CONTAINER__IS_XOR:
+				return isIsXor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,6 +255,9 @@ public class ViewContainerImpl extends ViewElementImpl implements ViewContainer 
 				getViewElements().clear();
 				getViewElements().addAll((Collection<? extends ViewElement>)newValue);
 				return;
+			case CorePackage.VIEW_CONTAINER__IS_XOR:
+				setIsXor((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -232,6 +279,9 @@ public class ViewContainerImpl extends ViewElementImpl implements ViewContainer 
 			case CorePackage.VIEW_CONTAINER__VIEW_ELEMENTS:
 				getViewElements().clear();
 				return;
+			case CorePackage.VIEW_CONTAINER__IS_XOR:
+				setIsXor(IS_XOR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -250,6 +300,8 @@ public class ViewContainerImpl extends ViewElementImpl implements ViewContainer 
 				return isDefault != IS_DEFAULT_EDEFAULT;
 			case CorePackage.VIEW_CONTAINER__VIEW_ELEMENTS:
 				return viewElements != null && !viewElements.isEmpty();
+			case CorePackage.VIEW_CONTAINER__IS_XOR:
+				return isXor != IS_XOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -268,6 +320,8 @@ public class ViewContainerImpl extends ViewElementImpl implements ViewContainer 
 		result.append(isLandMark);
 		result.append(", isDefault: ");
 		result.append(isDefault);
+		result.append(", isXor: ");
+		result.append(isXor);
 		result.append(')');
 		return result.toString();
 	}
