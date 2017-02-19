@@ -17,6 +17,7 @@ import ifml.extensions.SimpleField;
 import ifml.extensions.SubmitEvent;
 import ifml.extensions.TextField;
 import ifml.extensions.Window;
+import org.eclipse.emf.ecore.*;
 
 public class ElementBuilder {
 	
