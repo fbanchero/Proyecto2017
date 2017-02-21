@@ -49,7 +49,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated ifml -->
       <package
-            uri="http://www.omg.org/spec/UML"
+            uri="http://www.eclipse.org/uml2/5.0.0/UML"
             class="uml.UmlPackage"
             genModel="model/ifml.genmodel"/>
    </extension>

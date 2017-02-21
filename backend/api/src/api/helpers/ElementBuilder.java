@@ -3,21 +3,8 @@ package api.helpers;
 import java.util.HashMap;
 
 import api.classes.*;
-import ifml.core.CoreFactory;
-import ifml.core.NavigationFlow;
-import ifml.core.ViewContainer;
-import ifml.core.ViewElement;
-import ifml.core.ViewElementEvent;
-import ifml.extensions.Button;
-import ifml.extensions.ExtensionsFactory;
-import ifml.extensions.Image;
-import ifml.extensions.List;
-import ifml.extensions.SelectEvent;
-import ifml.extensions.SimpleField;
-import ifml.extensions.SubmitEvent;
-import ifml.extensions.TextField;
-import ifml.extensions.Window;
-import org.eclipse.emf.ecore.*;
+import ifml.core.*;
+import ifml.extensions.*;
 
 public class ElementBuilder {
 	

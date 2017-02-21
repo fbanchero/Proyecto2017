@@ -7,14 +7,12 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: IFML.Core,
- IFML.Core.impl,
- IFML.Core.util,
- IFML.DataTypes,
- IFML.DataTypes.impl,
- IFML.Extensions,
- IFML.Extensions.impl,
- IFML.Extensions.util
+Export-Package: ifml.core,
+ ifml.core.impl,
+ ifml.core.util,
+ ifml.extensions,
+ ifml.extensions.impl,
+ ifml.extensions.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport

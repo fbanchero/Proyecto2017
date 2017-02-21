@@ -23,23 +23,8 @@ import com.google.gson.Gson;
 
 import api.classes.*;
 import api.helpers.ElementBuilder;
-import ifml.core.CoreFactory;
-import ifml.core.IFMLModel;
-import ifml.core.InteractionFlowModel;
-import ifml.core.InteractionFlowModelElement;
-import ifml.core.NavigationFlow;
-import ifml.core.ViewContainer;
-import ifml.core.ViewElement;
-import ifml.core.ViewElementEvent;
-import ifml.extensions.ExtensionsFactory;
-import ifml.extensions.Form;
-import ifml.extensions.Image;
-import ifml.extensions.List;
-import ifml.extensions.SimpleField;
-import ifml.extensions.SubmitEvent;
-import ifml.extensions.TextField;
-import ifml.extensions.Window;
-import ifml.extensions.Button;
+import ifml.core.*;
+import ifml.extensions.*;
 
 public class main {
 	
