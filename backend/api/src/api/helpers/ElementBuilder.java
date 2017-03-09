@@ -304,4 +304,50 @@ public class ElementBuilder {
 		
 	}
 	
+	
+	/**
+	 * Creates a Image based on a MockupElement.
+	 * 
+	 * @param elem - MockupElement with all the relevant info.
+	 * @return     - Image object.
+	 */
+	public DomainConcept createDomainConcept(DomainClass domainClass) {
+		
+		UMLDomainConcept dc = f.createUMLDomainConcept();
+//		dc.setClassifier();
+		
+		
+		
+		Image img = ef.createImage();
+		img.setId(elem.getId());
+		img.setName(elem.getName());
+		HashMap<String, Object> properties = elem.getProperties();
+		
+		if (properties.containsKey("align")) {
+			img.setAlign((String) properties.get("align")); 
+		}
+		
+		if (properties.containsKey("url")) {
+			img.setUrl((String)elem.getProperties().get("url"));
+		}
+		
+		if (elem.getEvents() != null) {
+			for (NavigationEvent navEvent: elem.getEvents()) {
+				
+				ViewElementEvent event = f.createViewElementEvent();
+				NavigationFlow nf = f.createNavigationFlow();
+				
+				nf.setSrcInteractionFlowElement(event);
+				event.getNavigationFlows().add(nf);
+				img.getViewElementEvents().add(event);
+				
+				links.put(navEvent.getLink(), nf);
+				
+			}
+		}	
+		
+		return img;
+		
+	}
+	
 }

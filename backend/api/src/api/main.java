@@ -131,6 +131,28 @@ public class main {
 		return getXMIFromIFML(ifmlModel);
 		
     }
+    
+    /**
+     * Returns the xmi generated based on the mockup json parameter.
+     * 
+     * @param domainJson - String json containing all the mockup information.
+     * @return           - String xmi generated based on the mockup json object.
+     */
+    private static String createIFMLDomain(String domainJson) {
+    	
+    	// Generate mockup object based on json
+    	Domain domain = new Gson().fromJson(domainJson, Domain.class);
+    	
+		// Generate IFML from mockup object
+		DomainModel domainModel = generateIFMLDomain(domain);
+
+		IFMLModel ifmlModel = f.createIFMLModel();
+		ifmlModel.setName(domain.getName());
+		ifmlModel.setDomainModel(domainModel);
+
+		return getXMIFromIFML(ifmlModel);
+		
+    }
 
 	/**
 	 * @param mockupElements - ArrayList<MockupElement> mockupElements
@@ -210,6 +232,41 @@ public class main {
 	    }
 	    
 		ifm.setName("Pages");
+		
+		return ifm;
+		
+	}
+	
+	/**
+	 * @param mockupElements - ArrayList<MockupElement> mockupElements
+	 * @return               - InteractionFlowModel generated based on mockup elements array.
+	 */
+	private static DomainModel generateIFMLDomain(Domain domain) {
+
+		DomainModel domainModel = f.createDomainModel();		
+		EList<InteractionFlowModelElement> ifmElements = ifm.getInteractionFlowModelElements();
+		HashMap<String, NavigationFlow> links = new HashMap<String, NavigationFlow>();
+		HashMap<String, DataPage> pages = new HashMap<String, DataPage>();
+		
+		for (DomainClass domainClass : domain.getListClass()) {
+			
+			DomainConcept dc = eb.createViewContainer(elem, links);
+			ifmElements.add(vc);
+			recursiveIFMLHierarchy(elem, vc, links);
+			
+			DataPage page = new DataPage();
+			page.setObject(vc);
+			page.setType("ViewContainer");
+			pages.put(elem.getId(), page);
+			
+			if (links.containsKey(elem.getId())) {
+				
+				NavigationFlow nf = links.get(elem.getId());
+				nf.setTrgtInteractionFlowElement(vc);
+				vc.getInInteractionFlows().add(nf);
+				
+			}
+		}
 		
 		return ifm;
 		
