@@ -6,10 +6,23 @@ import api.classes.*;
 import ifml.core.*;
 import ifml.extensions.*;
 
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.uml2.types.TypesFactory;
+import org.eclipse.uml2.uml.Classifier;
+import org.eclipse.uml2.uml.DataType;
+import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.StructuralFeature;
+import org.eclipse.uml2.uml.Type;
+import org.eclipse.uml2.uml.UMLFactory;
+import org.eclipse.uml2.uml.internal.impl.ClassImpl;
+import org.eclipse.uml2.uml.internal.impl.ClassifierImpl;
+
 public class ElementBuilder {
 	
     public static CoreFactory f;
     public static ExtensionsFactory ef;
+    public static UMLFactory umlf;
+    public static TypesFactory tf;
 
 	public ElementBuilder(CoreFactory pf, ExtensionsFactory pef) {
 		f = pf;
@@ -314,39 +327,17 @@ public class ElementBuilder {
 	public DomainConcept createDomainConcept(DomainClass domainClass) {
 		
 		UMLDomainConcept dc = f.createUMLDomainConcept();
-//		dc.setClassifier();
-		
-		
-		
-		Image img = ef.createImage();
-		img.setId(elem.getId());
-		img.setName(elem.getName());
-		HashMap<String, Object> properties = elem.getProperties();
-		
-		if (properties.containsKey("align")) {
-			img.setAlign((String) properties.get("align")); 
+		org.eclipse.uml2.uml.Class c = umlf.createClass();
+		for (DomainAttribute da: domainClass.getListAttribute()) {
+			Property p = umlf.createProperty();
+			p.setName(da.getName());
+			DataType dt = umlf.createDataType();
+			EDataType tipeAttr = tf.getTypesPackage().getString();
+			tf.create(tipeAttr)
+			p.setType(typeAttr);
 		}
-		
-		if (properties.containsKey("url")) {
-			img.setUrl((String)elem.getProperties().get("url"));
-		}
-		
-		if (elem.getEvents() != null) {
-			for (NavigationEvent navEvent: elem.getEvents()) {
-				
-				ViewElementEvent event = f.createViewElementEvent();
-				NavigationFlow nf = f.createNavigationFlow();
-				
-				nf.setSrcInteractionFlowElement(event);
-				event.getNavigationFlows().add(nf);
-				img.getViewElementEvents().add(event);
-				
-				links.put(navEvent.getLink(), nf);
-				
-			}
-		}	
-		
-		return img;
+		dc.setClassifier(c);
+		return dc;
 		
 	}
 	

@@ -243,32 +243,23 @@ public class main {
 	 */
 	private static DomainModel generateIFMLDomain(Domain domain) {
 
-		DomainModel domainModel = f.createDomainModel();		
-		EList<InteractionFlowModelElement> ifmElements = ifm.getInteractionFlowModelElements();
-		HashMap<String, NavigationFlow> links = new HashMap<String, NavigationFlow>();
-		HashMap<String, DataPage> pages = new HashMap<String, DataPage>();
+		DomainModel domainModel = f.createDomainModel();
+		
+		domainModel.setName(domain.getName());
 		
 		for (DomainClass domainClass : domain.getListClass()) {
 			
-			DomainConcept dc = eb.createViewContainer(elem, links);
-			ifmElements.add(vc);
-			recursiveIFMLHierarchy(elem, vc, links);
+			DomainConcept dc = eb.createDomainConcept(domainClass);
 			
-			DataPage page = new DataPage();
-			page.setObject(vc);
-			page.setType("ViewContainer");
-			pages.put(elem.getId(), page);
-			
-			if (links.containsKey(elem.getId())) {
-				
-				NavigationFlow nf = links.get(elem.getId());
-				nf.setTrgtInteractionFlowElement(vc);
-				vc.getInInteractionFlows().add(nf);
-				
-			}
 		}
 		
-		return ifm;
+		for (DomainRelationship domainRelationship : domain.getListRelationship()) {
+			
+//			DomainRelationship dr = eb.createDomainConcept(domainClass);
+			
+		}
+		
+		return domainModel;
 		
 	}
 

@@ -26,5 +26,13 @@ public class Domain {
 	public void setListClass(ArrayList<DomainClass> listClass) {
 		this.listClass = listClass;
 	}
+
+	public ArrayList<DomainRelationship> getListRelationship() {
+		return listRelationship;
+	}
+
+	public void setListRelationship(ArrayList<DomainRelationship> listRelationship) {
+		this.listRelationship = listRelationship;
+	}
 	
 }
