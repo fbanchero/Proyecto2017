@@ -1,6 +1,9 @@
 package api;
 
-import static spark.Spark.*;
+import static spark.Spark.before;
+import static spark.Spark.get;
+import static spark.Spark.options;
+import static spark.Spark.post;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -21,10 +24,34 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import com.google.gson.Gson;
 
-import api.classes.*;
+import api.classes.DataPage;
+import api.classes.Domain;
+import api.classes.DomainClass;
+import api.classes.DomainRelationship;
+import api.classes.Mockup;
+import api.classes.MockupMultipleColumnElement;
+import api.classes.MockupSingleColumnElement;
+import api.classes.NavigationEvent;
 import api.helpers.ElementBuilder;
-import ifml.core.*;
-import ifml.extensions.*;
+import ifml.core.CoreFactory;
+import ifml.core.DomainConcept;
+import ifml.core.DomainModel;
+import ifml.core.IFMLModel;
+import ifml.core.InteractionFlowModel;
+import ifml.core.InteractionFlowModelElement;
+import ifml.core.NavigationFlow;
+import ifml.core.ViewContainer;
+import ifml.core.ViewElement;
+import ifml.core.ViewElementEvent;
+import ifml.extensions.Button;
+import ifml.extensions.ExtensionsFactory;
+import ifml.extensions.Form;
+import ifml.extensions.Image;
+import ifml.extensions.List;
+import ifml.extensions.SimpleField;
+import ifml.extensions.SubmitEvent;
+import ifml.extensions.TextField;
+import ifml.extensions.Window;
 
 public class main {
 	

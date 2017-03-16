@@ -4277,6 +4277,8 @@ public interface CorePackage extends EPackage {
 	 * @ordered
 	 */
 	int UML_DOMAIN_CONCEPT__CLASSIFIER = DOMAIN_CONCEPT_FEATURE_COUNT + 0;
+	
+	int ECORE_DOMAIN_CONCEPT__ECLASS = DOMAIN_CONCEPT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>UML Domain Concept</em>' class.

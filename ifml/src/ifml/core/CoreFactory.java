@@ -362,6 +362,8 @@ public interface CoreFactory extends EFactory {
 	 * @generated
 	 */
 	UMLDomainConcept createUMLDomainConcept();
+	
+	EcoreDomainConcept createEcoreDomainConcept();
 
 	/**
 	 * Returns a new object of class '<em>Behavioral Feature Concept</em>'.

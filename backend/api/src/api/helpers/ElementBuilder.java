@@ -2,20 +2,35 @@ package api.helpers;
 
 import java.util.HashMap;
 
-import api.classes.*;
-import ifml.core.*;
-import ifml.extensions.*;
-
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.uml2.types.TypesFactory;
-import org.eclipse.uml2.uml.Classifier;
-import org.eclipse.uml2.uml.DataType;
-import org.eclipse.uml2.uml.Property;
-import org.eclipse.uml2.uml.StructuralFeature;
-import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLFactory;
-import org.eclipse.uml2.uml.internal.impl.ClassImpl;
-import org.eclipse.uml2.uml.internal.impl.ClassifierImpl;
+
+import api.classes.DomainAttribute;
+import api.classes.DomainClass;
+import api.classes.MockupGeneralElement;
+import api.classes.MockupMultipleColumnElement;
+import api.classes.MockupSingleColumnElement;
+import api.classes.NavigationEvent;
+import ifml.core.CoreFactory;
+import ifml.core.DomainConcept;
+import ifml.core.EcoreDomainConcept;
+import ifml.core.NavigationFlow;
+import ifml.core.ViewContainer;
+import ifml.core.ViewElement;
+import ifml.core.ViewElementEvent;
+import ifml.extensions.Button;
+import ifml.extensions.ExtensionsFactory;
+import ifml.extensions.Image;
+import ifml.extensions.List;
+import ifml.extensions.SelectEvent;
+import ifml.extensions.SimpleField;
+import ifml.extensions.SubmitEvent;
+import ifml.extensions.TextField;
+import ifml.extensions.Window;
 
 public class ElementBuilder {
 	
@@ -23,6 +38,7 @@ public class ElementBuilder {
     public static ExtensionsFactory ef;
     public static UMLFactory umlf;
     public static TypesFactory tf;
+    public static EcoreFactory ecf;
 
 	public ElementBuilder(CoreFactory pf, ExtensionsFactory pef) {
 		f = pf;
@@ -326,15 +342,29 @@ public class ElementBuilder {
 	 */
 	public DomainConcept createDomainConcept(DomainClass domainClass) {
 		
-		UMLDomainConcept dc = f.createUMLDomainConcept();
-		org.eclipse.uml2.uml.Class c = umlf.createClass();
+//		UMLDomainConcept dc = f.createUMLDomainConcept();
+//		org.eclipse.uml2.uml.Class c = umlf.createClass();
+//		for (DomainAttribute da: domainClass.getListAttribute()) {
+//			Property p = umlf.createProperty();
+//			p.setName(da.getName());
+//			DataType dt = umlf.createDataType();
+//			EDataType tipeAttr = tf.getTypesPackage().getString();
+//			tf.create(tipeAttr)
+//			p.setType(typeAttr);
+//		}
+//		dc.setClassifier(c);
+//		return dc;
+		
+		EcoreDomainConcept dc = f.createEcoreDomainConcept();
+		EClass c = ecf.createEClass();
+		c.setName(domainClass.getName());
 		for (DomainAttribute da: domainClass.getListAttribute()) {
-			Property p = umlf.createProperty();
-			p.setName(da.getName());
-			DataType dt = umlf.createDataType();
-			EDataType tipeAttr = tf.getTypesPackage().getString();
-			tf.create(tipeAttr)
-			p.setType(typeAttr);
+			EAttribute a = ecf.createEAttribute();
+			a.setName(da.getName());
+			EDataType dt = ecf.createEDataType();
+			dt.setInstanceTypeName(da.getTipo());
+			a.setEType(dt);
+			c.getEAttributes().add(a);
 		}
 		dc.setClassifier(c);
 		return dc;

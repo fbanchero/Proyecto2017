@@ -517,6 +517,11 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 		UMLDomainConceptImpl umlDomainConcept = new UMLDomainConceptImpl();
 		return umlDomainConcept;
 	}
+	
+	public EcoreDomainConcept createEcoreDomainConcept() {
+		EcoreDomainConceptImpl ecoreDomainConcept = new EcoreDomainConceptImpl();
+		return ecoreDomainConcept;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
