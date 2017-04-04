@@ -131,7 +131,8 @@ public class main {
         
         post("/getIfml", (request, response) -> {
         	
-        	return createIFML(request.body());
+//        	return createIFML(request.body());
+        	return createIFMLDomain(request.body());
         	
         });
         
@@ -269,22 +270,17 @@ public class main {
 	 * @return               - InteractionFlowModel generated based on mockup elements array.
 	 */
 	private static DomainModel generateIFMLDomain(Domain domain) {
-
 		DomainModel domainModel = f.createDomainModel();
-		
 		domainModel.setName(domain.getName());
-		
 		for (DomainClass domainClass : domain.getListClass()) {
-			
 			DomainConcept dc = eb.createDomainConcept(domainClass);
-			
 		}
 		
-		for (DomainRelationship domainRelationship : domain.getListRelationship()) {
-			
-//			DomainRelationship dr = eb.createDomainConcept(domainClass);
-			
-		}
+//		for (DomainRelationship domainRelationship : domain.getListRelationship()) {
+//			
+//			DomainRelationship dr = eb.createDomainConcept(domainRelationship.getRelationsEnd());
+//			
+//		}
 		
 		return domainModel;
 		

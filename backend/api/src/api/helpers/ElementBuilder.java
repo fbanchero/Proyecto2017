@@ -2,12 +2,14 @@ package api.helpers;
 
 import java.util.HashMap;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.uml2.types.TypesFactory;
+import org.eclipse.uml2.uml.DataType;
+import org.eclipse.uml2.uml.PrimitiveType;
+import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.UMLFactory;
+import org.eclipse.uml2.uml.UMLPackage;
 
 import api.classes.DomainAttribute;
 import api.classes.DomainClass;
@@ -17,8 +19,8 @@ import api.classes.MockupSingleColumnElement;
 import api.classes.NavigationEvent;
 import ifml.core.CoreFactory;
 import ifml.core.DomainConcept;
-import ifml.core.EcoreDomainConcept;
 import ifml.core.NavigationFlow;
+import ifml.core.UMLDomainConcept;
 import ifml.core.ViewContainer;
 import ifml.core.ViewElement;
 import ifml.core.ViewElementEvent;
@@ -342,32 +344,32 @@ public class ElementBuilder {
 	 */
 	public DomainConcept createDomainConcept(DomainClass domainClass) {
 		
-//		UMLDomainConcept dc = f.createUMLDomainConcept();
-//		org.eclipse.uml2.uml.Class c = umlf.createClass();
-//		for (DomainAttribute da: domainClass.getListAttribute()) {
-//			Property p = umlf.createProperty();
-//			p.setName(da.getName());
-//			DataType dt = umlf.createDataType();
-//			EDataType tipeAttr = tf.getTypesPackage().getString();
-//			tf.create(tipeAttr)
-//			p.setType(typeAttr);
-//		}
-//		dc.setClassifier(c);
-//		return dc;
-		
-		EcoreDomainConcept dc = f.createEcoreDomainConcept();
-		EClass c = ecf.createEClass();
-		c.setName(domainClass.getName());
+		UMLDomainConcept dc = f.createUMLDomainConcept();
+		org.eclipse.uml2.uml.Class c = umlf.createClass();
 		for (DomainAttribute da: domainClass.getListAttribute()) {
-			EAttribute a = ecf.createEAttribute();
-			a.setName(da.getName());
-			EDataType dt = ecf.createEDataType();
-			dt.setInstanceTypeName(da.getTipo());
-			a.setEType(dt);
-			c.getEAttributes().add(a);
+			Property p = umlf.createProperty();
+			p.setName(da.getName());
+			PrimitiveType pt = umlf.createPrimitiveType();
+//			pt.setN
+			p.setType(pt);
+			c.getAttributes().add(p);
 		}
 		dc.setClassifier(c);
 		return dc;
+		
+//		EcoreDomainConcept dc = f.createEcoreDomainConcept();
+//		EClass c = ecf.createEClass();
+//		c.setName(domainClass.getName());
+//		for (DomainAttribute da: domainClass.getListAttribute()) {
+//			EAttribute a = ecf.createEAttribute();
+//			a.setName(da.getName());
+//			EDataType dt = ecf.createEDataType();
+//			dt.setInstanceTypeName(da.getTipo());
+//			a.setEType(dt);
+//			c.getEAttributes().add(a);
+//		}
+//		dc.setClassifier(c);
+//		return dc;
 		
 	}
 	
