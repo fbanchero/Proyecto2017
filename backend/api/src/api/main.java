@@ -166,16 +166,16 @@ public class main {
      * @param domainJson - String json containing all the mockup information.
      * @return           - String xmi generated based on the mockup json object.
      */
-    private static String createIFMLDomain(String domainJson) {
+    private static String createIFMLDomain(String mockupJson) {
     	
     	// Generate mockup object based on json
-    	Domain domain = new Gson().fromJson(domainJson, Domain.class);
-    	
+    	Mockup mockup = new Gson().fromJson(mockupJson, Mockup.class);
+        	    
 		// Generate IFML from mockup object
-		DomainModel domainModel = generateIFMLDomain(domain);
+		DomainModel domainModel = generateIFMLDomain(mockup.getDomain());
 
 		IFMLModel ifmlModel = f.createIFMLModel();
-		ifmlModel.setName(domain.getName());
+		ifmlModel.setName(mockup.getDomain().get(0).getName());
 		ifmlModel.setDomainModel(domainModel);
 
 		return getXMIFromIFML(ifmlModel);
@@ -269,10 +269,10 @@ public class main {
 	 * @param mockupElements - ArrayList<MockupElement> mockupElements
 	 * @return               - InteractionFlowModel generated based on mockup elements array.
 	 */
-	private static DomainModel generateIFMLDomain(Domain domain) {
+	private static DomainModel generateIFMLDomain(ArrayList<Domain> domain) {
 		DomainModel domainModel = f.createDomainModel();
-		domainModel.setName(domain.getName());
-		for (DomainClass domainClass : domain.getListClass()) {
+		domainModel.setName(domain.get(0).getName());
+		for (DomainClass domainClass : domain.get(0).getChildren()) {
 			DomainConcept dc = eb.createDomainConcept(domainClass);
 		}
 		

@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="ASCII"?>
-<core:IFMLModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/IFML/core" xmlns:ext="http://www.omg.org/spec/IFML/ext" name="Mockup">
-  <interactionFlowModel name="Pages">
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="958a3d82" name="Page1">
-      <viewElements xsi:type="core:ViewContainer" id="837dc619" name="container">
-        <viewElements xsi:type="ext:TextField" id="342425a7" name="text" FontSize="25" TextFieldText="asdsad"/>
-        <viewElements xsi:type="ext:Button" id="4a426718" name="button" ButtonText="Prueba" Align="center"/>
-      </viewElements>
-    </interactionFlowModelElements>
-  </interactionFlowModel>
+<core:IFMLModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:core="http://www.omg.org/spec/IFML/core" name="Domain Model">
+  <domainModel name="Domain Model"/>
 </core:IFMLModel>

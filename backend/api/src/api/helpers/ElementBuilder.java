@@ -346,7 +346,7 @@ public class ElementBuilder {
 		
 		UMLDomainConcept dc = f.createUMLDomainConcept();
 		org.eclipse.uml2.uml.Class c = umlf.createClass();
-		for (DomainAttribute da: domainClass.getListAttribute()) {
+		for (DomainAttribute da: domainClass.getChildren()) {
 			Property p = umlf.createProperty();
 			p.setName(da.getName());
 			PrimitiveType pt = umlf.createPrimitiveType();

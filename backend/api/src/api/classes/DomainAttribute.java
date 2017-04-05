@@ -4,7 +4,7 @@ public class DomainAttribute {
 	
 	private String name;
 	
-	private String tipo;
+	private String type;
 	
 
 	public String getName() {
@@ -14,13 +14,15 @@ public class DomainAttribute {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public String getTipo() {
-		return tipo;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 	
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
+
 	
 }

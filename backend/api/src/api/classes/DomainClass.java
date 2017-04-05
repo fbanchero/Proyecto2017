@@ -6,7 +6,7 @@ public class DomainClass {
 	
 	private String name;
 	
-	private ArrayList<DomainAttribute> listAttribute;
+	private ArrayList<DomainAttribute> children;
 	
 	
 	public String getName() {
@@ -17,12 +17,14 @@ public class DomainClass {
 		this.name = name;
 	}
 
-	public ArrayList<DomainAttribute> getListAttribute() {
-		return listAttribute;
+	public ArrayList<DomainAttribute> getChildren() {
+		return children;
 	}
 
-	public void setListAttribute(ArrayList<DomainAttribute> listAttribute) {
-		this.listAttribute = listAttribute;
+	public void setChildren(ArrayList<DomainAttribute> children) {
+		this.children = children;
 	}
+
+
 	
 }
