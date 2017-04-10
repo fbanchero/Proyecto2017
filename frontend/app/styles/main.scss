@@ -435,7 +435,7 @@ html, body {
       width: 100%;
       letter-spacing: 1.5px;
       border: none;
-      
+
       &:focus {
         outline: none;
       }
@@ -677,6 +677,11 @@ ul.events {
 }
 
 div#main {
+    height: 100%;
+    min-height: 50px;
+}
+
+div#domain {
     height: 100%;
     min-height: 50px;
 }

@@ -1,0 +1,8 @@
+<div ng-repeat="item in domain.children"
+    dnd-draggable="item"
+    dnd-effect-allowed="move"
+    dnd-moved="domain.children.splice($index, 1)"
+    dnd-selected="models.selected = item"
+    ng-class="{selected: models.selected === item}"
+    ng-include="'components/' + item.type + '.html'">
+</div>

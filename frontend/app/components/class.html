@@ -1,0 +1,9 @@
+<div class="class">
+  <div class="class-title">
+    {{item.name}}
+  </div>
+  <div flex ng-repeat="list in item.children" ng-include="'components/list.html'" class="class-children">
+
+  </div>
+</div>
+<span class="item-name" ng-if="models.selected === item">{{item.name}}</span>

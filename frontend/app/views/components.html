@@ -71,4 +71,28 @@
             </div>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour_reg" data-toggle="collapse" data-target="#collapseFour_reg" aria-expanded="false" aria-controls="collapseFour_reg">
+            <h4 class="panel-title">
+                <a href="" class="collapsed" role="button">
+                Domain elements
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFour_reg" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour_reg" aria-expanded="false">
+            <div class="panel-body">
+                <div layout="row" layout-wrap layout-align="space-around center">
+                    <div ng-repeat="item in models.templates.domain"
+                        dnd-draggable="item"
+                        dnd-effect-allowed="copy"
+                        dnd-copied="changeid(item)"
+                        class="component"
+                        layout="column" layout-align="center center">
+                        <img ng-src="images/icons/{{item.type}}.png" alt="">
+                        <span>{{item.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

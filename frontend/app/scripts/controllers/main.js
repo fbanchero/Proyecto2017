@@ -12,6 +12,7 @@ angular.module('pgradoApp')
 
         var chance = new Chance(),
             firstPageId = chance.bb_pin(),
+            domainModelId = chance.bb_pin(),
             currentPageNumber = 1,
             currentModalNumber = 0,
             innerPageName = chance.bb_pin();
@@ -67,8 +68,18 @@ angular.module('pgradoApp')
                     { type: 'legend', id: chance.bb_pin(), name: 'legend', properties: { 'value': 'Legend' } },
                     { type: 'input', id: chance.bb_pin(), name: 'input', properties: { 'placeholder': 'Placeholder', 'label': 'Label'} },
                     { type: 'submit_button', id: chance.bb_pin(), name: 'submit button', properties: { 'value': 'Submit'} , events: [{ type: 'onSubmit', link: '' }] }
+                ],
+            domain: [
+                    { type: 'DomainClass', id: chance.bb_pin(), name: 'DomainClass', properties: {}, children: [[
+                        { type: 'DomainAttribute', id: chance.bb_pin(), name: 'DomainAttribute', properties: { 'nombre': 'id', 'tipo': 'int' }},
+                        { type: 'DomainAttribute', id: chance.bb_pin(), name: 'DomainAttribute', properties: { 'nombre': 'nombre', 'tipo': 'string' }}
+                    ]]},
+                    { type: 'DomainAttribute', id: chance.bb_pin(), name: 'DomainAttribute', properties: { 'nombre': 'nombre', 'tipo': 'tipo'}},
+                    { type: 'association', id: chance.bb_pin(), name: 'association'},
+                    { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'method()', 'tipo': 'void'}},
                 ]
             },
+            domain_types: { 'tipos': ['string', 'int', 'double'] },
             result: {
                 'name': 'Mockup',
                 'pages': [
@@ -78,8 +89,14 @@ angular.module('pgradoApp')
                         'name': 'Page1',
                         'properties': { 'default': false, 'landmark': false },
                         'children': []
-                    }
-                ]
+                    }],
+                'domain': [
+                  {
+                    'id': domainModelId,
+                    'type': 'domain',
+                    'name': 'Domain Model',
+                    'children': []
+                  }]
             }
         };
 
@@ -94,6 +111,14 @@ angular.module('pgradoApp')
             $scope.modelAsJson = angular.toJson(model, true);
 
         }, true);
+
+        $scope.dragoverCallback = function(index, external, type, callback) {
+              console.log("the end dragoverCallback");
+          };
+
+          $scope.dropCallback = function(index, external, type, callback) {
+                console.log("the end dropCallback");
+            };
 
         $scope.addPage = function () {
 

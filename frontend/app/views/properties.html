@@ -8,7 +8,7 @@
               <input type="checkbox" ng-model="models.selected.properties[key]" id="{{key}}"/>
                {{key}}: <label for="{{key}}"></label>
             </div>
-            <div ng-if="key != 'landmark' && key != 'default' && key != 'url' && key != 'align'">
+            <div ng-if="key != 'landmark' && key != 'default' && key != 'url' && key != 'align' && key != 'tipo'">
                 <strong>{{key}}</strong>
                 <input ng-if="key != 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
                 <input ng-if="key == 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
@@ -22,6 +22,12 @@
             <div ng-if="key == 'url'" >
                 <label>URL:</label>
                 <input type="url" ng-model="models.selected.properties.url" class="form-control">
+            </div>
+            <div ng-if="key == 'tipo'" >
+                <label>tipo:</label>
+                <select ng-model="models.selected.properties.tipo"
+                    ng-options="t for t in models.domain_types.tipos">
+                </select>
             </div>
         </div>
         <hr>
