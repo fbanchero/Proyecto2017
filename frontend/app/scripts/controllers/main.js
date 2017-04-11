@@ -70,10 +70,10 @@ angular.module('pgradoApp')
                     { type: 'submit_button', id: chance.bb_pin(), name: 'submit button', properties: { 'value': 'Submit'} , events: [{ type: 'onSubmit', link: '' }] }
                 ],
             domain: [
-                    { type: 'DomainClass', id: chance.bb_pin(), name: 'DomainClass', properties: {}, children: [[
+                    { type: 'DomainClass', id: chance.bb_pin(), name: 'DomainClass', properties: {}, children: [
                         { type: 'DomainAttribute', id: chance.bb_pin(), name: 'DomainAttribute', properties: { 'nombre': 'id', 'tipo': 'int' }},
                         { type: 'DomainAttribute', id: chance.bb_pin(), name: 'DomainAttribute', properties: { 'nombre': 'nombre', 'tipo': 'string' }}
-                    ]]},
+                    ]},
                     { type: 'DomainAttribute', id: chance.bb_pin(), name: 'DomainAttribute', properties: { 'nombre': 'nombre', 'tipo': 'tipo'}},
                     { type: 'association', id: chance.bb_pin(), name: 'association'},
                     { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'method()', 'tipo': 'void'}},
