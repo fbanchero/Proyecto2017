@@ -13,6 +13,7 @@ import org.eclipse.uml2.uml.UMLPackage;
 
 import api.classes.DomainAttribute;
 import api.classes.DomainClass;
+import api.classes.DomainProperty;
 import api.classes.MockupGeneralElement;
 import api.classes.MockupMultipleColumnElement;
 import api.classes.MockupSingleColumnElement;
@@ -42,9 +43,10 @@ public class ElementBuilder {
     public static TypesFactory tf;
     public static EcoreFactory ecf;
 
-	public ElementBuilder(CoreFactory pf, ExtensionsFactory pef) {
+	public ElementBuilder(CoreFactory pf, ExtensionsFactory pef, UMLFactory uf) {
 		f = pf;
 		ef = pef;
+		umlf = uf;
 	}
 
 	/**
@@ -346,30 +348,17 @@ public class ElementBuilder {
 		
 		UMLDomainConcept dc = f.createUMLDomainConcept();
 		org.eclipse.uml2.uml.Class c = umlf.createClass();
-		for (DomainAttribute da: domainClass.getChildren()) {
-			Property p = umlf.createProperty();
-			p.setName(da.getName());
-			PrimitiveType pt = umlf.createPrimitiveType();
-//			pt.setN
-			p.setType(pt);
-			c.getAttributes().add(p);
+		for (DomainAttribute da: domainClass.getChildren()) {			
+				DomainProperty prop = da.getProperties();
+				Property p = umlf.createProperty();
+				p.setName(prop.getNombre());
+				PrimitiveType pt = umlf.createPrimitiveType();
+				pt.setName(prop.getTipo());
+				p.setType(pt);
+				c.getAttributes().add(p);
 		}
 		dc.setClassifier(c);
 		return dc;
-		
-//		EcoreDomainConcept dc = f.createEcoreDomainConcept();
-//		EClass c = ecf.createEClass();
-//		c.setName(domainClass.getName());
-//		for (DomainAttribute da: domainClass.getListAttribute()) {
-//			EAttribute a = ecf.createEAttribute();
-//			a.setName(da.getName());
-//			EDataType dt = ecf.createEDataType();
-//			dt.setInstanceTypeName(da.getTipo());
-//			a.setEType(dt);
-//			c.getEAttributes().add(a);
-//		}
-//		dc.setClassifier(c);
-//		return dc;
 		
 	}
 	

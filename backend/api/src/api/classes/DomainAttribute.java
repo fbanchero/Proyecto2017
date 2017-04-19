@@ -6,6 +6,8 @@ public class DomainAttribute {
 	
 	private String type;
 	
+	private DomainProperty properties;
+	
 
 	public String getName() {
 		return name;
@@ -22,6 +24,15 @@ public class DomainAttribute {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	public DomainProperty getProperties() {
+		return properties;
+	}
+
+	public void setProperties(DomainProperty properties) {
+		this.properties = properties;
+	}
+
 	
 
 	

@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.uml2.uml.UMLFactory;
+import org.eclipse.uml2.uml.internal.impl.UMLFactoryImpl;
 
 import com.google.gson.Gson;
 
@@ -57,7 +59,8 @@ public class main {
 	
     public static CoreFactory f = CoreFactory.eINSTANCE;
     public static ExtensionsFactory ef = ExtensionsFactory.eINSTANCE;
-    public static ElementBuilder eb = new ElementBuilder(f, ef);
+    public static UMLFactory umlf = new UMLFactoryImpl();
+    public static ElementBuilder eb = new ElementBuilder(f, ef, umlf);
     
     private static final Map<String, String> MockupElementTypes = new HashMap<String, String>();
     
@@ -274,6 +277,7 @@ public class main {
 		domainModel.setName(domain.get(0).getName());
 		for (DomainClass domainClass : domain.get(0).getChildren()) {
 			DomainConcept dc = eb.createDomainConcept(domainClass);
+			domainModel.getElements().add(dc);
 		}
 		
 //		for (DomainRelationship domainRelationship : domain.getListRelationship()) {
