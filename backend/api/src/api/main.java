@@ -455,7 +455,7 @@ public class main {
 		// hierarchical included in this first node.
 		Resource resource = resSet.createResource(fileURI);		
 		resource.getContents().add(ifmlModel);
-		
+		resource.getContents().add(ifmlModel.getDomainModel());
 		try {
 		
 			Map<String, Object> options = new HashMap<String, Object>(); 
