@@ -134,8 +134,8 @@ public class main {
         
         post("/getIfml", (request, response) -> {
         	
-//        	return createIFML(request.body());
-        	return createIFMLDomain(request.body());
+        	return createIFML(request.body());
+        	//return createIFMLDomain(request.body());
         	
         });
         
@@ -154,10 +154,12 @@ public class main {
     	
 		// Generate IFML from mockup object
 		InteractionFlowModel ifm = generateIFMLPages(mockup.getPages());
+		DomainModel domainModel = generateIFMLDomain(mockup.getDomain());
 
 		IFMLModel ifmlModel = f.createIFMLModel();
 		ifmlModel.setName(mockup.getName());
 		ifmlModel.setInteractionFlowModel(ifm);
+		ifmlModel.setDomainModel(domainModel);
 
 		return getXMIFromIFML(ifmlModel);
 		
@@ -176,6 +178,7 @@ public class main {
         	    
 		// Generate IFML from mockup object
 		DomainModel domainModel = generateIFMLDomain(mockup.getDomain());
+		domainModel.setId("12");
 
 		IFMLModel ifmlModel = f.createIFMLModel();
 		ifmlModel.setName(mockup.getDomain().get(0).getName());
@@ -454,8 +457,8 @@ public class main {
 		// cast it to the right type, in my example everything is 
 		// hierarchical included in this first node.
 		Resource resource = resSet.createResource(fileURI);		
+		//resource.getContents().add(ifmlModel);
 		resource.getContents().add(ifmlModel);
-		resource.getContents().add(ifmlModel.getDomainModel());
 		try {
 		
 			Map<String, Object> options = new HashMap<String, Object>(); 
