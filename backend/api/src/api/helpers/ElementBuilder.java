@@ -347,14 +347,13 @@ public class ElementBuilder {
 	public DomainConcept createDomainConcept(DomainClass domainClass) {
 		
 		UMLDomainConcept dc = f.createUMLDomainConcept();
+		dc.setId(domainClass.getName() + "Id");
+		dc.setName(domainClass.getName());
 		org.eclipse.uml2.uml.Class c = umlf.createClass();
 		for (DomainAttribute da: domainClass.getChildren()) {			
 				DomainProperty prop = da.getProperties();
-				//Property p = umlf.createProperty();
-				//p.setName(prop.getNombre());
 				PrimitiveType pt = umlf.createPrimitiveType();
 				pt.setName(prop.getTipo());
-				//p.setType(pt);
 				c.createOwnedAttribute(prop.getNombre(), pt);
 		}
 		dc.setClassifier(c);

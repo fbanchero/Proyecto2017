@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="ASCII"?>
-<core:IFMLModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/IFML/core" name="Mockup">
-  <interactionFlowModel name="Pages">
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="822011b0" name="Page1"/>
-  </interactionFlowModel>
-  <domainModel name="Domain Model"/>
-</core:IFMLModel>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/IFML/core" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <core:IFMLModel name="Mockup">
+    <interactionFlowModel name="Pages">
+      <interactionFlowModelElements xsi:type="core:ViewContainer" id="1621190b" name="Page1"/>
+    </interactionFlowModel>
+    <domainModel id="domainId" name="Domain Model" elements="/1"/>
+  </core:IFMLModel>
+  <core:UMLDomainConcept id="productoId" name="producto" domainModel="/0/@domainModel" classifier="/2"/>
+  <uml:Class>
+    <ownedAttribute name="id" type="/3"/>
+    <ownedAttribute name="precio" type="/4"/>
+    <ownedAttribute name="nombre" type="/5"/>
+  </uml:Class>
+  <uml:PrimitiveType name="int"/>
+  <uml:PrimitiveType name="int"/>
+  <uml:PrimitiveType name="string"/>
+</xmi:XMI>

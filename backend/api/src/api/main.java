@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.internal.impl.UMLFactoryImpl;
 
@@ -29,6 +31,7 @@ import com.google.gson.Gson;
 import api.classes.DataPage;
 import api.classes.Domain;
 import api.classes.DomainClass;
+import api.classes.DomainProperty;
 import api.classes.DomainRelationship;
 import api.classes.Mockup;
 import api.classes.MockupMultipleColumnElement;
@@ -37,11 +40,13 @@ import api.classes.NavigationEvent;
 import api.helpers.ElementBuilder;
 import ifml.core.CoreFactory;
 import ifml.core.DomainConcept;
+import ifml.core.DomainElement;
 import ifml.core.DomainModel;
 import ifml.core.IFMLModel;
 import ifml.core.InteractionFlowModel;
 import ifml.core.InteractionFlowModelElement;
 import ifml.core.NavigationFlow;
+import ifml.core.UMLDomainConcept;
 import ifml.core.ViewContainer;
 import ifml.core.ViewElement;
 import ifml.core.ViewElementEvent;
@@ -277,18 +282,15 @@ public class main {
 	 */
 	private static DomainModel generateIFMLDomain(ArrayList<Domain> domain) {
 		DomainModel domainModel = f.createDomainModel();
+		domainModel.setId("domainId");
+		domainModel.setName("Dominio");		
 		domainModel.setName(domain.get(0).getName());
 		for (DomainClass domainClass : domain.get(0).getChildren()) {
 			DomainConcept dc = eb.createDomainConcept(domainClass);
+			dc.setDomainModel(domainModel);
 			domainModel.getElements().add(dc);
 		}
-		
-//		for (DomainRelationship domainRelationship : domain.getListRelationship()) {
-//			
-//			DomainRelationship dr = eb.createDomainConcept(domainRelationship.getRelationsEnd());
-//			
-//		}
-		
+				
 		return domainModel;
 		
 	}
@@ -452,13 +454,27 @@ public class main {
 			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 
 		URI fileURI = URI.createFileURI(new File("test.xmi").getAbsolutePath());
+//		URI fileURI2 = URI.createFileURI(new File("domain.xmi").getAbsolutePath());
 
 		// Create a resource and get the first model element and
 		// cast it to the right type, in my example everything is 
-		// hierarchical included in this first node.
-		Resource resource = resSet.createResource(fileURI);		
-		//resource.getContents().add(ifmlModel);
+		// hierarchical included in this first node.		
+		Resource resource = resSet.createResource(fileURI);
 		resource.getContents().add(ifmlModel);
+		DomainModel domain =  ifmlModel.getDomainModel();
+		//resource.getContents().add(domain);
+		for(DomainElement element: domain.getElements()){
+			UMLDomainConcept dc = (UMLDomainConcept)element;
+			resource.getContents().add(dc);		
+			org.eclipse.uml2.uml.Class c = (Class) dc.getClassifier();
+			resource.getContents().add(c);
+			for(Property prop: c.getOwnedAttributes()){				
+				resource.getContents().add(prop.getType());	
+			}
+			
+		}
+		
+		
 		try {
 		
 			Map<String, Object> options = new HashMap<String, Object>(); 
