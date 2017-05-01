@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.internal.impl.UMLFactoryImpl;
@@ -283,7 +284,6 @@ public class main {
 	private static DomainModel generateIFMLDomain(ArrayList<Domain> domain) {
 		DomainModel domainModel = f.createDomainModel();
 		domainModel.setId("domainId");
-		domainModel.setName("Dominio");		
 		domainModel.setName(domain.get(0).getName());
 		for (DomainClass domainClass : domain.get(0).getChildren()) {
 			DomainConcept dc = eb.createDomainConcept(domainClass);
@@ -454,26 +454,21 @@ public class main {
 			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 
 		URI fileURI = URI.createFileURI(new File("test.xmi").getAbsolutePath());
-//		URI fileURI2 = URI.createFileURI(new File("domain.xmi").getAbsolutePath());
 
 		// Create a resource and get the first model element and
 		// cast it to the right type, in my example everything is 
 		// hierarchical included in this first node.		
 		Resource resource = resSet.createResource(fileURI);
 		resource.getContents().add(ifmlModel);
-		DomainModel domain =  ifmlModel.getDomainModel();
-		//resource.getContents().add(domain);
+		DomainModel domain =  ifmlModel.getDomainModel();		
 		for(DomainElement element: domain.getElements()){
 			UMLDomainConcept dc = (UMLDomainConcept)element;
 			resource.getContents().add(dc);		
 			org.eclipse.uml2.uml.Class c = (Class) dc.getClassifier();
-			resource.getContents().add(c);
-			for(Property prop: c.getOwnedAttributes()){				
-				resource.getContents().add(prop.getType());	
-			}
-			
+			resource.getContents().add(c);			
 		}
-		
+		for(PrimitiveType pt: eb.getTypes())
+			resource.getContents().add(pt);		
 		
 		try {
 		

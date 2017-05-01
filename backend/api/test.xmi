@@ -2,17 +2,23 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/IFML/core" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <core:IFMLModel name="Mockup">
     <interactionFlowModel name="Pages">
-      <interactionFlowModelElements xsi:type="core:ViewContainer" id="1621190b" name="Page1"/>
+      <interactionFlowModelElements xsi:type="core:ViewContainer" id="6c394050" name="Page1"/>
     </interactionFlowModel>
-    <domainModel id="domainId" name="Domain Model" elements="/1"/>
+    <domainModel id="domainId" name="Domain Model" elements="/1 /3"/>
   </core:IFMLModel>
   <core:UMLDomainConcept id="productoId" name="producto" domainModel="/0/@domainModel" classifier="/2"/>
-  <uml:Class>
-    <ownedAttribute name="id" type="/3"/>
-    <ownedAttribute name="precio" type="/4"/>
+  <uml:Class name="producto">
+    <ownedAttribute name="id" type="/7"/>
+    <ownedAttribute name="id_categoria" type="/7"/>
+    <ownedAttribute name="precio" type="/6"/>
     <ownedAttribute name="nombre" type="/5"/>
   </uml:Class>
-  <uml:PrimitiveType name="int"/>
-  <uml:PrimitiveType name="int"/>
+  <core:UMLDomainConcept id="categoriaId" name="categoria" domainModel="/0/@domainModel" classifier="/4"/>
+  <uml:Class name="categoria">
+    <ownedAttribute name="id" type="/7"/>
+    <ownedAttribute name="nombre" type="/5"/>
+  </uml:Class>
   <uml:PrimitiveType name="string"/>
+  <uml:PrimitiveType name="double"/>
+  <uml:PrimitiveType name="int"/>
 </xmi:XMI>
