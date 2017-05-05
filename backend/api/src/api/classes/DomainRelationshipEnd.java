@@ -2,24 +2,34 @@ package api.classes;
 
 public class DomainRelationshipEnd {
 	
-	private DomainClass typeClass;
+	private String nameClass;
 	
-	private int cardinality;
+	private int cardLower;
+	
+	private int cardUpper;
 
-	public DomainClass getTypeClass() {
-		return typeClass;
+	public String getNameClass() {
+		return nameClass;
 	}
 
-	public void setTypeClass(DomainClass typeClass) {
-		this.typeClass = typeClass;
+	public void setNameClass(String nameClass) {
+		this.nameClass = nameClass;
 	}
 
-	public int getCardinality() {
-		return cardinality;
+	public int getCardLower() {
+		return cardLower;
 	}
 
-	public void setCardinality(int cardinality) {
-		this.cardinality = cardinality;
+	public void setCardLower(int cardLower) {
+		this.cardLower = cardLower;
+	}
+
+	public int getCardUpper() {
+		return cardUpper;
+	}
+
+	public void setCardUpper(int cardUpper) {
+		this.cardUpper = cardUpper;
 	}
 	
 }

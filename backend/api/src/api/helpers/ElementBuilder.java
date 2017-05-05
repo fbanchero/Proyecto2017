@@ -2,21 +2,31 @@ package api.helpers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.uml2.uml.Association;
+import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.PrimitiveType;
+import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.UMLFactory;
+
 import api.classes.DomainAttribute;
 import api.classes.DomainClass;
-import api.classes.DomainProperty;
+import api.classes.DomainOperation;
+import api.classes.DomainRelationship;
+import api.classes.DomainRelationshipEnd;
 import api.classes.MockupGeneralElement;
 import api.classes.MockupMultipleColumnElement;
 import api.classes.MockupSingleColumnElement;
 import api.classes.NavigationEvent;
+import api.classes.Parameter;
 import ifml.core.CoreFactory;
-import ifml.core.DomainConcept;
+import ifml.core.DomainModel;
 import ifml.core.NavigationFlow;
+import ifml.core.UMLBehavioralFeature;
 import ifml.core.UMLDomainConcept;
+import ifml.core.UMLStructuralFeature;
 import ifml.core.ViewContainer;
 import ifml.core.ViewElement;
 import ifml.core.ViewElementEvent;
@@ -354,20 +364,75 @@ public class ElementBuilder {
 	 *            - MockupElement with all the relevant info.
 	 * @return - Image object.
 	 */
-	public DomainConcept createDomainConcept(DomainClass domainClass) {
-
-		UMLDomainConcept dc = f.createUMLDomainConcept();
-		dc.setId(domainClass.getName() + "Id");
-		dc.setName(domainClass.getName());
+//	public DomainConcept createDomainConcept(DomainClass domainClass) {
+//
+//		UMLDomainConcept dc = f.createUMLDomainConcept();
+//		dc.setId(domainClass.getName() + "Id");
+//		dc.setName(domainClass.getName());
+//		org.eclipse.uml2.uml.Class c = umlf.createClass();
+//		c.setName(domainClass.getName());		
+//		for (DomainAttribute da : domainClass.getListAttribute()) {
+//			DomainProperty prop = da.getProperties();
+//			PrimitiveType pt = tf.getPrimitiveType(prop.getTipo());
+//			c.createOwnedAttribute(prop.getNombre(), pt);
+//		}
+//		dc.setClassifier(c);
+//		return dc;
+//	}
+	
+	public org.eclipse.uml2.uml.Class createClass(DomainClass domainClass, DomainModel domainModel) {
 		org.eclipse.uml2.uml.Class c = umlf.createClass();
-		c.setName(domainClass.getName());		
-		for (DomainAttribute da : domainClass.getChildren()) {
-			DomainProperty prop = da.getProperties();
-			PrimitiveType pt = tf.getPrimitiveType(prop.getTipo());
-			c.createOwnedAttribute(prop.getNombre(), pt);
+		c.setName(domainClass.getName());
+		for (DomainAttribute da: domainClass.getListAttribute()) {
+//			Property p = umlf.createProperty();
+//			p.setName(da.getName());
+//			PrimitiveType pt = umlf.createPrimitiveType();
+			PrimitiveType pt = tf.getPrimitiveType(da.getType());
+//			pt.setName(da.getName());
+//			p.setType(pt);
+//			c.getAttributes().add(p);
+			Property p = c.createOwnedAttribute(da.getName(), pt);
+			UMLStructuralFeature umlsf = f.createUMLStructuralFeature();
+			umlsf.setStructuralFeature(p);
+			domainModel.getElements().add(umlsf);
 		}
-		dc.setClassifier(c);
-		return dc;
+		for (DomainOperation oper: domainClass.getListOperation()) {
+			Operation bf = umlf.createOperation();
+			bf.setName(oper.getName());
+			if (oper.getRetorno() != null) {
+				PrimitiveType pt = umlf.createPrimitiveType();
+				pt.setName(oper.getRetorno());
+				bf.createReturnResult(null, pt);
+			}
+			for (Parameter p: oper.getListParameter()) {
+				PrimitiveType pt = umlf.createPrimitiveType();
+				pt.setName(p.getTipo());
+				bf.createOwnedParameter(p.getName(), pt);
+			}
+			c.getAllOperations().add(bf);
+			UMLBehavioralFeature umlbf = f.createUMLBehavioralFeature();
+			umlbf.setBehavioralFeature(bf);
+			domainModel.getElements().add(umlbf);
+		}
+		
+		UMLDomainConcept umldc = f.createUMLDomainConcept();
+		umldc.setClassifier(c);
+		domainModel.getElements().add(umldc);
+		return c;
+	}
+	
+	public Association createAssociation(DomainRelationship domainRelationship, Map<String, org.eclipse.uml2.uml.Class> mapClassifiers) {
+		Association a = umlf.createAssociation();
+		for (DomainRelationshipEnd dre: domainRelationship.getRelationsEnd()) {
+			org.eclipse.uml2.uml.Class c = mapClassifiers.get(dre.getNameClass());
+			Property p = umlf.createProperty();
+			p.setType(c);
+			p.setUpper(dre.getCardUpper());
+			p.setLower(dre.getCardLower());
+			a.getMemberEnds().add(p);
+			c.getAssociations().add(a);
+		}
+		return a;
 	}
 
 }

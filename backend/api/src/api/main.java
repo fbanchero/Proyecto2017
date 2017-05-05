@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.PrimitiveType;
-import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.StructuralFeature;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.internal.impl.UMLFactoryImpl;
 
@@ -31,16 +31,19 @@ import com.google.gson.Gson;
 
 import api.classes.DataPage;
 import api.classes.Domain;
+import api.classes.DomainAttribute;
 import api.classes.DomainClass;
-import api.classes.DomainProperty;
+import api.classes.DomainGeneralElement;
+import api.classes.DomainOperation;
 import api.classes.DomainRelationship;
+import api.classes.DomainRelationshipEnd;
 import api.classes.Mockup;
 import api.classes.MockupMultipleColumnElement;
 import api.classes.MockupSingleColumnElement;
+import api.classes.Model;
 import api.classes.NavigationEvent;
 import api.helpers.ElementBuilder;
 import ifml.core.CoreFactory;
-import ifml.core.DomainConcept;
 import ifml.core.DomainElement;
 import ifml.core.DomainModel;
 import ifml.core.IFMLModel;
@@ -48,6 +51,7 @@ import ifml.core.InteractionFlowModel;
 import ifml.core.InteractionFlowModelElement;
 import ifml.core.NavigationFlow;
 import ifml.core.UMLDomainConcept;
+import ifml.core.UMLStructuralFeature;
 import ifml.core.ViewContainer;
 import ifml.core.ViewElement;
 import ifml.core.ViewElementEvent;
@@ -282,17 +286,63 @@ public class main {
 	 * @return               - InteractionFlowModel generated based on mockup elements array.
 	 */
 	private static DomainModel generateIFMLDomain(ArrayList<Domain> domain) {
+		Model model = convertDomainModel(domain.get(0));
 		DomainModel domainModel = f.createDomainModel();
 		domainModel.setId("domainId");
 		domainModel.setName(domain.get(0).getName());
-		for (DomainClass domainClass : domain.get(0).getChildren()) {
-			DomainConcept dc = eb.createDomainConcept(domainClass);
-			dc.setDomainModel(domainModel);
-			domainModel.getElements().add(dc);
+		Map<String, Class> mapClassifiers = new HashMap<String, Class>();
+		for (DomainClass domainClass : model.getListClass()) {
+			Class c = eb.createClass(domainClass, domainModel);
+			mapClassifiers.put(c.getName(), c);
 		}
-				
+		for (DomainRelationship domainRelationship : model.getListRelationship()) {
+			eb.createAssociation(domainRelationship, mapClassifiers);
+		}
 		return domainModel;
-		
+	}
+	
+	private static Model convertDomainModel(Domain domain) {
+		Model domainModel = new Model();
+		domainModel.setName(domain.getName());
+		for (DomainGeneralElement element: domain.getChildren()) {
+			if (element.getType().equals("domain_class")) {
+				DomainClass c = new DomainClass();
+				c.setName(element.getName());
+				for (DomainGeneralElement e: element.getChildren()) {
+					if (e.getType().equals("domain_attribute")) {
+						DomainAttribute a = new DomainAttribute();
+						a.setName((String) e.getProperties().get("nombre"));
+						String t = (String) e.getProperties().get("tipo");
+						a.setType(t);
+						c.getListAttribute().add(a);
+					} else if (e.getType().equals("operation")) {
+						DomainOperation oper = new DomainOperation();
+						oper.setName(e.getName());
+//						DomainGeneralElement t = element.getProperties().get("return_type");
+//						oper.setRetorno(t.getName());
+//						for (element.getProperties()) {
+//							
+//						}
+						c.getListOperation().add(oper);
+					}
+				}
+				domainModel.getListClass().add(c);
+				
+			} else if (element.getType().equals("relation")) {
+				DomainRelationship rel = new DomainRelationship();
+				for (DomainGeneralElement elemRel: element.getChildren()) {
+					DomainRelationshipEnd relEnd = new DomainRelationshipEnd();
+					DomainClass classRel = new DomainClass();
+					classRel.setName(elemRel.getName());
+//					relEnd.setNameClass(nameClass);;
+//					relEnd.setCardLower(elemRel.getCardLower());
+//					relEnd.setCardUpper(elemRel.getCardUpper());
+					rel.getRelationsEnd().add(relEnd);
+				}
+//				
+			}
+		}
+		return domainModel;
 	}
 
 	/**
@@ -462,13 +512,21 @@ public class main {
 		resource.getContents().add(ifmlModel);
 		DomainModel domain =  ifmlModel.getDomainModel();		
 		for(DomainElement element: domain.getElements()){
-			UMLDomainConcept dc = (UMLDomainConcept)element;
-			resource.getContents().add(dc);		
-			org.eclipse.uml2.uml.Class c = (Class) dc.getClassifier();
-			resource.getContents().add(c);			
+			if (element instanceof UMLDomainConcept) {
+				UMLDomainConcept dc = (UMLDomainConcept)element;
+				resource.getContents().add(dc);		
+				org.eclipse.uml2.uml.Class c = (Class) dc.getClassifier();
+				resource.getContents().add(c);
+			} else if (element instanceof UMLStructuralFeature) {
+				UMLStructuralFeature sf = (UMLStructuralFeature)element;
+				resource.getContents().add(sf);		
+				org.eclipse.uml2.uml.StructuralFeature s = (StructuralFeature) sf.getStructuralFeature();
+				resource.getContents().add(s);
+			}
+						
 		}
 		for(PrimitiveType pt: eb.getTypes())
-			resource.getContents().add(pt);		
+			resource.getContents().add(pt);
 		
 		try {
 		

@@ -6,10 +6,7 @@ public class Domain {
 	
 	private String name;
 	
-	private ArrayList<DomainClass> children;
-	
-	private ArrayList<DomainRelationship> listRelationship;
-	
+	private ArrayList<DomainGeneralElement> children;
 	
 	public String getName() {
 		return name;
@@ -19,21 +16,11 @@ public class Domain {
 		this.name = name;
 	}
 	
-
-
-	public ArrayList<DomainRelationship> getListRelationship() {
-		return listRelationship;
-	}
-
-	public void setListRelationship(ArrayList<DomainRelationship> listRelationship) {
-		this.listRelationship = listRelationship;
-	}
-
-	public ArrayList<DomainClass> getChildren() {
+	public ArrayList<DomainGeneralElement> getChildren() {
 		return children;
 	}
 
-	public void setChildren(ArrayList<DomainClass> children) {
+	public void setChildren(ArrayList<DomainGeneralElement> children) {
 		this.children = children;
 	}
 	
