@@ -34,7 +34,7 @@ angular.module('pgradoApp')
                 { type: 'text', id: chance.bb_pin(), name:'text', properties: { value:'text', fontSize:'25' }, events: [] },
                 { type: 'button', id: chance.bb_pin(), name:'button', properties: { align: 'center', value: 'Button' }, events: [] },
                 { type: 'image', id: chance.bb_pin(), name:'image', properties: { align: 'left', url: '' }, events: [] },
-                { type: 'table', id: chance.bb_pin(), name:'table', properties: {}, events: [ { type: 'onSelect', link: '' } ] },
+                { type: 'table', id: chance.bb_pin(), name:'table', properties: {domain_class: {nombre: "producto", attr: {id: '1', nombre: 'edad'}}}, events: [ { type: 'onSelect', link: '' } ] },
                 { type: 'tabs', id: chance.bb_pin(), name:'tabs', properties: { xor: true }, contSelected:innerPageName, events: [], children: [[
                         { type: 'column', name:'Tab 1','id': innerPageName, 'properties': { 'default': true, 'landmark': false }, 'children': [[]] },
                         { type: 'column', name:'Tab 2','id': chance.bb_pin(), 'properties': { 'default': false, 'landmark': false }, 'children': [[]] },
