@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link ifml.extensions.impl.ImageImpl#getAlign <em>Align</em>}</li>
  *   <li>{@link ifml.extensions.impl.ImageImpl#getUrl <em>Url</em>}</li>
+ *   <li>{@link ifml.extensions.impl.ImageImpl#getWidth <em>Width</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +68,26 @@ public class ImageImpl extends ViewElementImpl implements Image {
 	 * @ordered
 	 */
 	protected String url = URL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWidth()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double WIDTH_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getWidth() <em>Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWidth()
+	 * @generated
+	 * @ordered
+	 */
+	protected double width = WIDTH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,6 +155,27 @@ public class ImageImpl extends ViewElementImpl implements Image {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getWidth() {
+		return width;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWidth(double newWidth) {
+		double oldWidth = width;
+		width = newWidth;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionsPackage.IMAGE__WIDTH, oldWidth, width));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -141,6 +183,8 @@ public class ImageImpl extends ViewElementImpl implements Image {
 				return getAlign();
 			case ExtensionsPackage.IMAGE__URL:
 				return getUrl();
+			case ExtensionsPackage.IMAGE__WIDTH:
+				return getWidth();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,6 +202,9 @@ public class ImageImpl extends ViewElementImpl implements Image {
 				return;
 			case ExtensionsPackage.IMAGE__URL:
 				setUrl((String)newValue);
+				return;
+			case ExtensionsPackage.IMAGE__WIDTH:
+				setWidth((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -177,6 +224,9 @@ public class ImageImpl extends ViewElementImpl implements Image {
 			case ExtensionsPackage.IMAGE__URL:
 				setUrl(URL_EDEFAULT);
 				return;
+			case ExtensionsPackage.IMAGE__WIDTH:
+				setWidth(WIDTH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -193,6 +243,8 @@ public class ImageImpl extends ViewElementImpl implements Image {
 				return ALIGN_EDEFAULT == null ? align != null : !ALIGN_EDEFAULT.equals(align);
 			case ExtensionsPackage.IMAGE__URL:
 				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
+			case ExtensionsPackage.IMAGE__WIDTH:
+				return width != WIDTH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -211,6 +263,8 @@ public class ImageImpl extends ViewElementImpl implements Image {
 		result.append(align);
 		result.append(", url: ");
 		result.append(url);
+		result.append(", Width: ");
+		result.append(width);
 		result.append(')');
 		return result.toString();
 	}

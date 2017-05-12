@@ -15,6 +15,7 @@ import ifml.core.ViewElement;
  * <ul>
  *   <li>{@link ifml.extensions.Image#getAlign <em>Align</em>}</li>
  *   <li>{@link ifml.extensions.Image#getUrl <em>Url</em>}</li>
+ *   <li>{@link ifml.extensions.Image#getWidth <em>Width</em>}</li>
  * </ul>
  *
  * @see ifml.extensions.ExtensionsPackage#getImage()
@@ -73,5 +74,31 @@ public interface Image extends ViewElement {
 	 * @generated
 	 */
 	void setUrl(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Width</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Width</em>' attribute.
+	 * @see #setWidth(double)
+	 * @see ifml.extensions.ExtensionsPackage#getImage_Width()
+	 * @model
+	 * @generated
+	 */
+	double getWidth();
+
+	/**
+	 * Sets the value of the '{@link ifml.extensions.Image#getWidth <em>Width</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Width</em>' attribute.
+	 * @see #getWidth()
+	 * @generated
+	 */
+	void setWidth(double value);
 
 } // Image
