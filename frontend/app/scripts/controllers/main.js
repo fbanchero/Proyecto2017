@@ -8,7 +8,7 @@
  * Controller of the pgradoApp
  */
 angular.module('pgradoApp')
-    .controller('MainCtrl', ['$scope', 'api', 'FileSaver', function ($scope, api, FileSaver) {
+    .controller('MainCtrl', ['$scope', '$sce','api', 'FileSaver', function ($scope, $sce, api, FileSaver) {
 
         var chance = new Chance(),
             firstPageId = chance.bb_pin(),
@@ -31,10 +31,11 @@ angular.module('pgradoApp')
         eventSelected: { type: 'onClick', link: '' },
         templates: {
             simple: [
-                { type: 'text', id: chance.bb_pin(), name:'text', properties: { value:'text', fontSize:'25' }, events: [] },
+                { type: 'text', id: chance.bb_pin(), name:'text', properties: { value:'text', fontSize:'15' }, events: [] },
                 { type: 'button', id: chance.bb_pin(), name:'button', properties: { align: 'center', value: 'Button' }, events: [] },
-                { type: 'image', id: chance.bb_pin(), name:'image', properties: { align: 'left', url: '' }, events: [] },
-                { type: 'table', id: chance.bb_pin(), name:'table', properties: {domain_class: {nombre: "producto", attr: {id: '1', nombre: 'edad'}}}, events: [ { type: 'onSelect', link: '' } ] },
+                { type: 'image', id: chance.bb_pin(), name:'image', properties: { align: 'left', url: '', width: '100' }, events: [] },
+                { type: 'video', id: chance.bb_pin(), name:'video', properties: { align: 'left', url: '', width: '640', height: '360' }, events: [] },
+                { type: 'table', id: chance.bb_pin(), name:'table', properties: {}, events: [ { type: 'onSelect', link: '' } ] },
                 { type: 'tabs', id: chance.bb_pin(), name:'tabs', properties: { xor: true }, contSelected:innerPageName, events: [], children: [[
                         { type: 'column', name:'Tab 1','id': innerPageName, 'properties': { 'default': true, 'landmark': false }, 'children': [[]] },
                         { type: 'column', name:'Tab 2','id': chance.bb_pin(), 'properties': { 'default': false, 'landmark': false }, 'children': [[]] },
@@ -42,19 +43,25 @@ angular.module('pgradoApp')
                     ]]
                 },
                 { type: 'sidebar', id: chance.bb_pin(), name: 'sidebar', properties: {}, children: [
-                        [{ type: 'text', id: chance.bb_pin(), name:'text', properties: {value: 'Link 1'}, events: [] },
-                         { type: 'text', id: chance.bb_pin(), name:'text', properties: {value: 'Link 2'}, events: [] },
-                         { type: 'text', id: chance.bb_pin(), name:'text', properties: {value: 'Link 3'}, events: [] },
-                         { type: 'text', id: chance.bb_pin(), name:'text', properties: {value: 'Link 4'}, events: [] }],
-                        []
-                    ]
+                       [{ type: 'column', id: chance.bb_pin(), name: 'side', properties: { 'default': false, 'landmark': false }, children: [[
+                       { type: 'link', id: chance.bb_pin(), name: 'link', properties: {value:'Link 1', fontSize:'15'},  events: [ { type: 'onClick', link: '' }]},
+                       { type: 'link', id: chance.bb_pin(), name: 'link', properties: {value:'Link 2', fontSize:'15'},  events: [ { type: 'onClick', link: '' }]},
+                       { type: 'link', id: chance.bb_pin(), name: 'link', properties: {value:'Link 3', fontSize:'15'},  events: [ { type: 'onClick', link: '' }]},
+                       { type: 'link', id: chance.bb_pin(), name: 'link', properties: {value:'Link 4', fontSize:'15'},  events: [ { type: 'onClick', link: '' }]}
+                       ]] },
+                       ],
+                       [
+                        { type: 'column', id: chance.bb_pin(), name: 'content', properties: { 'default': false, 'landmark': false }, children: [[]] }
+                       ]
+                   ]
                 },
+                { type: 'link', id: chance.bb_pin(), name: 'link', properties: {value:'text', fontSize:'15'},  events: [ { type: 'onClick', link: '' }]},
             ],
             composite:[
-                { type: 'column', id: chance.bb_pin(), name: 'container', properties: { 'default': false, 'landmark': false }, children: [[]] },
-                { type: 'column', id: chance.bb_pin(), name: 'container', properties: { 'default': false, 'landmark': false }, children: [[], []] },
-                { type: 'column', id: chance.bb_pin(), name: 'container', properties: { 'default': false, 'landmark': false }, children: [[], [], []] },
-                { type: 'column', id: chance.bb_pin(), name: 'container', properties: { 'default': false, 'landmark': false }, children: [[], [], [], []] },
+                { type: 'column', id: chance.bb_pin(), name: 'box', properties: { 'default': false, 'landmark': false }, children: [[]] },
+                { type: 'column', id: chance.bb_pin(), name: 'box', properties: { 'default': false, 'landmark': false }, children: [[], []] },
+                { type: 'column', id: chance.bb_pin(), name: 'box', properties: { 'default': false, 'landmark': false }, children: [[], [], []] },
+                { type: 'column', id: chance.bb_pin(), name: 'box', properties: { 'default': false, 'landmark': false }, children: [[], [], [], []] },
             ],
 
             form: [
@@ -64,6 +71,9 @@ angular.module('pgradoApp')
                         { type: 'input', id: chance.bb_pin(), name: 'input', properties: { 'placeholder': 'John', 'label': 'Nombre' } },
                         { type: 'input', id: chance.bb_pin(), name: 'input', properties: { 'placeholder': 'Doe', 'label': 'Apellido' } },
                         { type: 'submit_button', id: chance.bb_pin(), name: 'submit button', properties: { 'value': 'Enviar' }, events: [{ type: 'onSubmit', link: '' }] }
+                    ]]},
+                    { type: 'searchBar', id: chance.bb_pin(), name: 'searchBar', properties: {'placeholder': 'search'}, events: [], children: [[
+                        { type: 'input', id: chance.bb_pin(), name: 'search', properties: {} }
                     ]]},
                     { type: 'legend', id: chance.bb_pin(), name: 'legend', properties: { 'value': 'Legend' } },
                     { type: 'input', id: chance.bb_pin(), name: 'input', properties: { 'placeholder': 'Placeholder', 'label': 'Label'} },
@@ -78,7 +88,7 @@ angular.module('pgradoApp')
                     { type: 'association', id: chance.bb_pin(), name: 'association'},
                     { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'method()', 'tipo': 'void'}},
                 ]
-            },
+        	},
             domain_types: { 'tipos': ['string', 'int', 'double'] },
             result: {
                 'name': 'Mockup',
@@ -98,13 +108,18 @@ angular.module('pgradoApp')
                     'children': []
                   }]
             }
-        };
-
+            
+        },
+        
         $scope.changeid = function(item) {
 
             item.id = chance.bb_pin();
 
         };
+
+        $scope.trustSrc = function(src) {
+            return $sce.trustAsResourceUrl(src);
+        }
 
         $scope.$watch('models.result', function(model) {
 
@@ -226,9 +241,21 @@ angular.module('pgradoApp')
 
 
         $scope.changeid = function(item) {
+
             item.id = chance.bb_pin()
             if (item.pages) {
                 item.pageSelected = item.pages[0].id
+            }
+            var children = item.children[0];
+            var child;
+            var i = 0;
+            for ( child in children) {
+                var id = chance.bb_pin();
+                children[child].id = id;
+                if(i == 0 && item.type == 'tabs'){
+                    item.contSelected = id
+                }
+                i++;
             }
         }
 
