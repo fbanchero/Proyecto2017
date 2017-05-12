@@ -12,7 +12,7 @@
 <div class="tabs" offset="15" layout="row">
 	<div class="tab" ng-class="{'selected': models.pageSelected == page.id, 'modal-tab': page.type == 'modal'}" ng-repeat="page in models.result.pages" ng-click="models.pageSelected = page.id">
 		<span style="float: left" ng-if="page.type == 'modal'">[M]&nbsp;</span>
-    <inline-editor style="float: left" ng-model="page.name"></inline-editor>
+    <inline-editor style="float: left" ng-model="page.name"></inline-editor> 
     <!--span style="float: left" inline-edit="page.name" inline-edit-btn-edit="" inline-edit-on-click></span-->
 		<span class="close-tab" ng-if="models.pageSelected == page.id" ng-click="removePage(page.id)">x</span>
 	</div>
@@ -39,11 +39,9 @@
         </div>
     </div>
     <div ng-repeat="page in models.result.pages" flex="70"  ng-hide="page.id != models.pageSelected">
-       <div ng-if="page.type == 'page'" id="main" class="dropzone box canvas"
-          ng-click="models.selected = undefined"
-          dnd-list="page.children"
-          ng-include="'views/canvas.html'">
-        </div>
+       <div ng-if="page.type == 'page'" id="main"  ng-click="models.selected = undefined"
+       dnd-list="page.children" class="dropzone box canvas"
+       ng-include="'views/canvas.html'"></div>
 
         <div class="modal modal-page" ng-if="page.type === 'modal'">
           <div class="modal-dialog">
