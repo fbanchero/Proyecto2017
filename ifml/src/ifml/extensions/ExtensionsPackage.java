@@ -1967,13 +1967,22 @@ public interface ExtensionsPackage extends EPackage {
 	int IMAGE__URL = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__WIDTH = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Image</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMAGE_FEATURE_COUNT = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 2;
+	int IMAGE_FEATURE_COUNT = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Image</em>' class.
@@ -2257,6 +2266,160 @@ public interface ExtensionsPackage extends EPackage {
 	int TEXT_FIELD_OPERATION_COUNT = CorePackage.VIEW_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ifml.extensions.impl.VideoImpl <em>Video</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ifml.extensions.impl.VideoImpl
+	 * @see ifml.extensions.impl.ExtensionsPackageImpl#getVideo()
+	 * @generated
+	 */
+	int VIDEO = 19;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__ID = CorePackage.VIEW_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__CONSTRAINTS = CorePackage.VIEW_ELEMENT__CONSTRAINTS;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__ANNOTATIONS = CorePackage.VIEW_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__NAME = CorePackage.VIEW_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__PARAMETERS = CorePackage.VIEW_ELEMENT__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>In Interaction Flows</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__IN_INTERACTION_FLOWS = CorePackage.VIEW_ELEMENT__IN_INTERACTION_FLOWS;
+
+	/**
+	 * The feature id for the '<em><b>Out Interaction Flows</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__OUT_INTERACTION_FLOWS = CorePackage.VIEW_ELEMENT__OUT_INTERACTION_FLOWS;
+
+	/**
+	 * The feature id for the '<em><b>View Element Events</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__VIEW_ELEMENT_EVENTS = CorePackage.VIEW_ELEMENT__VIEW_ELEMENT_EVENTS;
+
+	/**
+	 * The feature id for the '<em><b>Activation Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__ACTIVATION_EXPRESSION = CorePackage.VIEW_ELEMENT__ACTIVATION_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>View Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__VIEW_CONTAINER = CorePackage.VIEW_ELEMENT__VIEW_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__HEIGHT = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Align</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__ALIGN = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__URL = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__WIDTH = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Video</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_FEATURE_COUNT = CorePackage.VIEW_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Video</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_OPERATION_COUNT = CorePackage.VIEW_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ifml.extensions.SortOrderEnum <em>Sort Order Enum</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2264,7 +2427,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @see ifml.extensions.impl.ExtensionsPackageImpl#getSortOrderEnum()
 	 * @generated
 	 */
-	int SORT_ORDER_ENUM = 19;
+	int SORT_ORDER_ENUM = 20;
 
 
 	/**
@@ -2548,6 +2711,17 @@ public interface ExtensionsPackage extends EPackage {
 	EAttribute getImage_Url();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ifml.extensions.Image#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width</em>'.
+	 * @see ifml.extensions.Image#getWidth()
+	 * @see #getImage()
+	 * @generated
+	 */
+	EAttribute getImage_Width();
+
+	/**
 	 * Returns the meta object for class '{@link ifml.extensions.Button <em>Button</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2610,6 +2784,60 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTextField_TextFieldText();
+
+	/**
+	 * Returns the meta object for class '{@link ifml.extensions.Video <em>Video</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Video</em>'.
+	 * @see ifml.extensions.Video
+	 * @generated
+	 */
+	EClass getVideo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ifml.extensions.Video#getHeight <em>Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Height</em>'.
+	 * @see ifml.extensions.Video#getHeight()
+	 * @see #getVideo()
+	 * @generated
+	 */
+	EAttribute getVideo_Height();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ifml.extensions.Video#getAlign <em>Align</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Align</em>'.
+	 * @see ifml.extensions.Video#getAlign()
+	 * @see #getVideo()
+	 * @generated
+	 */
+	EAttribute getVideo_Align();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ifml.extensions.Video#getUrl <em>Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Url</em>'.
+	 * @see ifml.extensions.Video#getUrl()
+	 * @see #getVideo()
+	 * @generated
+	 */
+	EAttribute getVideo_Url();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ifml.extensions.Video#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width</em>'.
+	 * @see ifml.extensions.Video#getWidth()
+	 * @see #getVideo()
+	 * @generated
+	 */
+	EAttribute getVideo_Width();
 
 	/**
 	 * Returns the meta object for enum '{@link ifml.extensions.SortOrderEnum <em>Sort Order Enum</em>}'.
@@ -2895,6 +3123,14 @@ public interface ExtensionsPackage extends EPackage {
 		EAttribute IMAGE__URL = eINSTANCE.getImage_Url();
 
 		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMAGE__WIDTH = eINSTANCE.getImage_Width();
+
+		/**
 		 * The meta object literal for the '{@link ifml.extensions.impl.ButtonImpl <em>Button</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2945,6 +3181,48 @@ public interface ExtensionsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT_FIELD__TEXT_FIELD_TEXT = eINSTANCE.getTextField_TextFieldText();
+
+		/**
+		 * The meta object literal for the '{@link ifml.extensions.impl.VideoImpl <em>Video</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ifml.extensions.impl.VideoImpl
+		 * @see ifml.extensions.impl.ExtensionsPackageImpl#getVideo()
+		 * @generated
+		 */
+		EClass VIDEO = eINSTANCE.getVideo();
+
+		/**
+		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIDEO__HEIGHT = eINSTANCE.getVideo_Height();
+
+		/**
+		 * The meta object literal for the '<em><b>Align</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIDEO__ALIGN = eINSTANCE.getVideo_Align();
+
+		/**
+		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIDEO__URL = eINSTANCE.getVideo_Url();
+
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIDEO__WIDTH = eINSTANCE.getVideo_Width();
 
 		/**
 		 * The meta object literal for the '{@link ifml.extensions.SortOrderEnum <em>Sort Order Enum</em>}' enum.

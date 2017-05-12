@@ -27,6 +27,7 @@ import ifml.extensions.SubmitEvent;
 import ifml.extensions.TextField;
 import ifml.extensions.UserRole;
 import ifml.extensions.ValidationRule;
+import ifml.extensions.Video;
 import ifml.extensions.Window;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -36,8 +37,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.resource.Resource;
 
 import org.eclipse.uml2.uml.UMLPackage;
+
 import org.eclipse.uml2.uml.internal.impl.UMLPackageImpl;
 import org.eclipse.uml2.types.TypesPackage;
 import org.eclipse.uml2.types.internal.impl.TypesPackageImpl;
@@ -57,6 +60,10 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 */
 	private EClass formEClass = null;
 
+	@Override
+	protected Resource createResource(String uri) {
+		return super.createResource("ifml.ecore#/0/extensions");
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,6 +189,13 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 * @generated
 	 */
 	private EClass textFieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass videoEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -517,6 +531,15 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getImage_Width() {
+		return (EAttribute)imageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getButton() {
 		return buttonEClass;
 	}
@@ -564,6 +587,51 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 */
 	public EAttribute getTextField_TextFieldText() {
 		return (EAttribute)textFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVideo() {
+		return videoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVideo_Height() {
+		return (EAttribute)videoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVideo_Align() {
+		return (EAttribute)videoEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVideo_Url() {
+		return (EAttribute)videoEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVideo_Width() {
+		return (EAttribute)videoEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -646,6 +714,7 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		imageEClass = createEClass(IMAGE);
 		createEAttribute(imageEClass, IMAGE__ALIGN);
 		createEAttribute(imageEClass, IMAGE__URL);
+		createEAttribute(imageEClass, IMAGE__WIDTH);
 
 		buttonEClass = createEClass(BUTTON);
 		createEAttribute(buttonEClass, BUTTON__BUTTON_TEXT);
@@ -654,6 +723,12 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		textFieldEClass = createEClass(TEXT_FIELD);
 		createEAttribute(textFieldEClass, TEXT_FIELD__FONT_SIZE);
 		createEAttribute(textFieldEClass, TEXT_FIELD__TEXT_FIELD_TEXT);
+
+		videoEClass = createEClass(VIDEO);
+		createEAttribute(videoEClass, VIDEO__HEIGHT);
+		createEAttribute(videoEClass, VIDEO__ALIGN);
+		createEAttribute(videoEClass, VIDEO__URL);
+		createEAttribute(videoEClass, VIDEO__WIDTH);
 
 		// Create enums
 		sortOrderEnumEEnum = createEEnum(SORT_ORDER_ENUM);
@@ -709,6 +784,7 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		imageEClass.getESuperTypes().add(theCorePackage.getViewElement());
 		buttonEClass.getESuperTypes().add(theCorePackage.getViewElement());
 		textFieldEClass.getESuperTypes().add(theCorePackage.getViewElement());
+		videoEClass.getESuperTypes().add(theCorePackage.getViewElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -754,6 +830,7 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getImage_Align(), ecorePackage.getEString(), "align", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getImage_Url(), ecorePackage.getEString(), "url", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImage_Width(), ecorePackage.getEDouble(), "Width", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getButton_ButtonText(), ecorePackage.getEString(), "ButtonText", "", 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -762,6 +839,12 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 		initEClass(textFieldEClass, TextField.class, "TextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextField_FontSize(), ecorePackage.getEString(), "FontSize", null, 0, 1, TextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextField_TextFieldText(), ecorePackage.getEString(), "TextFieldText", null, 0, 1, TextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(videoEClass, Video.class, "Video", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVideo_Height(), ecorePackage.getEDouble(), "Height", null, 0, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVideo_Align(), ecorePackage.getEString(), "Align", null, 0, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVideo_Url(), ecorePackage.getEString(), "Url", null, 0, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVideo_Width(), ecorePackage.getEDouble(), "Width", null, 0, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(sortOrderEnumEEnum, SortOrderEnum.class, "SortOrderEnum");
