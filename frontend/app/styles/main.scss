@@ -435,7 +435,7 @@ html, body {
       width: 100%;
       letter-spacing: 1.5px;
       border: none;
-
+      
       &:focus {
         outline: none;
       }
@@ -690,4 +690,8 @@ div#domain {
     min-height: 50px;
     padding: 2px;
     box-shadow: 0 5px 15px rgba(245, 245, 245, 0.75);
+}
+
+.inline-form {
+    padding: 5px !important;
 }
