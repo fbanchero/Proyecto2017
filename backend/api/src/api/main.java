@@ -43,6 +43,7 @@ import api.classes.MockupSingleColumnElement;
 import api.classes.Model;
 import api.classes.NavigationEvent;
 import api.helpers.ElementBuilder;
+import api.helpers.LinkElem;
 import ifml.core.CoreFactory;
 import ifml.core.DomainElement;
 import ifml.core.DomainModel;
@@ -63,7 +64,9 @@ import ifml.extensions.List;
 import ifml.extensions.SimpleField;
 import ifml.extensions.SubmitEvent;
 import ifml.extensions.TextField;
+import ifml.extensions.Video;
 import ifml.extensions.Window;
+import ifml.extensions.Button;
 
 public class main {
 	
@@ -83,6 +86,7 @@ public class main {
     	MockupElementTypes.put("column", "ViewContainer");
     	MockupElementTypes.put("item", "ViewElement");
     	MockupElementTypes.put("form", "Form");
+    	MockupElementTypes.put("searchBar", "Form");
     	MockupElementTypes.put("legend", "LEGEND");
     	MockupElementTypes.put("input", "SimpleField");
     	MockupElementTypes.put("submit_button", "SubmitEvent");
@@ -92,6 +96,10 @@ public class main {
     	MockupElementTypes.put("table", "List");
     	MockupElementTypes.put("modal", "Window");
     	MockupElementTypes.put("tabs", "ViewContainer");
+    	MockupElementTypes.put("sidebar", "ViewContainer");
+    	MockupElementTypes.put("item_list", "List");
+    	MockupElementTypes.put("video", "Video");
+    	MockupElementTypes.put("link", "Text");
     	
     }
     
@@ -198,6 +206,17 @@ public class main {
 		
     }
 
+    static boolean containsKey(ArrayList<LinkElem> links, String elemId){
+    	boolean contains = false;
+    	for(LinkElem le : links){
+    		String id = le.getId();
+    		if(id.equals(elemId)){
+    			return true;
+    		}
+    	}
+    	return contains;
+    }
+    
 	/**
 	 * @param mockupElements - ArrayList<MockupElement> mockupElements
 	 * @return               - InteractionFlowModel generated based on mockup elements array.
@@ -206,7 +225,9 @@ public class main {
 
 		InteractionFlowModel ifm = f.createInteractionFlowModel();		
 		EList<InteractionFlowModelElement> ifmElements = ifm.getInteractionFlowModelElements();
-		HashMap<String, NavigationFlow> links = new HashMap<String, NavigationFlow>();
+		
+		ArrayList<LinkElem> links = new ArrayList<LinkElem>();
+		//HashMap<String, NavigationFlow> links = new HashMap<String, NavigationFlow>();
 		HashMap<String, DataPage> pages = new HashMap<String, DataPage>();
 		
 		for (MockupSingleColumnElement elem : mockupPages) {
@@ -222,12 +243,15 @@ public class main {
 				page.setType("ViewContainer");
 				pages.put(elem.getId(), page);
 				
-				if (links.containsKey(elem.getId())) {
-					
-					NavigationFlow nf = links.get(elem.getId());
-					nf.setTrgtInteractionFlowElement(vc);
-					vc.getInInteractionFlows().add(nf);
-					
+				if (containsKey(links, elem.getId())) {
+					for(LinkElem le : links){
+						String id = le.getId();
+			    		if(id.equals(elem.getId())){
+							NavigationFlow nf = le.getNavigationFlow();
+							nf.setTrgtInteractionFlowElement(vc);
+							vc.getInInteractionFlows().add(nf);
+						}
+					}
 				}
 				
 			} else if(MockupElementTypes.get(elem.getType()).equals("Window")) {
@@ -240,11 +264,16 @@ public class main {
 				page.setObject(w);
 				page.setType("Window");
 				
-				if (links.containsKey(elem.getId())) {
+				if (containsKey(links, elem.getId())) {
+					for(LinkElem le : links){
+						String id = le.getId();
+			    		if(id.equals(elem.getId())){
+							NavigationFlow nf = le.getNavigationFlow();
+							nf.setTrgtInteractionFlowElement(w);
+							w.getInInteractionFlows().add(nf);
+						}
+					}
 					
-					NavigationFlow nf = links.get(elem.getId());
-					nf.setTrgtInteractionFlowElement(w);
-					w.getInInteractionFlows().add(nf);
 					
 				}
 				
@@ -257,19 +286,28 @@ public class main {
 	    	Map.Entry<String, DataPage> pair = (Map.Entry<String, DataPage>)it.next();
 	        String pageId = pair.getKey();
 	        
-	        if (links.containsKey(pageId)) {
-	        	DataPage page = (DataPage) pair.getValue();
-				NavigationFlow nf = links.get(pageId);
-				
-				if (page.getType().equals("ViewContainer")) {
-					ViewContainer vc = (ViewContainer) page.getObject();
-					nf.setTrgtInteractionFlowElement(vc);
-					vc.getInInteractionFlows().add(nf);
-				}else{
-					Window w = (Window) page.getObject();
-					nf.setTrgtInteractionFlowElement(w);
-					w.getInInteractionFlows().add(nf);
-				}
+	        if (containsKey(links, pageId)) {
+	        	for(LinkElem le : links){
+	        		String id = le.getId();
+	        		if(id.equals(pageId)){
+			        	DataPage page = (DataPage) pair.getValue();
+						NavigationFlow nf = le.getNavigationFlow();
+						
+						if (page.getType().equals("ViewContainer")) {
+							
+							ViewContainer vc = (ViewContainer) page.getObject();
+							nf.setTrgtInteractionFlowElement(vc);
+							vc.getInInteractionFlows().add(nf);
+							
+						} else {
+							
+							Window w = (Window) page.getObject();
+							nf.setTrgtInteractionFlowElement(w);
+							w.getInInteractionFlows().add(nf);
+							
+						}
+					}
+	        	}
 				
 			}
 	        
@@ -280,7 +318,7 @@ public class main {
 		return ifm;
 		
 	}
-	
+
 	/**
 	 * @param mockupElements - ArrayList<MockupElement> mockupElements
 	 * @return               - InteractionFlowModel generated based on mockup elements array.
@@ -353,7 +391,7 @@ public class main {
 	 * @param fatherIFML  - Object IFML class already created for the current father.
 	 * @param links       - HashMap<String, NavigationFlow> which contains all the object references.
 	 */
-	private static void recursiveIFMLHierarchy(MockupSingleColumnElement father, Object fatherIFML, HashMap<String, NavigationFlow> links) {
+	private static void recursiveIFMLHierarchy(MockupSingleColumnElement father, Object fatherIFML, ArrayList<LinkElem> links) {
 				
 		if (MockupElementTypes.get(father.getType()).equals("ViewContainer") || MockupElementTypes.get(father.getType()).equals("Window")) {
 			
@@ -372,13 +410,23 @@ public class main {
 						viewElements.add(vc);						
 						recursiveIFMLHierarchy(mergedElem, vc, links);
 						
-						if(links.containsKey(elem.getId())){
-							
-							NavigationFlow nf = links.get(elem.getId());
-							nf.setTrgtInteractionFlowElement(vc);
-							vc.getInInteractionFlows().add(nf);
-							
+						if (containsKey(links, elem.getId())) {
+							for(LinkElem le : links){
+								String id = le.getId();
+					    		if(id.equals(elem.getId())){
+									NavigationFlow nf = le.getNavigationFlow();
+									nf.setTrgtInteractionFlowElement(vc);
+									vc.getInInteractionFlows().add(nf);
+								}
+							}
 						}
+//						if(links.containsKey(elem.getId())){
+//							
+//							NavigationFlow nf = links.get(elem.getId());
+//							nf.setTrgtInteractionFlowElement(vc);
+//							vc.getInInteractionFlows().add(nf);
+//							
+//						}
 						
 					} else if (MockupElementTypes.get(elem.getType()).equals("ViewElement")) {
 						
@@ -396,6 +444,10 @@ public class main {
 						
 						Image img = eb.createImage(elem, links);
 						viewElements.add(img);
+					} else if(MockupElementTypes.get(elem.getType()).equals("Video")) {
+						
+						Video vid = eb.createVideo(elem, links);
+						viewElements.add(vid);
 						
 					} else if(MockupElementTypes.get(elem.getType()).equals("Button")) {
 						
@@ -412,6 +464,10 @@ public class main {
 						List list = eb.createList(elem, links);
 						viewElements.add(list);
 						
+					} else if(MockupElementTypes.get(elem.getType()).equals("Link")) {
+						
+						TextField textField = eb.createTextField(elem, links);
+						viewElements.add(textField);
 						
 					}
 				}
@@ -446,7 +502,11 @@ public class main {
 
 							nf.setSrcInteractionFlowElement(se);
 							se.getNavigationFlows().add(nf);
-							links.put(ne.getLink(), nf);
+							LinkElem le = new LinkElem();
+							le.setId(ne.getLink());
+							le.setNavigationFlow(nf);
+							
+							links.add(le);
 						}
 		
 						viewElementEvents.add(se);
@@ -507,8 +567,8 @@ public class main {
 
 		// Create a resource and get the first model element and
 		// cast it to the right type, in my example everything is 
-		// hierarchical included in this first node.		
-		Resource resource = resSet.createResource(fileURI);
+		// hierarchical included in this first node.
+		Resource resource = resSet.createResource(fileURI);		
 		resource.getContents().add(ifmlModel);
 		DomainModel domain =  ifmlModel.getDomainModel();		
 		for(DomainElement element: domain.getElements()){
@@ -547,3 +607,4 @@ public class main {
     	
     }
 }
+
