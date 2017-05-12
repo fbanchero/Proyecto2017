@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_eQLrYKLfEeaWIvmnWccC0g">
+  <interactionFlowModel id="_hQrA4KLfEeaWIvmnWccC0g">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_hQ4cQKLfEeaWIvmnWccC0g" name="ViewContainer">
+      <viewElements xsi:type="ext:List" id="_mZoewKLfEeaWIvmnWccC0g" name="List">
+        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_0DuQMKLfEeaWIvmnWccC0g" name="OnSelect Event">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_NrxBYKLgEeaWIvmnWccC0g" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
+        </viewElementEvents>
+        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_jHBzoKLhEeaWIvmnWccC0g" name="OnSubmit Event"/>
+      </viewElements>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_hsOUcKLfEeaWIvmnWccC0g" name="ViewContainer" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0">
+      <viewElements xsi:type="ext:List" id="_nbSJAKLfEeaWIvmnWccC0g" name="List">
+        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_41fWEKLfEeaWIvmnWccC0g" name="OnSelect Event">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_RqybsKLgEeaWIvmnWccC0g" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
+        </viewElementEvents>
+      </viewElements>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_ijodkKLfEeaWIvmnWccC0g" name="ViewContainer" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0">
+      <viewElements xsi:type="core:ViewComponent" id="_viPCAKLfEeaWIvmnWccC0g" name="ViewComponent"/>
+    </interactionFlowModelElements>
+  </interactionFlowModel>
+  <domainModel id="_eQLrYaLfEeaWIvmnWccC0g">
+    <domainElements xsi:type="core:UMLDomainConcept" id="_eQOHoKLfEeaWIvmnWccC0g" name="Movie">
+      <classifier xsi:type="uml:Class" href="model.uml#__W1boJ6PEeGdnpRmAZh-dQ"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_eQOusKLfEeaWIvmnWccC0g" name="title">
+      <structuralFeature xsi:type="uml:Property" href="model.uml#_jEpi8J6QEeGdnpRmAZh-dQ"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_eQPVwKLfEeaWIvmnWccC0g" name="year">
+      <structuralFeature xsi:type="uml:Property" href="model.uml#_jm9l0J6QEeGdnpRmAZh-dQ"/>
+    </domainElements>
+  </domainModel>
+</core:IFMLModel>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_VgFQAI2cEeaExaAXbvpoUA">
+  <interactionFlowModel id="_yywf4I2cEeaExaAXbvpoUA">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_iqSLAI2dEeaExaAXbvpoUA" name="Pagina2">
+      <viewElements xsi:type="ext:Form" id="_l4XDYJytEealwuvkJjuEZg" name="Form">
+        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_Nm3o4JzCEealwuvkJjuEZg" name="OnSubmit Event">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_OtMXwJzCEealwuvkJjuEZg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
+        </viewElementEvents>
+        <viewComponentParts xsi:type="ext:SimpleField" id="_nqpgYJytEealwuvkJjuEZg" name="Simple Field">
+          <type xsi:type="uml:PrimitiveType" href="model.uml#_VK2hkJ6QEeGdnpRmAZh-dQ"/>
+        </viewComponentParts>
+      </viewElements>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_Z7l-gI5LEeaExaAXbvpoUA" name="ViewContainer 1column" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0"/>
+  </interactionFlowModel>
+</core:IFMLModel>
