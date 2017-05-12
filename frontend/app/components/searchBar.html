@@ -1,0 +1,8 @@
+<form class="container inline-form">
+	<fieldset layout="row">
+	   <div flex="100">
+		    <input type="text" class="form-control" id="input_{{item.id}}" placeholder="{{item.properties.placeholder}}" value="{{item.properties.value}}">
+		</div>
+	</fieldset>
+</form>
+<span class="item-name" ng-if="models.selected === item">{{item.name}}</span>
