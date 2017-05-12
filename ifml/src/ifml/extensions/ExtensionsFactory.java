@@ -184,6 +184,15 @@ public interface ExtensionsFactory extends EFactory {
 	TextField createTextField();
 
 	/**
+	 * Returns a new object of class '<em>Video</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video</em>'.
+	 * @generated
+	 */
+	Video createVideo();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

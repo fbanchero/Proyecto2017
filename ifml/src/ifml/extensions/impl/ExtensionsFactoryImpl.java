@@ -75,6 +75,7 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 			case ExtensionsPackage.IMAGE: return createImage();
 			case ExtensionsPackage.BUTTON: return createButton();
 			case ExtensionsPackage.TEXT_FIELD: return createTextField();
+			case ExtensionsPackage.VIDEO: return createVideo();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -165,16 +166,6 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SelectEvent createSelectEvent() {
-		SelectEventImpl selectEvent = new SelectEventImpl();
-		return selectEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public List createList() {
 		ListImpl list = new ListImpl();
 		return list;
@@ -200,6 +191,15 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 		return submitEvent;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SelectEvent createSelectEvent() {
+		SelectEventImpl selectEvent = new SelectEventImpl();
+		return selectEvent;
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -288,6 +288,16 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 	public TextField createTextField() {
 		TextFieldImpl textField = new TextFieldImpl();
 		return textField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Video createVideo() {
+		VideoImpl video = new VideoImpl();
+		return video;
 	}
 
 	/**
