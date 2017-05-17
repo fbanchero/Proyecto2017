@@ -435,7 +435,7 @@ html, body {
       width: 100%;
       letter-spacing: 1.5px;
       border: none;
-      
+
       &:focus {
         outline: none;
       }
@@ -694,4 +694,13 @@ div#domain {
 
 .inline-form {
     padding: 5px !important;
+}
+
+.attr {
+    display:block;
+    width: auto;
+}
+
+.attr_div{
+    display:inline-block;
 }

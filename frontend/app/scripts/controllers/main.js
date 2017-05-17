@@ -35,7 +35,7 @@ angular.module('pgradoApp')
                 { type: 'button', id: chance.bb_pin(), name:'button', properties: { align: 'center', value: 'Button' }, events: [] },
                 { type: 'image', id: chance.bb_pin(), name:'image', properties: { align: 'left', url: '', width: '100' }, events: [] },
                 { type: 'video', id: chance.bb_pin(), name:'video', properties: { align: 'left', url: '', width: '640', height: '360' }, events: [] },
-                { type: 'table', id: chance.bb_pin(), name:'table', properties: {}, events: [ { type: 'onSelect', link: '' } ] },
+                { type: 'table', id: chance.bb_pin(), name:'table', properties: { entity: 'producto', attributes: []}, events: [ { type: 'onSelect', link: '' } ] },
                 { type: 'tabs', id: chance.bb_pin(), name:'tabs', properties: { xor: true }, contSelected:innerPageName, events: [], children: [[
                         { type: 'column', name:'Tab 1','id': innerPageName, 'properties': { 'default': true, 'landmark': false }, 'children': [[]] },
                         { type: 'column', name:'Tab 2','id': chance.bb_pin(), 'properties': { 'default': false, 'landmark': false }, 'children': [[]] },
@@ -108,9 +108,9 @@ angular.module('pgradoApp')
                     'children': []
                   }]
             }
-            
+
         },
-        
+
         $scope.changeid = function(item) {
 
             item.id = chance.bb_pin();

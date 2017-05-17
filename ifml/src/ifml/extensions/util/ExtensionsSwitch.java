@@ -285,7 +285,7 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseNamedElement(textField);
 				if (result == null) result = caseInteractionFlowModelElement(textField);
 				if (result == null) result = caseElement(textField);
-				if (result == null) result = caseUml_Element(textField);
+				//if (result == null) result = caseUml_Element(textField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -296,9 +296,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(video);
 				if (result == null) result = caseNamedElement(video);
 				if (result == null) result = caseInteractionFlowModelElement(video);
-				if (result == null) result = caseTemplaetableElement(video);
+				//if (result == null) result = caseTemplaetableElement(video);
 				if (result == null) result = caseElement(video);
-				if (result == null) result = caseUml_Element(video);
+				//if (result == null) result = caseUml_Element(video);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

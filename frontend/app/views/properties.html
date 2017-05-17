@@ -14,7 +14,8 @@
               <input type="checkbox" ng-model="models.selected.properties[key]" id="{{key}}"/>
                {{key}}: <label for="{{key}}"></label>
             </div>
-            <div ng-if="key != 'landmark' && key != 'default' && key != 'url' && key != 'align' && key != 'tipo'">
+            <div ng-if="key != 'landmark' && key != 'default' && key != 'url' && key != 'align'
+                && key != 'tipo' && key != 'entity' && key != 'attributes'">
                 <strong>{{key}}</strong>
                 <input ng-if="key != 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
                 <input ng-if="key == 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
@@ -34,6 +35,23 @@
                 <select ng-model="models.selected.properties.tipo"
                     ng-options="t for t in models.domain_types.tipos">
                 </select>
+            </div>
+            <div ng-if="key == 'entity'" >
+                <label>entity:</label>
+                <select ng-model="models.selected.properties.entity"
+                    ng-options="idx as e.name for (idx, e) in models.result.domain[0].children">
+                </select>
+            </div>
+            <div ng-if="key == 'attributes'" class="attr_div">
+                <label class="attr">attributes:</label>
+                <label ng-repeat="a in models.result.domain[0].children[models.selected.properties.entity].children" class="attr">
+                  {{a.properties.nombre}}
+                  <input
+                    type="checkbox"
+                    name="attrs[]"
+                    value="{{a.properties.nombre}}"
+                    ng-checked="selection.indexOf(a.properties.nombre) > -1">
+                </label>
             </div>
         </div>
         <hr>
