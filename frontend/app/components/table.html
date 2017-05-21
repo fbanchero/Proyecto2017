@@ -1,49 +1,22 @@
 <table class="table table-striped table-hover ">
   <tbody>
-    <th ng-repat="attr in item.properties.domain_class.attr">
-      {{attr.nombre}}
+    <th ng-repeat="a in filterAttrs(item)">
+      {{a.properties.nombre}}
     </th>
     <tr>
-      <td>1</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
+      <td ng-repeat="a in filterAttrs(item)">
+        {{a.properties.nombre}}_1
+      </td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
+      <td ng-repeat="a in filterAttrs(item)">
+        {{a.properties.nombre}}_2
+      </td>
     </tr>
-    <tr class="info">
-      <td>3</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="success">
-      <td>4</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="danger">
-      <td>5</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="warning">
-      <td>6</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
-    <tr class="active">
-      <td>7</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
+    <tr>
+      <td ng-repeat="a in filterAttrs(item)">
+        {{a.properties.nombre}}_3
+      </td>
     </tr>
   </tbody>
 </table>

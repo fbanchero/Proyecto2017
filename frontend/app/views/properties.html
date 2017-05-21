@@ -47,10 +47,8 @@
                 <label ng-repeat="a in models.result.domain[0].children[models.selected.properties.entity].children" class="attr">
                   {{a.properties.nombre}}
                   <input
-                    type="checkbox"
-                    name="attrs[]"
-                    value="{{a.properties.nombre}}"
-                    ng-checked="selection.indexOf(a.properties.nombre) > -1">
+                    type="checkbox"                    
+                    ng-model="a.properties.checked">
                 </label>
             </div>
         </div>
