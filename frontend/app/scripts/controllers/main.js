@@ -67,13 +67,14 @@
             ],
 
             form: [
-                    { type: 'form', id: chance.bb_pin(), name: 'form', properties: {}, events: [], children: [[
+                    { type: 'form', id: chance.bb_pin(), name: 'form', properties: {entity: '0', attributes: []}, events: [], children: [[
                         { type: 'legend', id: chance.bb_pin(), name: 'legend', properties: { 'value': 'Solicitud de seguimiento' }},
                         { type: 'input', id: chance.bb_pin(), name: 'input', properties: { 'placeholder': 'test@test.com', 'label': 'Email'} },
                         { type: 'input', id: chance.bb_pin(), name: 'input', properties: { 'placeholder': 'John', 'label': 'Nombre' } },
                         { type: 'input', id: chance.bb_pin(), name: 'input', properties: { 'placeholder': 'Doe', 'label': 'Apellido' } },
                         { type: 'submit_button', id: chance.bb_pin(), name: 'submit button', properties: { 'value': 'Enviar' }, events: [{ type: 'onSubmit', link: '' }] }
-                    ]]},
+                      ]]
+                    },
                     { type: 'searchBar', id: chance.bb_pin(), name: 'searchBar', properties: {'placeholder': 'search'}, events: [], children: [[
                         { type: 'input', id: chance.bb_pin(), name: 'search', properties: {} }
                     ]]},
@@ -245,6 +246,22 @@
             var attrs = $scope.models.result.domain[0].children[item.properties.entity].children;
             var filtered = attrs.filter(function (attr){
                 return attr.properties.checked === true;
+            });
+            return filtered;
+        };
+
+        $scope.filterLegend = function(children) {
+            var filtered = children[0].filter(function (item){
+                if(item.type === 'legend')
+                  return item;
+            });
+            return filtered;
+        };
+
+        $scope.filterSubmit = function(children) {
+            var filtered = children[0].filter(function (item){
+                if(item.type === 'submit_button')
+                  return item;
             });
             return filtered;
         };

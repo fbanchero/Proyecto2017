@@ -1,6 +1,10 @@
 <form class="form-horizontal container">
 	<fieldset layout="row" class="column">
-	    <div flex ng-repeat="list in item.children" ng-include="'components/list.html'">
+	    <div flex ng-repeat="legend in filterLegend(item.children)" ng-include="'components/' + legend.type + '.html'">
+	    </div>
+			<div flex ng-repeat="input in filterAttrs(item)" ng-include="'components/input.html'">
+	    </div>
+			<div flex ng-repeat="submit in filterSubmit(item.children)" ng-include="'components/' + submit.type + '.html'">
 	    </div>
 	</fieldset>
 </form>
