@@ -7,6 +7,9 @@ public class DomainRelationship {
 	private ArrayList<DomainRelationshipEnd> relationsEnd;
 
 	public ArrayList<DomainRelationshipEnd> getRelationsEnd() {
+		if (relationsEnd == null) {
+			relationsEnd = new ArrayList<DomainRelationshipEnd>();
+		}
 		return relationsEnd;
 	}
 
