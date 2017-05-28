@@ -8,6 +8,8 @@
  * Controller of the pgradoApp
  */
 
+
+
   var app = angular.module('pgradoApp');
 
   app.controller('MainCtrl', ['$scope', '$sce','api', 'FileSaver',  function ($scope, $sce, api, FileSaver) {
@@ -88,7 +90,7 @@
                         { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'nombre', 'tipo': 'string', 'checked': 'false' }}
                     ]},
                     { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'nombre', 'tipo': 'tipo', 'checked': 'true'}},
-                    { type: 'association', id: chance.bb_pin(), name: 'association'},
+                    { type: 'association', id: chance.bb_pin(), name: 'association', properties: {}},
                     { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'method()', 'tipo': 'void'}},
                 ]
         	},
@@ -318,6 +320,10 @@
             FileSaver.saveAs(blob, $scope.models.result.name + '.json');
 
         };
+        
+        $scope.seleccionarAtributo = function(table, nomAttr){
+        	table.properties.attributes.push(nomAttr);
+        }
 
     }]);
 

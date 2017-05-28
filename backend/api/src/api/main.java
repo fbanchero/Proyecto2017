@@ -28,6 +28,7 @@ import org.eclipse.uml2.uml.UMLFactory;
 import org.eclipse.uml2.uml.internal.impl.UMLFactoryImpl;
 
 import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 
 import api.classes.DataPage;
 import api.classes.Domain;
@@ -171,9 +172,9 @@ public class main {
     	Mockup mockup = new Gson().fromJson(mockupJson, Mockup.class);
     	
 		// Generate IFML from mockup object
-		InteractionFlowModel ifm = generateIFMLPages(mockup.getPages());
-		DomainModel domainModel = generateIFMLDomain(mockup.getDomain());
-
+    	DomainModel domainModel = generateIFMLDomain(mockup.getDomain());
+    	InteractionFlowModel ifm = generateIFMLPages(mockup.getPages());
+		
 		IFMLModel ifmlModel = f.createIFMLModel();
 		ifmlModel.setName(mockup.getName());
 		ifmlModel.setInteractionFlowModel(ifm);
@@ -366,18 +367,14 @@ public class main {
 				}
 				domainModel.getListClass().add(c);
 				
-			} else if (element.getType().equals("relation")) {
+			} else if (element.getType().equals("association")) {
 				DomainRelationship rel = new DomainRelationship();
-				for (DomainGeneralElement elemRel: element.getChildren()) {
-					DomainRelationshipEnd relEnd = new DomainRelationshipEnd();
-					DomainClass classRel = new DomainClass();
-					classRel.setName(elemRel.getName());
-//					relEnd.setNameClass(nameClass);;
-//					relEnd.setCardLower(elemRel.getCardLower());
-//					relEnd.setCardUpper(elemRel.getCardUpper());
-					rel.getRelationsEnd().add(relEnd);
-				}
-//				
+				DomainRelationshipEnd relEnd1 = new DomainRelationshipEnd();
+				relEnd1.setNameClass((String)((LinkedTreeMap<String, Object>)(element.getProperties().get("end1"))).get("name"));
+				rel.getRelationsEnd().add(relEnd1);
+				DomainRelationshipEnd relEnd2 = new DomainRelationshipEnd();
+				relEnd2.setNameClass((String)((LinkedTreeMap<String, Object>)(element.getProperties().get("end2"))).get("name"));
+				rel.getRelationsEnd().add(relEnd2);
 			}
 		}
 		return domainModel;
