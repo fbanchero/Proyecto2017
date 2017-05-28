@@ -6,9 +6,12 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.uml2.uml.Association;
+import org.eclipse.uml2.uml.BehavioralFeature;
+import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.StructuralFeature;
 import org.eclipse.uml2.uml.UMLFactory;
 
 import api.classes.DomainAttribute;
@@ -21,8 +24,12 @@ import api.classes.MockupMultipleColumnElement;
 import api.classes.MockupSingleColumnElement;
 import api.classes.NavigationEvent;
 import api.classes.Parameter;
+import ifml.core.BehavioralFeatureConcept;
 import ifml.core.CoreFactory;
+import ifml.core.DataBinding;
 import ifml.core.DomainModel;
+import ifml.core.DynamicBehavior;
+import ifml.core.FeatureConcept;
 import ifml.core.NavigationFlow;
 import ifml.core.UMLBehavioralFeature;
 import ifml.core.UMLDomainConcept;
@@ -30,6 +37,7 @@ import ifml.core.UMLStructuralFeature;
 import ifml.core.ViewContainer;
 import ifml.core.ViewElement;
 import ifml.core.ViewElementEvent;
+import ifml.core.VisualizationAttribute;
 import ifml.extensions.Button;
 import ifml.extensions.ExtensionsFactory;
 import ifml.extensions.Image;
@@ -48,6 +56,9 @@ public class ElementBuilder {
     public static UMLFactory umlf;
 	public static TypeFactory tf;
 	public static EcoreFactory ecf;
+	
+	public Map<String, FeatureConcept> mapAttributes = new HashMap<String, FeatureConcept>();
+	public Map<String, BehavioralFeatureConcept> mapOperations = new HashMap<String, BehavioralFeatureConcept>();
 
 	public ElementBuilder(CoreFactory pf, ExtensionsFactory pef, UMLFactory uf) {
 		f = pf;
@@ -102,6 +113,19 @@ public class ElementBuilder {
 			le.setNavigationFlow(nf);
 			
 			links.add(le);
+		}
+		
+		HashMap<String, Object> properties = elem.getProperties();
+		if (properties.containsKey("attributes")) {
+			for (Object a: (ArrayList)properties.get("attributes")) {
+				// Crear DataBinding y despues crear los visualizaionAttribute
+				VisualizationAttribute va = f.createVisualizationAttribute();
+				va.setFeatureConcept(mapAttributes.get((String)a));
+//				DataBinding db = f.createDataBinding();
+//				db.getVisualizationAttributes().add(va);
+				list.getViewComponentParts().add(va);
+			}
+			
 		}
 		
 		return list;
@@ -445,17 +469,12 @@ public class ElementBuilder {
 		org.eclipse.uml2.uml.Class c = umlf.createClass();
 		c.setName(domainClass.getName());
 		for (DomainAttribute da: domainClass.getListAttribute()) {
-//			Property p = umlf.createProperty();
-//			p.setName(da.getName());
-//			PrimitiveType pt = umlf.createPrimitiveType();
 			PrimitiveType pt = tf.getPrimitiveType(da.getType());
-//			pt.setName(da.getName());
-//			p.setType(pt);
-//			c.getAttributes().add(p);
 			Property p = c.createOwnedAttribute(da.getName(), pt);
 			UMLStructuralFeature umlsf = f.createUMLStructuralFeature();
 			umlsf.setStructuralFeature(p);
 			domainModel.getElements().add(umlsf);
+			mapAttributes.put(da.getName(), umlsf);
 		}
 		for (DomainOperation oper: domainClass.getListOperation()) {
 			Operation bf = umlf.createOperation();
@@ -474,6 +493,7 @@ public class ElementBuilder {
 			UMLBehavioralFeature umlbf = f.createUMLBehavioralFeature();
 			umlbf.setBehavioralFeature(bf);
 			domainModel.getElements().add(umlbf);
+			mapOperations.put(oper.getName(), umlbf);
 		}
 		
 		UMLDomainConcept umldc = f.createUMLDomainConcept();
