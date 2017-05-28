@@ -15,7 +15,7 @@
                {{key}}: <label for="{{key}}"></label>
             </div>
             <div ng-if="key != 'landmark' && key != 'default' && key != 'url' && key != 'align'
-                && key != 'tipo' && key != 'entity' && key != 'attributes'">
+                && key != 'tipo' && key != 'entity' && key != 'attributes' && key != 'end1' && key != 'end2'">
                 <strong>{{key}}</strong>
                 <input ng-if="key != 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
                 <input ng-if="key == 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
@@ -47,10 +47,22 @@
                 <label ng-repeat="a in models.result.domain[0].children[models.selected.properties.entity].children" class="attr">
                   {{a.properties.nombre}}
                   <input
-                    type="checkbox"                    
+                    type="checkbox" ng-change="seleccionarAtributo(models.selected, a.properties.nombre);"
                     ng-model="a.properties.checked">
                 </label>
             </div>
+        </div>
+        <div ng-if="models.selected.type == 'association'" >
+            <label>Calse origen:</label>
+            <select ng-model="models.selected.properties.end1"
+                ng-options="c as c.name for c in models.result.domain[0].children track by c.name">
+            </select>
+        </div>
+        <div ng-if="models.selected.type == 'association'" >
+            <label>Calse destino:</label>
+            <select ng-model="models.selected.properties.end2"
+                ng-options="c as c.name for c in models.result.domain[0].children track by c.name">
+            </select>
         </div>
         <hr>
 
