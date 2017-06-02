@@ -1,7 +1,7 @@
 <div class="form-group">
-  <label for="input_{{input.id}}" class="col-lg-2 control-label">{{input.properties.nombre}}</label>
+  <label for="input_{{input.id}}" class="col-lg-2 control-label">{{input}}</label>
   <div class="col-lg-10">
-    <input type="text" class="form-control" id="input_{{input.id}}" placeholder="{{input.properties.nombre}}" value="{{input.properties.nombre}}">
+    <input type="text" class="form-control" id="input_{{input.id}}" placeholder="{{input}}" value="{{input}}">
   </div>
 </div>
 <span class="item-name" ng-if="models.selected === input">{{input.name}}</span>

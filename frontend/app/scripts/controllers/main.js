@@ -274,11 +274,11 @@
           var attrs = component.properties.attributes;
           var index = attrs.indexOf(attr.properties.nombre);
           if(attr.properties.checked && (index == -1)){
-            attrs.push(attr.properties.nombre);
+            component.properties.attributes.push(attr.properties.nombre);
           }
           else {
             if (index > -1) {
-                attrs.splice(index, 1);
+                component.properties.attributes.splice(index, 1);
             }
           }
         };
