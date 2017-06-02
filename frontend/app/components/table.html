@@ -1,21 +1,21 @@
 <table class="table table-striped table-hover ">
   <tbody>
-    <th ng-repeat="a in filterAttrs(item)">
-      {{a.properties.nombre}}
+    <th ng-repeat="a in item.properties.attributes">
+      {{a}}
     </th>
     <tr>
-      <td ng-repeat="a in filterAttrs(item)">
-        {{a.properties.nombre}}_1
+      <td ng-repeat="a in item.properties.attributes">
+        {{a}}_1
       </td>
     </tr>
     <tr>
-      <td ng-repeat="a in filterAttrs(item)">
-        {{a.properties.nombre}}_2
+      <td ng-repeat="a in item.properties.attributes">
+        {{a}}_2
       </td>
     </tr>
     <tr>
-      <td ng-repeat="a in filterAttrs(item)">
-        {{a.properties.nombre}}_3
+      <td ng-repeat="a in item.properties.attributes">
+        {{a}}_3
       </td>
     </tr>
   </tbody>

@@ -252,6 +252,37 @@
             return filtered;
         };
 
+        $scope.filterAttributes = function(item) {
+            var attrs = $scope.models.result.domain[0].children[item.properties.entity].children;
+            var selected_attrs = item.properties.attributes;
+            for (var i = 0; i < attrs.length; i++) {
+              if (selected_attrs.indexOf(attrs[i].properties.nombre) > -1){
+                attrs[i].properties.checked = true;
+                  // full_attributes.push({'nombre': attrs[i].properties.nombre,
+                  //                     'checked': true});
+              }
+              else {
+                attrs[i].properties.checked = false;
+                  // full_attributes.push({'nombre': attrs[i].properties.nombre,
+                  //                   'checked': false});
+              }
+            }
+            return attrs;
+        };
+
+        $scope.seleccionarAtributo = function(component, attr){
+          var attrs = component.properties.attributes;
+          var index = attrs.indexOf(attr.properties.nombre);
+          if(attr.properties.checked && (index == -1)){
+            attrs.push(attr.properties.nombre);
+          }
+          else {
+            if (index > -1) {
+                attrs.splice(index, 1);
+            }
+          }
+        };
+
         $scope.filterLegend = function(children) {
             var filtered = children[0].filter(function (item){
                 if(item.type === 'legend')
@@ -268,26 +299,6 @@
             return filtered;
         };
 
-        //$scope.filterAttrs.$stateful = true;
-
-        // $scope.changeid = function(item) {
-        //
-        //     item.id = chance.bb_pin()
-        //     if (item.pages) {
-        //         item.pageSelected = item.pages[0].id
-        //     }
-        //     var children = item.children[0];
-        //     var child;
-        //     var i = 0;
-        //     for ( child in children) {
-        //         var id = chance.bb_pin();
-        //         children[child].id = id;
-        //         if(i == 0 && item.type == 'tabs'){
-        //             item.contSelected = id
-        //         }
-        //         i++;
-        //     }
-        // }
 
         $scope.getIfml = function() {
 
@@ -320,19 +331,5 @@
             FileSaver.saveAs(blob, $scope.models.result.name + '.json');
 
         };
-        
-        $scope.seleccionarAtributo = function(table, nomAttr){
-        	table.properties.attributes.push(nomAttr);
-        }
 
     }]);
-
-
-
-    // angular.module('pgradoApp').filter('attrfilter', function() {
-    //       return function(items) {
-    //         return items.filter(function(element, index, array) {
-    //           return element.properties.checked === 'true';
-    //         });
-    //   };
-    //  });

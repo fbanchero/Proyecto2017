@@ -44,11 +44,13 @@
             </div>
             <div ng-if="key == 'attributes'" class="attr_div">
                 <label class="attr">attributes:</label>
-                <label ng-repeat="a in models.result.domain[0].children[models.selected.properties.entity].children" class="attr">
+                <label ng-repeat="a in filterAttributes(models.selected)" class="attr">
                   {{a.properties.nombre}}
                   <input
-                    type="checkbox" ng-change="seleccionarAtributo(models.selected, a.properties.nombre);"
+                    type="checkbox"
+                    ng-change="seleccionarAtributo(models.selected, a);"
                     ng-model="a.properties.checked">
+
                 </label>
             </div>
         </div>
