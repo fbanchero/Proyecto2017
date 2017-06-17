@@ -1,0 +1,12 @@
+<div>
+  <legend>Detalles</legend>
+  <dl ng-repeat="field in item.properties.attributes">
+      <dt>
+        {{field.properties.nombre}}
+      </dt>
+      <dd>
+         {{field.properties.nombre}}_value
+      </dd>
+  </dl>
+<div>
+<span class="item-name" ng-if="models.selected === item">{{item.name}}</span>
