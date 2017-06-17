@@ -75,7 +75,7 @@
         <hr>
 
         <!-- Submit -->
-        <div class="event-box" ng-if="models.selected.type == 'link' || models.selected.type == 'submit_button' || models.selected.type == 'table'" layout="column">
+        <div class="event-box" ng-if="models.selected.type == 'link' || models.selected.type == 'submit_button'" layout="column">
             <label> {{models.selected.events[0].type}}:
             <select ng-model="models.selected.events[0].link">
                 <option
@@ -85,8 +85,8 @@
             </label>
         </div>
 
-        <!-- Submit -->
-        <div class="event-box" ng-if="models.selected.type == 'form'" layout="column">
+        <!-- Submit Form && Select Event Table -->
+        <div class="event-box" ng-if="models.selected.type == 'form' || models.selected.type == 'table'" layout="column">
             <label> {{models.selected.events[0].type}}:
             <select ng-model="models.selected.events[0].link">
                 <option
@@ -95,7 +95,6 @@
             </select>
             </label>
         </div>
-
 
         <!-- Item and Button-->
         <div class="event-box" ng-if="models.selected.type == 'item' || models.selected.type == 'button'" layout="column" layout-align="space-between center">
