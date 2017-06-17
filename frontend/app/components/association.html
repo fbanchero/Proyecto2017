@@ -1,9 +1,5 @@
-<div class="class">
-  <div class="class-title">
-    {{item.name}}
-  </div>
-  <div flex ng-include="'components/domain_list.html'" class="class-children">
+<div>
+  + {{attr.properties.clase}}: <b>{{attr.properties.clase}}({{attr.properties.cardinalidad}})</b>
 
-  </div>
 </div>
 <span class="item-name" ng-if="models.selected === item">{{item.name}}</span>

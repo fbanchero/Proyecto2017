@@ -15,7 +15,7 @@
                {{key}}: <label for="{{key}}"></label>
             </div>
             <div ng-if="key != 'landmark' && key != 'default' && key != 'url' && key != 'align'
-                && key != 'tipo' && key != 'entity' && key != 'attributes' && key != 'end1' && key != 'end2'">
+                && key != 'tipo' && key != 'entity' && key != 'attributes' && key != 'clase'">
                 <strong>{{key}}</strong>
                 <input ng-if="key != 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
                 <input ng-if="key == 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
@@ -44,28 +44,33 @@
             </div>
             <div ng-if="key == 'attributes'" class="attr_div">
                 <label class="attr">attributes:</label>
-                <label ng-repeat="a in filterAttributes(models.selected)" class="attr">
+                <label ng-repeat="a in filterChildren(models.selected, 'domain_attribute')" class="attr">
                   {{a.properties.nombre}}
                   <input
                     type="checkbox"
                     ng-change="seleccionarAtributo(models.selected, a);"
                     ng-model="a.properties.checked">
-
                 </label>
             </div>
+            <div ng-if="key == 'clase'">
+                <label>clase</label>
+                <select ng-model="models.selected.properties.clase"
+                    ng-options="e.name as e.name for (idx, e) in models.result.domain[0].children">
+                </select>
+            </div>
         </div>
-        <div ng-if="models.selected.type == 'association'" >
-            <label>Calse origen:</label>
+        <!-- <div ng-if="models.selected.type == 'association'" >
+            <label>Clase origen:</label>
             <select ng-model="models.selected.properties.end1"
                 ng-options="c as c.name for c in models.result.domain[0].children track by c.name">
             </select>
         </div>
         <div ng-if="models.selected.type == 'association'" >
-            <label>Calse destino:</label>
+            <label>Clase destino:</label>
             <select ng-model="models.selected.properties.end2"
                 ng-options="c as c.name for c in models.result.domain[0].children track by c.name">
             </select>
-        </div>
+        </div> -->
         <hr>
 
         <!-- Submit -->
@@ -78,6 +83,18 @@
             </select>
             </label>
         </div>
+
+        <!-- Submit -->
+        <div class="event-box" ng-if="models.selected.type == 'form'" layout="column">
+            <label> {{models.selected.events[0].type}}:
+            <select ng-model="models.selected.events[0].link">
+                <option
+                    ng-repeat="m in filterMethod(models.selected)"
+                    value="{{m.id}}">{{m.properties.firma}}:{{m.properties.tipo}}</option>
+            </select>
+            </label>
+        </div>
+
 
         <!-- Item and Button-->
         <div class="event-box" ng-if="models.selected.type == 'item' || models.selected.type == 'button'" layout="column" layout-align="space-between center">

@@ -2,7 +2,7 @@
 	<fieldset layout="row" class="column">
 	    <div flex ng-repeat="legend in filterLegend(item.children)" ng-include="'components/' + legend.type + '.html'">
 	    </div>
-			<div flex ng-repeat="input in item.properties.attributes" ng-include="'components/input.html'">
+			<div flex ng-repeat="field in item.properties.attributes" ng-include="'components/field.html'">
 	    </div>
 			<div flex ng-repeat="submit in filterSubmit(item.children)" ng-include="'components/' + submit.type + '.html'">
 	    </div>

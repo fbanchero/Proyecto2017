@@ -69,7 +69,7 @@
             ],
 
             form: [
-                    { type: 'form', id: chance.bb_pin(), name: 'form', properties: {entity: '0', attributes: []}, events: [], children: [[
+                    { type: 'form', id: chance.bb_pin(), name: 'form', properties: {entity: '0', attributes: []}, events: [{ type: 'onSubmit', link: '' }], children: [[
                         { type: 'legend', id: chance.bb_pin(), name: 'legend', properties: { 'value': 'Solicitud de seguimiento' }},
                         { type: 'input', id: chance.bb_pin(), name: 'input', properties: { 'placeholder': 'test@test.com', 'label': 'Email'} },
                         { type: 'input', id: chance.bb_pin(), name: 'input', properties: { 'placeholder': 'John', 'label': 'Nombre' } },
@@ -87,10 +87,11 @@
             domain: [
                     { type: 'domain_class', id: chance.bb_pin(), name: 'domain_class', properties: {}, children: [
                         { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'id', 'tipo': 'int', 'checked': 'false' }},
-                        { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'nombre', 'tipo': 'string', 'checked': 'false' }}
+                        { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'nombre', 'tipo': 'string', 'checked': 'false' }},
+                        { type: 'association', id: chance.bb_pin(), name: 'association', properties: { 'nombre': 'categorias', 'clase': 'c', 'cardinalidad': '1', 'checked': 'true' }}
                     ]},
                     { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'nombre', 'tipo': 'tipo', 'checked': 'true'}},
-                    { type: 'association', id: chance.bb_pin(), name: 'association', properties: {}},
+                    { type: 'association', id: chance.bb_pin(), name: 'association', properties: {'nombre': 'categorias', 'clase': '', 'cardinalidad': '1', 'checked': 'false'}},
                     { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'method()', 'tipo': 'void'}},
                 ]
         	},
@@ -110,7 +111,18 @@
                     'id': domainModelId,
                     'type': 'domain',
                     'name': 'Domain Model',
-                    'children': []
+                    'children': [
+                      { type: 'domain_class', id: chance.bb_pin(), name: 'producto', properties: {}, children: [
+                          { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'id', 'tipo': 'int', 'checked': 'false' }},
+                          { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'nombre', 'tipo': 'string', 'checked': 'false' }},
+                          { type: 'association', id: chance.bb_pin(), name: 'association', properties: { 'nombre': 'categoria', 'clase': 'categoria', 'cardinalidad': '1', 'checked': 'true' }}
+                      ]},
+                      { type: 'domain_class', id: chance.bb_pin(), name: 'categoria', properties: {}, children: [
+                          { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'id', 'tipo': 'int', 'checked': 'false' }},
+                          { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'descripcion', 'tipo': 'string', 'checked': 'false' }},
+                          { type: 'association', id: chance.bb_pin(), name: 'association', properties: { 'nombre': 'productos', 'clase': 'producto', 'cardinalidad': 'N', 'checked': 'true' }}
+                      ]}
+                    ]
                   }]
             }
 
@@ -252,32 +264,39 @@
             return filtered;
         };
 
-        $scope.filterAttributes = function(item) {
-            var attrs = $scope.models.result.domain[0].children[item.properties.entity].children;
+        $scope.filterChildren = function(item) {
+            var children = $scope.models.result.domain[0].children[item.properties.entity].children;
+            var attrs = children.filter(function (attr){
+              return attr.type === 'domain_attribute' || attr.type === 'association';
+            });
             var selected_attrs = item.properties.attributes;
             for (var i = 0; i < attrs.length; i++) {
-              if (selected_attrs.indexOf(attrs[i].properties.nombre) > -1){
+              if (selected_attrs.findIndex(x => x.id === attrs[i].id) > -1){
                 attrs[i].properties.checked = true;
-                  // full_attributes.push({'nombre': attrs[i].properties.nombre,
-                  //                     'checked': true});
               }
               else {
                 attrs[i].properties.checked = false;
-                  // full_attributes.push({'nombre': attrs[i].properties.nombre,
-                  //                   'checked': false});
               }
             }
             return attrs;
         };
 
+        $scope.filterMethod = function(item) {
+            var children = $scope.models.result.domain[0].children[item.properties.entity].children;
+            var attrs = children.filter(function (attr){
+              return attr.type === 'method';
+            });
+            return attrs;
+        };
+
         $scope.seleccionarAtributo = function(component, attr){
           var attrs = component.properties.attributes;
-          var index = attrs.indexOf(attr.properties.nombre);
-          if(attr.properties.checked && (index == -1)){
-            component.properties.attributes.push(attr.properties.nombre);
+          var index = attrs.findIndex(x => x.id === attr.id)
+          if(attr.properties.checked && (index === -1)){
+            component.properties.attributes.push(attr);
           }
           else {
-            if (index > -1) {
+            if (index !== -1) {
                 component.properties.attributes.splice(index, 1);
             }
           }
