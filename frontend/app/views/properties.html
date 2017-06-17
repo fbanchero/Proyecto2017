@@ -39,7 +39,8 @@
             <div ng-if="key == 'entity'" >
                 <label>entity:</label>
                 <select ng-model="models.selected.properties.entity"
-                    ng-options="idx as e.name for (idx, e) in models.result.domain[0].children">
+                    ng-options="idx as e.name for (idx, e) in models.result.domain[0].children"
+                    ng-change="limpiarAtributos(models.selected);">
                 </select>
             </div>
             <div ng-if="key == 'attributes'" class="attr_div">

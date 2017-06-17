@@ -1,23 +1,23 @@
 <table class="table table-striped table-hover ">
   <tbody>
     <th ng-repeat="a in item.properties.attributes">
-      {{a}}
+      {{a.properties.nombre}}
     </th>
     <tr>
       <td ng-repeat="a in item.properties.attributes">
-        {{a}}_1
+        {{a.properties.nombre}}_1
       </td>
     </tr>
     <tr>
       <td ng-repeat="a in item.properties.attributes">
-        {{a}}_2
+        {{a.properties.nombre}}_2
       </td>
     </tr>
     <tr>
       <td ng-repeat="a in item.properties.attributes">
-        {{a}}_3
+        {{a.properties.nombre}}_3
       </td>
     </tr>
   </tbody>
 </table>
-<span class="item-name" ng-if="models.selected === item">{{item.name}}</span>
+<span class="item-name" ng-if="models.selected === a">{{a.name}}</span>

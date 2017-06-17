@@ -289,6 +289,10 @@
             return attrs;
         };
 
+        $scope.limpiarAtributos = function(component){
+          component.properties.attributes = [];
+        }
+
         $scope.seleccionarAtributo = function(component, attr){
           var attrs = component.properties.attributes;
           var index = attrs.findIndex(x => x.id === attr.id)
