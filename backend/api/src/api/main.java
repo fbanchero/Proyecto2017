@@ -46,6 +46,7 @@ import api.classes.NavigationEvent;
 import api.helpers.ElementBuilder;
 import api.helpers.LinkElem;
 import ifml.core.CoreFactory;
+import ifml.core.DataBinding;
 import ifml.core.DomainElement;
 import ifml.core.DomainModel;
 import ifml.core.IFMLModel;
@@ -432,8 +433,8 @@ public class main {
 						recursiveIFMLHierarchy(mergedElem, ve, links);
 					
 					} else if (MockupElementTypes.get(elem.getType()).equals("Form")) {
-						
-						Form form = ef.createForm();						
+						Form form = eb.createForm(elem);
+//						Form form = ef.createForm(elem);						
 						viewElements.add(form);
 						recursiveIFMLHierarchy(mergedElem, form, links);
 						
@@ -584,6 +585,27 @@ public class main {
 		}
 		for(PrimitiveType pt: eb.getTypes())
 			resource.getContents().add(pt);
+		
+		for(DataBinding db: eb.getListDataBinding())
+			resource.getContents().add(db);
+		
+		for(SubmitEvent se: eb.getListSubmitEvent())
+			resource.getContents().add(se);
+		
+		for(DomainElement element: domain.getElements()){
+			if (element instanceof UMLDomainConcept) {
+				UMLDomainConcept dc = (UMLDomainConcept)element;
+				resource.getContents().add(dc);		
+				org.eclipse.uml2.uml.Class c = (Class) dc.getClassifier();
+				resource.getContents().add(c);
+			} else if (element instanceof UMLStructuralFeature) {
+				UMLStructuralFeature sf = (UMLStructuralFeature)element;
+				resource.getContents().add(sf);		
+				org.eclipse.uml2.uml.StructuralFeature s = (StructuralFeature) sf.getStructuralFeature();
+				resource.getContents().add(s);
+			}
+						
+		}
 		
 		try {
 		

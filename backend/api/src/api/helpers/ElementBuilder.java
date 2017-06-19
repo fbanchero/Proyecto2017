@@ -2,9 +2,11 @@ package api.helpers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.jetty.server.handler.ContextHandler.Availability;
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.BehavioralFeature;
 import org.eclipse.uml2.uml.Class;
@@ -13,6 +15,8 @@ import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.StructuralFeature;
 import org.eclipse.uml2.uml.UMLFactory;
+
+import com.google.gson.internal.LinkedTreeMap;
 
 import api.classes.DomainAttribute;
 import api.classes.DomainClass;
@@ -24,13 +28,17 @@ import api.classes.MockupMultipleColumnElement;
 import api.classes.MockupSingleColumnElement;
 import api.classes.NavigationEvent;
 import api.classes.Parameter;
+import ifml.core.Action;
 import ifml.core.BehavioralFeatureConcept;
 import ifml.core.CoreFactory;
 import ifml.core.DataBinding;
+import ifml.core.DomainConcept;
 import ifml.core.DomainModel;
 import ifml.core.DynamicBehavior;
 import ifml.core.FeatureConcept;
 import ifml.core.NavigationFlow;
+import ifml.core.ParameterBinding;
+import ifml.core.ParameterBindingGroup;
 import ifml.core.UMLBehavioralFeature;
 import ifml.core.UMLDomainConcept;
 import ifml.core.UMLStructuralFeature;
@@ -40,9 +48,11 @@ import ifml.core.ViewElementEvent;
 import ifml.core.VisualizationAttribute;
 import ifml.extensions.Button;
 import ifml.extensions.ExtensionsFactory;
+import ifml.extensions.Form;
 import ifml.extensions.Image;
 import ifml.extensions.List;
 import ifml.extensions.SelectEvent;
+import ifml.extensions.SelectionField;
 import ifml.extensions.SimpleField;
 import ifml.extensions.SubmitEvent;
 import ifml.extensions.TextField;
@@ -59,6 +69,9 @@ public class ElementBuilder {
 	
 	public Map<String, FeatureConcept> mapAttributes = new HashMap<String, FeatureConcept>();
 	public Map<String, BehavioralFeatureConcept> mapOperations = new HashMap<String, BehavioralFeatureConcept>();
+	public Map<String, DomainConcept> mapClass = new HashMap<String, DomainConcept>();
+	public ArrayList<DataBinding> listDataBinding = new ArrayList<DataBinding>();
+	public ArrayList<SubmitEvent> listSubmitEvent = new ArrayList<SubmitEvent>();
 
 	public ElementBuilder(CoreFactory pf, ExtensionsFactory pef, UMLFactory uf) {
 		f = pf;
@@ -499,6 +512,7 @@ public class ElementBuilder {
 		UMLDomainConcept umldc = f.createUMLDomainConcept();
 		umldc.setClassifier(c);
 		domainModel.getElements().add(umldc);
+		mapClass.put(c.getName(), umldc);
 		return c;
 	}
 	
@@ -515,5 +529,90 @@ public class ElementBuilder {
 		}
 		return a;
 	}
+	
+	public Form createForm(MockupGeneralElement elem) {
+		
+		Form form = ef.createForm();
+		form.setId(elem.getId());
+		form.setName(elem.getName());
+		HashMap<String, Object> properties = elem.getProperties();
+		ParameterBindingGroup paramBindGroup = f.createParameterBindingGroup();
+		
+		if (properties.containsKey("attributes")) {
+			for (LinkedTreeMap<String, Object> a: (ArrayList<LinkedTreeMap<String, Object>>)properties.get("attributes")) {
+				if (((String)a.get("type")).equals("domain_attribute")) {
+					String nombre = (String)((LinkedTreeMap<String, Object>)a.get("properties")).get("nombre");
+					String tipo = (String)((LinkedTreeMap<String, Object>)a.get("properties")).get("tipo");
+					SimpleField sf = ef.createSimpleField();
+					sf.setId("asdasdsa"); // autogenerar uno
+					sf.setName(nombre);
+					form.getViewComponentParts().add(sf);
+					ParameterBinding pb = f.createParameterBinding();
+					pb.setId("asdas");
+//					pb.setSourceParameter(sf);
+//					pb.setTargetParameter(value);
+					paramBindGroup.getParameterBindings().add(pb);
+					
+				} else if (((String)a.get("type")).equals("association")) {
+					String nombre = (String)((LinkedTreeMap<String, Object>)a.get("properties")).get("nombre");
+					String tipoClass = (String)((LinkedTreeMap<String, Object>)a.get("properties")).get("clase");
+					DataBinding db = f.createDataBinding();
+					db.setId(tipoClass + "_ID");
+					db.setName(tipoClass + "_Name");
+					db.setDomainConcept(mapClass.get(tipoClass));
+					SelectionField sf = ef.createSelectionField();
+					sf.setIsMultiSelection(false);
+					sf.setId("asdasdsa"); // autogenerar uno
+					sf.setName(nombre);
+					sf.getSubViewComponentParts().add(db);
+					form.getViewComponentParts().add(sf);
+					ParameterBinding pb = f.createParameterBinding();
+					pb.setId("asdas");
+//					pb.setSourceParameter(sf);
+//					pb.setTargetParameter(value);
+					paramBindGroup.getParameterBindings().add(pb);
+					listDataBinding.add(db);
+				}
+//				form.getViewComponentParts().add(va);
+			}
+			
+		}
+		
+		if(elem.getEvents() != null && elem.getEvents().get(0) != null) {
+			
+			SubmitEvent se = ef.createSubmitEvent();
+			se.setId(elem.getEvents().get(0).getLink());
+			se.setName(elem.getName());
+			listSubmitEvent.add(se);
+			
+			// Creo el action
+			Action action = f.createAction();
+			action.setName("algo");
+			DynamicBehavior db = f.createDynamicBehavior();
+			db.setBehavioralFeatureConcept(mapOperations.get(elem.getEvents().get(0).getLink()));
+			action.setDynamicBehavior(db);
+			
+			NavigationEvent ne = elem.getEvents().get(0);
+			NavigationFlow nf = f.createNavigationFlow();
+			nf.setSrcInteractionFlowElement(form);
+			nf.setTrgtInteractionFlowElement(action);
+			nf.setParameterBindingGroup(paramBindGroup);
+			form.getSubmitEvent().add(se);
+			
+			
+		}
+		
+		return form;
+		
+	}
+
+	public ArrayList<DataBinding> getListDataBinding() {
+		return listDataBinding;
+	}
+	
+	public ArrayList<SubmitEvent> getListSubmitEvent() {
+		return listSubmitEvent;
+	}
+	
 	
 }
