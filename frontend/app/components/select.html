@@ -1,8 +1,17 @@
 <div class="form-group">
   <label for="input_{{field.id}}" class="col-lg-2 control-label">{{field.properties.nombre}}</label>
-  <div class="col-lg-10">
+  <div class="col-lg-10" ng-if="field.properties.cardinalidad === '1'">
     <select class="form-control">
-      <option value="{{field.properties.nombre}}">{{field.properties.nombre}}</option>
+      <option value="{{field.properties.nombre}}_1">{{field.properties.nombre}}_1</option>
+      <option value="{{field.properties.nombre}}_2">{{field.properties.nombre}}_2</option>
+      <option value="{{field.properties.nombre}}_3">{{field.properties.nombre}}_3</option>
+    </select>
+  </div>
+  <div class="col-lg-10" ng-if="field.properties.cardinalidad !== '1'">
+    <select multiple class="form-control">
+      <option value="{{field.properties.nombre}}_1">{{field.properties.nombre}}_1</option>
+      <option value="{{field.properties.nombre}}_2">{{field.properties.nombre}}_2</option>
+      <option value="{{field.properties.nombre}}_3">{{field.properties.nombre}}_3</option>
     </select>
   </div>
 </div>
