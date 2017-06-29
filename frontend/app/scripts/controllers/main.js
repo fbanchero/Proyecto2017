@@ -72,9 +72,6 @@
             form: [
                     { type: 'form', id: chance.bb_pin(), name: 'form', properties: {entity: '0', attributes: []}, events: [{ type: 'onSubmit', link: '' }], children: [[
                         { type: 'legend', id: chance.bb_pin(), name: 'legend', properties: { 'value': 'Solicitud de seguimiento' }},
-                        { type: 'input', id: chance.bb_pin(), name: 'input', properties: { 'placeholder': 'test@test.com', 'label': 'Email'} },
-                        { type: 'input', id: chance.bb_pin(), name: 'input', properties: { 'placeholder': 'John', 'label': 'Nombre' } },
-                        { type: 'input', id: chance.bb_pin(), name: 'input', properties: { 'placeholder': 'Doe', 'label': 'Apellido' } },
                         { type: 'submit_button', id: chance.bb_pin(), name: 'submit button', properties: { 'value': 'Enviar' }, events: [{ type: 'onSubmit', link: '' }] }
                       ]]
                     },
