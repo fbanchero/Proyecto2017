@@ -16,6 +16,7 @@ import java.util.Map.Entry;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -348,15 +349,18 @@ public class main {
 			if (element.getType().equals("domain_class")) {
 				DomainClass c = new DomainClass();
 				c.setName(element.getName());
+				c.setId(element.getId());
 				for (DomainGeneralElement e: element.getChildren()) {
 					if (e.getType().equals("domain_attribute")) {
 						DomainAttribute a = new DomainAttribute();
+						a.setId(element.getId());
 						a.setName((String) e.getProperties().get("nombre"));
 						String t = (String) e.getProperties().get("tipo");
 						a.setType(t);
 						c.getListAttribute().add(a);
 					} else if (e.getType().equals("operation")) {
 						DomainOperation oper = new DomainOperation();
+						oper.setId(element.getId());
 						oper.setName(e.getName());
 //						DomainGeneralElement t = element.getProperties().get("return_type");
 //						oper.setRetorno(t.getName());
@@ -572,12 +576,13 @@ public class main {
 		for(DomainElement element: domain.getElements()){
 			if (element instanceof UMLDomainConcept) {
 				UMLDomainConcept dc = (UMLDomainConcept)element;
-				resource.getContents().add(dc);		
+				resource.getContents().add(dc);
 				org.eclipse.uml2.uml.Class c = (Class) dc.getClassifier();
 				resource.getContents().add(c);
+				
 			} else if (element instanceof UMLStructuralFeature) {
 				UMLStructuralFeature sf = (UMLStructuralFeature)element;
-				resource.getContents().add(sf);		
+				resource.getContents().add(sf);
 				org.eclipse.uml2.uml.StructuralFeature s = (StructuralFeature) sf.getStructuralFeature();
 				resource.getContents().add(s);
 			}
@@ -592,20 +597,20 @@ public class main {
 		for(SubmitEvent se: eb.getListSubmitEvent())
 			resource.getContents().add(se);
 		
-		for(DomainElement element: domain.getElements()){
-			if (element instanceof UMLDomainConcept) {
-				UMLDomainConcept dc = (UMLDomainConcept)element;
-				resource.getContents().add(dc);		
-				org.eclipse.uml2.uml.Class c = (Class) dc.getClassifier();
-				resource.getContents().add(c);
-			} else if (element instanceof UMLStructuralFeature) {
-				UMLStructuralFeature sf = (UMLStructuralFeature)element;
-				resource.getContents().add(sf);		
-				org.eclipse.uml2.uml.StructuralFeature s = (StructuralFeature) sf.getStructuralFeature();
-				resource.getContents().add(s);
-			}
-						
-		}
+//		for(DomainElement element: domain.getElements()){
+//			if (element instanceof UMLDomainConcept) {
+//				UMLDomainConcept dc = (UMLDomainConcept)element;
+//				resource.getContents().add(dc);		
+//				org.eclipse.uml2.uml.Class c = (Class) dc.getClassifier();
+//				resource.getContents().add(c);
+//			} else if (element instanceof UMLStructuralFeature) {
+//				UMLStructuralFeature sf = (UMLStructuralFeature)element;
+//				resource.getContents().add(sf);		
+//				org.eclipse.uml2.uml.StructuralFeature s = (StructuralFeature) sf.getStructuralFeature();
+//				resource.getContents().add(s);
+//			}
+//						
+//		}
 		
 		try {
 		

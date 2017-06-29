@@ -486,6 +486,8 @@ public class ElementBuilder {
 			Property p = c.createOwnedAttribute(da.getName(), pt);
 			UMLStructuralFeature umlsf = f.createUMLStructuralFeature();
 			umlsf.setStructuralFeature(p);
+			umlsf.setId(da.getId());
+			umlsf.setName(da.getName());
 			domainModel.getElements().add(umlsf);
 			mapAttributes.put(da.getName(), umlsf);
 		}
@@ -505,6 +507,8 @@ public class ElementBuilder {
 			c.getAllOperations().add(bf);
 			UMLBehavioralFeature umlbf = f.createUMLBehavioralFeature();
 			umlbf.setBehavioralFeature(bf);
+			umlbf.setId(oper.getId());
+			umlbf.setName(oper.getName());
 			domainModel.getElements().add(umlbf);
 			mapOperations.put(oper.getName(), umlbf);
 		}
