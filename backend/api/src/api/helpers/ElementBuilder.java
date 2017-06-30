@@ -130,10 +130,10 @@ public class ElementBuilder {
 		
 		HashMap<String, Object> properties = elem.getProperties();
 		if (properties.containsKey("attributes")) {
-			for (Object a: (ArrayList)properties.get("attributes")) {
+			for (LinkedTreeMap<String, Object> a: (ArrayList<LinkedTreeMap<String, Object>>)properties.get("attributes")) {
 				// Crear DataBinding y despues crear los visualizaionAttribute
 				VisualizationAttribute va = f.createVisualizationAttribute();
-				va.setFeatureConcept(mapAttributes.get((String)a));
+				va.setFeatureConcept(mapAttributes.get((String)(((LinkedTreeMap<String, Object>)a.get("properties")).get("nombre"))));
 //				DataBinding db = f.createDataBinding();
 //				db.getVisualizationAttributes().add(va);
 				list.getViewComponentParts().add(va);
