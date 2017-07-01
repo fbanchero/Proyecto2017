@@ -263,17 +263,20 @@
         };
 
         $scope.filterChildren = function(item) {
-            var children = $scope.models.result.domain[0].children[item.properties.entity].children;
-            var attrs = children.filter(function (attr){
-              return attr.type === 'domain_attribute' || attr.type === 'association';
-            });
-            var selected_attrs = item.properties.attributes;
-            for (var i = 0; i < attrs.length; i++) {
-              if (selected_attrs.findIndex(x => x.id === attrs[i].id) > -1){
-                attrs[i].properties.checked = true;
-              }
-              else {
-                attrs[i].properties.checked = false;
+            var idx = $scope.models.result.domain[0].children.findIndex(x => x.name === item.properties.entity);
+            if (idx > -1){
+              var children = $scope.models.result.domain[0].children[idx].children;
+              var attrs = children.filter(function (attr){
+                return attr.type === 'domain_attribute' || attr.type === 'association';
+              });
+              var selected_attrs = item.properties.attributes;
+              for (var i = 0; i < attrs.length; i++) {
+                if (selected_attrs.findIndex(x => x.id === attrs[i].id) > -1){
+                  attrs[i].properties.checked = true;
+                }
+                else {
+                  attrs[i].properties.checked = false;
+                }
               }
             }
             return attrs;

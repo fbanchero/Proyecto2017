@@ -59,6 +59,7 @@ import ifml.core.UMLStructuralFeature;
 import ifml.core.ViewContainer;
 import ifml.core.ViewElement;
 import ifml.core.ViewElementEvent;
+import ifml.core.VisualizationAttribute;
 import ifml.extensions.Button;
 import ifml.extensions.ExtensionsFactory;
 import ifml.extensions.Form;
@@ -353,14 +354,14 @@ public class main {
 				for (DomainGeneralElement e: element.getChildren()) {
 					if (e.getType().equals("domain_attribute")) {
 						DomainAttribute a = new DomainAttribute();
-						a.setId(element.getId());
+						a.setId(e.getId());
 						a.setName((String) e.getProperties().get("nombre"));
 						String t = (String) e.getProperties().get("tipo");
 						a.setType(t);
 						c.getListAttribute().add(a);
 					} else if (e.getType().equals("operation")) {
 						DomainOperation oper = new DomainOperation();
-						oper.setId(element.getId());
+						oper.setId(e.getId());
 						oper.setName(e.getName());
 //						DomainGeneralElement t = element.getProperties().get("return_type");
 //						oper.setRetorno(t.getName());
@@ -591,8 +592,12 @@ public class main {
 		for(PrimitiveType pt: eb.getTypes())
 			resource.getContents().add(pt);
 		
-		for(DataBinding db: eb.getListDataBinding())
+		for(DataBinding db: eb.getListDataBinding()){			
+			for(VisualizationAttribute va: db.getVisualizationAttributes())
+				resource.getContents().add(va);
 			resource.getContents().add(db);
+		}
+			
 		
 		for(SubmitEvent se: eb.getListSubmitEvent())
 			resource.getContents().add(se);

@@ -129,16 +129,42 @@ public class ElementBuilder {
 		}
 		
 		HashMap<String, Object> properties = elem.getProperties();
-		if (properties.containsKey("attributes")) {
-			for (LinkedTreeMap<String, Object> a: (ArrayList<LinkedTreeMap<String, Object>>)properties.get("attributes")) {
-				// Crear DataBinding y despues crear los visualizaionAttribute
-				VisualizationAttribute va = f.createVisualizationAttribute();
-				va.setFeatureConcept(mapAttributes.get((String)(((LinkedTreeMap<String, Object>)a.get("properties")).get("nombre"))));
-//				DataBinding db = f.createDataBinding();
-//				db.getVisualizationAttributes().add(va);
-				list.getViewComponentParts().add(va);
-			}
-			
+		
+		if (properties.containsKey("entity")) {
+				String entity = (String)properties.get("entity");
+				DataBinding db = f.createDataBinding();
+				DomainConcept dc = mapClass.get(entity);				
+				db.setDomainConcept(dc);
+				if (properties.containsKey("attributes")) {
+					for (LinkedTreeMap<String, Object> a: (ArrayList<LinkedTreeMap<String, Object>>)properties.get("attributes")) {						
+						if(a.get("type").equals("association")){
+							DataBinding dba = f.createDataBinding();
+							LinkedTreeMap<String, Object> props = (LinkedTreeMap<String, Object>)a.get("properties");
+							String clase = (String)(props.get("clase"));
+							UMLDomainConcept dca = (UMLDomainConcept)mapClass.get(clase);
+							dba.setDomainConcept(dca);
+							for (Property p: dca.getClassifier().getAttributes()) {
+								VisualizationAttribute va = f.createVisualizationAttribute();						
+								va.setFeatureConcept(mapAttributes.get(dca.getName() + "_" + p.getName()));
+								va.setId(va.getFeatureConcept().getId());
+								va.setName(va.getFeatureConcept().getName());
+								dba.getVisualizationAttributes().add(va);								
+							}	
+							list.getViewComponentParts().add(dba);
+							listDataBinding.add(dba);
+						}
+						else{
+							VisualizationAttribute va = f.createVisualizationAttribute();						
+							va.setFeatureConcept(mapAttributes.get(dc.getName() + "_" + (String)(((LinkedTreeMap<String, Object>)a.get("properties")).get("nombre"))));
+							va.setId(va.getFeatureConcept().getId());
+							va.setName(va.getFeatureConcept().getName());
+							db.getVisualizationAttributes().add(va);	
+							listDataBinding.add(db);
+						}																								
+					}
+					
+				}
+				list.getViewComponentParts().add(db);										
 		}
 		
 		return list;
@@ -489,7 +515,7 @@ public class ElementBuilder {
 			umlsf.setId(da.getId());
 			umlsf.setName(da.getName());
 			domainModel.getElements().add(umlsf);
-			mapAttributes.put(da.getName(), umlsf);
+			mapAttributes.put(domainClass.getName() + "_" + da.getName(), umlsf);
 		}
 		for (DomainOperation oper: domainClass.getListOperation()) {
 			Operation bf = umlf.createOperation();
@@ -514,9 +540,11 @@ public class ElementBuilder {
 		}
 		
 		UMLDomainConcept umldc = f.createUMLDomainConcept();
+		umldc.setId(domainClass.getId());
+		umldc.setName(domainClass.getName());
 		umldc.setClassifier(c);
 		domainModel.getElements().add(umldc);
-		mapClass.put(c.getName(), umldc);
+		mapClass.put(umldc.getName(), umldc);
 		return c;
 	}
 	
