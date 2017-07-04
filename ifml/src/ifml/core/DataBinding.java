@@ -40,17 +40,17 @@ public interface DataBinding extends ContentBinding {
 	EList<ConditionalExpression> getConditionalExpression();
 
 	/**
-	 * Returns the value of the '<em><b>Visualization Attributes</b></em>' reference list.
+	 * Returns the value of the '<em><b>Visualization Attributes</b></em>' containment reference list.
 	 * The list contents are of type {@link ifml.core.VisualizationAttribute}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Visualization Attributes</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Visualization Attributes</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Visualization Attributes</em>' reference list.
+	 * @return the value of the '<em>Visualization Attributes</em>' containment reference list.
 	 * @see ifml.core.CorePackage#getDataBinding_VisualizationAttributes()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<VisualizationAttribute> getVisualizationAttributes();

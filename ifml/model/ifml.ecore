@@ -187,7 +187,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="conditionalExpression"
           upperBound="-1" eType="#//core/ConditionalExpression"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="visualizationAttributes"
-          upperBound="-1" eType="#//core/VisualizationAttribute"/>
+          upperBound="-1" eType="#//core/VisualizationAttribute" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="domainConcept" lowerBound="1"
           eType="#//core/DomainConcept"/>
     </eClassifiers>
@@ -252,7 +252,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DomainModel" eSuperTypes="#//core/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-          eType="#//core/DomainElement"/>
+          eType="#//core/DomainElement" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DomainElement" eSuperTypes="#//core/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="domainModel" lowerBound="1"

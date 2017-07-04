@@ -806,3 +806,347 @@ java.util.concurrent.TimeoutException: Timeout after waiting 5 seconds to acquir
 !ENTRY org.apache.log4j 2 0 2017-07-01 20:05:20.638
 !MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 17:29:01.378
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 17:29:01.416
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 17:34:13.721
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 17:34:13.721
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 17:43:21.076
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 17:43:21.076
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 17:49:50.177
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 17:49:50.193
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 17:49:59.845
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 17:49:59.845
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:14:15.736
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:14:15.736
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:16:13.508
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:16:13.524
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:21:44.887
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:21:44.887
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:25:24.714
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:25:24.730
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:26:33.134
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:26:33.150
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:32:45.642
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:32:45.642
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:32:46.721
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:32:46.721
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:33:10.938
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:33:10.958
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:33:19.131
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:33:19.175
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:34:02.371
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:34:02.373
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:34:09.325
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:34:09.331
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:34:26.450
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:34:26.466
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:34:30.053
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:34:30.069
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:36:00.600
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:36:00.616
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:36:01.717
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:36:01.732
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:36:52.110
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:36:52.115
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:36:59.512
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:36:59.512
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:37:18.305
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 18:37:18.305
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:00:13.000
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:00:13.018
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:00:15.439
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:00:15.454
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:03:40.673
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:03:40.683
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:04:03.857
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:04:03.866
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:04:15.246
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:04:15.246
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:04:35.092
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:04:35.107
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:17:20.478
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:17:20.510
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:21:42.278
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:21:42.287
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:23:03.585
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:23:03.593
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:23:28.239
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:23:28.243
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:23:45.684
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:23:45.692
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:33:55.586
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:33:55.594
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:36:35.283
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:36:35.299
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:39:18.681
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:39:18.681
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:39:25.855
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:39:25.870
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:44:50.118
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:44:50.126
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:45:12.747
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:45:12.747
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:45:40.105
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:45:40.105
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:47:06.899
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:47:06.914
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:47:34.094
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-07-02 19:47:34.094
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+

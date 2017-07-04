@@ -21,7 +21,6 @@ INDEX VERSION 1.129+C:\Proyecto\Code\Integracion\Proyecto2017\.metadata\.plugins
 1016999939.index
 3957190342.index
 3740483805.index
-2783109717.index
 1689259093.index
 4265864773.index
 2272273464.index

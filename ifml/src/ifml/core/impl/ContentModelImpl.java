@@ -4,6 +4,7 @@ package ifml.core.impl;
 
 import ifml.core.ContentModel;
 import ifml.core.CorePackage;
+import ifml.core.Element;
 
 import java.util.Collection;
 
@@ -13,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import org.eclipse.uml2.uml.Element;
 
 /**
  * <!-- begin-user-doc -->

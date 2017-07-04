@@ -11,6 +11,7 @@ import ifml.core.VisualizationAttribute;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -19,7 +20,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,7 +51,7 @@ public class DataBindingImpl extends ContentBindingImpl implements DataBinding {
 	protected EList<ConditionalExpression> conditionalExpression;
 
 	/**
-	 * The cached value of the '{@link #getVisualizationAttributes() <em>Visualization Attributes</em>}' reference list.
+	 * The cached value of the '{@link #getVisualizationAttributes() <em>Visualization Attributes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVisualizationAttributes()
@@ -105,7 +108,7 @@ public class DataBindingImpl extends ContentBindingImpl implements DataBinding {
 	 */
 	public EList<VisualizationAttribute> getVisualizationAttributes() {
 		if (visualizationAttributes == null) {
-			visualizationAttributes = new EObjectResolvingEList<VisualizationAttribute>(VisualizationAttribute.class, this, CorePackage.DATA_BINDING__VISUALIZATION_ATTRIBUTES);
+			visualizationAttributes = new EObjectContainmentEList<VisualizationAttribute>(VisualizationAttribute.class, this, CorePackage.DATA_BINDING__VISUALIZATION_ATTRIBUTES);
 		}
 		return visualizationAttributes;
 	}
@@ -146,6 +149,20 @@ public class DataBindingImpl extends ContentBindingImpl implements DataBinding {
 		domainConcept = newDomainConcept;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.DATA_BINDING__DOMAIN_CONCEPT, oldDomainConcept, domainConcept));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CorePackage.DATA_BINDING__VISUALIZATION_ATTRIBUTES:
+				return ((InternalEList<?>)getVisualizationAttributes()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

@@ -159,10 +159,6 @@ public class ExtensionsAdapterFactory extends AdapterFactoryImpl {
 				return createTextFieldAdapter();
 			}
 			@Override
-			public Adapter caseVideo(Video object) {
-				return createVideoAdapter();
-			}
-			@Override
 			public Adapter caseElement(Element object) {
 				return createElementAdapter();
 			}
@@ -501,20 +497,6 @@ public class ExtensionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTextFieldAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ifml.extensions.Video <em>Video</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ifml.extensions.Video
-	 * @generated
-	 */
-	public Adapter createVideoAdapter() {
 		return null;
 	}
 

@@ -3,89 +3,14 @@
   <core:IFMLModel name="Mockup">
     <interactionFlowModel name="Pages">
       <interactionFlowModelElements xsi:type="core:ViewContainer" id="f36f2867" name="Page1">
-        <viewElements xsi:type="ext:List" id="9b04d5ed" name="table"/>
+        <viewElements xsi:type="ext:List" id="51119c96" name="table">
+          <viewComponentParts xsi:type="core:DataBinding" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.0/@visualizationAttributes.0 /0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.0/@visualizationAttributes.1" domainConcept="/0/@domainModel/@elements.5"/>
+          <viewComponentParts xsi:type="core:DataBinding" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.1/@visualizationAttributes.0 /0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.1/@visualizationAttributes.1" domainConcept="/0/@domainModel/@elements.2"/>
+        </viewElements>
       </interactionFlowModelElements>
     </interactionFlowModel>
-    <domainModel id="domainId" name="Domain Model" elements="/1 /3 /5 /7 /9 /11"/>
+    <domainModel id="domainId" name="Domain Model" elements="/0/@domainModel/@elements.0 /0/@domainModel/@elements.1 /0/@domainModel/@elements.2 /0/@domainModel/@elements.3 /0/@domainModel/@elements.4 /0/@domainModel/@elements.5"/>
   </core:IFMLModel>
-  <core:UMLStructuralFeature id="0e2ffd7a" name="id" structuralFeature="/2"/>
-  <uml:Property name="id" type="/14"/>
-  <core:UMLStructuralFeature id="be091882" name="nombre" structuralFeature="/4"/>
-  <uml:Property name="nombre" type="/13"/>
-  <core:UMLDomainConcept id="e5955e46" name="producto" classifier="/6"/>
-  <uml:Class name="producto">
-    <ownedAttribute href="#/2"/>
-    <ownedAttribute href="#/4"/>
-  </uml:Class>
-  <core:UMLStructuralFeature id="5ce295c0" name="id" structuralFeature="/8"/>
-  <uml:Property name="id" type="/14"/>
-  <core:UMLStructuralFeature id="92c4e324" name="descripcion" structuralFeature="/10"/>
-  <uml:Property name="descripcion" type="/13"/>
-  <core:UMLDomainConcept id="71cf8209" name="categoria" classifier="/12"/>
-  <uml:Class name="categoria">
-    <ownedAttribute href="#/8"/>
-    <ownedAttribute href="#/10"/>
-  </uml:Class>
   <uml:PrimitiveType name="string"/>
   <uml:PrimitiveType name="int"/>
-  <core:VisualizationAttribute id="0e2ffd7a" name="id">
-    <featureConcept href="#/1"/>
-  </core:VisualizationAttribute>
-  <core:VisualizationAttribute id="be091882" name="nombre">
-    <featureConcept href="#/3"/>
-  </core:VisualizationAttribute>
-  <core:DataBinding visualizationAttributes="/15 /16">
-    <domainConcept href="#/5"/>
-  </core:DataBinding>
-  <core:VisualizationAttribute id="5ce295c0" name="id">
-    <featureConcept href="#/7"/>
-  </core:VisualizationAttribute>
-  <core:VisualizationAttribute id="92c4e324" name="descripcion">
-    <featureConcept href="#/9"/>
-  </core:VisualizationAttribute>
-  <core:DataBinding visualizationAttributes="/18 /19">
-    <domainConcept href="#/11"/>
-  </core:DataBinding>
-  <core:VisualizationAttribute id="0e2ffd7a" name="id">
-    <featureConcept href="#/1"/>
-  </core:VisualizationAttribute>
-  <core:VisualizationAttribute id="be091882" name="nombre">
-    <featureConcept href="#/3"/>
-  </core:VisualizationAttribute>
-  <core:DataBinding visualizationAttributes="/21 /22">
-    <domainConcept href="#/5"/>
-  </core:DataBinding>
-  <core:VisualizationAttribute id="0e2ffd7a" name="id">
-    <featureConcept href="#/1"/>
-  </core:VisualizationAttribute>
-  <core:VisualizationAttribute id="be091882" name="nombre">
-    <featureConcept href="#/3"/>
-  </core:VisualizationAttribute>
-  <core:DataBinding visualizationAttributes="/24 /25">
-    <domainConcept href="#/5"/>
-  </core:DataBinding>
-  <core:VisualizationAttribute id="5ce295c0" name="id">
-    <featureConcept href="#/7"/>
-  </core:VisualizationAttribute>
-  <core:VisualizationAttribute id="92c4e324" name="descripcion">
-    <featureConcept href="#/9"/>
-  </core:VisualizationAttribute>
-  <core:DataBinding visualizationAttributes="/27 /28">
-    <domainConcept href="#/11"/>
-  </core:DataBinding>
-  <core:VisualizationAttribute id="5ce295c0" name="id">
-    <featureConcept href="#/7"/>
-  </core:VisualizationAttribute>
-  <core:VisualizationAttribute id="92c4e324" name="descripcion">
-    <featureConcept href="#/9"/>
-  </core:VisualizationAttribute>
-  <core:DataBinding visualizationAttributes="/30 /31">
-    <domainConcept href="#/11"/>
-  </core:DataBinding>
-  <core:VisualizationAttribute id="0e2ffd7a" name="id" featureConcept="/1"/>
-  <core:VisualizationAttribute id="be091882" name="nombre" featureConcept="/3"/>
-  <core:DataBinding visualizationAttributes="/33 /34" domainConcept="/5"/>
-  <core:VisualizationAttribute id="5ce295c0" name="id" featureConcept="/7"/>
-  <core:VisualizationAttribute id="92c4e324" name="descripcion" featureConcept="/9"/>
-  <core:DataBinding visualizationAttributes="/36 /37" domainConcept="/11"/>
 </xmi:XMI>
