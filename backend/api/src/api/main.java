@@ -76,8 +76,9 @@ public class main {
 	
     public static CoreFactory f = CoreFactory.eINSTANCE;
     public static ExtensionsFactory ef = ExtensionsFactory.eINSTANCE;
-    public static UMLFactory umlf = new UMLFactoryImpl();
-    public static ElementBuilder eb = new ElementBuilder(f, ef, umlf);
+    public static UMLFactory umlf; 
+    public static ElementBuilder eb; 
+
     
     private static final Map<String, String> MockupElementTypes = new HashMap<String, String>();
     
@@ -171,7 +172,10 @@ public class main {
      */
     private static String createIFML(String mockupJson) {
     	
-    	// Generate mockup object based on json
+        umlf = new UMLFactoryImpl();
+        eb = new ElementBuilder(f, ef, umlf);
+    	
+    	// Generate mockup object based on json    
     	Mockup mockup = new Gson().fromJson(mockupJson, Mockup.class);
     	
 		// Generate IFML from mockup object
@@ -600,22 +604,7 @@ public class main {
 			
 		
 		for(SubmitEvent se: eb.getListSubmitEvent())
-			resource.getContents().add(se);
-		
-//		for(DomainElement element: domain.getElements()){
-//			if (element instanceof UMLDomainConcept) {
-//				UMLDomainConcept dc = (UMLDomainConcept)element;
-//				resource.getContents().add(dc);		
-//				org.eclipse.uml2.uml.Class c = (Class) dc.getClassifier();
-//				resource.getContents().add(c);
-//			} else if (element instanceof UMLStructuralFeature) {
-//				UMLStructuralFeature sf = (UMLStructuralFeature)element;
-//				resource.getContents().add(sf);		
-//				org.eclipse.uml2.uml.StructuralFeature s = (StructuralFeature) sf.getStructuralFeature();
-//				resource.getContents().add(s);
-//			}
-//						
-//		}
+			resource.getContents().add(se);		
 		
 		try {
 		

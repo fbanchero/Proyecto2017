@@ -2,90 +2,36 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/IFML/core" xmlns:ext="http://www.omg.org/spec/IFML/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/IFML/ext ifml.ecore#/0/extensions">
   <core:IFMLModel name="Mockup">
     <interactionFlowModel name="Pages">
-      <interactionFlowModelElements xsi:type="core:ViewContainer" id="f36f2867" name="Page1">
-        <viewElements xsi:type="ext:List" id="9b04d5ed" name="table"/>
+      <interactionFlowModelElements xsi:type="core:ViewContainer" id="2492f8c2" name="Page1">
+        <viewElements xsi:type="ext:List" id="9177304f" name="table"/>
       </interactionFlowModelElements>
     </interactionFlowModel>
     <domainModel id="domainId" name="Domain Model" elements="/1 /3 /5 /7 /9 /11"/>
   </core:IFMLModel>
-  <core:UMLStructuralFeature id="0e2ffd7a" name="id" structuralFeature="/2"/>
+  <core:UMLStructuralFeature id="cc6e4a1a" name="id" structuralFeature="/2"/>
   <uml:Property name="id" type="/14"/>
-  <core:UMLStructuralFeature id="be091882" name="nombre" structuralFeature="/4"/>
+  <core:UMLStructuralFeature id="e6fbfab8" name="nombre" structuralFeature="/4"/>
   <uml:Property name="nombre" type="/13"/>
-  <core:UMLDomainConcept id="e5955e46" name="producto" classifier="/6"/>
+  <core:UMLDomainConcept id="d99ecb01" name="producto" classifier="/6"/>
   <uml:Class name="producto">
     <ownedAttribute href="#/2"/>
     <ownedAttribute href="#/4"/>
   </uml:Class>
-  <core:UMLStructuralFeature id="5ce295c0" name="id" structuralFeature="/8"/>
+  <core:UMLStructuralFeature id="3bf1ebb7" name="id" structuralFeature="/8"/>
   <uml:Property name="id" type="/14"/>
-  <core:UMLStructuralFeature id="92c4e324" name="descripcion" structuralFeature="/10"/>
+  <core:UMLStructuralFeature id="44103961" name="descripcion" structuralFeature="/10"/>
   <uml:Property name="descripcion" type="/13"/>
-  <core:UMLDomainConcept id="71cf8209" name="categoria" classifier="/12"/>
+  <core:UMLDomainConcept id="487694ec" name="categoria" classifier="/12"/>
   <uml:Class name="categoria">
     <ownedAttribute href="#/8"/>
     <ownedAttribute href="#/10"/>
   </uml:Class>
   <uml:PrimitiveType name="string"/>
   <uml:PrimitiveType name="int"/>
-  <core:VisualizationAttribute id="0e2ffd7a" name="id">
-    <featureConcept href="#/1"/>
-  </core:VisualizationAttribute>
-  <core:VisualizationAttribute id="be091882" name="nombre">
-    <featureConcept href="#/3"/>
-  </core:VisualizationAttribute>
-  <core:DataBinding visualizationAttributes="/15 /16">
-    <domainConcept href="#/5"/>
-  </core:DataBinding>
-  <core:VisualizationAttribute id="5ce295c0" name="id">
-    <featureConcept href="#/7"/>
-  </core:VisualizationAttribute>
-  <core:VisualizationAttribute id="92c4e324" name="descripcion">
-    <featureConcept href="#/9"/>
-  </core:VisualizationAttribute>
-  <core:DataBinding visualizationAttributes="/18 /19">
-    <domainConcept href="#/11"/>
-  </core:DataBinding>
-  <core:VisualizationAttribute id="0e2ffd7a" name="id">
-    <featureConcept href="#/1"/>
-  </core:VisualizationAttribute>
-  <core:VisualizationAttribute id="be091882" name="nombre">
-    <featureConcept href="#/3"/>
-  </core:VisualizationAttribute>
-  <core:DataBinding visualizationAttributes="/21 /22">
-    <domainConcept href="#/5"/>
-  </core:DataBinding>
-  <core:VisualizationAttribute id="0e2ffd7a" name="id">
-    <featureConcept href="#/1"/>
-  </core:VisualizationAttribute>
-  <core:VisualizationAttribute id="be091882" name="nombre">
-    <featureConcept href="#/3"/>
-  </core:VisualizationAttribute>
-  <core:DataBinding visualizationAttributes="/24 /25">
-    <domainConcept href="#/5"/>
-  </core:DataBinding>
-  <core:VisualizationAttribute id="5ce295c0" name="id">
-    <featureConcept href="#/7"/>
-  </core:VisualizationAttribute>
-  <core:VisualizationAttribute id="92c4e324" name="descripcion">
-    <featureConcept href="#/9"/>
-  </core:VisualizationAttribute>
-  <core:DataBinding visualizationAttributes="/27 /28">
-    <domainConcept href="#/11"/>
-  </core:DataBinding>
-  <core:VisualizationAttribute id="5ce295c0" name="id">
-    <featureConcept href="#/7"/>
-  </core:VisualizationAttribute>
-  <core:VisualizationAttribute id="92c4e324" name="descripcion">
-    <featureConcept href="#/9"/>
-  </core:VisualizationAttribute>
-  <core:DataBinding visualizationAttributes="/30 /31">
-    <domainConcept href="#/11"/>
-  </core:DataBinding>
-  <core:VisualizationAttribute id="0e2ffd7a" name="id" featureConcept="/1"/>
-  <core:VisualizationAttribute id="be091882" name="nombre" featureConcept="/3"/>
-  <core:DataBinding visualizationAttributes="/33 /34" domainConcept="/5"/>
-  <core:VisualizationAttribute id="5ce295c0" name="id" featureConcept="/7"/>
-  <core:VisualizationAttribute id="92c4e324" name="descripcion" featureConcept="/9"/>
-  <core:DataBinding visualizationAttributes="/36 /37" domainConcept="/11"/>
+  <core:VisualizationAttribute id="cc6e4a1a" name="id" featureConcept="/1"/>
+  <core:VisualizationAttribute id="e6fbfab8" name="nombre" featureConcept="/3"/>
+  <core:DataBinding name="dataBinding_producto" visualizationAttributes="/15 /16" domainConcept="/5"/>
+  <core:VisualizationAttribute id="3bf1ebb7" name="id" featureConcept="/7"/>
+  <core:VisualizationAttribute id="44103961" name="descripcion" featureConcept="/9"/>
+  <core:DataBinding name="dataBinding_categoria" visualizationAttributes="/18 /19" domainConcept="/11"/>
 </xmi:XMI>

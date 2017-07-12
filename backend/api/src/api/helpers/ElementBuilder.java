@@ -67,17 +67,22 @@ public class ElementBuilder {
 	public static TypeFactory tf;
 	public static EcoreFactory ecf;
 	
-	public Map<String, FeatureConcept> mapAttributes = new HashMap<String, FeatureConcept>();
-	public Map<String, BehavioralFeatureConcept> mapOperations = new HashMap<String, BehavioralFeatureConcept>();
-	public Map<String, DomainConcept> mapClass = new HashMap<String, DomainConcept>();
-	public ArrayList<DataBinding> listDataBinding = new ArrayList<DataBinding>();
-	public ArrayList<SubmitEvent> listSubmitEvent = new ArrayList<SubmitEvent>();
+	public Map<String, FeatureConcept> mapAttributes;
+	public Map<String, BehavioralFeatureConcept> mapOperations;
+	public Map<String, DomainConcept> mapClass;
+	public ArrayList<DataBinding> listDataBinding;
+	public ArrayList<SubmitEvent> listSubmitEvent; 
 
 	public ElementBuilder(CoreFactory pf, ExtensionsFactory pef, UMLFactory uf) {
 		f = pf;
 		ef = pef;
 		umlf = uf;
 		tf = new TypeFactory(umlf);
+		listDataBinding = new ArrayList<DataBinding>();
+		listSubmitEvent = new ArrayList<SubmitEvent>();
+		mapClass = new HashMap<String, DomainConcept>();
+		mapOperations = new HashMap<String, BehavioralFeatureConcept>();
+		mapAttributes = new HashMap<String, FeatureConcept>();
 	}
 	
 	public ArrayList<PrimitiveType> getTypes(){
@@ -132,15 +137,17 @@ public class ElementBuilder {
 		
 		if (properties.containsKey("entity")) {
 				String entity = (String)properties.get("entity");
-				DataBinding db = f.createDataBinding();
+				DataBinding db = f.createDataBinding();				
+				db.setName("dataBinding_"+ entity);
 				DomainConcept dc = mapClass.get(entity);				
 				db.setDomainConcept(dc);
 				if (properties.containsKey("attributes")) {
 					for (LinkedTreeMap<String, Object> a: (ArrayList<LinkedTreeMap<String, Object>>)properties.get("attributes")) {						
-						if(a.get("type").equals("association")){
-							DataBinding dba = f.createDataBinding();
+						if(a.get("type").equals("association")){														
 							LinkedTreeMap<String, Object> props = (LinkedTreeMap<String, Object>)a.get("properties");
 							String clase = (String)(props.get("clase"));
+							DataBinding dba = f.createDataBinding();
+							dba.setName("dataBinding_"+ clase);
 							UMLDomainConcept dca = (UMLDomainConcept)mapClass.get(clase);
 							dba.setDomainConcept(dca);
 							for (Property p: dca.getClassifier().getAttributes()) {
