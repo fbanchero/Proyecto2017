@@ -35,6 +35,7 @@ import ifml.extensions.ExtensionsFactory;
 import ifml.extensions.Image;
 import ifml.extensions.List;
 import ifml.extensions.SelectEvent;
+import ifml.extensions.SelectionField;
 import ifml.extensions.SimpleField;
 import ifml.extensions.SubmitEvent;
 import ifml.extensions.TextField;
@@ -310,6 +311,30 @@ public class ElementBuilder {
 
 		if (properties.containsKey("label")) {
 			// sf.setLabel((String)elem.getProperties().get("label"));
+		}
+
+		return sf;
+
+	}
+	
+
+	/**
+	 * Creates a SelectionField based on a MockupElement.
+	 * 
+	 * @param elem
+	 *            - MockupElement with all the relevant info.
+	 * @return - SimpleField object.
+	 */
+	public SelectionField createSelectionField(MockupGeneralElement elem) {
+
+		SelectionField sf = ef.createSelectionField();
+		sf.setId(elem.getId());
+		sf.setName(elem.getName());
+		
+		// TODO: add remaining properties.
+		HashMap<String, Object> properties = elem.getProperties();
+		if (properties.containsKey("cardinalidad")) {
+			sf.setIsMultiSelection(properties.get("cardinalidad") != "1");
 		}
 
 		return sf;

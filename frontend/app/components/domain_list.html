@@ -1,9 +1,12 @@
 <div class="dropzone box"
-    dnd-list="item.children">
+    dnd-list="item.children"
+    dnd-allowed-types="models.templates.allowed_types">
     <!-- dnd-inserted="dropCallback(index, attr, external, type)" -->
       <div ng-repeat="attr in item.children"
           dnd-draggable="attr"
           dnd-effect-allowed="move"
+          dnd-type="attr.type"
+          dnd-disable-if="attr.type == 'unknown'"
           dnd-moved="item.children.splice($index, 1)"
           dnd-selected="models.selected = attr"
           ng-class="{selected: models.selected === attr}"

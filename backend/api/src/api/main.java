@@ -60,6 +60,7 @@ import ifml.extensions.ExtensionsFactory;
 import ifml.extensions.Form;
 import ifml.extensions.Image;
 import ifml.extensions.List;
+import ifml.extensions.SelectionField;
 import ifml.extensions.SimpleField;
 import ifml.extensions.SubmitEvent;
 import ifml.extensions.TextField;
@@ -83,8 +84,9 @@ public class main {
     	MockupElementTypes.put("column", "ViewContainer");
     	MockupElementTypes.put("item", "ViewElement");
     	MockupElementTypes.put("form", "Form");
-    	MockupElementTypes.put("legend", "LEGEND");
+    	MockupElementTypes.put("legend", "legend");
     	MockupElementTypes.put("input", "SimpleField");
+    	MockupElementTypes.put("select", "SelectionField");
     	MockupElementTypes.put("submit_button", "SubmitEvent");
     	MockupElementTypes.put("image", "Image");
     	MockupElementTypes.put("button", "Button");
@@ -426,7 +428,7 @@ public class main {
 				
 				if (MockupElementTypes.containsKey(elem.getType())) {
 			
-					if (MockupElementTypes.get(elem.getType()).equals("LEGEND")) {
+					if (MockupElementTypes.get(elem.getType()).equals("legend")) {
 
 						SimpleField sf = eb.createSimpleField(elem);
 						fatherForm.getViewComponentParts().add(sf);
@@ -434,6 +436,11 @@ public class main {
 					} else if (MockupElementTypes.get(elem.getType()).equals("SimpleField")) {
 						
 						SimpleField sf = eb.createSimpleField(elem);
+						fatherForm.getViewComponentParts().add(sf);
+						
+					} else if (MockupElementTypes.get(elem.getType()).equals("SelectionField")) {
+						
+						SelectionField sf = eb.createSelectionField(elem);						
 						fatherForm.getViewComponentParts().add(sf);
 						
 					} else if (MockupElementTypes.get(elem.getType()).equals("SubmitEvent")) {

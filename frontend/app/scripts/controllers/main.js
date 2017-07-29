@@ -19,6 +19,41 @@ angular.module('pgradoApp')
 
         $scope.tabs = {}
 
+        $scope.lists = [
+        {
+            label: "Men",
+            allowedTypes: ['man'],
+            max: 4,
+            people: [
+                {name: "Bob", type: "man"},
+                {name: "Charlie", type: "man"},
+                {name: "Dave", type: "man"}
+            ]
+        },
+        {
+            label: "Women",
+            allowedTypes: ['woman'],
+            max: 4,
+            people: [
+                {name: "Alice", type: "woman"},
+                {name: "Eve", type: "woman"},
+                {name: "Peggy", type: "woman"}
+            ]
+        },
+        {
+            label: "People",
+            allowedTypes: ['man', 'woman'],
+            max: 6,
+            people: [
+                {name: "Frank", type: "man"},
+                {name: "Mallory", type: "woman"},
+                {name: "Alex", type: "unknown"},
+                {name: "Oscar", type: "man"},
+                {name: "Wendy", type: "woman"}
+            ]
+        }
+    ];
+
         $scope.models = {
             selected: null,
             pageSelected: firstPageId,
@@ -79,6 +114,7 @@ angular.module('pgradoApp')
                     { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'method()', 'tipo': 'void'}},
                 ]
             },
+            allowed_types: ['domain_attribute'],
             domain_types: { 'tipos': ['string', 'int', 'double'] },
             result: {
                 'name': 'Mockup',

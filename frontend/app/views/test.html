@@ -1,0 +1,25 @@
+<h1>TEST<h1>
+<ul dnd-list="lists.people"
+    dnd-allowed-types="lists.allowedTypes"
+    dnd-disable-if="lists.people.length >= lists.max">
+
+    <li ng-repeat="person in lists.people"
+        dnd-draggable="person"
+        dnd-type="person.type"
+        dnd-disable-if="person.type == 'unknown'"
+        dnd-moved="lists.people.splice($index, 1)"
+        class="background-{{person.type}}"
+        >
+        <dnd-nodrag>
+          <div dnd-handle class="handle">:::</div>
+          <div class="name">
+              <input type="text" ng-model="person.name" class="background-{{person.type}} form-control input-sm">
+          </div>
+        </dnd-nodrag>
+    </li>
+
+    <li class="dndPlaceholder">
+        Drop any <strong>{{lists.allowedTypes.join(' or ')}}</strong> here
+    </li>
+
+</ul>
