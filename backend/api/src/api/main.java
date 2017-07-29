@@ -46,6 +46,7 @@ import api.classes.Model;
 import api.classes.NavigationEvent;
 import api.helpers.ElementBuilder;
 import api.helpers.LinkElem;
+import ifml.core.Action;
 import ifml.core.CoreFactory;
 import ifml.core.DataBinding;
 import ifml.core.DomainElement;
@@ -54,6 +55,7 @@ import ifml.core.IFMLModel;
 import ifml.core.InteractionFlowModel;
 import ifml.core.InteractionFlowModelElement;
 import ifml.core.NavigationFlow;
+import ifml.core.ParameterBinding;
 import ifml.core.UMLDomainConcept;
 import ifml.core.UMLStructuralFeature;
 import ifml.core.ViewContainer;
@@ -442,8 +444,7 @@ public class main {
 						recursiveIFMLHierarchy(mergedElem, ve, links);
 					
 					} else if (MockupElementTypes.get(elem.getType()).equals("Form")) {
-						Form form = eb.createForm(elem);
-//						Form form = ef.createForm(elem);						
+						Form form = eb.createForm(elem, links);					
 						viewElements.add(form);
 						recursiveIFMLHierarchy(mergedElem, form, links);
 						
@@ -603,8 +604,27 @@ public class main {
 		}
 			
 		
-		for(SubmitEvent se: eb.getListSubmitEvent())
-			resource.getContents().add(se);		
+		for(SubmitEvent se: eb.getListSubmitEvent()){
+			
+			Object obj = (se.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
+			if(obj instanceof Action){
+				Action action = (Action)(se.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
+				resource.getContents().add(action.getDynamicBehavior());
+				EList<ParameterBinding> paramBindings = action.getActionEvents().get(0).getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
+				for(ParameterBinding pb: paramBindings){
+					resource.getContents().add(pb.getSourceParameter());
+					resource.getContents().add(pb.getTargetParameter());
+				}
+				resource.getContents().add(action);
+				
+			}
+			resource.getContents().add(se);	
+			EList<ParameterBinding> paramBindings = se.getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
+			for(ParameterBinding pb: paramBindings){
+				resource.getContents().add(pb.getSourceParameter());
+				resource.getContents().add(pb.getTargetParameter());
+			}
+		}
 		
 		try {
 		

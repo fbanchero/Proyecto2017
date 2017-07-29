@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Elements" key="selection"/>
+		<item value="createC" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="createc"/>
+			<item value="createli"/>
+			<item value="listDataBinding"/>
 			<item value="elements"/>
 			<item value="DomainModel domain =  ifmlModel.getDomainModel();"/>
 			<item value="xmi"/>
 			<item value="XMI"/>
 			<item value="Type"/>
-			<item value="type"/>
-			<item value=".add"/>
-			<item value=".push"/>
 		</list>
 		<list key="replacehistory">
 		</list>

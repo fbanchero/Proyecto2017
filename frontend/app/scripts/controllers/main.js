@@ -70,9 +70,8 @@
             ],
 
             form: [
-                    { type: 'form', id: chance.bb_pin(), name: 'form', properties: {entity: '0', attributes: []}, events: [{ type: 'onSubmit', link: '' }], children: [[
-                        { type: 'legend', id: chance.bb_pin(), name: 'legend', properties: { 'value': 'Solicitud de seguimiento' }},
-                        { type: 'submit_button', id: chance.bb_pin(), name: 'submit button', properties: { 'value': 'Enviar' }, events: [{ type: 'onSubmit', link: '' }] }
+                    { type: 'form', id: chance.bb_pin(), name: 'form', properties: {name: 'Nuevo ', entity: '0', attributes: []}, events: [{ type: 'onSubmit', behaviour: '', link: '' }], children: [[
+                        { type: 'submit_button', id: chance.bb_pin(), name: 'submit button', properties: { 'value': 'Enviar' }, events: [{ type: 'onSubmit', behaviour: '',  link: '' }] }
                       ]]
                     },
                     { type: 'searchBar', id: chance.bb_pin(), name: 'searchBar', properties: {'placeholder': 'search'}, events: [], children: [[

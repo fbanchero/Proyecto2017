@@ -1,7 +1,6 @@
 <form class="form-horizontal container">
 	<fieldset layout="row" class="column">
-	    <div flex ng-repeat="legend in filterLegend(item.children)" ng-include="'components/' + legend.type + '.html'">
-	    </div>
+	    <legend>{{item.properties.name}}</legend>
 			<div flex ng-repeat="field in item.properties.attributes" ng-include="'components/field.html'">
 	    </div>
 			<div flex ng-repeat="submit in filterSubmit(item.children)" ng-include="'components/' + submit.type + '.html'">

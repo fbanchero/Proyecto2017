@@ -4,6 +4,7 @@ public class NavigationEvent {
 
 	private String type;
 	private String link;
+	private String behaviour;
 	
 	public String getType() {
 		return type;
@@ -16,6 +17,12 @@ public class NavigationEvent {
 	}
 	public void setLink(String link) {
 		this.link = link;
+	}
+	public String getBehaviour() {
+		return behaviour;
+	}
+	public void setBehaviour(String behaviour) {
+		this.behaviour = behaviour;
 	}
 	
 	

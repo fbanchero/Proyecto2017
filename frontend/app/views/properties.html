@@ -88,11 +88,18 @@
         <!-- Submit Form && Select Event Table -->
         <div class="event-box" ng-if="models.selected.type == 'form' || models.selected.type == 'table'" layout="column">
             <label> {{models.selected.events[0].type}}:
-            <select ng-model="models.selected.events[0].link">
-                <option
-                    ng-repeat="m in filterMethod(models.selected)"
-                    value="{{m.id}}">{{m.properties.firma}}:{{m.properties.tipo}}</option>
-            </select>
+              <select ng-model="models.selected.events[0].behaviour">
+                  <option
+                      ng-repeat="m in filterMethod(models.selected)"
+                      value="{{m.id}}">{{m.properties.firma}}:{{m.properties.tipo}}</option>
+              </select>
+            </label>
+            <label> link:
+              <select ng-model="models.selected.events[0].link">
+                  <option
+                      ng-repeat="p in models.result.pages"
+                      value="{{p.id}}">{{p.name}}</option>
+              </select>
             </label>
         </div>
 
