@@ -68,6 +68,7 @@ import ifml.extensions.ExtensionsFactory;
 import ifml.extensions.Form;
 import ifml.extensions.Image;
 import ifml.extensions.List;
+import ifml.extensions.SelectEvent;
 import ifml.extensions.SimpleField;
 import ifml.extensions.SubmitEvent;
 import ifml.extensions.TextField;
@@ -630,6 +631,21 @@ public class main {
 			}
 			resource.getContents().add(se);	
 			EList<ParameterBinding> paramBindings = se.getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
+			for(ParameterBinding pb: paramBindings){
+				resource.getContents().add(pb.getSourceParameter());
+				resource.getContents().add(pb.getTargetParameter());
+			}
+		}
+			
+		for(SelectEvent s: eb.getListSelectEvent()){		
+			Object obj = (s.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
+			if(obj instanceof Action){
+				Action action = (Action)(s.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
+				resource.getContents().add(action.getDynamicBehavior());				
+				resource.getContents().add(action);				
+			}
+			resource.getContents().add(s);	
+			EList<ParameterBinding> paramBindings = s.getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
 			for(ParameterBinding pb: paramBindings){
 				resource.getContents().add(pb.getSourceParameter());
 				resource.getContents().add(pb.getTargetParameter());

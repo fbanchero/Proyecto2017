@@ -2,37 +2,55 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/IFML/core" xmlns:ext="http://www.omg.org/spec/IFML/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/IFML/ext ifml.ecore#/0/extensions">
   <core:IFMLModel name="Mockup">
     <interactionFlowModel name="Pages">
-      <interactionFlowModelElements xsi:type="core:ViewContainer" id="ec0b0ab9" name="Page1">
-        <viewElements xsi:type="ext:Details" id="9092430d" name="details"/>
+      <interactionFlowModelElements xsi:type="core:ViewContainer" id="b2a87d87" name="Page1">
+        <viewElements xsi:type="ext:List" id="b9e1b308" name="table"/>
       </interactionFlowModelElements>
     </interactionFlowModel>
     <domainModel id="domainId" name="Domain Model" elements="/1 /3 /5 /7 /9 /11"/>
   </core:IFMLModel>
-  <core:UMLDomainConcept id="a3e4f42f" name="producto" classifier="/2"/>
+  <core:UMLDomainConcept id="6c3b7df4" name="producto" classifier="/2"/>
   <uml:Class name="producto">
     <ownedAttribute href="#/4"/>
     <ownedAttribute href="#/6"/>
   </uml:Class>
-  <core:UMLStructuralFeature id="e955192d" name="id" structuralFeature="/4"/>
+  <core:UMLStructuralFeature id="a6518e52" name="id" structuralFeature="/4"/>
   <uml:Property name="id" type="/14"/>
-  <core:UMLStructuralFeature id="fa3e6977" name="nombre" structuralFeature="/6"/>
+  <core:UMLStructuralFeature id="8ba3daf8" name="nombre" structuralFeature="/6"/>
   <uml:Property name="nombre" type="/13"/>
-  <core:UMLDomainConcept id="74b99bb2" name="categoria" classifier="/8"/>
+  <core:UMLDomainConcept id="767ac0e7" name="categoria" classifier="/8"/>
   <uml:Class name="categoria">
     <ownedAttribute href="#/10"/>
     <ownedAttribute href="#/12"/>
   </uml:Class>
-  <core:UMLStructuralFeature id="a25a8acb" name="id" structuralFeature="/10"/>
+  <core:UMLStructuralFeature id="02fcc13e" name="id" structuralFeature="/10"/>
   <uml:Property name="id" type="/14"/>
-  <core:UMLStructuralFeature id="63a4122d" name="descripcion" structuralFeature="/12"/>
+  <core:UMLStructuralFeature id="fb425d3f" name="descripcion" structuralFeature="/12"/>
   <uml:Property name="descripcion" type="/13"/>
   <uml:PrimitiveType name="string"/>
   <uml:PrimitiveType name="int"/>
-  <core:VisualizationAttribute id="e955192d" name="id" featureConcept="/3"/>
-  <core:VisualizationAttribute id="fa3e6977" name="nombre" featureConcept="/5"/>
-  <core:DataBinding id="5aa0fc19-fd01-473b-9aac-2749b4538e5f" name="producto_databinding" conditionalExpression="/18" visualizationAttributes="/15 /16" domainConcept="/1"/>
-  <core:ConditionalExpression id="392d0f04-0f6d-42d7-9593-a9cf5007e51f" language="OCL" body="id = 1" name="producto_conditionalExpression"/>
-  <core:VisualizationAttribute id="a25a8acb" name="id" featureConcept="/9"/>
-  <core:VisualizationAttribute id="63a4122d" name="descripcion" featureConcept="/11"/>
-  <core:DataBinding name="categoria_dataBinding" visualizationAttributes="/19 /20" domainConcept="/7"/>
+  <core:VisualizationAttribute id="a6518e52" name="id" featureConcept="/3"/>
+  <core:VisualizationAttribute id="8ba3daf8" name="nombre" featureConcept="/5"/>
+  <core:DataBinding name="dataBinding_producto" visualizationAttributes="/15 /16" domainConcept="/1"/>
+  <core:DynamicBehavior id="4b8401ff-2efd-4686-b4ce-6e4e6aa5a4ed" name="edit_dynamicBehaviour"/>
+  <core:Action id="ae519d8f-c153-4f4e-a2e6-4185779518a9" name="edit_action" dynamicBehavior="/18"/>
+  <ext:SelectEvent id="3f701785-18f9-4912-9340-25f51018d761" name="edit">
+    <navigationFlows srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0" trgtInteractionFlowElement="/19">
+      <parameterBindingGroup id="64441308-0c3f-4a10-945b-325688e55be1">
+        <parameterBindings id="2544cde5-09d0-42bc-a165-ee96613e1b05" sourceParameter="/21" targetParameter="/22"/>
+      </parameterBindingGroup>
+    </navigationFlows>
+  </ext:SelectEvent>
+  <core:Parameter id="b81aee60-d0a5-46a7-82fd-31d4a3bfb909" name="edit_action_source_parameter" kind="input"/>
+  <core:Parameter id="58bdff2c-2072-480a-ad74-1b9b84ccc75c" name="edit_action_target_parameter" kind="output"/>
+  <core:DynamicBehavior id="794b08f8-2311-46a6-bd8b-2cb1e767762e" name="delete_dynamicBehaviour"/>
+  <core:Action id="668eec3e-1c1a-4092-bc58-530fdd7a99f1" name="delete_action" dynamicBehavior="/23"/>
+  <ext:SelectEvent id="8ad4efdd-f8dd-481d-8faf-a5b7b6d19f1d" name="delete">
+    <navigationFlows srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0" trgtInteractionFlowElement="/24">
+      <parameterBindingGroup id="43e3fe5a-3cb4-4b92-a783-f954ebf0d592">
+        <parameterBindings id="358b515c-edd8-42bd-bfa0-dc2f6fe7127f" sourceParameter="/26" targetParameter="/27"/>
+      </parameterBindingGroup>
+    </navigationFlows>
+  </ext:SelectEvent>
+  <core:Parameter id="e44b4d10-3019-485b-bd0f-f575fa03e4e4" name="delete_action_source_parameter" kind="input"/>
+  <core:Parameter id="80b2e085-034a-4eca-8051-2abd1efab257" name="delete_action_target_parameter" kind="output"/>
 </xmi:XMI>

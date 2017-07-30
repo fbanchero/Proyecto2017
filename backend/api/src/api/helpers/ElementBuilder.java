@@ -75,7 +75,8 @@ public class ElementBuilder {
 	public Map<String, BehavioralFeatureConcept> mapOperations;
 	public Map<String, DomainConcept> mapClass;
 	public ArrayList<DataBinding> listDataBinding;
-	public ArrayList<SubmitEvent> listSubmitEvent; 
+	public ArrayList<SubmitEvent> listSubmitEvent;
+	public ArrayList<SelectEvent> listSelectEvent; 
 
 	public ElementBuilder(CoreFactory pf, ExtensionsFactory pef, UMLFactory uf) {
 		f = pf;
@@ -84,6 +85,7 @@ public class ElementBuilder {
 		tf = new TypeFactory(umlf);
 		listDataBinding = new ArrayList<DataBinding>();
 		listSubmitEvent = new ArrayList<SubmitEvent>();
+		listSelectEvent = new ArrayList<SelectEvent>();
 		mapClass = new HashMap<String, DomainConcept>();
 		mapOperations = new HashMap<String, BehavioralFeatureConcept>();
 		mapAttributes = new HashMap<String, FeatureConcept>();
@@ -122,19 +124,57 @@ public class ElementBuilder {
 		list.setId(elem.getId());
 		list.setName(elem.getName());
 		
-		if(elem.getEvents() != null && !elem.getEvents().get(0).equals("")) {
-			for(NavigationEvent ne: elem.getEvents()){
-				SelectEvent se = createSelectEvent(elem);			
-				NavigationFlow nf = f.createNavigationFlow();
-
-				nf.setSrcInteractionFlowElement(se);
-				se.getNavigationFlows().add(nf);	
-				list.getViewElementEvents().add(se);
-				LinkElem le = new LinkElem();
-				le.setId(ne.getLink());
-				le.setNavigationFlow(nf);
+		ArrayList<String> selectEvents = (ArrayList<String>)elem.getProperties().get("selectEvents");
+		if(selectEvents != null) {
+			for(String e: selectEvents){
+				SelectEvent se = ef.createSelectEvent();
+				se.setId(java.util.UUID.randomUUID().toString());
+				se.setName(e);
 				
-				links.add(le);
+				Action action = f.createAction();
+				action.setId(java.util.UUID.randomUUID().toString());
+				action.setName(e + "_action");
+				DynamicBehavior db = f.createDynamicBehavior();
+				db.setId(java.util.UUID.randomUUID().toString());
+				db.setName(e + "_dynamicBehaviour");
+				db.setBehavioralFeatureConcept(mapOperations.get(e));
+				action.setDynamicBehavior(db);
+				
+				ParameterBindingGroup paramBindGroup = f.createParameterBindingGroup();
+				paramBindGroup.setId(java.util.UUID.randomUUID().toString());
+				
+				ParameterBinding pb = f.createParameterBinding();
+				pb.setId(java.util.UUID.randomUUID().toString());
+				
+				ifml.core.Parameter sp = f.createParameter();			
+				sp.setId(java.util.UUID.randomUUID().toString());										
+				sp.setName(action.getName() + "_source_parameter");
+				sp.setKind(ParameterKind.INPUT);
+				pb.setSourceParameter(sp);
+				
+				ifml.core.Parameter tp = f.createParameter();			
+				tp.setId(java.util.UUID.randomUUID().toString());										
+				tp.setName(action.getName() + "_target_parameter");
+				tp.setKind(ParameterKind.OUTPUT);
+				pb.setTargetParameter(tp);
+				
+				paramBindGroup.getParameterBindings().add(pb);			
+							
+				NavigationFlow nf = f.createNavigationFlow();
+				nf.setSrcInteractionFlowElement(list);
+				nf.setTrgtInteractionFlowElement(action);
+				nf.setParameterBindingGroup(paramBindGroup);
+				
+				se.getNavigationFlows().add(nf);	
+				
+				list.getSelectEvent().add(se);
+				
+				LinkElem le = new LinkElem();
+				le.setId(e);
+				le.setNavigationFlow(nf);				
+				links.add(le);					
+				
+				listSelectEvent.add(se);
 	
 			}
 		}
@@ -771,6 +811,10 @@ public class ElementBuilder {
 	
 	public ArrayList<SubmitEvent> getListSubmitEvent() {
 		return listSubmitEvent;
+	}
+	
+	public ArrayList<SelectEvent> getListSelectEvent() {
+		return listSelectEvent;
 	}
 
 
