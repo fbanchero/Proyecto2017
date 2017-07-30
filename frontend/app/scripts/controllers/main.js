@@ -40,7 +40,7 @@
                 { type: 'image', id: chance.bb_pin(), name:'image', properties: { align: 'left', url: '', width: '100' }, events: [] },
                 { type: 'video', id: chance.bb_pin(), name:'video', properties: { align: 'left', url: '', width: '640', height: '360' }, events: [] },
                 { type: 'table', id: chance.bb_pin(), name:'table', properties: { entity: '0', attributes: []}, events: [ { type: 'onSelect', link: '' } ] },
-                { type: 'details', id: chance.bb_pin(), name:'details', properties: { entity: '0', attributes: []}, events: [] },
+                { type: 'details', id: chance.bb_pin(), name:'details', properties: { entity: '0', attributes: [], conditionalExpression: ''}, events: [] },
                 { type: 'tabs', id: chance.bb_pin(), name:'tabs', properties: { xor: true }, contSelected:innerPageName, events: [], children: [[
                         { type: 'column', name:'Tab 1','id': innerPageName, 'properties': { 'default': true, 'landmark': false }, 'children': [[]] },
                         { type: 'column', name:'Tab 2','id': chance.bb_pin(), 'properties': { 'default': false, 'landmark': false }, 'children': [[]] },

@@ -63,6 +63,7 @@ import ifml.core.ViewElement;
 import ifml.core.ViewElementEvent;
 import ifml.core.VisualizationAttribute;
 import ifml.extensions.Button;
+import ifml.extensions.Details;
 import ifml.extensions.ExtensionsFactory;
 import ifml.extensions.Form;
 import ifml.extensions.Image;
@@ -93,6 +94,7 @@ public class main {
     	MockupElementTypes.put("column", "ViewContainer");
     	MockupElementTypes.put("item", "ViewElement");
     	MockupElementTypes.put("form", "Form");
+    	MockupElementTypes.put("details", "Details");
     	MockupElementTypes.put("searchBar", "Form");
     	MockupElementTypes.put("legend", "LEGEND");
     	MockupElementTypes.put("input", "SimpleField");
@@ -448,7 +450,13 @@ public class main {
 						viewElements.add(form);
 						recursiveIFMLHierarchy(mergedElem, form, links);
 						
-					} else if(MockupElementTypes.get(elem.getType()).equals("Image")) {
+					} else if (MockupElementTypes.get(elem.getType()).equals("Details")) {
+						Details details = eb.createDetails(elem);					
+						viewElements.add(details);
+						//recursiveIFMLHierarchy(mergedElem, details, links);
+						
+					}
+					else if(MockupElementTypes.get(elem.getType()).equals("Image")) {
 						
 						Image img = eb.createImage(elem, links);
 						viewElements.add(img);
@@ -601,6 +609,8 @@ public class main {
 			for(VisualizationAttribute va: db.getVisualizationAttributes())
 				resource.getContents().add(va);
 			resource.getContents().add(db);
+			if(!db.getConditionalExpression().isEmpty())
+				resource.getContents().add(db.getConditionalExpression().get(0));
 		}
 			
 		

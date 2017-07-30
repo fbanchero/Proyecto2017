@@ -1,31 +1,37 @@
 <table class="table table-striped table-hover ">
   <tbody>
-    <th></th>
     <th ng-repeat="a in item.properties.attributes">
       {{a.properties.nombre}}
     </th>
+    <th></th>
     <tr>
-      <td>
-        <input type="checkbox"></input>
-      </td>
       <td ng-repeat="a in item.properties.attributes">
         {{a.properties.nombre}}_1
       </td>
+      <td>
+        <a href="#">Details</a> |
+        <a href="#">Edit</a> |
+        <a href="#">Delete</a>
+      </td>
     </tr>
     <tr>
-      <td>
-        <input type="checkbox"></input>
-      </td>
       <td ng-repeat="a in item.properties.attributes">
         {{a.properties.nombre}}_2
       </td>
+      <td>
+        <a href="#">Details</a> |
+        <a href="#">Edit</a> |
+        <a href="#">Delete</a>
+      </td>
     </tr>
     <tr>
-      <td>
-        <input type="checkbox"></input>
-      </td>
       <td ng-repeat="a in item.properties.attributes">
         {{a.properties.nombre}}_3
+      </td>
+      <td>
+        <a href="#">Details</a> |
+        <a href="#">Edit</a> |
+        <a href="#">Delete</a>
       </td>
     </tr>
   </tbody>

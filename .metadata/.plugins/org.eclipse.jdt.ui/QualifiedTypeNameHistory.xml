@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="ifml.core.Action"/>
+<fullyQualifiedTypeName name="ifml.core.ParameterBinding"/>
+<fullyQualifiedTypeName name="ifml.core.ParameterKind"/>
+<fullyQualifiedTypeName name="ifml.core.ActionEvent"/>
+</qualifiedTypeNameHistroy>
