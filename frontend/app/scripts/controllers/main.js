@@ -39,7 +39,7 @@
                 { type: 'button', id: chance.bb_pin(), name:'button', properties: { align: 'center', value: 'Button' }, events: [] },
                 { type: 'image', id: chance.bb_pin(), name:'image', properties: { align: 'left', url: '', width: '100' }, events: [] },
                 { type: 'video', id: chance.bb_pin(), name:'video', properties: { align: 'left', url: '', width: '640', height: '360' }, events: [] },
-                { type: 'table', id: chance.bb_pin(), name:'table', properties: { entity: '0', attributes: []}, events: [ { type: 'onSelect', link: '' } ] },
+                { type: 'table', id: chance.bb_pin(), name:'table', properties: { entity: '0', attributes: [], selectEvents: []}, events: [] },
                 { type: 'details', id: chance.bb_pin(), name:'details', properties: { entity: '0', attributes: [], conditionalExpression: ''}, events: [] },
                 { type: 'tabs', id: chance.bb_pin(), name:'tabs', properties: { xor: true }, contSelected:innerPageName, events: [], children: [[
                         { type: 'column', name:'Tab 1','id': innerPageName, 'properties': { 'default': true, 'landmark': false }, 'children': [[]] },
@@ -92,7 +92,7 @@
                     { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'method()', 'tipo': 'void'}},
                 ]
         	},
-            domain_types: { 'tipos': ['string', 'int', 'double'] },
+            domain_types: { 'tipos': ['string', 'int', 'double', 'bool'] },
             result: {
                 'name': 'Mockup',
                 'pages': [
@@ -112,7 +112,10 @@
                       { type: 'domain_class', id: chance.bb_pin(), name: 'producto', properties: {}, children: [
                           { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'id', 'tipo': 'int', 'checked': 'false' }},
                           { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'nombre', 'tipo': 'string', 'checked': 'false' }},
-                          { type: 'association', id: chance.bb_pin(), name: 'association', properties: { 'nombre': 'categoria', 'clase': 'categoria', 'cardinalidad': '1', 'checked': 'true' }}
+                          { type: 'association', id: chance.bb_pin(), name: 'association', properties: { 'nombre': 'categoria', 'clase': 'categoria', 'cardinalidad': '1', 'checked': 'true' }},
+                          { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'edit', 'tipo': 'bool'}},
+                          { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'delete', 'tipo': 'bool'}},
+                          { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'details', 'tipo': 'void'}}
                       ]},
                       { type: 'domain_class', id: chance.bb_pin(), name: 'categoria', properties: {}, children: [
                           { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'id', 'tipo': 'int', 'checked': 'false' }},
@@ -233,11 +236,15 @@
         };
 
         $scope.addEvent = function () {
-
             var event = _.clone($scope.models.eventSelected);
             $scope.models.selected.events.push(event);
-
         };
+
+        $scope.addSelectEvent = function () {
+            var event = _.clone($scope.models.eventSelected);
+            $scope.models.selected.properties.selectEvents.push(event);
+        };
+
 
         $scope.removeEvent = function (type) {
 
@@ -248,8 +255,7 @@
         };
 
         $scope.filterEventsAlreadyAdded = function(evt) {
-
-            return !_.findWhere($scope.models.selected.events, { type: evt.type });
+            return !_.findWhere($scope.mdels.selected.events, { type: evt.type });
 
         };
 
@@ -261,12 +267,15 @@
             return filtered;
         };
 
-        $scope.filterChildren = function(item) {
+        $scope.filterChildren = function(item, type) {
             var idx = $scope.models.result.domain[0].children.findIndex(x => x.name === item.properties.entity);
             if (idx > -1){
               var children = $scope.models.result.domain[0].children[idx].children;
               var attrs = children.filter(function (attr){
-                return attr.type === 'domain_attribute' || attr.type === 'association';
+                if(type === 'method')
+                  return attr.type === 'method';
+                else
+                  return attr.type === 'domain_attribute' || attr.type === 'association';
               });
               var selected_attrs = item.properties.attributes;
               for (var i = 0; i < attrs.length; i++) {
@@ -282,6 +291,7 @@
         };
 
         $scope.filterMethod = function(item) {
+            alert(item.properties.entity);
             var children = $scope.models.result.domain[0].children[item.properties.entity].children;
             var attrs = children.filter(function (attr){
               return attr.type === 'method';
@@ -291,6 +301,7 @@
 
         $scope.limpiarAtributos = function(component){
           component.properties.attributes = [];
+          component.properties.selectEvents = [];
         }
 
         $scope.seleccionarAtributo = function(component, attr){

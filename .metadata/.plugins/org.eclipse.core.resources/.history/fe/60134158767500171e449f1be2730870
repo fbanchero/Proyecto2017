@@ -123,20 +123,17 @@ public class ElementBuilder {
 		list.setName(elem.getName());
 		
 		if(elem.getEvents() != null && !elem.getEvents().get(0).equals("")) {
-			for(NavigationEvent ne: elem.getEvents()){
-				SelectEvent se = createSelectEvent(elem);			
-				NavigationFlow nf = f.createNavigationFlow();
+			SelectEvent se = createSelectEvent(elem);			
+			NavigationFlow nf = f.createNavigationFlow();
 
-				nf.setSrcInteractionFlowElement(se);
-				se.getNavigationFlows().add(nf);	
-				list.getViewElementEvents().add(se);
-				LinkElem le = new LinkElem();
-				le.setId(ne.getLink());
-				le.setNavigationFlow(nf);
-				
-				links.add(le);
-	
-			}
+			nf.setSrcInteractionFlowElement(se);
+			se.getNavigationFlows().add(nf);	
+			list.getViewElementEvents().add(se);
+			LinkElem le = new LinkElem();
+			le.setId(ne.getLink());
+			le.setNavigationFlow(nf);
+			
+			links.add(le);
 		}
 		
 		HashMap<String, Object> properties = elem.getProperties();

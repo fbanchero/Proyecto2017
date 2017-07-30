@@ -123,7 +123,7 @@ public class ElementBuilder {
 		list.setName(elem.getName());
 		
 		if(elem.getEvents() != null && !elem.getEvents().get(0).equals("")) {
-			for(NavigationEvent ne: elem.getEvents()){
+			for(NavigationEvent e: elem.getEvents()){
 				SelectEvent se = createSelectEvent(elem);			
 				NavigationFlow nf = f.createNavigationFlow();
 

@@ -15,7 +15,8 @@
                {{key}}: <label for="{{key}}"></label>
             </div>
             <div ng-if="key != 'landmark' && key != 'default' && key != 'url' && key != 'align'
-                && key != 'tipo' && key != 'entity' && key != 'attributes' && key != 'clase'">
+                && key != 'tipo' && key != 'entity' && key != 'attributes' && key != 'clase'
+                && key != 'selectEvents'">
                 <strong>{{key}}</strong>
                 <input ng-if="key != 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
                 <input ng-if="key == 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
@@ -85,12 +86,12 @@
             </label>
         </div>
 
-        <!-- Submit Form && Select Event Table -->
-        <div class="event-box" ng-if="models.selected.type == 'form' || models.selected.type == 'table'" layout="column">
+        <!-- Submit Form -->
+        <div class="event-box" ng-if="models.selected.type == 'form'" layout="column">
             <label> {{models.selected.events[0].type}}:
               <select ng-model="models.selected.events[0].behaviour">
                   <option
-                      ng-repeat="m in filterMethod(models.selected)"
+                      ng-repeat="m in filterChildren(models.selected, 'method')"
                       value="{{m.id}}">{{m.properties.firma}}:{{m.properties.tipo}}</option>
               </select>
             </label>
@@ -101,6 +102,18 @@
                       value="{{p.id}}">{{p.name}}</option>
               </select>
             </label>
+        </div>
+
+        <!-- Select Event Table -->
+        <div class="event-box" ng-if="models.selected.type == 'table'" layout="column">
+            <label> select events:
+              <select ng-model="models.eventSelected">
+                  <option
+                      ng-repeat="m in filterChildren(models.selected, 'method')"
+                      value="{{m.properties.firma}}">{{m.properties.firma}}:{{m.properties.tipo}}</option>
+              </select>
+            </label>
+            <button class="btn btn-primary" ng-click='addSelectEvent()'>Agregar</button>
         </div>
 
         <!-- Item and Button-->
