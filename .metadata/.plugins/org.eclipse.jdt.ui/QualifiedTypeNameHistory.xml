@@ -4,4 +4,7 @@
 <fullyQualifiedTypeName name="ifml.core.ParameterBinding"/>
 <fullyQualifiedTypeName name="ifml.core.ParameterKind"/>
 <fullyQualifiedTypeName name="ifml.core.ActionEvent"/>
+<fullyQualifiedTypeName name="ifml.extensions.Details"/>
+<fullyQualifiedTypeName name="ifml.core.ConditionalExpression"/>
+<fullyQualifiedTypeName name="ifml.core.ParameterBindingGroup"/>
 </qualifiedTypeNameHistroy>

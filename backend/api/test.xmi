@@ -2,55 +2,167 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/IFML/core" xmlns:ext="http://www.omg.org/spec/IFML/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/IFML/ext ifml.ecore#/0/extensions">
   <core:IFMLModel name="Mockup">
     <interactionFlowModel name="Pages">
-      <interactionFlowModelElements xsi:type="core:ViewContainer" id="b2a87d87" name="Page1">
-        <viewElements xsi:type="ext:List" id="b9e1b308" name="table"/>
+      <interactionFlowModelElements xsi:type="core:ViewContainer" id="fbad580a" name="Page1">
+        <viewElements xsi:type="ext:Form" id="33489003" name="form" submitEvent="/75">
+          <viewElementEvents xsi:type="ext:SubmitEvent" id="80625ff3" name="submit button"/>
+          <viewComponentParts xsi:type="ext:SimpleField" id="1c733ec4-5bb3-46e6-9f41-9805db15d34a" name="login"/>
+          <viewComponentParts xsi:type="ext:SimpleField" id="7a5907e0-d81c-4e62-9599-764b4fa39864" name="password"/>
+          <viewComponentParts xsi:type="ext:SimpleField" id="71086480-b846-493c-91f5-3a2bb2df0d22" name="confirmar password"/>
+        </viewElements>
+      </interactionFlowModelElements>
+      <interactionFlowModelElements xsi:type="core:ViewContainer" id="f9993aee" name="Page2">
+        <viewElements xsi:type="ext:TextField" id="c8eb3687" name="text" FontSize="30" TextFieldText="Productos"/>
+        <viewElements xsi:type="ext:List" id="b053ae65" name="table"/>
+      </interactionFlowModelElements>
+      <interactionFlowModelElements xsi:type="core:ViewContainer" id="a84c6c53" name="Page3">
+        <viewElements xsi:type="ext:Details" id="f4e0970c" name="details"/>
+        <viewElements xsi:type="ext:TextField" id="0adf7f55" name="text" FontSize="22" TextFieldText="Comentarios"/>
+        <viewElements xsi:type="ext:List" id="9307e38d" name="table"/>
+      </interactionFlowModelElements>
+      <interactionFlowModelElements xsi:type="core:ViewContainer" id="c0f779aa" name="Page4">
+        <viewElements xsi:type="ext:TextField" id="3c3bc4cd" name="text" FontSize="30" TextFieldText="CARRITO DE COMPRAS"/>
+        <viewElements xsi:type="ext:List" id="68f9cbb6" name="table"/>
       </interactionFlowModelElements>
     </interactionFlowModel>
-    <domainModel id="domainId" name="Domain Model" elements="/1 /3 /5 /7 /9 /11"/>
+    <domainModel id="domainId" name="Domain Model" elements="/1 /3 /5 /7 /9 /11 /13 /15 /17 /19 /21 /23 /25 /27 /29 /31 /33 /35 /37 /39"/>
   </core:IFMLModel>
-  <core:UMLDomainConcept id="6c3b7df4" name="producto" classifier="/2"/>
+  <core:UMLDomainConcept id="04987c8a" name="producto" classifier="/2"/>
   <uml:Class name="producto">
     <ownedAttribute href="#/4"/>
     <ownedAttribute href="#/6"/>
+    <ownedAttribute href="#/8"/>
   </uml:Class>
-  <core:UMLStructuralFeature id="a6518e52" name="id" structuralFeature="/4"/>
-  <uml:Property name="id" type="/14"/>
-  <core:UMLStructuralFeature id="8ba3daf8" name="nombre" structuralFeature="/6"/>
-  <uml:Property name="nombre" type="/13"/>
-  <core:UMLDomainConcept id="767ac0e7" name="categoria" classifier="/8"/>
+  <core:UMLStructuralFeature id="cfd22e73" name="id" structuralFeature="/4"/>
+  <uml:Property name="id" type="/43"/>
+  <core:UMLStructuralFeature id="c7b90b53" name="nombre" structuralFeature="/6"/>
+  <uml:Property name="nombre" type="/41"/>
+  <core:UMLStructuralFeature id="6b6523a3" name="precio" structuralFeature="/8"/>
+  <uml:Property name="precio" type="/42"/>
+  <core:UMLDomainConcept id="c5b178cc" name="categoria" classifier="/10"/>
   <uml:Class name="categoria">
-    <ownedAttribute href="#/10"/>
     <ownedAttribute href="#/12"/>
+    <ownedAttribute href="#/14"/>
   </uml:Class>
-  <core:UMLStructuralFeature id="02fcc13e" name="id" structuralFeature="/10"/>
-  <uml:Property name="id" type="/14"/>
-  <core:UMLStructuralFeature id="fb425d3f" name="descripcion" structuralFeature="/12"/>
-  <uml:Property name="descripcion" type="/13"/>
+  <core:UMLStructuralFeature id="7f46a39f" name="id" structuralFeature="/12"/>
+  <uml:Property name="id" type="/43"/>
+  <core:UMLStructuralFeature id="f378ad18" name="descripcion" structuralFeature="/14"/>
+  <uml:Property name="descripcion" type="/41"/>
+  <core:UMLDomainConcept id="b9b61f2d" name="usuario" classifier="/16"/>
+  <uml:Class name="usuario">
+    <ownedAttribute href="#/18"/>
+    <ownedAttribute href="#/20"/>
+    <ownedAttribute href="#/22"/>
+    <ownedAttribute href="#/24"/>
+  </uml:Class>
+  <core:UMLStructuralFeature id="c51d57b0" name="id" structuralFeature="/18"/>
+  <uml:Property name="id" type="/43"/>
+  <core:UMLStructuralFeature id="533d69ae" name="login" structuralFeature="/20"/>
+  <uml:Property name="login" type="/41"/>
+  <core:UMLStructuralFeature id="502ef08f" name="password" structuralFeature="/22"/>
+  <uml:Property name="password" type="/41"/>
+  <core:UMLStructuralFeature id="c7a6d31b" name="confirmar password" structuralFeature="/24"/>
+  <uml:Property name="confirmar password" type="/41"/>
+  <core:UMLDomainConcept id="162dba76" name="compra" classifier="/26"/>
+  <uml:Class name="compra">
+    <ownedAttribute href="#/28"/>
+    <ownedAttribute href="#/30"/>
+    <ownedAttribute href="#/32"/>
+  </uml:Class>
+  <core:UMLStructuralFeature id="c51d57b0" name="id" structuralFeature="/28"/>
+  <uml:Property name="id" type="/43"/>
+  <core:UMLStructuralFeature id="533d69ae" name="fecha" structuralFeature="/30"/>
+  <uml:Property name="fecha" type="/41"/>
+  <core:UMLStructuralFeature id="5041a94c" name="precio" structuralFeature="/32"/>
+  <uml:Property name="precio" type="/42"/>
+  <core:UMLDomainConcept id="1bff3283" name="comentario" classifier="/34"/>
+  <uml:Class name="comentario">
+    <ownedAttribute href="#/36"/>
+    <ownedAttribute href="#/38"/>
+    <ownedAttribute href="#/40"/>
+  </uml:Class>
+  <core:UMLStructuralFeature id="c51d57b0" name="id" structuralFeature="/36"/>
+  <uml:Property name="id" type="/43"/>
+  <core:UMLStructuralFeature id="533d69ae" name="texto" structuralFeature="/38"/>
+  <uml:Property name="texto" type="/41"/>
+  <core:UMLStructuralFeature id="234e0158" name="fecha" structuralFeature="/40"/>
+  <uml:Property name="fecha" type="/41"/>
   <uml:PrimitiveType name="string"/>
+  <uml:PrimitiveType name="double"/>
   <uml:PrimitiveType name="int"/>
-  <core:VisualizationAttribute id="a6518e52" name="id" featureConcept="/3"/>
-  <core:VisualizationAttribute id="8ba3daf8" name="nombre" featureConcept="/5"/>
-  <core:DataBinding name="dataBinding_producto" visualizationAttributes="/15 /16" domainConcept="/1"/>
-  <core:DynamicBehavior id="4b8401ff-2efd-4686-b4ce-6e4e6aa5a4ed" name="edit_dynamicBehaviour"/>
-  <core:Action id="ae519d8f-c153-4f4e-a2e6-4185779518a9" name="edit_action" dynamicBehavior="/18"/>
-  <ext:SelectEvent id="3f701785-18f9-4912-9340-25f51018d761" name="edit">
-    <navigationFlows srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0" trgtInteractionFlowElement="/19">
-      <parameterBindingGroup id="64441308-0c3f-4a10-945b-325688e55be1">
-        <parameterBindings id="2544cde5-09d0-42bc-a165-ee96613e1b05" sourceParameter="/21" targetParameter="/22"/>
+  <core:VisualizationAttribute id="c7b90b53" name="nombre" featureConcept="/5"/>
+  <core:VisualizationAttribute id="6b6523a3" name="precio" featureConcept="/7"/>
+  <core:DataBinding name="dataBinding_producto" visualizationAttributes="/44 /45" domainConcept="/1"/>
+  <core:VisualizationAttribute id="7f46a39f" name="id" featureConcept="/11"/>
+  <core:VisualizationAttribute id="f378ad18" name="descripcion" featureConcept="/13"/>
+  <core:DataBinding name="dataBinding_categoria" visualizationAttributes="/47 /48" domainConcept="/9"/>
+  <core:VisualizationAttribute id="c7b90b53" name="nombre" featureConcept="/5"/>
+  <core:VisualizationAttribute id="6b6523a3" name="precio" featureConcept="/7"/>
+  <core:DataBinding id="6e342ed9-b170-4832-b2b3-d9317ad7d526" name="producto_databinding" conditionalExpression="/53" visualizationAttributes="/50 /51" domainConcept="/1"/>
+  <core:ConditionalExpression id="07955e68-4477-4311-8615-e72176a8eb4b" language="OCL" body="producto.id = 43" name="producto_conditionalExpression"/>
+  <core:VisualizationAttribute id="7f46a39f" name="id" featureConcept="/11"/>
+  <core:VisualizationAttribute id="f378ad18" name="descripcion" featureConcept="/13"/>
+  <core:DataBinding name="categoria_dataBinding" visualizationAttributes="/54 /55" domainConcept="/9"/>
+  <core:VisualizationAttribute id="c51d57b0" name="id" featureConcept="/17"/>
+  <core:VisualizationAttribute id="533d69ae" name="login" featureConcept="/19"/>
+  <core:VisualizationAttribute id="502ef08f" name="password" featureConcept="/21"/>
+  <core:VisualizationAttribute id="c7a6d31b" name="confirmar password" featureConcept="/23"/>
+  <core:DataBinding name="dataBinding_usuario" visualizationAttributes="/57 /58 /59 /60" domainConcept="/15"/>
+  <core:VisualizationAttribute id="533d69ae" name="texto" featureConcept="/37"/>
+  <core:VisualizationAttribute id="234e0158" name="fecha" featureConcept="/39"/>
+  <core:DataBinding name="dataBinding_comentario" visualizationAttributes="/62 /63" domainConcept="/33"/>
+  <core:VisualizationAttribute id="cfd22e73" name="id" featureConcept="/3"/>
+  <core:VisualizationAttribute id="c7b90b53" name="nombre" featureConcept="/5"/>
+  <core:VisualizationAttribute id="6b6523a3" name="precio" featureConcept="/7"/>
+  <core:DataBinding name="dataBinding_producto" visualizationAttributes="/65 /66 /67" domainConcept="/1"/>
+  <core:VisualizationAttribute id="5041a94c" name="precio" featureConcept="/31"/>
+  <core:DataBinding name="dataBinding_compra" visualizationAttributes="/69" domainConcept="/25"/>
+  <core:DynamicBehavior id="6b1e54ab-0d7e-4d69-90e8-d2e90f4444ad" name="form_dynamicBehaviour"/>
+  <core:Parameter id="18abe60f-8a13-4663-bc2e-a3b3490f21f6" name="form_action_source_parameter" kind="input"/>
+  <core:Parameter id="952e9c42-4679-47d3-9efe-523d26966e7f" name="form_action_target_parameter" kind="output"/>
+  <core:Action id="a8823c55-5dd4-44c0-a651-067488632adc" name="form_action" dynamicBehavior="/71">
+    <actionEvents id="f98346b1-16cf-4e26-a322-b816fd57d37e" name="form_actionEvent">
+      <navigationFlows id="ad57c87d-e142-4a77-b559-1587b78926a5" srcInteractionFlowElement="/74/@actionEvents.0">
+        <parameterBindingGroup id="2245f68d-f9cd-45ec-b0c5-210f4a8b8c5a">
+          <parameterBindings id="f8e18e72-f38e-4934-80a2-e5d15bd94136" sourceParameter="/72" targetParameter="/73"/>
+        </parameterBindingGroup>
+      </navigationFlows>
+    </actionEvents>
+  </core:Action>
+  <ext:SubmitEvent id="" name="form">
+    <navigationFlows id="99093199-8a76-42e3-a958-776dfb4331a8" srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0" trgtInteractionFlowElement="/74">
+      <parameterBindingGroup>
+        <parameterBindings id="08feeb47-6807-4755-8734-e7e09cefe098" sourceParameter="/76" targetParameter="/77"/>
+        <parameterBindings id="ff7328ce-7bee-4b48-bf10-719130e39c5a" sourceParameter="/78" targetParameter="/79"/>
+        <parameterBindings id="a236707a-f7e8-4e5c-9573-7308ab4c29af" sourceParameter="/80" targetParameter="/81"/>
+      </parameterBindingGroup>
+    </navigationFlows>
+  </ext:SubmitEvent>
+  <core:Parameter id="e423ef5e-24c7-4687-9e2a-6ef5288577e2" name="login_source_parameter" kind="input"/>
+  <core:Parameter id="9d26a21e-308a-4f60-aaa0-bd6bb8a3a94e" name="login_target_parameter" kind="output"/>
+  <core:Parameter id="7f9297cd-e9e8-4827-8b00-901c497acf47" name="password_source_parameter" kind="input"/>
+  <core:Parameter id="fa1edb29-d099-4009-8838-ec94fc549e13" name="password_target_parameter" kind="output"/>
+  <core:Parameter id="c32549c5-2c5f-45e5-9b13-d24bd0ebff2d" name="confirmar password_source_parameter" kind="input"/>
+  <core:Parameter id="168db50b-604e-4e58-9fd5-b846010d9096" name="confirmar password_target_parameter" kind="output"/>
+  <core:DynamicBehavior id="a5cb8cb4-01d9-474f-8a73-145d6d89c31e" name="comprar_dynamicBehaviour"/>
+  <core:Action id="91d4912a-5682-40fd-8065-589c6e67bbce" name="comprar_action" dynamicBehavior="/82"/>
+  <ext:SelectEvent id="f9469f1e-3cf9-4e90-a751-9eee69037d2c" name="comprar">
+    <navigationFlows srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.1" trgtInteractionFlowElement="/83">
+      <parameterBindingGroup id="df88e823-be47-4175-8877-b731d44ea777">
+        <parameterBindings id="ef42b3af-c6ed-4b46-b50f-fb6e2a4a580b" sourceParameter="/85" targetParameter="/86"/>
       </parameterBindingGroup>
     </navigationFlows>
   </ext:SelectEvent>
-  <core:Parameter id="b81aee60-d0a5-46a7-82fd-31d4a3bfb909" name="edit_action_source_parameter" kind="input"/>
-  <core:Parameter id="58bdff2c-2072-480a-ad74-1b9b84ccc75c" name="edit_action_target_parameter" kind="output"/>
-  <core:DynamicBehavior id="794b08f8-2311-46a6-bd8b-2cb1e767762e" name="delete_dynamicBehaviour"/>
-  <core:Action id="668eec3e-1c1a-4092-bc58-530fdd7a99f1" name="delete_action" dynamicBehavior="/23"/>
-  <ext:SelectEvent id="8ad4efdd-f8dd-481d-8faf-a5b7b6d19f1d" name="delete">
-    <navigationFlows srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0" trgtInteractionFlowElement="/24">
-      <parameterBindingGroup id="43e3fe5a-3cb4-4b92-a783-f954ebf0d592">
-        <parameterBindings id="358b515c-edd8-42bd-bfa0-dc2f6fe7127f" sourceParameter="/26" targetParameter="/27"/>
+  <core:Parameter id="8576c7fc-62c6-4fd5-a247-06cd77655d1c" name="comprar_action_source_parameter" kind="input"/>
+  <core:Parameter id="72d1ed3c-f6a9-4d78-8f70-57a5ddd50a75" name="comprar_action_target_parameter" kind="output"/>
+  <core:DynamicBehavior id="ac30296b-a19b-476a-bdb3-bd15ce163934" name="eliminar_dynamicBehaviour"/>
+  <core:Action id="d76a8e8c-200d-4cad-93e6-1c0ca551108d" name="eliminar_action" dynamicBehavior="/87"/>
+  <ext:SelectEvent id="7bd004ef-b2a9-4521-b7d2-d7fd7985751e" name="eliminar">
+    <navigationFlows srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1" trgtInteractionFlowElement="/88">
+      <parameterBindingGroup id="c14a7ca0-696a-48f4-956a-3db4307bb14b">
+        <parameterBindings id="607558d8-720e-4b4e-b936-70d137f6f947" sourceParameter="/90" targetParameter="/91"/>
       </parameterBindingGroup>
     </navigationFlows>
   </ext:SelectEvent>
-  <core:Parameter id="e44b4d10-3019-485b-bd0f-f575fa03e4e4" name="delete_action_source_parameter" kind="input"/>
-  <core:Parameter id="80b2e085-034a-4eca-8051-2abd1efab257" name="delete_action_target_parameter" kind="output"/>
+  <core:Parameter id="22849b7d-4c72-4031-b7d7-76a221715299" name="eliminar_action_source_parameter" kind="input"/>
+  <core:Parameter id="d8291f70-4b8a-42ea-8e7b-5e7c598e8446" name="eliminar_action_target_parameter" kind="output"/>
 </xmi:XMI>
