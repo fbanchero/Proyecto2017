@@ -16,7 +16,7 @@
             </div>
             <div ng-if="key != 'landmark' && key != 'default' && key != 'url' && key != 'align'
                 && key != 'tipo' && key != 'entity' && key != 'attributes' && key != 'clase'
-                && key != 'selectEvents'">
+                && key != 'selectEvents' && key != 'systemEvents'">
                 <strong>{{key}}</strong>
                 <input ng-if="key != 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
                 <input ng-if="key == 'fontSize'" type="text" ng-model="models.selected.properties[key]" class="form-control" style="margin-top: 5px"/>
@@ -114,6 +114,20 @@
               </select>
             </label>
             <button class="btn btn-primary" ng-click='addSelectEvent()'>Agregar</button>
+        </div>
+
+        <!-- System Event Table -->
+        <div class="event-box" ng-if="models.selected.type == 'table'" layout="column">
+            <label> system events:
+              <select ng-model="models.systemEventSelected">
+                  <option
+                      ng-repeat="m in filterChildren(models.selected, 'method')"
+                      value="{{m.properties.firma}}">{{m.properties.firma}}:{{m.properties.tipo}}</option>
+              </select>
+              <strong>triggeringExpression</strong>
+              <input type="text" ng-model="models.triggeringExpression" class="form-control" style="margin-top: 5px">
+            </label>
+            <button class="btn btn-primary" ng-click='addSystemEvent()'>Agregar</button>
         </div>
 
         <!-- Item and Button-->
