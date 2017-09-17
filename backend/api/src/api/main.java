@@ -56,6 +56,7 @@ import ifml.core.InteractionFlowModel;
 import ifml.core.InteractionFlowModelElement;
 import ifml.core.NavigationFlow;
 import ifml.core.ParameterBinding;
+import ifml.core.SystemEvent;
 import ifml.core.UMLDomainConcept;
 import ifml.core.UMLStructuralFeature;
 import ifml.core.ViewContainer;
@@ -650,6 +651,17 @@ public class main {
 				resource.getContents().add(pb.getSourceParameter());
 				resource.getContents().add(pb.getTargetParameter());
 			}
+		}
+		
+		for(SystemEvent s: eb.getListSystemEvent()){	
+			Object obj = (s.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
+			if(obj instanceof Action){
+				Action action = (Action)(s.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
+				resource.getContents().add(action.getDynamicBehavior());				
+				resource.getContents().add(action);				
+			}
+			resource.getContents().add(s);	
+			
 		}
 		
 		try {

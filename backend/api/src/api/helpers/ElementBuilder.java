@@ -37,11 +37,13 @@ import ifml.core.DataBinding;
 import ifml.core.DomainConcept;
 import ifml.core.DomainModel;
 import ifml.core.DynamicBehavior;
+import ifml.core.Expression;
 import ifml.core.FeatureConcept;
 import ifml.core.NavigationFlow;
 import ifml.core.ParameterBinding;
 import ifml.core.ParameterBindingGroup;
 import ifml.core.ParameterKind;
+import ifml.core.SystemEvent;
 import ifml.core.UMLBehavioralFeature;
 import ifml.core.UMLDomainConcept;
 import ifml.core.UMLStructuralFeature;
@@ -76,7 +78,8 @@ public class ElementBuilder {
 	public Map<String, DomainConcept> mapClass;
 	public ArrayList<DataBinding> listDataBinding;
 	public ArrayList<SubmitEvent> listSubmitEvent;
-	public ArrayList<SelectEvent> listSelectEvent; 
+	public ArrayList<SelectEvent> listSelectEvent;
+	public ArrayList<SystemEvent> listSystemEvent;
 
 	public ElementBuilder(CoreFactory pf, ExtensionsFactory pef, UMLFactory uf) {
 		f = pf;
@@ -86,6 +89,7 @@ public class ElementBuilder {
 		listDataBinding = new ArrayList<DataBinding>();
 		listSubmitEvent = new ArrayList<SubmitEvent>();
 		listSelectEvent = new ArrayList<SelectEvent>();
+		listSystemEvent = new ArrayList<SystemEvent>();
 		mapClass = new HashMap<String, DomainConcept>();
 		mapOperations = new HashMap<String, BehavioralFeatureConcept>();
 		mapAttributes = new HashMap<String, FeatureConcept>();
@@ -176,6 +180,36 @@ public class ElementBuilder {
 				
 				listSelectEvent.add(se);
 	
+			}
+		}
+		
+		ArrayList<LinkedTreeMap<String, String>> systemEvents = (ArrayList<LinkedTreeMap<String, String>>)elem.getProperties().get("systemEvents");
+		if(systemEvents != null) {
+			for(LinkedTreeMap<String, String> e: systemEvents){
+				SystemEvent se = f.createSystemEvent();
+				se.setId(java.util.UUID.randomUUID().toString());
+				se.setType(ifml.core.SystemEventTypeEnum.TIME);
+				Expression exp = f.createBooleanExpression();
+				exp.setBody(e.get("trigger"));
+				exp.setLanguage("OCL");
+				se.getTriggeringExpressions().add(exp);
+				
+				Action action = f.createAction();
+				action.setId(java.util.UUID.randomUUID().toString());
+				action.setName(e.get("event") + "_action");
+				DynamicBehavior db = f.createDynamicBehavior();
+				db.setId(java.util.UUID.randomUUID().toString());
+				db.setName(e.get("event") + "_dynamicBehaviour");
+				db.setBehavioralFeatureConcept(mapOperations.get(e.get("event")));
+				action.setDynamicBehavior(db);
+				
+				NavigationFlow nf = f.createNavigationFlow();
+				nf.setSrcInteractionFlowElement(se);
+				nf.setTrgtInteractionFlowElement(list);
+				
+				se.getNavigationFlows().add(nf);
+				listSystemEvent.add(se);
+				
 			}
 		}
 		
@@ -817,6 +851,8 @@ public class ElementBuilder {
 		return listSelectEvent;
 	}
 
-
+	public ArrayList<SystemEvent> getListSystemEvent() {
+		return listSystemEvent;
+	}
 	
 }
