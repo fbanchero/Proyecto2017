@@ -4,6 +4,8 @@ package ifml.core;
 
 import org.eclipse.emf.common.util.EList;
 
+import uml.TemplaetableElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Interaction Flow Element</b></em>'.
@@ -22,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface InteractionFlowElement extends NamedElement, InteractionFlowModelElement {
+public interface InteractionFlowElement extends NamedElement, InteractionFlowModelElement, TemplaetableElement {
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
 	 * The list contents are of type {@link ifml.core.Parameter}.

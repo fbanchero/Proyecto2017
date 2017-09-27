@@ -31,7 +31,7 @@ public interface BehavioralFeatureConcept extends DomainElement {
 	 * @return the value of the '<em>Dynamic Behavior</em>' reference.
 	 * @see #setDynamicBehavior(DynamicBehavior)
 	 * @see ifml.core.CorePackage#getBehavioralFeatureConcept_DynamicBehavior()
-	 * @model
+	 * @model ordered="false"
 	 * @generated
 	 */
 	DynamicBehavior getDynamicBehavior();

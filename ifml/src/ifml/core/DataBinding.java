@@ -66,7 +66,7 @@ public interface DataBinding extends ContentBinding {
 	 * @return the value of the '<em>Domain Concept</em>' reference.
 	 * @see #setDomainConcept(DomainConcept)
 	 * @see ifml.core.CorePackage#getDataBinding_DomainConcept()
-	 * @model required="true"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	DomainConcept getDomainConcept();

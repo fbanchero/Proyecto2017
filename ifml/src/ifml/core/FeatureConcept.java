@@ -31,7 +31,7 @@ public interface FeatureConcept extends DomainElement {
 	 * @return the value of the '<em>Visualization Attribute</em>' reference.
 	 * @see #setVisualizationAttribute(VisualizationAttribute)
 	 * @see ifml.core.CorePackage#getFeatureConcept_VisualizationAttribute()
-	 * @model
+	 * @model ordered="false"
 	 * @generated
 	 */
 	VisualizationAttribute getVisualizationAttribute();

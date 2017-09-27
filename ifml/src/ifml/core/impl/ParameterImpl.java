@@ -13,6 +13,11 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import uml.Element;
+import uml.MultiplicityElement;
+import uml.PrimitiveType;
+import uml.UmlPackage;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Parameter</b></em>'.
@@ -21,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link ifml.core.impl.ParameterImpl#getNombre <em>Nombre</em>}</li>
  *   <li>{@link ifml.core.impl.ParameterImpl#getName <em>Name</em>}</li>
  *   <li>{@link ifml.core.impl.ParameterImpl#getKind <em>Kind</em>}</li>
  * </ul>
@@ -28,6 +34,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class ParameterImpl extends InteractionFlowModelElementImpl implements Parameter {
+	/**
+	 * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNombre()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NOMBRE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNombre()
+	 * @generated
+	 * @ordered
+	 */
+	protected String nombre = NOMBRE_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,6 +118,27 @@ public class ParameterImpl extends InteractionFlowModelElementImpl implements Pa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNombre(String newNombre) {
+		String oldNombre = nombre;
+		nombre = newNombre;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.PARAMETER__NOMBRE, oldNombre, nombre));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getName() {
 		return name;
 	}
@@ -137,6 +184,8 @@ public class ParameterImpl extends InteractionFlowModelElementImpl implements Pa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case CorePackage.PARAMETER__NOMBRE:
+				return getNombre();
 			case CorePackage.PARAMETER__NAME:
 				return getName();
 			case CorePackage.PARAMETER__KIND:
@@ -153,6 +202,9 @@ public class ParameterImpl extends InteractionFlowModelElementImpl implements Pa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case CorePackage.PARAMETER__NOMBRE:
+				setNombre((String)newValue);
+				return;
 			case CorePackage.PARAMETER__NAME:
 				setName((String)newValue);
 				return;
@@ -171,6 +223,9 @@ public class ParameterImpl extends InteractionFlowModelElementImpl implements Pa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case CorePackage.PARAMETER__NOMBRE:
+				setNombre(NOMBRE_EDEFAULT);
+				return;
 			case CorePackage.PARAMETER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -189,6 +244,8 @@ public class ParameterImpl extends InteractionFlowModelElementImpl implements Pa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case CorePackage.PARAMETER__NOMBRE:
+				return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
 			case CorePackage.PARAMETER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CorePackage.PARAMETER__KIND:
@@ -204,6 +261,22 @@ public class ParameterImpl extends InteractionFlowModelElementImpl implements Pa
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Element.class) {
+			switch (derivedFeatureID) {
+				case CorePackage.PARAMETER__NOMBRE: return UmlPackage.ELEMENT__NOMBRE;
+				default: return -1;
+			}
+		}
+		if (baseClass == MultiplicityElement.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == PrimitiveType.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		if (baseClass == NamedElement.class) {
 			switch (derivedFeatureID) {
 				case CorePackage.PARAMETER__NAME: return CorePackage.NAMED_ELEMENT__NAME;
@@ -220,6 +293,22 @@ public class ParameterImpl extends InteractionFlowModelElementImpl implements Pa
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Element.class) {
+			switch (baseFeatureID) {
+				case UmlPackage.ELEMENT__NOMBRE: return CorePackage.PARAMETER__NOMBRE;
+				default: return -1;
+			}
+		}
+		if (baseClass == MultiplicityElement.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == PrimitiveType.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
 		if (baseClass == NamedElement.class) {
 			switch (baseFeatureID) {
 				case CorePackage.NAMED_ELEMENT__NAME: return CorePackage.PARAMETER__NAME;
@@ -239,7 +328,9 @@ public class ParameterImpl extends InteractionFlowModelElementImpl implements Pa
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
+		result.append(" (nombre: ");
+		result.append(nombre);
+		result.append(", name: ");
 		result.append(name);
 		result.append(", kind: ");
 		result.append(kind);

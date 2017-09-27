@@ -2,7 +2,7 @@
  */
 package ifml.core;
 
-import org.eclipse.uml2.uml.StructuralFeature;
+import uml.StructuralFeature;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +32,7 @@ public interface UMLStructuralFeature extends FeatureConcept {
 	 * @return the value of the '<em>Structural Feature</em>' reference.
 	 * @see #setStructuralFeature(StructuralFeature)
 	 * @see ifml.core.CorePackage#getUMLStructuralFeature_StructuralFeature()
-	 * @model
+	 * @model ordered="false"
 	 * @generated
 	 */
 	StructuralFeature getStructuralFeature();

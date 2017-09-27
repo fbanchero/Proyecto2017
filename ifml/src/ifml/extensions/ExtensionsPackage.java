@@ -106,6 +106,15 @@ public interface ExtensionsPackage extends EPackage {
 	int FORM__NAME = CorePackage.VIEW_COMPONENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM__NOMBRE = CorePackage.VIEW_COMPONENT__NOMBRE;
+
+	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -169,7 +178,7 @@ public interface ExtensionsPackage extends EPackage {
 	int FORM__VIEW_COMPONENT_PARTS = CorePackage.VIEW_COMPONENT__VIEW_COMPONENT_PARTS;
 
 	/**
-	 * The feature id for the '<em><b>Submit Event</b></em>' reference list.
+	 * The feature id for the '<em><b>Submit Event</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -240,6 +249,15 @@ public interface ExtensionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int FIELD__NAME = CorePackage.VIEW_COMPONENT_PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__NOMBRE = CorePackage.VIEW_COMPONENT_PART__NOMBRE;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -367,6 +385,15 @@ public interface ExtensionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SELECTION_FIELD__NAME = FIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTION_FIELD__NOMBRE = FIELD__NOMBRE;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -578,6 +605,15 @@ public interface ExtensionsPackage extends EPackage {
 	int SLOT__NAME = CorePackage.VIEW_COMPONENT_PART__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT__NOMBRE = CorePackage.VIEW_COMPONENT_PART__NOMBRE;
+
+	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -751,6 +787,15 @@ public interface ExtensionsPackage extends EPackage {
 	int SELECT_EVENT__NAME = CorePackage.VIEW_ELEMENT_EVENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECT_EVENT__NOMBRE = CorePackage.VIEW_ELEMENT_EVENT__NOMBRE;
+
+	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -867,6 +912,15 @@ public interface ExtensionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST__NAME = CorePackage.VIEW_COMPONENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST__NOMBRE = CorePackage.VIEW_COMPONENT__NOMBRE;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1014,6 +1068,15 @@ public interface ExtensionsPackage extends EPackage {
 	int SIMPLE_FIELD__NAME = FIELD__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_FIELD__NOMBRE = FIELD__NOMBRE;
+
+	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1139,6 +1202,15 @@ public interface ExtensionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SUBMIT_EVENT__NAME = CorePackage.VIEW_ELEMENT_EVENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMIT_EVENT__NOMBRE = CorePackage.VIEW_ELEMENT_EVENT__NOMBRE;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1277,13 +1349,22 @@ public interface ExtensionsPackage extends EPackage {
 	int SELECTOR__NAME = CorePackage.EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SELECTOR__NOMBRE = CorePackage.EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SELECTOR__PARAMETERS = CorePackage.EXPRESSION_FEATURE_COUNT + 1;
+	int SELECTOR__PARAMETERS = CorePackage.EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>In Interaction Flows</b></em>' reference list.
@@ -1292,7 +1373,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECTOR__IN_INTERACTION_FLOWS = CorePackage.EXPRESSION_FEATURE_COUNT + 2;
+	int SELECTOR__IN_INTERACTION_FLOWS = CorePackage.EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Out Interaction Flows</b></em>' containment reference list.
@@ -1301,7 +1382,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECTOR__OUT_INTERACTION_FLOWS = CorePackage.EXPRESSION_FEATURE_COUNT + 3;
+	int SELECTOR__OUT_INTERACTION_FLOWS = CorePackage.EXPRESSION_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>View Element Events</b></em>' containment reference list.
@@ -1310,7 +1391,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECTOR__VIEW_ELEMENT_EVENTS = CorePackage.EXPRESSION_FEATURE_COUNT + 4;
+	int SELECTOR__VIEW_ELEMENT_EVENTS = CorePackage.EXPRESSION_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Activation Expression</b></em>' reference.
@@ -1319,7 +1400,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECTOR__ACTIVATION_EXPRESSION = CorePackage.EXPRESSION_FEATURE_COUNT + 5;
+	int SELECTOR__ACTIVATION_EXPRESSION = CorePackage.EXPRESSION_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Sub View Component Parts</b></em>' reference list.
@@ -1328,7 +1409,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECTOR__SUB_VIEW_COMPONENT_PARTS = CorePackage.EXPRESSION_FEATURE_COUNT + 6;
+	int SELECTOR__SUB_VIEW_COMPONENT_PARTS = CorePackage.EXPRESSION_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Parent View Component Part</b></em>' reference.
@@ -1337,7 +1418,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECTOR__PARENT_VIEW_COMPONENT_PART = CorePackage.EXPRESSION_FEATURE_COUNT + 7;
+	int SELECTOR__PARENT_VIEW_COMPONENT_PART = CorePackage.EXPRESSION_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Selector</em>' class.
@@ -1346,7 +1427,7 @@ public interface ExtensionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SELECTOR_FEATURE_COUNT = CorePackage.EXPRESSION_FEATURE_COUNT + 8;
+	int SELECTOR_FEATURE_COUNT = CorePackage.EXPRESSION_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Selector</em>' class.
@@ -1596,6 +1677,15 @@ public interface ExtensionsPackage extends EPackage {
 	int DETAILS__NAME = CorePackage.VIEW_COMPONENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DETAILS__NOMBRE = CorePackage.VIEW_COMPONENT__NOMBRE;
+
+	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1721,6 +1811,15 @@ public interface ExtensionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int WINDOW__NAME = CorePackage.VIEW_CONTAINER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WINDOW__NOMBRE = CorePackage.VIEW_CONTAINER__NOMBRE;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1895,6 +1994,15 @@ public interface ExtensionsPackage extends EPackage {
 	int IMAGE__NAME = CorePackage.VIEW_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE__NOMBRE = CorePackage.VIEW_ELEMENT__NOMBRE;
+
+	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2040,6 +2148,15 @@ public interface ExtensionsPackage extends EPackage {
 	int BUTTON__NAME = CorePackage.VIEW_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUTTON__NOMBRE = CorePackage.VIEW_ELEMENT__NOMBRE;
+
+	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2174,6 +2291,15 @@ public interface ExtensionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FIELD__NAME = CorePackage.VIEW_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FIELD__NOMBRE = CorePackage.VIEW_ELEMENT__NOMBRE;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -2312,6 +2438,15 @@ public interface ExtensionsPackage extends EPackage {
 	int VIDEO__NAME = CorePackage.VIEW_ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__NOMBRE = CorePackage.VIEW_ELEMENT__NOMBRE;
+
+	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2441,10 +2576,10 @@ public interface ExtensionsPackage extends EPackage {
 	EClass getForm();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ifml.extensions.Form#getSubmitEvent <em>Submit Event</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ifml.extensions.Form#getSubmitEvent <em>Submit Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Submit Event</em>'.
+	 * @return the meta object for the containment reference list '<em>Submit Event</em>'.
 	 * @see ifml.extensions.Form#getSubmitEvent()
 	 * @see #getForm()
 	 * @generated
@@ -2883,7 +3018,7 @@ public interface ExtensionsPackage extends EPackage {
 		EClass FORM = eINSTANCE.getForm();
 
 		/**
-		 * The meta object literal for the '<em><b>Submit Event</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Submit Event</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

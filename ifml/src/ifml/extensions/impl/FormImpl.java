@@ -10,11 +10,14 @@ import ifml.extensions.SubmitEvent;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +34,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class FormImpl extends ViewComponentImpl implements Form {
 	/**
-	 * The cached value of the '{@link #getSubmitEvent() <em>Submit Event</em>}' reference list.
+	 * The cached value of the '{@link #getSubmitEvent() <em>Submit Event</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSubmitEvent()
@@ -66,9 +69,23 @@ public class FormImpl extends ViewComponentImpl implements Form {
 	 */
 	public EList<SubmitEvent> getSubmitEvent() {
 		if (submitEvent == null) {
-			submitEvent = new EObjectResolvingEList<SubmitEvent>(SubmitEvent.class, this, ExtensionsPackage.FORM__SUBMIT_EVENT);
+			submitEvent = new EObjectContainmentEList<SubmitEvent>(SubmitEvent.class, this, ExtensionsPackage.FORM__SUBMIT_EVENT);
 		}
 		return submitEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExtensionsPackage.FORM__SUBMIT_EVENT:
+				return ((InternalEList<?>)getSubmitEvent()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

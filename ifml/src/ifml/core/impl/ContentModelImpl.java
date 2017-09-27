@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import org.eclipse.uml2.uml.Element;
+import uml.Element;
 
 /**
  * <!-- begin-user-doc -->

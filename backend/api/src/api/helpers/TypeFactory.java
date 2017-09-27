@@ -3,15 +3,15 @@ package api.helpers;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.eclipse.uml2.uml.PrimitiveType;
-import org.eclipse.uml2.uml.UMLFactory;
+import uml.PrimitiveType;
+import uml.UmlFactory;
 
 public class TypeFactory {
 	
-	private UMLFactory umlf;
+	private UmlFactory umlf;
 	private HashMap<String, PrimitiveType> types;
 
-	public TypeFactory(UMLFactory umlf){		
+	public TypeFactory(UmlFactory umlf){		
 		this.umlf = umlf;
 		types = new HashMap<String, PrimitiveType>();
 	}
@@ -25,7 +25,7 @@ public class TypeFactory {
 		else
 		{
 			t = umlf.createPrimitiveType();
-			t.setName(type);
+			t.setNombre(type);
 			types.put(type, t);
 			return t;
 					

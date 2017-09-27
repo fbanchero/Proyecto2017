@@ -16,17 +16,12 @@ import java.util.Map.Entry;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.PrimitiveType;
-import org.eclipse.uml2.uml.StructuralFeature;
-import org.eclipse.uml2.uml.UMLFactory;
-import org.eclipse.uml2.uml.internal.impl.UMLFactoryImpl;
+
 
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
@@ -56,6 +51,7 @@ import ifml.core.InteractionFlowModel;
 import ifml.core.InteractionFlowModelElement;
 import ifml.core.NavigationFlow;
 import ifml.core.ParameterBinding;
+import ifml.core.UMLBehavioralFeature;
 import ifml.core.UMLDomainConcept;
 import ifml.core.UMLStructuralFeature;
 import ifml.core.ViewContainer;
@@ -74,13 +70,19 @@ import ifml.extensions.SubmitEvent;
 import ifml.extensions.TextField;
 import ifml.extensions.Video;
 import ifml.extensions.Window;
+import uml.BehavioralFeature;
+import uml.Classifier;
+import uml.PrimitiveType;
+import uml.StructuralFeature;
+import uml.UmlFactory;
+import uml.impl.UmlFactoryImpl;
 import ifml.extensions.Button;
 
 public class main {
 	
     public static CoreFactory f = CoreFactory.eINSTANCE;
     public static ExtensionsFactory ef = ExtensionsFactory.eINSTANCE;
-    public static UMLFactory umlf; 
+    public static UmlFactory umlf; 
     public static ElementBuilder eb; 
 
     
@@ -163,7 +165,6 @@ public class main {
         post("/getIfml", (request, response) -> {
         	
         	return createIFML(request.body());
-        	//return createIFMLDomain(request.body());
         	
         });
         
@@ -177,7 +178,7 @@ public class main {
      */
     private static String createIFML(String mockupJson) {
     	
-        umlf = new UMLFactoryImpl();
+        umlf = new UmlFactoryImpl();
         eb = new ElementBuilder(f, ef, umlf);
     	
     	// Generate mockup object based on json    
@@ -250,6 +251,9 @@ public class main {
 				ViewContainer vc = eb.createViewContainer(elem, links);
 				ifmElements.add(vc);
 				recursiveIFMLHierarchy(elem, vc, links);
+				for (Action a: eb.getListAction()) {
+					ifmElements.add(a);
+				}
 				
 				DataPage page = new DataPage();
 				page.setObject(vc);
@@ -341,14 +345,14 @@ public class main {
 		DomainModel domainModel = f.createDomainModel();
 		domainModel.setId("domainId");
 		domainModel.setName(domain.get(0).getName());
-		Map<String, Class> mapClassifiers = new HashMap<String, Class>();
+		Map<String, Classifier> mapClassifiers = new HashMap<String, Classifier>();
 		for (DomainClass domainClass : model.getListClass()) {
-			Class c = eb.createClass(domainClass, domainModel);
-			mapClassifiers.put(c.getName(), c);
+			Classifier c = eb.createClass(domainClass, domainModel);
+			mapClassifiers.put(c.getNombre(), c);
 		}
-		for (DomainRelationship domainRelationship : model.getListRelationship()) {
-			eb.createAssociation(domainRelationship, mapClassifiers);
-		}
+//		for (DomainRelationship domainRelationship : model.getListRelationship()) {
+//			eb.createAssociation(domainRelationship, mapClassifiers);
+//		}
 		return domainModel;
 	}
 	
@@ -368,10 +372,11 @@ public class main {
 						String t = (String) e.getProperties().get("tipo");
 						a.setType(t);
 						c.getListAttribute().add(a);
-					} else if (e.getType().equals("operation")) {
+					} else if (e.getType().equals("method")) {
 						DomainOperation oper = new DomainOperation();
 						oper.setId(e.getId());
-						oper.setName(e.getName());
+						oper.setName((String)e.getProperties().get("firma"));
+						oper.setRetorno((String)e.getProperties().get("tipo"));
 //						DomainGeneralElement t = element.getProperties().get("return_type");
 //						oper.setRetorno(t.getName());
 //						for (element.getProperties()) {
@@ -447,11 +452,20 @@ public class main {
 						recursiveIFMLHierarchy(mergedElem, ve, links);
 					
 					} else if (MockupElementTypes.get(elem.getType()).equals("Form")) {
-						Form form = eb.createForm(elem, links);					
+						Form form = eb.createForm(elem, links);
+						
 						viewElements.add(form);
 						recursiveIFMLHierarchy(mergedElem, form, links);
 						
 					} else if (MockupElementTypes.get(elem.getType()).equals("Details")) {
+						if (containsKey(links, elem.getId())) {
+							for(LinkElem le : links){
+								String id = le.getId();
+					    		if(id.equals(elem.getId())){
+									
+								}
+							}
+						}
 						Details details = eb.createDetails(elem);					
 						viewElements.add(details);
 						//recursiveIFMLHierarchy(mergedElem, details, links);
@@ -511,22 +525,22 @@ public class main {
 						
 					} else if (MockupElementTypes.get(elem.getType()).equals("SubmitEvent")) {
 						
-						SubmitEvent se = eb.createSubmitEvent(elem);
+//						SubmitEvent se = eb.createSubmitEvent(elem);
 						
-						if(elem.getEvents() != null && !elem.getEvents().get(0).getLink().equals("")) {
-							NavigationEvent ne = elem.getEvents().get(0);
-							NavigationFlow nf = f.createNavigationFlow();
-
-							nf.setSrcInteractionFlowElement(se);
-							se.getNavigationFlows().add(nf);
-							LinkElem le = new LinkElem();
-							le.setId(ne.getLink());
-							le.setNavigationFlow(nf);
-							
-							links.add(le);
-						}
+//						if(elem.getEvents() != null && !elem.getEvents().get(0).getLink().equals("")) {
+//							NavigationEvent ne = elem.getEvents().get(0);
+//							NavigationFlow nf = f.createNavigationFlow();
+//
+//							nf.setSrcInteractionFlowElement(se);
+////							se.getNavigationFlows().add(nf);
+//							LinkElem le = new LinkElem();
+//							le.setId(ne.getLink());
+//							le.setNavigationFlow(nf);
+//							
+//							links.add(le);
+//						}
 		
-						viewElementEvents.add(se);
+//						viewElementEvents.add(se);
 						
 					}
 				
@@ -591,66 +605,71 @@ public class main {
 		for(DomainElement element: domain.getElements()){
 			if (element instanceof UMLDomainConcept) {
 				UMLDomainConcept dc = (UMLDomainConcept)element;
-				resource.getContents().add(dc);
-				org.eclipse.uml2.uml.Class c = (Class) dc.getClassifier();
+				//resource.getContents().add(dc);
+				Classifier c = (Classifier) dc.getClassifier();
 				resource.getContents().add(c);
 				
 			} else if (element instanceof UMLStructuralFeature) {
 				UMLStructuralFeature sf = (UMLStructuralFeature)element;
-				resource.getContents().add(sf);
-				org.eclipse.uml2.uml.StructuralFeature s = (StructuralFeature) sf.getStructuralFeature();
+				//resource.getContents().add(sf);
+				StructuralFeature s = (StructuralFeature) sf.getStructuralFeature();
 				resource.getContents().add(s);
+			} else if (element instanceof UMLBehavioralFeature) {
+				UMLBehavioralFeature bf = (UMLBehavioralFeature)element;
+				//resource.getContents().add(sf);
+				BehavioralFeature b = (BehavioralFeature) bf.getBehavioralFeature();
+				resource.getContents().add(b);
 			}
 						
 		}
 		for(PrimitiveType pt: eb.getTypes())
 			resource.getContents().add(pt);
 		
-		for(DataBinding db: eb.getListDataBinding()){			
-			for(VisualizationAttribute va: db.getVisualizationAttributes())
-				resource.getContents().add(va);
-			resource.getContents().add(db);
-			if(!db.getConditionalExpression().isEmpty())
-				resource.getContents().add(db.getConditionalExpression().get(0));
-		}
-			
-		
-		for(SubmitEvent se: eb.getListSubmitEvent()){
-			
-			Object obj = (se.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
-			if(obj instanceof Action){
-				Action action = (Action)(se.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
-				resource.getContents().add(action.getDynamicBehavior());
-				EList<ParameterBinding> paramBindings = action.getActionEvents().get(0).getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
-				for(ParameterBinding pb: paramBindings){
-					resource.getContents().add(pb.getSourceParameter());
-					resource.getContents().add(pb.getTargetParameter());
-				}
-				resource.getContents().add(action);
-				
-			}
-			resource.getContents().add(se);	
-			EList<ParameterBinding> paramBindings = se.getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
-			for(ParameterBinding pb: paramBindings){
-				resource.getContents().add(pb.getSourceParameter());
-				resource.getContents().add(pb.getTargetParameter());
-			}
-		}
-			
-		for(SelectEvent s: eb.getListSelectEvent()){		
-			Object obj = (s.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
-			if(obj instanceof Action){
-				Action action = (Action)(s.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
-				resource.getContents().add(action.getDynamicBehavior());				
-				resource.getContents().add(action);				
-			}
-			resource.getContents().add(s);	
-			EList<ParameterBinding> paramBindings = s.getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
-			for(ParameterBinding pb: paramBindings){
-				resource.getContents().add(pb.getSourceParameter());
-				resource.getContents().add(pb.getTargetParameter());
-			}
-		}
+//		for(DataBinding db: eb.getListDataBinding()){			
+//			for(VisualizationAttribute va: db.getVisualizationAttributes())
+//				resource.getContents().add(va);
+//			resource.getContents().add(db);
+//			if(!db.getConditionalExpression().isEmpty())
+//				resource.getContents().add(db.getConditionalExpression().get(0));
+//		}
+//			
+//		
+//		for(SubmitEvent se: eb.getListSubmitEvent()){
+//			
+//			Object obj = (se.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
+//			if(obj instanceof Action){
+//				Action action = (Action)(se.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
+//				resource.getContents().add(action.getDynamicBehavior());
+//				EList<ParameterBinding> paramBindings = action.getActionEvents().get(0).getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
+//				for(ParameterBinding pb: paramBindings){
+//					resource.getContents().add(pb.getSourceParameter());
+//					resource.getContents().add(pb.getTargetParameter());
+//				}
+//				resource.getContents().add(action);
+//				
+//			}
+//			resource.getContents().add(se);	
+//			EList<ParameterBinding> paramBindings = se.getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
+//			for(ParameterBinding pb: paramBindings){
+//				resource.getContents().add(pb.getSourceParameter());
+//				resource.getContents().add(pb.getTargetParameter());
+//			}
+//		}
+//			
+//		for(SelectEvent s: eb.getListSelectEvent()){		
+//			Object obj = (s.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
+//			if(obj instanceof Action){
+//				Action action = (Action)(s.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
+//				resource.getContents().add(action.getDynamicBehavior());				
+//				resource.getContents().add(action);				
+//			}
+//			resource.getContents().add(s);	
+//			EList<ParameterBinding> paramBindings = s.getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
+//			for(ParameterBinding pb: paramBindings){
+//				resource.getContents().add(pb.getSourceParameter());
+//				resource.getContents().add(pb.getTargetParameter());
+//			}
+//		}
 		
 		try {
 		

@@ -32,7 +32,7 @@ public interface DynamicBehavior extends ContentBinding {
 	 * @return the value of the '<em>Behavioral Feature Concept</em>' reference.
 	 * @see #setBehavioralFeatureConcept(BehavioralFeatureConcept)
 	 * @see ifml.core.CorePackage#getDynamicBehavior_BehavioralFeatureConcept()
-	 * @model
+	 * @model ordered="false"
 	 * @generated
 	 */
 	BehavioralFeatureConcept getBehavioralFeatureConcept();
@@ -58,7 +58,7 @@ public interface DynamicBehavior extends ContentBinding {
 	 * @return the value of the '<em>Behavior Concept</em>' reference.
 	 * @see #setBehaviorConcept(BehaviorConcept)
 	 * @see ifml.core.CorePackage#getDynamicBehavior_BehaviorConcept()
-	 * @model
+	 * @model ordered="false"
 	 * @generated
 	 */
 	BehaviorConcept getBehaviorConcept();

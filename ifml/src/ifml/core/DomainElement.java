@@ -31,7 +31,7 @@ public interface DomainElement extends NamedElement {
 	 * @return the value of the '<em>Domain Model</em>' reference.
 	 * @see #setDomainModel(DomainModel)
 	 * @see ifml.core.CorePackage#getDomainElement_DomainModel()
-	 * @model required="true"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	DomainModel getDomainModel();

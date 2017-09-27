@@ -29,6 +29,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import uml.Element;
+import uml.TemplaetableElement;
+import uml.UmlPackage;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Conditional Expression</b></em>'.
@@ -38,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link ifml.core.impl.ConditionalExpressionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ifml.core.impl.ConditionalExpressionImpl#getNombre <em>Nombre</em>}</li>
  *   <li>{@link ifml.core.impl.ConditionalExpressionImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link ifml.core.impl.ConditionalExpressionImpl#getInInteractionFlows <em>In Interaction Flows</em>}</li>
  *   <li>{@link ifml.core.impl.ConditionalExpressionImpl#getOutInteractionFlows <em>Out Interaction Flows</em>}</li>
@@ -69,6 +74,26 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNombre()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NOMBRE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNombre()
+	 * @generated
+	 * @ordered
+	 */
+	protected String nombre = NOMBRE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
@@ -178,6 +203,27 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.CONDITIONAL_EXPRESSION__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNombre(String newNombre) {
+		String oldNombre = nombre;
+		nombre = newNombre;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorePackage.CONDITIONAL_EXPRESSION__NOMBRE, oldNombre, nombre));
 	}
 
 	/**
@@ -389,6 +435,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 		switch (featureID) {
 			case CorePackage.CONDITIONAL_EXPRESSION__NAME:
 				return getName();
+			case CorePackage.CONDITIONAL_EXPRESSION__NOMBRE:
+				return getNombre();
 			case CorePackage.CONDITIONAL_EXPRESSION__PARAMETERS:
 				return getParameters();
 			case CorePackage.CONDITIONAL_EXPRESSION__IN_INTERACTION_FLOWS:
@@ -420,6 +468,9 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 		switch (featureID) {
 			case CorePackage.CONDITIONAL_EXPRESSION__NAME:
 				setName((String)newValue);
+				return;
+			case CorePackage.CONDITIONAL_EXPRESSION__NOMBRE:
+				setNombre((String)newValue);
 				return;
 			case CorePackage.CONDITIONAL_EXPRESSION__PARAMETERS:
 				getParameters().clear();
@@ -462,6 +513,9 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 			case CorePackage.CONDITIONAL_EXPRESSION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case CorePackage.CONDITIONAL_EXPRESSION__NOMBRE:
+				setNombre(NOMBRE_EDEFAULT);
+				return;
 			case CorePackage.CONDITIONAL_EXPRESSION__PARAMETERS:
 				getParameters().clear();
 				return;
@@ -497,6 +551,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 		switch (featureID) {
 			case CorePackage.CONDITIONAL_EXPRESSION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case CorePackage.CONDITIONAL_EXPRESSION__NOMBRE:
+				return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
 			case CorePackage.CONDITIONAL_EXPRESSION__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 			case CorePackage.CONDITIONAL_EXPRESSION__IN_INTERACTION_FLOWS:
@@ -525,6 +581,17 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 		if (baseClass == NamedElement.class) {
 			switch (derivedFeatureID) {
 				case CorePackage.CONDITIONAL_EXPRESSION__NAME: return CorePackage.NAMED_ELEMENT__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == Element.class) {
+			switch (derivedFeatureID) {
+				case CorePackage.CONDITIONAL_EXPRESSION__NOMBRE: return UmlPackage.ELEMENT__NOMBRE;
+				default: return -1;
+			}
+		}
+		if (baseClass == TemplaetableElement.class) {
+			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
@@ -561,6 +628,17 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 				default: return -1;
 			}
 		}
+		if (baseClass == Element.class) {
+			switch (baseFeatureID) {
+				case UmlPackage.ELEMENT__NOMBRE: return CorePackage.CONDITIONAL_EXPRESSION__NOMBRE;
+				default: return -1;
+			}
+		}
+		if (baseClass == TemplaetableElement.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
 		if (baseClass == InteractionFlowElement.class) {
 			switch (baseFeatureID) {
 				case CorePackage.INTERACTION_FLOW_ELEMENT__PARAMETERS: return CorePackage.CONDITIONAL_EXPRESSION__PARAMETERS;
@@ -593,6 +671,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", nombre: ");
+		result.append(nombre);
 		result.append(')');
 		return result.toString();
 	}

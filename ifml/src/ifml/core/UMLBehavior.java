@@ -2,7 +2,7 @@
  */
 package ifml.core;
 
-import org.eclipse.uml2.uml.Behavior;
+import uml.Behavior;
 
 /**
  * <!-- begin-user-doc -->

@@ -37,15 +37,11 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.emf.ecore.resource.Resource;
 
-import org.eclipse.uml2.uml.UMLPackage;
+import uml.UmlPackage;
 
-import org.eclipse.uml2.uml.internal.impl.UMLPackageImpl;
-import org.eclipse.uml2.types.TypesPackage;
-import org.eclipse.uml2.types.internal.impl.TypesPackageImpl;
-import org.eclipse.emf.ecore.impl.EcorePackageImpl;
-import org.eclipse.emf.ecore.EcorePackage;
+import uml.impl.UmlPackageImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
@@ -60,10 +56,6 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 	 */
 	private EClass formEClass = null;
 
-	@Override
-	protected Resource createResource(String uri) {
-		return super.createResource("ifml.ecore#/0/extensions");
-	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -252,27 +244,17 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 
 		// Obtain or create and register interdependencies
 		CorePackageImpl theCorePackage = (CorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-		UMLPackageImpl theUmlPackage = (UMLPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UMLPackageImpl.eNS_URI) instanceof UMLPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UMLPackageImpl.eNS_URI) : UMLPackageImpl.eINSTANCE);
-		EcorePackageImpl theEcorePackage = (EcorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) instanceof EcorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) : EcorePackage.eINSTANCE);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
-
-		// Load packages
-		theUmlPackage.loadPackage();
+		UmlPackageImpl theUmlPackage = (UmlPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UmlPackage.eNS_URI) instanceof UmlPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UmlPackage.eNS_URI) : UmlPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExtensionsPackage.createPackageContents();
 		theCorePackage.createPackageContents();
-		theEcorePackage.createPackageContents();
-		theTypesPackage.createPackageContents();
+		theUmlPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExtensionsPackage.initializePackageContents();
 		theCorePackage.initializePackageContents();
-		theEcorePackage.initializePackageContents();
-		theTypesPackage.initializePackageContents();
-
-		// Fix loaded packages
-		theUmlPackage.fixPackageContents();
+		theUmlPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExtensionsPackage.freeze();
@@ -788,7 +770,7 @@ public class ExtensionsPackageImpl extends EPackageImpl implements ExtensionsPac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(formEClass, Form.class, "Form", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getForm_SubmitEvent(), this.getSubmitEvent(), null, "submitEvent", null, 0, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getForm_SubmitEvent(), this.getSubmitEvent(), null, "submitEvent", null, 0, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

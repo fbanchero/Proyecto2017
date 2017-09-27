@@ -4,7 +4,7 @@ package ifml.core;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.uml2.uml.Element;
+import uml.Element;
 
 /**
  * <!-- begin-user-doc -->

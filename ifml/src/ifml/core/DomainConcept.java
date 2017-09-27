@@ -31,7 +31,7 @@ public interface DomainConcept extends DomainElement {
 	 * @return the value of the '<em>Data Binding</em>' reference.
 	 * @see #setDataBinding(DataBinding)
 	 * @see ifml.core.CorePackage#getDomainConcept_DataBinding()
-	 * @model
+	 * @model ordered="false"
 	 * @generated
 	 */
 	DataBinding getDataBinding();

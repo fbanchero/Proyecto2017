@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.uml2.uml.StructuralFeature;
+import uml.StructuralFeature;
 
 /**
  * <!-- begin-user-doc -->

@@ -26,6 +26,8 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import uml.TemplaetableElement;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
@@ -173,6 +175,14 @@ public class ExtensionsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseInteractionFlowModelElement(InteractionFlowModelElement object) {
 				return createInteractionFlowModelElementAdapter();
+			}
+			@Override
+			public Adapter caseUml_Element(uml.Element object) {
+				return createUml_ElementAdapter();
+			}
+			@Override
+			public Adapter caseTemplaetableElement(TemplaetableElement object) {
+				return createTemplaetableElementAdapter();
 			}
 			@Override
 			public Adapter caseInteractionFlowElement(InteractionFlowElement object) {
@@ -557,6 +567,34 @@ public class ExtensionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInteractionFlowModelElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link uml.Element <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see uml.Element
+	 * @generated
+	 */
+	public Adapter createUml_ElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link uml.TemplaetableElement <em>Templaetable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see uml.TemplaetableElement
+	 * @generated
+	 */
+	public Adapter createTemplaetableElementAdapter() {
 		return null;
 	}
 

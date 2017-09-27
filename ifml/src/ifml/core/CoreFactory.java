@@ -112,6 +112,24 @@ public interface CoreFactory extends EFactory {
 	DynamicBehavior createDynamicBehavior();
 
 	/**
+	 * Returns a new object of class '<em>UML Behavioral Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>UML Behavioral Feature</em>'.
+	 * @generated
+	 */
+	UMLBehavioralFeature createUMLBehavioralFeature();
+
+	/**
+	 * Returns a new object of class '<em>UML Behavior</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>UML Behavior</em>'.
+	 * @generated
+	 */
+	UMLBehavior createUMLBehavior();
+
+	/**
 	 * Returns a new object of class '<em>Data Flow</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -283,6 +301,42 @@ public interface CoreFactory extends EFactory {
 	VisualizationAttribute createVisualizationAttribute();
 
 	/**
+	 * Returns a new object of class '<em>UML Structural Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>UML Structural Feature</em>'.
+	 * @generated
+	 */
+	UMLStructuralFeature createUMLStructuralFeature();
+
+	/**
+	 * Returns a new object of class '<em>UML Domain Concept</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>UML Domain Concept</em>'.
+	 * @generated
+	 */
+	UMLDomainConcept createUMLDomainConcept();
+
+	/**
+	 * Returns a new object of class '<em>Behavioral Feature Concept</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Behavioral Feature Concept</em>'.
+	 * @generated
+	 */
+	BehavioralFeatureConcept createBehavioralFeatureConcept();
+
+	/**
+	 * Returns a new object of class '<em>Behavior Concept</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Behavior Concept</em>'.
+	 * @generated
+	 */
+	BehaviorConcept createBehaviorConcept();
+
+	/**
 	 * Returns a new object of class '<em>Module</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -310,15 +364,6 @@ public interface CoreFactory extends EFactory {
 	Annotation createAnnotation();
 
 	/**
-	 * Returns a new object of class '<em>Feature Concept</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Feature Concept</em>'.
-	 * @generated
-	 */
-	FeatureConcept createFeatureConcept();
-
-	/**
 	 * Returns a new object of class '<em>Domain Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -337,15 +382,6 @@ public interface CoreFactory extends EFactory {
 	DomainElement createDomainElement();
 
 	/**
-	 * Returns a new object of class '<em>UML Structural Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>UML Structural Feature</em>'.
-	 * @generated
-	 */
-	UMLStructuralFeature createUMLStructuralFeature();
-
-	/**
 	 * Returns a new object of class '<em>Domain Concept</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -355,51 +391,13 @@ public interface CoreFactory extends EFactory {
 	DomainConcept createDomainConcept();
 
 	/**
-	 * Returns a new object of class '<em>UML Domain Concept</em>'.
+	 * Returns a new object of class '<em>Feature Concept</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>UML Domain Concept</em>'.
+	 * @return a new object of class '<em>Feature Concept</em>'.
 	 * @generated
 	 */
-	UMLDomainConcept createUMLDomainConcept();
-	
-	EcoreDomainConcept createEcoreDomainConcept();
-
-	/**
-	 * Returns a new object of class '<em>Behavioral Feature Concept</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Behavioral Feature Concept</em>'.
-	 * @generated
-	 */
-	BehavioralFeatureConcept createBehavioralFeatureConcept();
-
-	/**
-	 * Returns a new object of class '<em>UML Behavioral Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>UML Behavioral Feature</em>'.
-	 * @generated
-	 */
-	UMLBehavioralFeature createUMLBehavioralFeature();
-
-	/**
-	 * Returns a new object of class '<em>Behavior Concept</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Behavior Concept</em>'.
-	 * @generated
-	 */
-	BehaviorConcept createBehaviorConcept();
-
-	/**
-	 * Returns a new object of class '<em>UML Behavior</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>UML Behavior</em>'.
-	 * @generated
-	 */
-	UMLBehavior createUMLBehavior();
+	FeatureConcept createFeatureConcept();
 
 	/**
 	 * Returns the package supported by this factory.

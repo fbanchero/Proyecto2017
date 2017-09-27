@@ -12,7 +12,10 @@ Export-Package: ifml.core,
  ifml.core.util,
  ifml.extensions,
  ifml.extensions.impl,
- ifml.extensions.util
+ ifml.extensions.util,
+ uml,
+ uml.impl,
+ uml.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport

@@ -103,7 +103,7 @@ public interface IFMLModel extends NamedElement {
 	 * @return the value of the '<em>Domain Model</em>' containment reference.
 	 * @see #setDomainModel(DomainModel)
 	 * @see ifml.core.CorePackage#getIFMLModel_DomainModel()
-	 * @model containment="true" required="true"
+	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	DomainModel getDomainModel();

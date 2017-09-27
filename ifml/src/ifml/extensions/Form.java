@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Form extends ViewComponent {
 	/**
-	 * Returns the value of the '<em><b>Submit Event</b></em>' reference list.
+	 * Returns the value of the '<em><b>Submit Event</b></em>' containment reference list.
 	 * The list contents are of type {@link ifml.extensions.SubmitEvent}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -32,9 +32,9 @@ public interface Form extends ViewComponent {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Submit Event</em>' reference list.
+	 * @return the value of the '<em>Submit Event</em>' containment reference list.
 	 * @see ifml.extensions.ExtensionsPackage#getForm_SubmitEvent()
-	 * @model ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<SubmitEvent> getSubmitEvent();

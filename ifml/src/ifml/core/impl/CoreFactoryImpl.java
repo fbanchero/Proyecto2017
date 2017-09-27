@@ -67,6 +67,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.VIEW_ELEMENT: return createViewElement();
 			case CorePackage.ACTION: return createAction();
 			case CorePackage.DYNAMIC_BEHAVIOR: return createDynamicBehavior();
+			case CorePackage.UML_BEHAVIORAL_FEATURE: return createUMLBehavioralFeature();
+			case CorePackage.UML_BEHAVIOR: return createUMLBehavior();
 			case CorePackage.DATA_FLOW: return createDataFlow();
 			case CorePackage.VIEW_ELEMENT_EVENT: return createViewElementEvent();
 			case CorePackage.EXTERNAL_EVENT: return createExternalEvent();
@@ -86,19 +88,17 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 			case CorePackage.CONTEXT: return createContext();
 			case CorePackage.CONTEXT_DIMENSION: return createContextDimension();
 			case CorePackage.VISUALIZATION_ATTRIBUTE: return createVisualizationAttribute();
+			case CorePackage.UML_STRUCTURAL_FEATURE: return createUMLStructuralFeature();
+			case CorePackage.UML_DOMAIN_CONCEPT: return createUMLDomainConcept();
+			case CorePackage.BEHAVIORAL_FEATURE_CONCEPT: return createBehavioralFeatureConcept();
+			case CorePackage.BEHAVIOR_CONCEPT: return createBehaviorConcept();
 			case CorePackage.MODULE: return createModule();
 			case CorePackage.PORT: return createPort();
 			case CorePackage.ANNOTATION: return createAnnotation();
-			case CorePackage.FEATURE_CONCEPT: return createFeatureConcept();
 			case CorePackage.DOMAIN_MODEL: return createDomainModel();
 			case CorePackage.DOMAIN_ELEMENT: return createDomainElement();
-			case CorePackage.UML_STRUCTURAL_FEATURE: return createUMLStructuralFeature();
 			case CorePackage.DOMAIN_CONCEPT: return createDomainConcept();
-			case CorePackage.UML_DOMAIN_CONCEPT: return createUMLDomainConcept();
-			case CorePackage.BEHAVIORAL_FEATURE_CONCEPT: return createBehavioralFeatureConcept();
-			case CorePackage.UML_BEHAVIORAL_FEATURE: return createUMLBehavioralFeature();
-			case CorePackage.BEHAVIOR_CONCEPT: return createBehaviorConcept();
-			case CorePackage.UML_BEHAVIOR: return createUMLBehavior();
+			case CorePackage.FEATURE_CONCEPT: return createFeatureConcept();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -236,6 +236,26 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	public DynamicBehavior createDynamicBehavior() {
 		DynamicBehaviorImpl dynamicBehavior = new DynamicBehaviorImpl();
 		return dynamicBehavior;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UMLBehavioralFeature createUMLBehavioralFeature() {
+		UMLBehavioralFeatureImpl umlBehavioralFeature = new UMLBehavioralFeatureImpl();
+		return umlBehavioralFeature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UMLBehavior createUMLBehavior() {
+		UMLBehaviorImpl umlBehavior = new UMLBehaviorImpl();
+		return umlBehavior;
 	}
 
 	/**
@@ -433,6 +453,46 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public UMLStructuralFeature createUMLStructuralFeature() {
+		UMLStructuralFeatureImpl umlStructuralFeature = new UMLStructuralFeatureImpl();
+		return umlStructuralFeature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UMLDomainConcept createUMLDomainConcept() {
+		UMLDomainConceptImpl umlDomainConcept = new UMLDomainConceptImpl();
+		return umlDomainConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BehavioralFeatureConcept createBehavioralFeatureConcept() {
+		BehavioralFeatureConceptImpl behavioralFeatureConcept = new BehavioralFeatureConceptImpl();
+		return behavioralFeatureConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BehaviorConcept createBehaviorConcept() {
+		BehaviorConceptImpl behaviorConcept = new BehaviorConceptImpl();
+		return behaviorConcept;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Module createModule() {
 		ModuleImpl module = new ModuleImpl();
 		return module;
@@ -463,16 +523,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FeatureConcept createFeatureConcept() {
-		FeatureConceptImpl featureConcept = new FeatureConceptImpl();
-		return featureConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DomainModel createDomainModel() {
 		DomainModelImpl domainModel = new DomainModelImpl();
 		return domainModel;
@@ -493,16 +543,6 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UMLStructuralFeature createUMLStructuralFeature() {
-		UMLStructuralFeatureImpl umlStructuralFeature = new UMLStructuralFeatureImpl();
-		return umlStructuralFeature;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DomainConcept createDomainConcept() {
 		DomainConceptImpl domainConcept = new DomainConceptImpl();
 		return domainConcept;
@@ -513,54 +553,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UMLDomainConcept createUMLDomainConcept() {
-		UMLDomainConceptImpl umlDomainConcept = new UMLDomainConceptImpl();
-		return umlDomainConcept;
-	}
-	
-	public EcoreDomainConcept createEcoreDomainConcept() {
-		EcoreDomainConceptImpl ecoreDomainConcept = new EcoreDomainConceptImpl();
-		return ecoreDomainConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BehavioralFeatureConcept createBehavioralFeatureConcept() {
-		BehavioralFeatureConceptImpl behavioralFeatureConcept = new BehavioralFeatureConceptImpl();
-		return behavioralFeatureConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UMLBehavioralFeature createUMLBehavioralFeature() {
-		UMLBehavioralFeatureImpl umlBehavioralFeature = new UMLBehavioralFeatureImpl();
-		return umlBehavioralFeature;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BehaviorConcept createBehaviorConcept() {
-		BehaviorConceptImpl behaviorConcept = new BehaviorConceptImpl();
-		return behaviorConcept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UMLBehavior createUMLBehavior() {
-		UMLBehaviorImpl umlBehavior = new UMLBehaviorImpl();
-		return umlBehavior;
+	public FeatureConcept createFeatureConcept() {
+		FeatureConceptImpl featureConcept = new FeatureConceptImpl();
+		return featureConcept;
 	}
 
 	/**

@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import uml.TemplaetableElement;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Switch</b> for the model's inheritance hierarchy.
@@ -89,7 +91,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(form);
 				if (result == null) result = caseNamedElement(form);
 				if (result == null) result = caseInteractionFlowModelElement(form);
+				if (result == null) result = caseTemplaetableElement(form);
 				if (result == null) result = caseElement(form);
+				if (result == null) result = caseUml_Element(form);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -100,7 +104,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(field);
 				if (result == null) result = caseNamedElement(field);
 				if (result == null) result = caseInteractionFlowModelElement(field);
+				if (result == null) result = caseTemplaetableElement(field);
 				if (result == null) result = caseElement(field);
+				if (result == null) result = caseUml_Element(field);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -112,7 +118,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(selectionField);
 				if (result == null) result = caseNamedElement(selectionField);
 				if (result == null) result = caseInteractionFlowModelElement(selectionField);
+				if (result == null) result = caseTemplaetableElement(selectionField);
 				if (result == null) result = caseElement(selectionField);
+				if (result == null) result = caseUml_Element(selectionField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -134,7 +142,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(slot);
 				if (result == null) result = caseNamedElement(slot);
 				if (result == null) result = caseInteractionFlowModelElement(slot);
+				if (result == null) result = caseTemplaetableElement(slot);
 				if (result == null) result = caseElement(slot);
+				if (result == null) result = caseUml_Element(slot);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -152,7 +162,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(selectEvent);
 				if (result == null) result = caseNamedElement(selectEvent);
 				if (result == null) result = caseInteractionFlowModelElement(selectEvent);
+				if (result == null) result = caseTemplaetableElement(selectEvent);
 				if (result == null) result = caseElement(selectEvent);
+				if (result == null) result = caseUml_Element(selectEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -164,7 +176,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(list);
 				if (result == null) result = caseNamedElement(list);
 				if (result == null) result = caseInteractionFlowModelElement(list);
+				if (result == null) result = caseTemplaetableElement(list);
 				if (result == null) result = caseElement(list);
+				if (result == null) result = caseUml_Element(list);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -176,7 +190,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(simpleField);
 				if (result == null) result = caseNamedElement(simpleField);
 				if (result == null) result = caseInteractionFlowModelElement(simpleField);
+				if (result == null) result = caseTemplaetableElement(simpleField);
 				if (result == null) result = caseElement(simpleField);
+				if (result == null) result = caseUml_Element(simpleField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -188,7 +204,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(submitEvent);
 				if (result == null) result = caseNamedElement(submitEvent);
 				if (result == null) result = caseInteractionFlowModelElement(submitEvent);
+				if (result == null) result = caseTemplaetableElement(submitEvent);
 				if (result == null) result = caseElement(submitEvent);
+				if (result == null) result = caseUml_Element(submitEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -200,7 +218,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(selector);
 				if (result == null) result = caseInteractionFlowModelElement(selector);
 				if (result == null) result = caseNamedElement(selector);
+				if (result == null) result = caseTemplaetableElement(selector);
 				if (result == null) result = caseElement(selector);
+				if (result == null) result = caseUml_Element(selector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -239,7 +259,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(details);
 				if (result == null) result = caseNamedElement(details);
 				if (result == null) result = caseInteractionFlowModelElement(details);
+				if (result == null) result = caseTemplaetableElement(details);
 				if (result == null) result = caseElement(details);
+				if (result == null) result = caseUml_Element(details);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -251,7 +273,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(window);
 				if (result == null) result = caseNamedElement(window);
 				if (result == null) result = caseInteractionFlowModelElement(window);
+				if (result == null) result = caseTemplaetableElement(window);
 				if (result == null) result = caseElement(window);
+				if (result == null) result = caseUml_Element(window);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -262,7 +286,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(image);
 				if (result == null) result = caseNamedElement(image);
 				if (result == null) result = caseInteractionFlowModelElement(image);
+				if (result == null) result = caseTemplaetableElement(image);
 				if (result == null) result = caseElement(image);
+				if (result == null) result = caseUml_Element(image);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -273,7 +299,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(button);
 				if (result == null) result = caseNamedElement(button);
 				if (result == null) result = caseInteractionFlowModelElement(button);
+				if (result == null) result = caseTemplaetableElement(button);
 				if (result == null) result = caseElement(button);
+				if (result == null) result = caseUml_Element(button);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -284,8 +312,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(textField);
 				if (result == null) result = caseNamedElement(textField);
 				if (result == null) result = caseInteractionFlowModelElement(textField);
+				if (result == null) result = caseTemplaetableElement(textField);
 				if (result == null) result = caseElement(textField);
-				//if (result == null) result = caseUml_Element(textField);
+				if (result == null) result = caseUml_Element(textField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -296,9 +325,9 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInteractionFlowElement(video);
 				if (result == null) result = caseNamedElement(video);
 				if (result == null) result = caseInteractionFlowModelElement(video);
-				//if (result == null) result = caseTemplaetableElement(video);
+				if (result == null) result = caseTemplaetableElement(video);
 				if (result == null) result = caseElement(video);
-				//if (result == null) result = caseUml_Element(video);
+				if (result == null) result = caseUml_Element(video);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -648,6 +677,36 @@ public class ExtensionsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseInteractionFlowModelElement(InteractionFlowModelElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUml_Element(uml.Element object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Templaetable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Templaetable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTemplaetableElement(TemplaetableElement object) {
 		return null;
 	}
 

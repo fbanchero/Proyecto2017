@@ -5,16 +5,17 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.jetty.server.handler.ContextHandler.Availability;
-import org.eclipse.uml2.uml.Association;
-import org.eclipse.uml2.uml.BehavioralFeature;
-import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.Operation;
-import org.eclipse.uml2.uml.PrimitiveType;
-import org.eclipse.uml2.uml.Property;
-import org.eclipse.uml2.uml.StructuralFeature;
-import org.eclipse.uml2.uml.UMLFactory;
+//import org.eclipse.uml2.uml.Association;
+//import org.eclipse.uml2.uml.BehavioralFeature;
+//import org.eclipse.uml2.uml.Class;
+//import org.eclipse.uml2.uml.Operation;
+//import org.eclipse.uml2.uml.PrimitiveType;
+//import org.eclipse.uml2.uml.Property;
+//import org.eclipse.uml2.uml.StructuralFeature;
+//import org.eclipse.uml2.uml.UMLFactory;
 
 import com.google.gson.internal.LinkedTreeMap;
 
@@ -62,12 +63,17 @@ import ifml.extensions.SubmitEvent;
 import ifml.extensions.TextField;
 import ifml.extensions.Video;
 import ifml.extensions.Window;
+import uml.BehavioralFeature;
+import uml.Classifier;
+import uml.PrimitiveType;
+import uml.StructuralFeature;
+import uml.UmlFactory;
 
 public class ElementBuilder {
 	
     public static CoreFactory f;
     public static ExtensionsFactory ef;
-    public static UMLFactory umlf;
+    public static UmlFactory umlf;
 	public static TypeFactory tf;
 	public static EcoreFactory ecf;
 	
@@ -76,9 +82,11 @@ public class ElementBuilder {
 	public Map<String, DomainConcept> mapClass;
 	public ArrayList<DataBinding> listDataBinding;
 	public ArrayList<SubmitEvent> listSubmitEvent;
-	public ArrayList<SelectEvent> listSelectEvent; 
+	public ArrayList<SelectEvent> listSelectEvent;
+	public ArrayList<NavigationFlow> listNavigationFlow;
+	public ArrayList<Action> listAction;
 
-	public ElementBuilder(CoreFactory pf, ExtensionsFactory pef, UMLFactory uf) {
+	public ElementBuilder(CoreFactory pf, ExtensionsFactory pef, UmlFactory uf) {
 		f = pf;
 		ef = pef;
 		umlf = uf;
@@ -86,6 +94,8 @@ public class ElementBuilder {
 		listDataBinding = new ArrayList<DataBinding>();
 		listSubmitEvent = new ArrayList<SubmitEvent>();
 		listSelectEvent = new ArrayList<SelectEvent>();
+		listNavigationFlow = new ArrayList<NavigationFlow>();
+		listAction = new ArrayList<Action>();
 		mapClass = new HashMap<String, DomainConcept>();
 		mapOperations = new HashMap<String, BehavioralFeatureConcept>();
 		mapAttributes = new HashMap<String, FeatureConcept>();
@@ -164,15 +174,17 @@ public class ElementBuilder {
 				nf.setSrcInteractionFlowElement(list);
 				nf.setTrgtInteractionFlowElement(action);
 				nf.setParameterBindingGroup(paramBindGroup);
+				listNavigationFlow.add(nf);
 				
-				se.getNavigationFlows().add(nf);	
+				se.getNavigationFlows().add(nf);
 				
 				list.getSelectEvent().add(se);
 				
 				LinkElem le = new LinkElem();
 				le.setId(e);
-				le.setNavigationFlow(nf);				
-				links.add(le);					
+				le.setNavigationFlow(nf);	
+				links.add(le);		
+				
 				
 				listSelectEvent.add(se);
 	
@@ -196,22 +208,24 @@ public class ElementBuilder {
 							dba.setName("dataBinding_"+ clase);
 							UMLDomainConcept dca = (UMLDomainConcept)mapClass.get(clase);
 							dba.setDomainConcept(dca);
-							for (Property p: dca.getClassifier().getAttributes()) {
+							for (StructuralFeature p: dca.getClassifier().getStructuralFeatures()) {
 								VisualizationAttribute va = f.createVisualizationAttribute();						
-								va.setFeatureConcept(mapAttributes.get(dca.getName() + "_" + p.getName()));
+								va.setFeatureConcept(mapAttributes.get(dca.getName() + "_" + p.getNombre()));
 								va.setId(va.getFeatureConcept().getId());
 								va.setName(va.getFeatureConcept().getName());
+								list.getViewComponentParts().add(va);
 								dba.getVisualizationAttributes().add(va);								
 							}	
 							list.getViewComponentParts().add(dba);
 							listDataBinding.add(dba);
 						}
 						else{
-							VisualizationAttribute va = f.createVisualizationAttribute();						
+							VisualizationAttribute va = f.createVisualizationAttribute();							
 							va.setFeatureConcept(mapAttributes.get(dc.getName() + "_" + (String)(((LinkedTreeMap<String, Object>)a.get("properties")).get("nombre"))));
 							va.setId(va.getFeatureConcept().getId());
 							va.setName(va.getFeatureConcept().getName());
-							db.getVisualizationAttributes().add(va);	
+							db.getVisualizationAttributes().add(va);
+							list.getViewComponentParts().add(va);
 							listDataBinding.add(db);
 						}																								
 					}
@@ -249,6 +263,7 @@ public class ElementBuilder {
 				
 				ViewElementEvent event = f.createViewElementEvent();
 				NavigationFlow nf = f.createNavigationFlow();
+				listNavigationFlow.add(nf);
 				
 				nf.setSrcInteractionFlowElement(event);
 				event.getNavigationFlows().add(nf);
@@ -556,9 +571,12 @@ public class ElementBuilder {
 //		return dc;
 //	}
 	
-	public org.eclipse.uml2.uml.Class createClass(DomainClass domainClass, DomainModel domainModel) {
-		org.eclipse.uml2.uml.Class c = umlf.createClass();
-		c.setName(domainClass.getName());
+	
+
+	
+	public Classifier createClass(DomainClass domainClass, DomainModel domainModel) {
+		Classifier c = umlf.createClassifier();
+		c.setNombre(domainClass.getName());
 		
 		UMLDomainConcept umldc = f.createUMLDomainConcept();
 		umldc.setId(domainClass.getId());
@@ -567,8 +585,12 @@ public class ElementBuilder {
 		domainModel.getElements().add(umldc);
 		
 		for (DomainAttribute da: domainClass.getListAttribute()) {
+			// TODO PENDIENTE CREARLO UNA VEZ SOLA
 			PrimitiveType pt = tf.getPrimitiveType(da.getType());
-			Property p = c.createOwnedAttribute(da.getName(), pt);
+			StructuralFeature p = umlf.createStructuralFeature();
+			p.setNombre(da.getName());
+			p.setPrimitiveType(pt);
+			c.getStructuralFeatures().add(p);
 			UMLStructuralFeature umlsf = f.createUMLStructuralFeature();
 			umlsf.setStructuralFeature(p);
 			umlsf.setId(da.getId());
@@ -576,46 +598,45 @@ public class ElementBuilder {
 			domainModel.getElements().add(umlsf);
 			mapAttributes.put(domainClass.getName() + "_" + da.getName(), umlsf);
 		}
+		
 		for (DomainOperation oper: domainClass.getListOperation()) {
-			Operation bf = umlf.createOperation();
-			bf.setName(oper.getName());
+			BehavioralFeature bf = umlf.createBehavioralFeature();
+			bf.setNombre(oper.getName());
 			if (oper.getRetorno() != null) {
-				PrimitiveType pt = umlf.createPrimitiveType();
-				pt.setName(oper.getRetorno());
-				bf.createReturnResult(null, pt);
+				PrimitiveType pt = tf.getPrimitiveType(oper.getRetorno());
 			}
-			for (Parameter p: oper.getListParameter()) {
-				PrimitiveType pt = umlf.createPrimitiveType();
-				pt.setName(p.getTipo());
-				bf.createOwnedParameter(p.getName(), pt);
-			}
-			c.getAllOperations().add(bf);
+//			for (Parameter p: oper.getListParameter()) {
+//				PrimitiveType pt = umlf.createPrimitiveType();
+//				pt.setName(p.getTipo());
+//				bf.createOwnedParameter(p.getName(), pt);
+//			}
+			c.getBehavioralFeatures().add(bf);
 			UMLBehavioralFeature umlbf = f.createUMLBehavioralFeature();
 			umlbf.setBehavioralFeature(bf);
 			umlbf.setId(oper.getId());
 			umlbf.setName(oper.getName());
 			domainModel.getElements().add(umlbf);
-			mapOperations.put(oper.getName(), umlbf);
+			mapOperations.put(oper.getId(), umlbf);
 		}
 		
 		mapClass.put(umldc.getName(), umldc);
 		return c;
 	}
 	
-	public Association createAssociation(DomainRelationship domainRelationship, Map<String, org.eclipse.uml2.uml.Class> mapClassifiers) {
-		Association a = umlf.createAssociation();
-		for (DomainRelationshipEnd dre: domainRelationship.getRelationsEnd()) {
-			org.eclipse.uml2.uml.Class c = mapClassifiers.get(dre.getNameClass());
-			Property p = umlf.createProperty();
-			p.setType(c);
-			p.setUpper(dre.getCardUpper());
-			p.setLower(dre.getCardLower());
-			a.getMemberEnds().add(p);
-			c.getAssociations().add(a);
-		}
-		return a;
-	}
-	
+//	public Association createAssociation(DomainRelationship domainRelationship, Map<String, org.eclipse.uml2.uml.Class> mapClassifiers) {
+//		Association a = umlf.createAssociation();
+//		for (DomainRelationshipEnd dre: domainRelationship.getRelationsEnd()) {
+//			org.eclipse.uml2.uml.Class c = mapClassifiers.get(dre.getNameClass());
+//			Property p = umlf.createProperty();
+//			p.setType(c);
+//			p.setUpper(dre.getCardUpper());
+//			p.setLower(dre.getCardLower());
+//			a.getMemberEnds().add(p);
+//			c.getAssociations().add(a);
+//		}
+//		return a;
+//	}
+//	
 	public Form createForm(MockupGeneralElement elem, ArrayList<LinkElem> links) {
 		
 		Form form = ef.createForm();
@@ -633,6 +654,7 @@ public class ElementBuilder {
 					sf.setId(java.util.UUID.randomUUID().toString()); // autogenerar uno
 					sf.setName(nombre);
 					form.getViewComponentParts().add(sf);
+					
 					ParameterBinding pb = f.createParameterBinding();					
 					pb.setId(java.util.UUID.randomUUID().toString());
 					ifml.core.Parameter sp = f.createParameter();
@@ -640,11 +662,8 @@ public class ElementBuilder {
 					sp.setName(sf.getName() + "_source_parameter");
 					sp.setKind(ParameterKind.INPUT);
 					pb.setSourceParameter(sp);
-					ifml.core.Parameter tp = f.createParameter();
-					tp.setId(java.util.UUID.randomUUID().toString());										
-					tp.setName(sf.getName() + "_target_parameter");
-					tp.setKind(ParameterKind.OUTPUT);
-					pb.setTargetParameter(tp);
+					sf.getParameters().add(sp);
+					
 					paramBindGroup.getParameterBindings().add(pb);
 					
 				} else if (((String)a.get("type")).equals("association")) {
@@ -654,12 +673,15 @@ public class ElementBuilder {
 					db.setId(java.util.UUID.randomUUID().toString());
 					db.setName(tipoClass + "_Name");
 					db.setDomainConcept(mapClass.get(tipoClass));
+					
 					SelectionField sf = ef.createSelectionField();
 					sf.setIsMultiSelection(false);
 					sf.setId(java.util.UUID.randomUUID().toString()); // autogenerar uno
 					sf.setName(nombre);
-					sf.getSubViewComponentParts().add(db);
+					sf.getSubViewComponentParts().add(sf);
 					form.getViewComponentParts().add(sf);
+					form.getViewComponentParts().add(db);
+					
 					ParameterBinding pb = f.createParameterBinding();					
 					pb.setId(java.util.UUID.randomUUID().toString());
 					ifml.core.Parameter sp = f.createParameter();
@@ -667,15 +689,15 @@ public class ElementBuilder {
 					sp.setName(sf.getName() + "_source_parameter");
 					sp.setKind(ParameterKind.INPUT);
 					pb.setSourceParameter(sp);
+					sf.getParameters().add(sp);
 					ifml.core.Parameter tp = f.createParameter();
 					tp.setId(java.util.UUID.randomUUID().toString());										
 					tp.setName(sf.getName() + "_target_parameter");
 					tp.setKind(ParameterKind.OUTPUT);
-					pb.setTargetParameter(tp);	
+					pb.setTargetParameter(tp);
 					paramBindGroup.getParameterBindings().add(pb);
 					listDataBinding.add(db);
 				}
-//				form.getViewComponentParts().add(va);
 			}
 			
 		}
@@ -691,20 +713,29 @@ public class ElementBuilder {
 			Action action = f.createAction();
 			action.setId(java.util.UUID.randomUUID().toString());
 			action.setName(elem.getName() + "_action");
+			listAction.add(action);
 			DynamicBehavior db = f.createDynamicBehavior();
 			db.setId(java.util.UUID.randomUUID().toString());
 			db.setName(elem.getName() + "_dynamicBehaviour");
 			db.setBehavioralFeatureConcept(mapOperations.get(elem.getEvents().get(0).getBehaviour()));
 			action.setDynamicBehavior(db);
-			
+			form.getViewComponentParts().add(db);
+			for (ParameterBinding pb: paramBindGroup.getParameterBindings()) {
+				ifml.core.Parameter tp = f.createParameter();
+				tp.setId(java.util.UUID.randomUUID().toString());										
+				tp.setName(pb.getSourceParameter().getName() + "_target_parameter");
+				tp.setKind(ParameterKind.OUTPUT);
+				pb.setTargetParameter(tp);
+				db.getParameters().add(tp);
+			}
 			NavigationFlow nf = f.createNavigationFlow();
 			nf.setId(java.util.UUID.randomUUID().toString());
-			nf.setSrcInteractionFlowElement(form);
+			nf.setSrcInteractionFlowElement(se);
 			nf.setTrgtInteractionFlowElement(action);
 			nf.setParameterBindingGroup(paramBindGroup);
 			se.getNavigationFlows().add(nf);
 			form.getSubmitEvent().add(se);
-			
+			action.getInInteractionFlows().add(nf);
 		
 			//-----------------------------------------------
 								
@@ -726,6 +757,7 @@ public class ElementBuilder {
 			sp_salida.setName(action.getName() + "_source_parameter");
 			sp_salida.setKind(ParameterKind.INPUT);
 			pb_salida.setSourceParameter(sp_salida);
+			db.getParameters().add(sp_salida);
 			
 			ifml.core.Parameter tp_salida = f.createParameter();			
 			tp_salida.setId(java.util.UUID.randomUUID().toString());										
@@ -734,12 +766,13 @@ public class ElementBuilder {
 			pb_salida.setTargetParameter(tp_salida);
 			
 			pbg_salida.getParameterBindings().add(pb_salida);			
-			nv_salida.setParameterBindingGroup(pbg_salida);
+//			nv_salida.setParameterBindingGroup(pbg_salida);
 			actionEvent.getNavigationFlows().add(nv_salida);
 						
 			LinkElem le = new LinkElem();
 			le.setId(elem.getEvents().get(0).getLink());
 			le.setNavigationFlow(nv_salida);
+			le.setParameterBindingGroup(pbg_salida);
 			links.add(le);
 			
 			action.getActionEvents().add(actionEvent);
@@ -768,7 +801,8 @@ public class ElementBuilder {
 			ce.setName(entity + "_conditionalExpression"); 
 			ce.setLanguage("OCL");
 			ce.setBody(conditionalExp);
-			db.getConditionalExpression().add(ce);			
+			db.getConditionalExpression().add(ce);
+			details.getViewComponentParts().add(ce);
 		}
 											
 		if (properties.containsKey("attributes")) {
@@ -780,11 +814,12 @@ public class ElementBuilder {
 					dba.setName(clase + "_dataBinding");
 					UMLDomainConcept dca = (UMLDomainConcept)mapClass.get(clase);
 					dba.setDomainConcept(dca);
-					for (Property p: dca.getClassifier().getAttributes()) {
+					for (BehavioralFeature p: dca.getClassifier().getBehavioralFeatures()) {
 						VisualizationAttribute va = f.createVisualizationAttribute();						
-						va.setFeatureConcept(mapAttributes.get(dca.getName() + "_" + p.getName()));
+						va.setFeatureConcept(mapAttributes.get(dca.getName() + "_" + p.getNombre()));
 						va.setId(va.getFeatureConcept().getId());
 						va.setName(va.getFeatureConcept().getName());
+						details.getViewComponentParts().add(va);
 						dba.getVisualizationAttributes().add(va);								
 					}	
 					details.getViewComponentParts().add(dba);
@@ -795,7 +830,8 @@ public class ElementBuilder {
 					va.setFeatureConcept(mapAttributes.get(dc.getName() + "_" + (String)(((LinkedTreeMap<String, Object>)a.get("properties")).get("nombre"))));
 					va.setId(va.getFeatureConcept().getId());
 					va.setName(va.getFeatureConcept().getName());
-					db.getVisualizationAttributes().add(va);	
+					db.getVisualizationAttributes().add(va);
+					details.getViewComponentParts().add(va);
 					listDataBinding.add(db);
 				}																								
 			}
@@ -815,6 +851,10 @@ public class ElementBuilder {
 	
 	public ArrayList<SelectEvent> getListSelectEvent() {
 		return listSelectEvent;
+	}
+	
+	public ArrayList<Action> getListAction() {
+		return listAction;
 	}
 
 

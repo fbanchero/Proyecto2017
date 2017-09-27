@@ -166,6 +166,16 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SelectEvent createSelectEvent() {
+		SelectEventImpl selectEvent = new SelectEventImpl();
+		return selectEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public List createList() {
 		ListImpl list = new ListImpl();
 		return list;
@@ -191,15 +201,6 @@ public class ExtensionsFactoryImpl extends EFactoryImpl implements ExtensionsFac
 		return submitEvent;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SelectEvent createSelectEvent() {
-		SelectEventImpl selectEvent = new SelectEventImpl();
-		return selectEvent;
-	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

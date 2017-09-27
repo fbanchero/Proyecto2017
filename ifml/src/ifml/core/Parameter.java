@@ -2,6 +2,8 @@
  */
 package ifml.core;
 
+import uml.MultiplicityElement;
+import uml.PrimitiveType;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +21,7 @@ package ifml.core;
  * @model
  * @generated
  */
-public interface Parameter extends InteractionFlowModelElement, NamedElement {
+public interface Parameter extends InteractionFlowModelElement, MultiplicityElement, PrimitiveType, NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Kind</b></em>' attribute.
 	 * The default value is <code>"ordinary"</code>.
