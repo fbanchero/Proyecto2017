@@ -105,7 +105,7 @@
         </div>
 
         <!-- Select Event Table -->
-        <div class="event-box" ng-if="models.selected.type == 'table'" layout="column">
+        <div class="event-box shorten" ng-if="models.selected.type == 'table'" layout="column">
             <label> select events:
               <select ng-model="models.eventSelected">
                   <option
@@ -115,7 +115,8 @@
             </label>
             <button class="btn btn-primary" ng-click='addSelectEvent()'>Agregar</button>
         </div>
-
+        <hr>
+        
         <!-- System Event Table -->
         <div class="event-box" ng-if="models.selected.type == 'table'" layout="column">
             <label> system events:
