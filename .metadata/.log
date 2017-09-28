@@ -36,3 +36,11 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 !ENTRY org.apache.log4j 2 0 2017-09-27 20:30:07.293
 !MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 
+
+!ENTRY org.apache.log4j 2 0 2017-09-27 20:39:27.314
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+
+!ENTRY org.apache.log4j 2 0 2017-09-27 20:39:27.330
+!MESSAGE org.eclipse.m2e.core.internal.embedder.EclipseLogger  - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+

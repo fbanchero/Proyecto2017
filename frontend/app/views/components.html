@@ -1,5 +1,5 @@
 <div class="panel-group" id="accordion_reg" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
+    <div class="panel panel-default" ng-if="models.pageSelected != models.result.domain[0].id">
         <div class="panel-heading" role="tab" id="headingOne_reg"  data-toggle="collapse" data-target="#collapseOne_reg" aria-expanded="false" aria-controls="collapseOne_reg">
             <h4 class="panel-title">
                 <a href="" role="button" class="collapsed">
@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
+    <div class="panel panel-default" ng-if="models.pageSelected != models.result.domain[0].id">
         <div class="panel-heading" role="tab" id="headingTwo_reg"  data-toggle="collapse" data-target="#collapseTwo_reg" aria-expanded="false" aria-controls="collapseTwo_reg">
             <h4 class="panel-title">
                 <a href="" class="collapsed" role="button">
@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
+    <div class="panel panel-default" ng-if="models.pageSelected != models.result.domain[0].id">
         <div class="panel-heading" role="tab" id="headingThree_reg" data-toggle="collapse" data-target="#collapseThree_reg" aria-expanded="false" aria-controls="collapseThree_reg">
             <h4 class="panel-title">
                 <a href="" class="collapsed" role="button">
@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
+    <div class="panel panel-default" ng-if="models.pageSelected == models.result.domain[0].id">
         <div class="panel-heading" role="tab" id="headingFour_reg" data-toggle="collapse" data-target="#collapseFour_reg" aria-expanded="false" aria-controls="collapseFour_reg">
             <h4 class="panel-title">
                 <a href="" class="collapsed" role="button">
