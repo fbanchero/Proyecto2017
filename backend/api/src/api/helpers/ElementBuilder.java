@@ -2,33 +2,19 @@ package api.helpers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 
-
 import org.eclipse.emf.ecore.EcoreFactory;
-import org.eclipse.jetty.server.handler.ContextHandler.Availability;
-//import org.eclipse.uml2.uml.Association;
-//import org.eclipse.uml2.uml.BehavioralFeature;
-//import org.eclipse.uml2.uml.Class;
-//import org.eclipse.uml2.uml.Operation;
-//import org.eclipse.uml2.uml.PrimitiveType;
-//import org.eclipse.uml2.uml.Property;
-//import org.eclipse.uml2.uml.StructuralFeature;
-//import org.eclipse.uml2.uml.UMLFactory;
 
 import com.google.gson.internal.LinkedTreeMap;
 
 import api.classes.DomainAttribute;
 import api.classes.DomainClass;
 import api.classes.DomainOperation;
-import api.classes.DomainRelationship;
-import api.classes.DomainRelationshipEnd;
 import api.classes.MockupGeneralElement;
 import api.classes.MockupMultipleColumnElement;
 import api.classes.MockupSingleColumnElement;
 import api.classes.NavigationEvent;
-import api.classes.Parameter;
 import ifml.core.Action;
 import ifml.core.ActionEvent;
 import ifml.core.BehavioralFeatureConcept;
@@ -77,6 +63,7 @@ public class ElementBuilder {
 	public static TypeFactory tf;
 	public static EcoreFactory ecf;
 	
+	public Map<String, LinkElem> mapLinkElems;
 	public Map<String, FeatureConcept> mapAttributes;
 	public Map<String, BehavioralFeatureConcept> mapOperations;
 	public Map<String, DomainConcept> mapClass;
@@ -96,6 +83,7 @@ public class ElementBuilder {
 		listSelectEvent = new ArrayList<SelectEvent>();
 		listNavigationFlow = new ArrayList<NavigationFlow>();
 		listAction = new ArrayList<Action>();
+		mapLinkElems = new HashMap<String, LinkElem>();
 		mapClass = new HashMap<String, DomainConcept>();
 		mapOperations = new HashMap<String, BehavioralFeatureConcept>();
 		mapAttributes = new HashMap<String, FeatureConcept>();
@@ -365,6 +353,13 @@ public class ElementBuilder {
 				
 			}
 		
+		}
+		
+		if (mapLinkElems.containsKey(elem.getId())) {
+			LinkElem le = mapLinkElems.get(elem.getId());
+			for (ParameterBinding pb: le.getParameterBindingGroup().getParameterBindings()) {
+				vc.getParameters().add(pb.getTargetParameter());			
+			}
 		}
 		
 		return vc;
@@ -777,11 +772,12 @@ public class ElementBuilder {
 			pb_salida.setTargetParameter(tp_salida);
 			
 			pbg_salida.getParameterBindings().add(pb_salida);			
-//			nv_salida.setParameterBindingGroup(pbg_salida);
+			nv_salida.setParameterBindingGroup(pbg_salida);
 			actionEvent.getNavigationFlows().add(nv_salida);
 						
 			LinkElem le = new LinkElem();
 			le.setId(elem.getEvents().get(0).getLink());
+			mapLinkElems.put(elem.getEvents().get(0).getLink(), le);
 			le.setNavigationFlow(nv_salida);
 			le.setParameterBindingGroup(pbg_salida);
 			links.add(le);
@@ -848,7 +844,7 @@ public class ElementBuilder {
 			}
 			
 		}
-		details.getViewComponentParts().add(db);										
+		details.getViewComponentParts().add(db);
 		return details;
 	}
 
