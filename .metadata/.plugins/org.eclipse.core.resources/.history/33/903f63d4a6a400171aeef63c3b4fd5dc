@@ -613,9 +613,9 @@ public class ElementBuilder {
 		for (DomainOperation oper: domainClass.getListOperation()) {
 			BehavioralFeature bf = umlf.createBehavioralFeature();
 			bf.setNombre(oper.getName());
-//			if (oper.getRetorno() != null) {
-//				PrimitiveType pt = tf.getPrimitiveType(oper.getRetorno());
-//			}
+			if (oper.getRetorno() != null) {
+				PrimitiveType pt = tf.getPrimitiveType(oper.getRetorno());
+			}
 //			for (Parameter p: oper.getListParameter()) {
 //				PrimitiveType pt = umlf.createPrimitiveType();
 //				pt.setName(p.getTipo());

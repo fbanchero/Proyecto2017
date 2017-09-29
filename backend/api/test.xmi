@@ -2,67 +2,39 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/IFML/core" xmlns:ext="http://www.omg.org/spec/IFML/ext" xmlns:uml="http://www.omg.org/spec/UML">
   <core:IFMLModel name="Mockup">
     <interactionFlowModel name="Pages">
-      <interactionFlowModelElements xsi:type="core:ViewContainer" id="a7513a2b" name="Page1" inInteractionFlows="/0/@interactionFlowModel/@interactionFlowModelElements.1/@actionEvents.0/@navigationFlows.0">
-        <viewElements xsi:type="ext:Form" id="a60185ba" name="form">
-          <viewComponentParts xsi:type="ext:SimpleField" id="a568545c-f183-47c1-af3d-dd63f7597d54" name="nombre">
-            <parameters id="5dadabd5-dfd8-47a5-9560-8dfa12d4423c" name="nombre_source_parameter" kind="input"/>
-          </viewComponentParts>
-          <viewComponentParts xsi:type="ext:SelectionField" id="52ca75cc-87dc-4d7b-bc9b-26f195dbb0b6" name="categoria" subViewComponentParts="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.1" parentViewComponentPart="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.1">
-            <parameters id="265f2420-1fac-4918-a6f9-5b882bd9589e" name="categoria_source_parameter" kind="input"/>
-          </viewComponentParts>
-          <viewComponentParts xsi:type="core:DataBinding" id="a61269b0-1b30-4e29-8958-454f9a8c09e3" name="categoria_Name" domainConcept="/0/@domainModel/@elements.6"/>
-          <viewComponentParts xsi:type="core:DynamicBehavior" id="7f287cab-d699-4ddf-9650-f930bc4b7b41" name="form_dynamicBehaviour" behavioralFeatureConcept="/0/@domainModel/@elements.3">
-            <parameters id="109e59a7-b955-4b81-84ee-6c77f24d211d" name="nombre_source_parameter_target_parameter" kind="output"/>
-            <parameters id="214c8f0a-ef0c-452b-a227-5eaced19ebb9" name="categoria_source_parameter_target_parameter" kind="output"/>
-            <parameters id="d3ea1a5a-f749-45d5-95d7-40908c4e1736" name="form_action_source_parameter" kind="input"/>
-          </viewComponentParts>
-          <submitEvent id="a7513a2b" name="form">
-            <navigationFlows id="eb794abf-5b99-482e-8700-15d849b9a48e" srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@submitEvent.0" trgtInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.1">
-              <parameterBindingGroup>
-                <parameterBindings id="58193224-86f0-42ef-b894-c0e6d154404c" sourceParameter="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.0/@parameters.0" targetParameter="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.3/@parameters.0"/>
-                <parameterBindings id="54e2bb94-b108-49a7-a3d1-f93b436b7837" sourceParameter="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.1/@parameters.0" targetParameter="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.3/@parameters.1"/>
-              </parameterBindingGroup>
-            </navigationFlows>
-          </submitEvent>
+      <interactionFlowModelElements xsi:type="core:ViewContainer" id="f149e52f" name="Page1">
+        <viewElements xsi:type="ext:List" id="27a715db" name="table">
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="1d95b4b4" name="id" featureConcept="/0/@domainModel/@elements.1"/>
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="22080fb2" name="nombre" featureConcept="/0/@domainModel/@elements.2"/>
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="596f231e" name="id" featureConcept="/0/@domainModel/@elements.7"/>
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="d54a88cb" name="descripcion" featureConcept="/0/@domainModel/@elements.8"/>
+          <viewComponentParts xsi:type="core:DataBinding" name="dataBinding_categoria" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.2 /0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.3" domainConcept="/0/@domainModel/@elements.6"/>
+          <viewComponentParts xsi:type="core:DataBinding" name="dataBinding_producto" conditionalExpression="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.6" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.0 /0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.1" domainConcept="/0/@domainModel/@elements.0"/>
+          <viewComponentParts xsi:type="core:ConditionalExpression" id="3f8fb181-d79e-40a0-9444-09fc9b48a54d" language="OCL" body="categoria == 4" name="producto_conditionalExpression"/>
         </viewElements>
-        <viewElements xsi:type="ext:List" id="82f5389d" name="table">
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="ff798988" name="id" featureConcept="/0/@domainModel/@elements.1"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="bf1842ae" name="nombre" featureConcept="/0/@domainModel/@elements.2"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="bcfa377c" name="id" featureConcept="/0/@domainModel/@elements.7"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="7fc34bf7" name="descripcion" featureConcept="/0/@domainModel/@elements.8"/>
-          <viewComponentParts xsi:type="core:DataBinding" name="dataBinding_categoria" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewComponentParts.2 /0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewComponentParts.3" domainConcept="/0/@domainModel/@elements.6"/>
-          <viewComponentParts xsi:type="core:DataBinding" name="dataBinding_producto" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewComponentParts.0 /0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewComponentParts.1" domainConcept="/0/@domainModel/@elements.0"/>
-        </viewElements>
-      </interactionFlowModelElements>
-      <interactionFlowModelElements xsi:type="core:Action" id="3b36d91a-4034-4d3e-985d-c7c052f14bd3" name="form_action" inInteractionFlows="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@submitEvent.0/@navigationFlows.0" dynamicBehavior="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.3">
-        <actionEvents id="cea05012-2166-4222-b630-270b6c7bd598" name="form_actionEvent">
-          <navigationFlows id="d49e0eea-6b04-4709-9998-e302aa7f9dfe" srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.1/@actionEvents.0" trgtInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.0"/>
-        </actionEvents>
       </interactionFlowModelElements>
     </interactionFlowModel>
     <domainModel id="domainId" name="Domain Model">
-      <elements xsi:type="core:UMLDomainConcept" id="b4153cef" name="producto" classifier="/1"/>
-      <elements xsi:type="core:UMLStructuralFeature" id="ff798988" name="id" structuralFeature="/2"/>
-      <elements xsi:type="core:UMLStructuralFeature" id="bf1842ae" name="nombre" structuralFeature="/3"/>
-      <elements xsi:type="core:UMLBehavioralFeature" id="cee27acd" name="edit" behavioralFeature="/4"/>
-      <elements xsi:type="core:UMLBehavioralFeature" id="66c58488" name="delete" behavioralFeature="/5"/>
-      <elements xsi:type="core:UMLBehavioralFeature" id="5167164d" name="details" behavioralFeature="/6"/>
-      <elements xsi:type="core:UMLDomainConcept" id="ef418e61" name="categoria" classifier="/7"/>
-      <elements xsi:type="core:UMLStructuralFeature" id="bcfa377c" name="id" structuralFeature="/8"/>
-      <elements xsi:type="core:UMLStructuralFeature" id="7fc34bf7" name="descripcion" structuralFeature="/9"/>
+      <elements xsi:type="core:UMLDomainConcept" id="d6f51bad" name="producto" classifier="/1"/>
+      <elements xsi:type="core:UMLStructuralFeature" id="1d95b4b4" name="id" structuralFeature="/2"/>
+      <elements xsi:type="core:UMLStructuralFeature" id="22080fb2" name="nombre" structuralFeature="/3"/>
+      <elements xsi:type="core:UMLBehavioralFeature" id="cd83d995" name="edit" behavioralFeature="/4"/>
+      <elements xsi:type="core:UMLBehavioralFeature" id="3c4f7f17" name="delete" behavioralFeature="/5"/>
+      <elements xsi:type="core:UMLBehavioralFeature" id="d65b5b99" name="details" behavioralFeature="/6"/>
+      <elements xsi:type="core:UMLDomainConcept" id="ce610e9d" name="categoria" classifier="/7"/>
+      <elements xsi:type="core:UMLStructuralFeature" id="596f231e" name="id" structuralFeature="/8"/>
+      <elements xsi:type="core:UMLStructuralFeature" id="d54a88cb" name="descripcion" structuralFeature="/9"/>
     </domainModel>
   </core:IFMLModel>
   <uml:Classifier nombre="producto"/>
-  <uml:StructuralFeature nombre="id" primitiveType="/13"/>
-  <uml:StructuralFeature nombre="nombre" primitiveType="/11"/>
+  <uml:StructuralFeature nombre="id" primitiveType="/11"/>
+  <uml:StructuralFeature nombre="nombre" primitiveType="/10"/>
   <uml:BehavioralFeature nombre="edit"/>
   <uml:BehavioralFeature nombre="delete"/>
   <uml:BehavioralFeature nombre="details"/>
   <uml:Classifier nombre="categoria"/>
-  <uml:StructuralFeature nombre="id" primitiveType="/13"/>
-  <uml:StructuralFeature nombre="descripcion" primitiveType="/11"/>
-  <uml:PrimitiveType nombre="void"/>
+  <uml:StructuralFeature nombre="id" primitiveType="/11"/>
+  <uml:StructuralFeature nombre="descripcion" primitiveType="/10"/>
   <uml:PrimitiveType nombre="string"/>
-  <uml:PrimitiveType nombre="bool"/>
   <uml:PrimitiveType nombre="int"/>
 </xmi:XMI>

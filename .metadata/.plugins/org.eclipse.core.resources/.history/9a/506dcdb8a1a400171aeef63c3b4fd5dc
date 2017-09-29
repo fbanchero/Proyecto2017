@@ -232,17 +232,6 @@ public class ElementBuilder {
 					
 				}
 				list.getViewComponentParts().add(db);										
-				String conditionalExp = properties.get("conditionalExpression").toString();
-				if(!conditionalExp.equals("")){
-					ConditionalExpression ce = f.createConditionalExpression();
-					ce.setId(java.util.UUID.randomUUID().toString());
-					ce.setName(entity + "_conditionalExpression"); 
-					ce.setLanguage("OCL");
-					ce.setBody(conditionalExp);
-					db.getConditionalExpression().add(ce);
-					list.getViewComponentParts().add(ce);
-				}
-
 		}
 		
 		return list;
@@ -613,9 +602,9 @@ public class ElementBuilder {
 		for (DomainOperation oper: domainClass.getListOperation()) {
 			BehavioralFeature bf = umlf.createBehavioralFeature();
 			bf.setNombre(oper.getName());
-//			if (oper.getRetorno() != null) {
-//				PrimitiveType pt = tf.getPrimitiveType(oper.getRetorno());
-//			}
+			if (oper.getRetorno() != null) {
+				PrimitiveType pt = tf.getPrimitiveType(oper.getRetorno());
+			}
 //			for (Parameter p: oper.getListParameter()) {
 //				PrimitiveType pt = umlf.createPrimitiveType();
 //				pt.setName(p.getTipo());
