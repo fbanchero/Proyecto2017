@@ -251,9 +251,6 @@ public class main {
 				ViewContainer vc = eb.createViewContainer(elem, links);
 				ifmElements.add(vc);
 				recursiveIFMLHierarchy(elem, vc, links);
-				for (Action a: eb.getListAction()) {
-					ifmElements.add(a);
-				}
 				
 				DataPage page = new DataPage();
 				page.setObject(vc);
@@ -331,6 +328,11 @@ public class main {
 	    }
 	    
 		ifm.setName("Pages");
+		
+		for (Action a: eb.getListAction()) {
+			//ifmElements.add(a);
+			ifm.getInteractionFlowModelElements().add(a); 
+		}		
 		
 		return ifm;
 		
@@ -607,18 +609,17 @@ public class main {
 				UMLDomainConcept dc = (UMLDomainConcept)element;
 				//resource.getContents().add(dc);
 				Classifier c = (Classifier) dc.getClassifier();
-				resource.getContents().add(c);
-				
-			} else if (element instanceof UMLStructuralFeature) {
-				UMLStructuralFeature sf = (UMLStructuralFeature)element;
-				//resource.getContents().add(sf);
-				StructuralFeature s = (StructuralFeature) sf.getStructuralFeature();
-				resource.getContents().add(s);
-			} else if (element instanceof UMLBehavioralFeature) {
-				UMLBehavioralFeature bf = (UMLBehavioralFeature)element;
-				//resource.getContents().add(sf);
-				BehavioralFeature b = (BehavioralFeature) bf.getBehavioralFeature();
-				resource.getContents().add(b);
+				resource.getContents().add(c);									
+//			} else if (element instanceof UMLStructuralFeature) {
+//				UMLStructuralFeature sf = (UMLStructuralFeature)element;
+//				//resource.getContents().add(sf);
+//				StructuralFeature s = (StructuralFeature) sf.getStructuralFeature();				
+//				resource.getContents().add(s);
+//			} else if (element instanceof UMLBehavioralFeature) {
+//				UMLBehavioralFeature bf = (UMLBehavioralFeature)element;
+//				//resource.getContents().add(sf);
+//				BehavioralFeature b = (BehavioralFeature) bf.getBehavioralFeature();
+//				resource.getContents().add(b);
 			}
 						
 		}
