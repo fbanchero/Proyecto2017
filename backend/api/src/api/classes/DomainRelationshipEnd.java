@@ -2,11 +2,12 @@ package api.classes;
 
 public class DomainRelationshipEnd {
 	
+	private String name;
+	
 	private String nameClass;
 	
-	private int cardLower;
+	private int cardinality;
 	
-	private int cardUpper;
 
 	public String getNameClass() {
 		return nameClass;
@@ -16,20 +17,21 @@ public class DomainRelationshipEnd {
 		this.nameClass = nameClass;
 	}
 
-	public int getCardLower() {
-		return cardLower;
+	public int getCardinality() {
+		return cardinality;
 	}
 
-	public void setCardLower(int cardLower) {
-		this.cardLower = cardLower;
+	public void setCardinality(int cardinality) {
+		this.cardinality = cardinality;
 	}
 
-	public int getCardUpper() {
-		return cardUpper;
+	public String getName() {
+		return name;
 	}
 
-	public void setCardUpper(int cardUpper) {
-		this.cardUpper = cardUpper;
+	public void setName(String name) {
+		this.name = name;
 	}
-	
+
+		
 }

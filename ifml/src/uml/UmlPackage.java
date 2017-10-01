@@ -113,13 +113,31 @@ public interface UmlPackage extends EPackage {
 	int ASSOCIATION__NOMBRE = ELEMENT__NOMBRE;
 
 	/**
+	 * The feature id for the '<em><b>Member End</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOCIATION__MEMBER_END = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Cardinality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOCIATION__CARDINALITY = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Association</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 0;
+	int ASSOCIATION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Association</em>' class.
@@ -168,13 +186,22 @@ public interface UmlPackage extends EPackage {
 	int CLASSIFIER__BEHAVIORAL_FEATURES = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Associations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER__ASSOCIATIONS = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Classifier</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFIER_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+	int CLASSIFIER_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Classifier</em>' class.
@@ -428,6 +455,28 @@ public interface UmlPackage extends EPackage {
 	EClass getAssociation();
 
 	/**
+	 * Returns the meta object for the reference '{@link uml.Association#getMemberEnd <em>Member End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Member End</em>'.
+	 * @see uml.Association#getMemberEnd()
+	 * @see #getAssociation()
+	 * @generated
+	 */
+	EReference getAssociation_MemberEnd();
+
+	/**
+	 * Returns the meta object for the attribute '{@link uml.Association#getCardinality <em>Cardinality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cardinality</em>'.
+	 * @see uml.Association#getCardinality()
+	 * @see #getAssociation()
+	 * @generated
+	 */
+	EAttribute getAssociation_Cardinality();
+
+	/**
 	 * Returns the meta object for class '{@link uml.Classifier <em>Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -458,6 +507,17 @@ public interface UmlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getClassifier_BehavioralFeatures();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link uml.Classifier#getAssociations <em>Associations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Associations</em>'.
+	 * @see uml.Classifier#getAssociations()
+	 * @see #getClassifier()
+	 * @generated
+	 */
+	EReference getClassifier_Associations();
 
 	/**
 	 * Returns the meta object for class '{@link uml.Element <em>Element</em>}'.
@@ -585,6 +645,22 @@ public interface UmlPackage extends EPackage {
 		EClass ASSOCIATION = eINSTANCE.getAssociation();
 
 		/**
+		 * The meta object literal for the '<em><b>Member End</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSOCIATION__MEMBER_END = eINSTANCE.getAssociation_MemberEnd();
+
+		/**
+		 * The meta object literal for the '<em><b>Cardinality</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSOCIATION__CARDINALITY = eINSTANCE.getAssociation_Cardinality();
+
+		/**
 		 * The meta object literal for the '{@link uml.impl.ClassifierImpl <em>Classifier</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -609,6 +685,14 @@ public interface UmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CLASSIFIER__BEHAVIORAL_FEATURES = eINSTANCE.getClassifier_BehavioralFeatures();
+
+		/**
+		 * The meta object literal for the '<em><b>Associations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASSIFIER__ASSOCIATIONS = eINSTANCE.getClassifier_Associations();
 
 		/**
 		 * The meta object literal for the '{@link uml.impl.ElementImpl <em>Element</em>}' class.

@@ -11,6 +11,7 @@ import com.google.gson.internal.LinkedTreeMap;
 import api.classes.DomainAttribute;
 import api.classes.DomainClass;
 import api.classes.DomainOperation;
+import api.classes.DomainRelationshipEnd;
 import api.classes.MockupGeneralElement;
 import api.classes.MockupMultipleColumnElement;
 import api.classes.MockupSingleColumnElement;
@@ -49,6 +50,7 @@ import ifml.extensions.SubmitEvent;
 import ifml.extensions.TextField;
 import ifml.extensions.Video;
 import ifml.extensions.Window;
+import uml.Association;
 import uml.BehavioralFeature;
 import uml.Classifier;
 import uml.PrimitiveType;
@@ -584,17 +586,25 @@ public class ElementBuilder {
 
 	
 	public Classifier createClass(DomainClass domainClass, DomainModel domainModel) {
-		Classifier c = umlf.createClassifier();
-		c.setNombre(domainClass.getName());
 		
-		UMLDomainConcept umldc = f.createUMLDomainConcept();
-		umldc.setId(domainClass.getId());
-		umldc.setName(domainClass.getName());
-		umldc.setClassifier(c);
-		domainModel.getElements().add(umldc);
-		
+		UMLDomainConcept umldc = (UMLDomainConcept)mapClass.get(domainClass.getName());		
+		Classifier c;
+		if(umldc == null ){
+			c = umlf.createClassifier();
+			c.setNombre(domainClass.getName());
+			umldc = f.createUMLDomainConcept();
+			umldc.setId(domainClass.getId());
+			umldc.setName(domainClass.getName());
+			umldc.setClassifier(c);
+			domainModel.getElements().add(umldc);
+		}
+		else
+		{
+			c = umldc.getClassifier();
+			umldc.setId(domainClass.getId());
+		}
+				
 		for (DomainAttribute da: domainClass.getListAttribute()) {
-			// TODO PENDIENTE CREARLO UNA VEZ SOLA
 			PrimitiveType pt = tf.getPrimitiveType(da.getType());
 			StructuralFeature p = umlf.createStructuralFeature();
 			p.setNombre(da.getName());
@@ -608,17 +618,28 @@ public class ElementBuilder {
 			mapAttributes.put(domainClass.getName() + "_" + da.getName(), umlsf);
 		}
 		
+		for (DomainRelationshipEnd dr: domainClass.getListRelationships()){
+			Association a = umlf.createAssociation();
+			UMLDomainConcept dest = (UMLDomainConcept)(mapClass.get(dr.getNameClass()));
+			if(dest == null)
+			{
+				Classifier cd = umlf.createClassifier();
+				cd.setNombre(dr.getNameClass());
+				dest = f.createUMLDomainConcept();
+				dest.setName(dr.getNameClass());
+				dest.setClassifier(cd);
+				domainModel.getElements().add(dest);
+				mapClass.put(dr.getNameClass(), dest);					
+			}
+			a.setNombre(dr.getName());
+			a.setMemberEnd(dest.getClassifier());
+			a.setCardinality(dr.getCardinality());
+			c.getAssociations().add(a);
+		}
+				
 		for (DomainOperation oper: domainClass.getListOperation()) {
 			BehavioralFeature bf = umlf.createBehavioralFeature();
 			bf.setNombre(oper.getName());
-//			if (oper.getRetorno() != null) {
-//				PrimitiveType pt = tf.getPrimitiveType(oper.getRetorno());
-//			}
-//			for (Parameter p: oper.getListParameter()) {
-//				PrimitiveType pt = umlf.createPrimitiveType();
-//				pt.setName(p.getTipo());
-//				bf.createOwnedParameter(p.getName(), pt);
-//			}
 			c.getBehavioralFeatures().add(bf);
 			UMLBehavioralFeature umlbf = f.createUMLBehavioralFeature();
 			umlbf.setBehavioralFeature(bf);
@@ -627,6 +648,8 @@ public class ElementBuilder {
 			domainModel.getElements().add(umlbf);
 			mapOperations.put(oper.getId(), umlbf);
 		}
+		
+		
 		
 		mapClass.put(umldc.getName(), umldc);
 		return c;
@@ -645,7 +668,7 @@ public class ElementBuilder {
 //		}
 //		return a;
 //	}
-//	
+	
 	public Form createForm(MockupGeneralElement elem, ArrayList<LinkElem> links) {
 		
 		Form form = ef.createForm();
@@ -711,7 +734,7 @@ public class ElementBuilder {
 			
 		}
 		
-		if(elem.getEvents() != null && elem.getEvents().get(0) != null) {
+		if(elem.getEvents() != null && elem.getEvents().get(0) != null  && !elem.getEvents().get(0).getLink().isEmpty()) {
 			
 			SubmitEvent se = ef.createSubmitEvent();
 			se.setId(elem.getEvents().get(0).getLink());

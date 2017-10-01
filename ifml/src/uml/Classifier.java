@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link uml.Classifier#getStructuralFeatures <em>Structural Features</em>}</li>
  *   <li>{@link uml.Classifier#getBehavioralFeatures <em>Behavioral Features</em>}</li>
+ *   <li>{@link uml.Classifier#getAssociations <em>Associations</em>}</li>
  * </ul>
  *
  * @see uml.UmlPackage#getClassifier()
@@ -53,5 +54,21 @@ public interface Classifier extends Element {
 	 * @generated
 	 */
 	EList<BehavioralFeature> getBehavioralFeatures();
+
+	/**
+	 * Returns the value of the '<em><b>Associations</b></em>' containment reference list.
+	 * The list contents are of type {@link uml.Association}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Associations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Associations</em>' containment reference list.
+	 * @see uml.UmlPackage#getClassifier_Associations()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Association> getAssociations();
 
 } // Classifier

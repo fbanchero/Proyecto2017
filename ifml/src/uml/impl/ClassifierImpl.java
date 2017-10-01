@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import uml.Association;
 import uml.BehavioralFeature;
 import uml.Classifier;
 import uml.StructuralFeature;
@@ -29,6 +30,7 @@ import uml.UmlPackage;
  * <ul>
  *   <li>{@link uml.impl.ClassifierImpl#getStructuralFeatures <em>Structural Features</em>}</li>
  *   <li>{@link uml.impl.ClassifierImpl#getBehavioralFeatures <em>Behavioral Features</em>}</li>
+ *   <li>{@link uml.impl.ClassifierImpl#getAssociations <em>Associations</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,6 +55,16 @@ public class ClassifierImpl extends ElementImpl implements Classifier {
 	 * @ordered
 	 */
 	protected EList<BehavioralFeature> behavioralFeatures;
+
+	/**
+	 * The cached value of the '{@link #getAssociations() <em>Associations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssociations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Association> associations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,6 +114,18 @@ public class ClassifierImpl extends ElementImpl implements Classifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Association> getAssociations() {
+		if (associations == null) {
+			associations = new EObjectContainmentEList<Association>(Association.class, this, UmlPackage.CLASSIFIER__ASSOCIATIONS);
+		}
+		return associations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -109,6 +133,8 @@ public class ClassifierImpl extends ElementImpl implements Classifier {
 				return ((InternalEList<?>)getStructuralFeatures()).basicRemove(otherEnd, msgs);
 			case UmlPackage.CLASSIFIER__BEHAVIORAL_FEATURES:
 				return ((InternalEList<?>)getBehavioralFeatures()).basicRemove(otherEnd, msgs);
+			case UmlPackage.CLASSIFIER__ASSOCIATIONS:
+				return ((InternalEList<?>)getAssociations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -125,6 +151,8 @@ public class ClassifierImpl extends ElementImpl implements Classifier {
 				return getStructuralFeatures();
 			case UmlPackage.CLASSIFIER__BEHAVIORAL_FEATURES:
 				return getBehavioralFeatures();
+			case UmlPackage.CLASSIFIER__ASSOCIATIONS:
+				return getAssociations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,6 +174,10 @@ public class ClassifierImpl extends ElementImpl implements Classifier {
 				getBehavioralFeatures().clear();
 				getBehavioralFeatures().addAll((Collection<? extends BehavioralFeature>)newValue);
 				return;
+			case UmlPackage.CLASSIFIER__ASSOCIATIONS:
+				getAssociations().clear();
+				getAssociations().addAll((Collection<? extends Association>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -164,6 +196,9 @@ public class ClassifierImpl extends ElementImpl implements Classifier {
 			case UmlPackage.CLASSIFIER__BEHAVIORAL_FEATURES:
 				getBehavioralFeatures().clear();
 				return;
+			case UmlPackage.CLASSIFIER__ASSOCIATIONS:
+				getAssociations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -180,6 +215,8 @@ public class ClassifierImpl extends ElementImpl implements Classifier {
 				return structuralFeatures != null && !structuralFeatures.isEmpty();
 			case UmlPackage.CLASSIFIER__BEHAVIORAL_FEATURES:
 				return behavioralFeatures != null && !behavioralFeatures.isEmpty();
+			case UmlPackage.CLASSIFIER__ASSOCIATIONS:
+				return associations != null && !associations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

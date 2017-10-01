@@ -373,7 +373,17 @@ public class main {
 						a.setName((String) e.getProperties().get("nombre"));
 						String t = (String) e.getProperties().get("tipo");
 						a.setType(t);
-						c.getListAttribute().add(a);
+						c.getListAttribute().add(a);						
+					} else if (e.getType().equals("association")) {						
+						DomainRelationshipEnd relEnd = new DomainRelationshipEnd();
+						relEnd.setName(e.getProperties().get("nombre").toString());
+						relEnd.setNameClass(e.getProperties().get("clase").toString());
+						String card = (String)(e.getProperties().get("cardinalidad"));
+						if(card.equals("N"))
+							card = "-1";
+						relEnd.setCardinality(Integer.parseInt(card));
+						
+						c.getListRelationships().add(relEnd);
 					} else if (e.getType().equals("method")) {
 						DomainOperation oper = new DomainOperation();
 						oper.setId(e.getId());
@@ -389,15 +399,7 @@ public class main {
 				}
 				domainModel.getListClass().add(c);
 				
-			} else if (element.getType().equals("association")) {
-				DomainRelationship rel = new DomainRelationship();
-				DomainRelationshipEnd relEnd1 = new DomainRelationshipEnd();
-				relEnd1.setNameClass((String)((LinkedTreeMap<String, Object>)(element.getProperties().get("end1"))).get("name"));
-				rel.getRelationsEnd().add(relEnd1);
-				DomainRelationshipEnd relEnd2 = new DomainRelationshipEnd();
-				relEnd2.setNameClass((String)((LinkedTreeMap<String, Object>)(element.getProperties().get("end2"))).get("name"));
-				rel.getRelationsEnd().add(relEnd2);
-			}
+			} 
 		}
 		return domainModel;
 	}

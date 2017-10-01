@@ -1,0 +1,4 @@
+1506805029926	Encapsulate field 'cardinality'
+1506806365755	Encapsulate field 'listRelations'
+1506806378063	Encapsulate field 'listRelationships'
+1506808807864	Encapsulate field 'name'

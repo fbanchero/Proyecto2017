@@ -12,6 +12,8 @@ public class DomainClass {
 	
 	private ArrayList<DomainOperation> listOperation;
 	
+	private ArrayList<DomainRelationshipEnd> listRelationships;
+	
 	
 	public String getId() {
 		return id;
@@ -49,6 +51,17 @@ public class DomainClass {
 
 	public void setListOperation(ArrayList<DomainOperation> listOperation) {
 		this.listOperation = listOperation;
+	}
+
+	public ArrayList<DomainRelationshipEnd> getListRelationships() {
+		if (listRelationships == null) {
+			listRelationships = new ArrayList<DomainRelationshipEnd>();
+		}
+		return listRelationships;
+	}
+
+	public void setListRelationships(ArrayList<DomainRelationshipEnd> listRelationships) {
+		this.listRelationships = listRelationships;
 	}
 
 }

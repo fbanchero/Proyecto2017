@@ -182,6 +182,24 @@ public class UmlPackageImpl extends EPackageImpl implements UmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAssociation_MemberEnd() {
+		return (EReference)associationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAssociation_Cardinality() {
+		return (EAttribute)associationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getClassifier() {
 		return classifierEClass;
 	}
@@ -202,6 +220,15 @@ public class UmlPackageImpl extends EPackageImpl implements UmlPackage {
 	 */
 	public EReference getClassifier_BehavioralFeatures() {
 		return (EReference)classifierEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClassifier_Associations() {
+		return (EReference)classifierEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -314,10 +341,13 @@ public class UmlPackageImpl extends EPackageImpl implements UmlPackage {
 
 		// Create classes and their features
 		associationEClass = createEClass(ASSOCIATION);
+		createEReference(associationEClass, ASSOCIATION__MEMBER_END);
+		createEAttribute(associationEClass, ASSOCIATION__CARDINALITY);
 
 		classifierEClass = createEClass(CLASSIFIER);
 		createEReference(classifierEClass, CLASSIFIER__STRUCTURAL_FEATURES);
 		createEReference(classifierEClass, CLASSIFIER__BEHAVIORAL_FEATURES);
+		createEReference(classifierEClass, CLASSIFIER__ASSOCIATIONS);
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__NOMBRE);
@@ -375,10 +405,13 @@ public class UmlPackageImpl extends EPackageImpl implements UmlPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(associationEClass, Association.class, "Association", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAssociation_MemberEnd(), this.getClassifier(), null, "memberEnd", null, 1, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssociation_Cardinality(), ecorePackage.getEIntegerObject(), "cardinality", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(classifierEClass, Classifier.class, "Classifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getClassifier_StructuralFeatures(), this.getStructuralFeature(), null, "structuralFeatures", null, 0, -1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClassifier_BehavioralFeatures(), this.getBehavioralFeature(), null, "behavioralFeatures", null, 0, -1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClassifier_Associations(), this.getAssociation(), null, "associations", null, 0, -1, Classifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getElement_Nombre(), ecorePackage.getEString(), "nombre", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
