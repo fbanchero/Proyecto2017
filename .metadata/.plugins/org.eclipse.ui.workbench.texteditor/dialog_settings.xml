@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="UMLDomainConcept" key="selection"/>
+		<item value="createForm" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="vieweleme"/>
+			<item value="createform"/>
+			<item value="ifmElements"/>
+			<item value="associat"/>
+			<item value="createAssociation"/>
 			<item value="UMLDomainConcept"/>
 			<item value="xmi"/>
 			<item value="generate"/>
-			<item value="convert"/>
-			<item value="createDomain"/>
-			<item value="createdomain"/>
-			<item value="createdoma"/>
-			<item value="list.getViewComponentParts()"/>
 		</list>
 		<list key="replacehistory">
 		</list>
