@@ -30,6 +30,7 @@ import ifml.core.NavigationFlow;
 import ifml.core.ParameterBinding;
 import ifml.core.ParameterBindingGroup;
 import ifml.core.ParameterKind;
+import ifml.core.SystemEvent;
 import ifml.core.UMLBehavioralFeature;
 import ifml.core.UMLDomainConcept;
 import ifml.core.UMLStructuralFeature;
@@ -69,22 +70,16 @@ public class ElementBuilder {
 	public Map<String, FeatureConcept> mapAttributes;
 	public Map<String, BehavioralFeatureConcept> mapOperations;
 	public Map<String, DomainConcept> mapClass;
-	public ArrayList<DataBinding> listDataBinding;
-	public ArrayList<SubmitEvent> listSubmitEvent;
-	public ArrayList<SelectEvent> listSelectEvent;
-	public ArrayList<NavigationFlow> listNavigationFlow;
 	public ArrayList<Action> listAction;
+	public ArrayList<SystemEvent> listSystemEvent;
 
 	public ElementBuilder(CoreFactory pf, ExtensionsFactory pef, UmlFactory uf) {
 		f = pf;
 		ef = pef;
 		umlf = uf;
 		tf = new TypeFactory(umlf);
-		listDataBinding = new ArrayList<DataBinding>();
-		listSubmitEvent = new ArrayList<SubmitEvent>();
-		listSelectEvent = new ArrayList<SelectEvent>();
-		listNavigationFlow = new ArrayList<NavigationFlow>();
 		listAction = new ArrayList<Action>();
+		listSystemEvent = new ArrayList<SystemEvent>();
 		mapLinkElems = new HashMap<String, LinkElem>();
 		mapClass = new HashMap<String, DomainConcept>();
 		mapOperations = new HashMap<String, BehavioralFeatureConcept>();
@@ -167,7 +162,6 @@ public class ElementBuilder {
 				nf.setSrcInteractionFlowElement(list);
 				nf.setTrgtInteractionFlowElement(action);
 				nf.setParameterBindingGroup(paramBindGroup);
-				listNavigationFlow.add(nf);
 				
 				se.getNavigationFlows().add(nf);
 				
@@ -179,9 +173,54 @@ public class ElementBuilder {
 				links.add(le);		
 				
 				listAction.add(action);
-				listSelectEvent.add(se);
 	
 			}
+		}
+		
+		ArrayList<LinkedTreeMap<String, Object>> systemEvents = (ArrayList<LinkedTreeMap<String, Object>>)elem.getProperties().get("systemEvents");
+		if(systemEvents != null) {
+			LinkedTreeMap<String, Object> systemEventMap = systemEvents.get(0);
+			SystemEvent se = f.createSystemEvent();
+			se.setId(java.util.UUID.randomUUID().toString());
+			se.setName((String)systemEventMap.get("event"));
+			ConditionalExpression exp = f.createConditionalExpression();
+			exp.setLanguage("OCL");
+			exp.setBody((String)systemEventMap.get("trigger"));
+			se.getTriggeringExpressions().add(exp);
+			list.getViewComponentParts().add(exp);	
+			listSystemEvent.add(se);
+			
+			Action action = f.createAction();
+			action.setId(java.util.UUID.randomUUID().toString());
+			action.setName(se.getName() + "_action");
+			DynamicBehavior db = f.createDynamicBehavior();
+			db.setId(java.util.UUID.randomUUID().toString());
+			db.setName(se.getName() + "_dynamicBehaviour");
+			db.setBehavioralFeatureConcept(mapOperations.get(se.getName()));				
+			action.setDynamicBehavior(db);
+			list.getViewComponentParts().add(db);
+			
+			NavigationFlow nf1 = f.createNavigationFlow();
+			nf1.setSrcInteractionFlowElement(se);
+			nf1.setTrgtInteractionFlowElement(action);
+//			nf.setParameterBindingGroup(paramBindGroup);
+			
+			se.getNavigationFlows().add(nf1);
+			
+//			list.getSelectEvent().add(se);
+			
+			ActionEvent actionEvent = f.createActionEvent();
+			actionEvent.setId(java.util.UUID.randomUUID().toString());
+			actionEvent.setName(elem.getName() + "_actionEvent");
+			
+			NavigationFlow nf2 = f.createNavigationFlow();
+			nf2.setId(java.util.UUID.randomUUID().toString());
+			nf2.setSrcInteractionFlowElement(actionEvent);
+			nf2.setTrgtInteractionFlowElement(list);
+			action.getActionEvents().add(actionEvent);
+			listAction.add(action);
+			
+
 		}
 		
 		HashMap<String, Object> properties = elem.getProperties();
@@ -210,7 +249,6 @@ public class ElementBuilder {
 								dba.getVisualizationAttributes().add(va);								
 							}	
 							list.getViewComponentParts().add(dba);
-							listDataBinding.add(dba);
 						}
 						else{
 							VisualizationAttribute va = f.createVisualizationAttribute();							
@@ -219,7 +257,6 @@ public class ElementBuilder {
 							va.setName(va.getFeatureConcept().getName());
 							db.getVisualizationAttributes().add(va);
 							list.getViewComponentParts().add(va);
-							listDataBinding.add(db);
 						}																								
 					}
 					
@@ -267,7 +304,6 @@ public class ElementBuilder {
 				
 				ViewElementEvent event = f.createViewElementEvent();
 				NavigationFlow nf = f.createNavigationFlow();
-				listNavigationFlow.add(nf);
 				
 				nf.setSrcInteractionFlowElement(event);
 				event.getNavigationFlows().add(nf);
@@ -728,7 +764,6 @@ public class ElementBuilder {
 					tp.setKind(ParameterKind.OUTPUT);
 					pb.setTargetParameter(tp);
 					paramBindGroup.getParameterBindings().add(pb);
-					listDataBinding.add(db);
 				}
 			}
 			
@@ -739,7 +774,6 @@ public class ElementBuilder {
 			SubmitEvent se = ef.createSubmitEvent();
 			se.setId(elem.getEvents().get(0).getLink());
 			se.setName(elem.getName());
-			listSubmitEvent.add(se);
 			
 			// Creo el action
 			Action action = f.createAction();
@@ -751,7 +785,7 @@ public class ElementBuilder {
 			db.setName(elem.getName() + "_dynamicBehaviour");
 			db.setBehavioralFeatureConcept(mapOperations.get(elem.getEvents().get(0).getBehaviour()));
 			action.setDynamicBehavior(db);
-			form.getViewComponentParts().add(db);
+//			form.getViewComponentParts().add(db);
 			for (ParameterBinding pb: paramBindGroup.getParameterBindings()) {
 				ifml.core.Parameter tp = f.createParameter();
 				tp.setId(java.util.UUID.randomUUID().toString());										
@@ -860,7 +894,6 @@ public class ElementBuilder {
 						dba.getVisualizationAttributes().add(va);								
 					}	
 					details.getViewComponentParts().add(dba);
-					listDataBinding.add(dba);
 				}
 				else{
 					VisualizationAttribute va = f.createVisualizationAttribute();						
@@ -869,7 +902,6 @@ public class ElementBuilder {
 					va.setName(va.getFeatureConcept().getName());
 					db.getVisualizationAttributes().add(va);
 					details.getViewComponentParts().add(va);
-					listDataBinding.add(db);
 				}																								
 			}
 			
@@ -878,20 +910,12 @@ public class ElementBuilder {
 		return details;
 	}
 
-	public ArrayList<DataBinding> getListDataBinding() {
-		return listDataBinding;
-	}
-	
-	public ArrayList<SubmitEvent> getListSubmitEvent() {
-		return listSubmitEvent;
-	}
-	
-	public ArrayList<SelectEvent> getListSelectEvent() {
-		return listSelectEvent;
-	}
-	
 	public ArrayList<Action> getListAction() {
 		return listAction;
+	}
+	
+	public ArrayList<SystemEvent> getListSystemEvent() {
+		return listSystemEvent;
 	}
 
 

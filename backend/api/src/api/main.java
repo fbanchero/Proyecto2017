@@ -22,9 +22,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-
 import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
 
 import api.classes.DataPage;
 import api.classes.Domain;
@@ -32,51 +30,40 @@ import api.classes.DomainAttribute;
 import api.classes.DomainClass;
 import api.classes.DomainGeneralElement;
 import api.classes.DomainOperation;
-import api.classes.DomainRelationship;
 import api.classes.DomainRelationshipEnd;
 import api.classes.Mockup;
 import api.classes.MockupMultipleColumnElement;
 import api.classes.MockupSingleColumnElement;
 import api.classes.Model;
-import api.classes.NavigationEvent;
 import api.helpers.ElementBuilder;
 import api.helpers.LinkElem;
 import ifml.core.Action;
 import ifml.core.CoreFactory;
-import ifml.core.DataBinding;
 import ifml.core.DomainElement;
 import ifml.core.DomainModel;
 import ifml.core.IFMLModel;
 import ifml.core.InteractionFlowModel;
 import ifml.core.InteractionFlowModelElement;
 import ifml.core.NavigationFlow;
-import ifml.core.ParameterBinding;
-import ifml.core.UMLBehavioralFeature;
+import ifml.core.SystemEvent;
 import ifml.core.UMLDomainConcept;
-import ifml.core.UMLStructuralFeature;
 import ifml.core.ViewContainer;
 import ifml.core.ViewElement;
 import ifml.core.ViewElementEvent;
-import ifml.core.VisualizationAttribute;
 import ifml.extensions.Button;
 import ifml.extensions.Details;
 import ifml.extensions.ExtensionsFactory;
 import ifml.extensions.Form;
 import ifml.extensions.Image;
 import ifml.extensions.List;
-import ifml.extensions.SelectEvent;
 import ifml.extensions.SimpleField;
-import ifml.extensions.SubmitEvent;
 import ifml.extensions.TextField;
 import ifml.extensions.Video;
 import ifml.extensions.Window;
-import uml.BehavioralFeature;
 import uml.Classifier;
 import uml.PrimitiveType;
-import uml.StructuralFeature;
 import uml.UmlFactory;
 import uml.impl.UmlFactoryImpl;
-import ifml.extensions.Button;
 
 public class main {
 	
@@ -333,6 +320,10 @@ public class main {
 			//ifmElements.add(a);
 			ifm.getInteractionFlowModelElements().add(a); 
 		}		
+		for (SystemEvent se: eb.getListSystemEvent()) {
+			//ifmElements.add(a);
+			ifm.getInteractionFlowModelElements().add(se); 
+		}
 		
 		return ifm;
 		
@@ -612,68 +603,12 @@ public class main {
 				//resource.getContents().add(dc);
 				Classifier c = (Classifier) dc.getClassifier();
 				resource.getContents().add(c);									
-//			} else if (element instanceof UMLStructuralFeature) {
-//				UMLStructuralFeature sf = (UMLStructuralFeature)element;
-//				//resource.getContents().add(sf);
-//				StructuralFeature s = (StructuralFeature) sf.getStructuralFeature();				
-//				resource.getContents().add(s);
-//			} else if (element instanceof UMLBehavioralFeature) {
-//				UMLBehavioralFeature bf = (UMLBehavioralFeature)element;
-//				//resource.getContents().add(sf);
-//				BehavioralFeature b = (BehavioralFeature) bf.getBehavioralFeature();
-//				resource.getContents().add(b);
 			}
 						
 		}
 		for(PrimitiveType pt: eb.getTypes())
 			resource.getContents().add(pt);
-		
-//		for(DataBinding db: eb.getListDataBinding()){			
-//			for(VisualizationAttribute va: db.getVisualizationAttributes())
-//				resource.getContents().add(va);
-//			resource.getContents().add(db);
-//			if(!db.getConditionalExpression().isEmpty())
-//				resource.getContents().add(db.getConditionalExpression().get(0));
-//		}
-//			
-//		
-//		for(SubmitEvent se: eb.getListSubmitEvent()){
-//			
-//			Object obj = (se.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
-//			if(obj instanceof Action){
-//				Action action = (Action)(se.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
-//				resource.getContents().add(action.getDynamicBehavior());
-//				EList<ParameterBinding> paramBindings = action.getActionEvents().get(0).getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
-//				for(ParameterBinding pb: paramBindings){
-//					resource.getContents().add(pb.getSourceParameter());
-//					resource.getContents().add(pb.getTargetParameter());
-//				}
-//				resource.getContents().add(action);
-//				
-//			}
-//			resource.getContents().add(se);	
-//			EList<ParameterBinding> paramBindings = se.getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
-//			for(ParameterBinding pb: paramBindings){
-//				resource.getContents().add(pb.getSourceParameter());
-//				resource.getContents().add(pb.getTargetParameter());
-//			}
-//		}
-//			
-//		for(SelectEvent s: eb.getListSelectEvent()){		
-//			Object obj = (s.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
-//			if(obj instanceof Action){
-//				Action action = (Action)(s.getNavigationFlows().get(0).getTrgtInteractionFlowElement());
-//				resource.getContents().add(action.getDynamicBehavior());				
-//				resource.getContents().add(action);				
-//			}
-//			resource.getContents().add(s);	
-//			EList<ParameterBinding> paramBindings = s.getNavigationFlows().get(0).getParameterBindingGroup().getParameterBindings();
-//			for(ParameterBinding pb: paramBindings){
-//				resource.getContents().add(pb.getSourceParameter());
-//				resource.getContents().add(pb.getTargetParameter());
-//			}
-//		}
-		
+				
 		try {
 		
 			Map<String, Object> options = new HashMap<String, Object>(); 
