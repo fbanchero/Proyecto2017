@@ -261,18 +261,19 @@ public class ElementBuilder {
 					}
 					
 				}
-				list.getViewComponentParts().add(db);										
-				String conditionalExp = properties.get("conditionalExpression").toString();
-				if(!conditionalExp.equals("")){
-					ConditionalExpression ce = f.createConditionalExpression();
-					ce.setId(java.util.UUID.randomUUID().toString());
-					ce.setName(entity + "_conditionalExpression"); 
-					ce.setLanguage("OCL");
-					ce.setBody(conditionalExp);
-					db.getConditionalExpression().add(ce);
-					list.getViewComponentParts().add(ce);
+				list.getViewComponentParts().add(db);
+				String conditionalExp = (String) properties.get("conditionalExpression");
+				if (conditionalExp != null) {
+					if(!conditionalExp.equals("")){
+						ConditionalExpression ce = f.createConditionalExpression();
+						ce.setId(java.util.UUID.randomUUID().toString());
+						ce.setName(entity + "_conditionalExpression"); 
+						ce.setLanguage("OCL");
+						ce.setBody(conditionalExp);
+						db.getConditionalExpression().add(ce);
+						list.getViewComponentParts().add(ce);
+					}
 				}
-
 		}
 		
 		return list;
