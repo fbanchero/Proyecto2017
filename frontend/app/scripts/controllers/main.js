@@ -84,14 +84,14 @@
                     { type: 'submit_button', id: chance.bb_pin(), name: 'submit button', properties: { 'value': 'Submit'} , events: [{ type: 'onSubmit', link: '' }] }
                 ],
             domain: [
-                    { type: 'domain_class', id: chance.bb_pin(), name: 'domain_class', properties: {}, children: [
-                        { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'id', 'tipo': 'int', 'checked': 'false' }},
-                        { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'nombre', 'tipo': 'string', 'checked': 'false' }},
-                        { type: 'association', id: chance.bb_pin(), name: 'association', properties: { 'nombre': 'categorias', 'clase': 'c', 'cardinalidad': '1', 'checked': 'true' }}
+                    { type: 'domain_class', id: chance.bb_pin(), name: 'domain_class', display_name: 'class', properties: {}, children: [
+                        { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'id', 'tipo': 'Integer', 'checked': 'false' }},
+                        { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'nombre', 'tipo': 'String', 'checked': 'false' }}
+                        // { type: 'association', id: chance.bb_pin(), name: 'association', properties: { 'nombre': 'categorias', 'clase': 'c', 'cardinalidad': '1', 'checked': 'true' }}
                     ]},
-                    { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'nombre', 'tipo': 'tipo', 'checked': 'true'}},
-                    { type: 'association', id: chance.bb_pin(), name: 'association', properties: {'nombre': 'categorias', 'clase': '', 'cardinalidad': '1', 'checked': 'false'}},
-                    { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'method()', 'tipo': 'void'}},
+                    { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', display_name: 'attribute', properties: { 'nombre': 'nombre', 'tipo': 'tipo', 'checked': 'true'}},
+                    { type: 'association', id: chance.bb_pin(), name: 'association', display_name: 'association', properties: { 'nombre': '', 'clase': '', 'cardinalidad': '', 'checked': 'false'}},
+                    { type: 'method', id: chance.bb_pin(), name: 'method', display_name: 'method', properties: { 'firma': 'method', 'tipo': 'void'}},
                 ]
         	},
             domain_types: { 'tipos': ['String', 'Integer', 'Double', 'Boolean', 'Date'] },
@@ -111,19 +111,19 @@
                     'type': 'domain',
                     'name': 'Domain Model',
                     'children': [
-                      { type: 'domain_class', id: chance.bb_pin(), name: 'producto', properties: {}, children: [
-                          { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'id', 'tipo': 'int', 'checked': 'false' }},
-                          { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'nombre', 'tipo': 'string', 'checked': 'false' }},
-                          { type: 'association', id: chance.bb_pin(), name: 'association', properties: { 'nombre': 'categoria', 'clase': 'categoria', 'cardinalidad': '1', 'checked': 'true' }},
-                          { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'edit', 'tipo': 'bool'}},
-                          { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'delete', 'tipo': 'bool'}},
-                          { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'details', 'tipo': 'void'}}
-                      ]},
-                      { type: 'domain_class', id: chance.bb_pin(), name: 'categoria', properties: {}, children: [
-                          { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'id', 'tipo': 'int', 'checked': 'false' }},
-                          { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'descripcion', 'tipo': 'string', 'checked': 'false' }},
-                          { type: 'association', id: chance.bb_pin(), name: 'association', properties: { 'nombre': 'productos', 'clase': 'producto', 'cardinalidad': 'N', 'checked': 'true' }}
-                      ]}
+                      // { type: 'domain_class', id: chance.bb_pin(), name: 'producto', properties: {}, children: [
+                      //     { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'id', 'tipo': 'int', 'checked': 'false' }},
+                      //     { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'nombre', 'tipo': 'string', 'checked': 'false' }},
+                      //     { type: 'association', id: chance.bb_pin(), name: 'association', properties: { 'nombre': 'categoria', 'clase': 'categoria', 'cardinalidad': '1', 'checked': 'true' }},
+                      //     { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'edit', 'tipo': 'bool'}},
+                      //     { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'delete', 'tipo': 'bool'}},
+                      //     { type: 'method', id: chance.bb_pin(), name: 'method', properties: { 'firma': 'details', 'tipo': 'void'}}
+                      // ]},
+                      // { type: 'domain_class', id: chance.bb_pin(), name: 'categoria', properties: {}, children: [
+                      //     { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'id', 'tipo': 'int', 'checked': 'false' }},
+                      //     { type: 'domain_attribute', id: chance.bb_pin(), name: 'domain_attribute', properties: { 'nombre': 'descripcion', 'tipo': 'string', 'checked': 'false' }},
+                      //     { type: 'association', id: chance.bb_pin(), name: 'association', properties: { 'nombre': 'productos', 'clase': 'producto', 'cardinalidad': 'N', 'checked': 'true' }}
+                      // ]}
                     ]
                   }]
             }
