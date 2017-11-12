@@ -1,0 +1,716 @@
+{
+  "name": "Mockup",
+  "pages": [
+    {
+      "id": "fbad580a",
+      "type": "page",
+      "name": "Page1",
+      "properties": {
+        "default": false,
+        "landmark": false
+      },
+      "children": [
+        {
+          "type": "form",
+          "id": "33489003",
+          "name": "form",
+          "properties": {
+            "name": "Registro",
+            "entity": "usuario",
+            "attributes": [
+              {
+                "type": "domain_attribute",
+                "id": "533d69ae",
+                "name": "domain_attribute",
+                "properties": {
+                  "nombre": "login",
+                  "tipo": "String",
+                  "checked": true
+                }
+              },
+              {
+                "type": "domain_attribute",
+                "id": "502ef08f",
+                "name": "domain_attribute",
+                "properties": {
+                  "nombre": "password",
+                  "tipo": "String",
+                  "checked": true
+                }
+              },
+              {
+                "type": "domain_attribute",
+                "id": "c7a6d31b",
+                "name": "domain_attribute",
+                "properties": {
+                  "nombre": "confirmar password",
+                  "tipo": "String",
+                  "checked": true
+                }
+              }
+            ],
+            "selectEvents": []
+          },
+          "events": [
+            {
+              "type": "onSubmit",
+              "behaviour": "",
+              "link": ""
+            }
+          ],
+          "children": [
+            [
+              {
+                "type": "submit_button",
+                "id": "80625ff3",
+                "name": "submit button",
+                "properties": {
+                  "value": "Enviar"
+                },
+                "events": [
+                  {
+                    "type": "onSubmit",
+                    "behaviour": "",
+                    "link": ""
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f9993aee",
+      "type": "page",
+      "name": "Page2",
+      "properties": {
+        "default": false,
+        "landmark": false
+      },
+      "children": [
+        {
+          "type": "text",
+          "id": "c8eb3687",
+          "name": "text",
+          "properties": {
+            "value": "Productos",
+            "fontSize": "30"
+          },
+          "events": []
+        },
+        {
+          "type": "table",
+          "id": "b053ae65",
+          "name": "table",
+          "properties": {
+            "entity": "producto",
+            "attributes": [
+              {
+                "type": "domain_attribute",
+                "id": "c7b90b53",
+                "name": "domain_attribute",
+                "properties": {
+                  "nombre": "nombre",
+                  "tipo": "String",
+                  "checked": true
+                }
+              },
+              {
+                "type": "association",
+                "id": "9079e00a",
+                "name": "association",
+                "properties": {
+                  "nombre": "categoria",
+                  "clase": "categoria",
+                  "cardinalidad": "1",
+                  "checked": true
+                }
+              },
+              {
+                "type": "domain_attribute",
+                "id": "6b6523a3",
+                "name": "domain_attribute",
+                "properties": {
+                  "nombre": "precio",
+                  "tipo": "Double",
+                  "checked": true
+                }
+              }
+            ],
+			"conditionalExpression": "",
+            "selectEvents": [
+              "comprar"
+            ]
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "a84c6c53",
+      "type": "page",
+      "name": "Page3",
+      "properties": {
+        "default": false,
+        "landmark": false
+      },
+      "children": [
+        {
+          "type": "details",
+          "id": "f4e0970c",
+          "name": "details",
+          "properties": {
+            "entity": "producto",
+            "attributes": [
+              {
+                "type": "domain_attribute",
+                "id": "c7b90b53",
+                "name": "domain_attribute",
+                "properties": {
+                  "nombre": "nombre",
+                  "tipo": "String",
+                  "checked": true
+                }
+              },
+              {
+                "type": "association",
+                "id": "9079e00a",
+                "name": "association",
+                "properties": {
+                  "nombre": "categoria",
+                  "clase": "categoria",
+                  "cardinalidad": "1",
+                  "checked": true
+                }
+              },
+              {
+                "type": "domain_attribute",
+                "id": "6b6523a3",
+                "name": "domain_attribute",
+                "properties": {
+                  "nombre": "precio",
+                  "tipo": "Double",
+                  "checked": true
+                }
+              }
+            ],
+            "conditionalExpression": "producto.id = 43",
+            "selectEvents": []
+          },
+          "events": []
+        },
+        {
+          "type": "text",
+          "id": "0adf7f55",
+          "name": "text",
+          "properties": {
+            "value": "Comentarios",
+            "fontSize": "22"
+          },
+          "events": []
+        },
+        {
+          "type": "table",
+          "id": "9307e38d",
+          "name": "table",
+          "properties": {
+            "entity": "comentario",
+            "attributes": [
+              {
+                "type": "association",
+                "id": "cbb67bec",
+                "name": "association",
+                "properties": {
+                  "nombre": "usuario",
+                  "clase": "usuario",
+                  "cardinalidad": "1",
+                  "checked": true
+                }
+              },
+              {
+                "type": "domain_attribute",
+                "id": "533d69ae",
+                "name": "domain_attribute",
+                "properties": {
+                  "nombre": "texto",
+                  "tipo": "String",
+                  "checked": true
+                }
+              },
+              {
+                "type": "domain_attribute",
+                "id": "234e0158",
+                "name": "domain_attribute",
+                "properties": {
+                  "nombre": "fecha",
+                  "tipo": "String",
+                  "checked": true
+                }
+              }
+            ],
+			"conditionalExpression": "",
+            "selectEvents": []
+          },
+          "events": []
+        }
+      ]
+    },
+    {
+      "id": "c0f779aa",
+      "type": "page",
+      "name": "Page4",
+      "properties": {
+        "default": false,
+        "landmark": false
+      },
+      "children": [
+        {
+          "type": "text",
+          "id": "3c3bc4cd",
+          "name": "text",
+          "properties": {
+            "value": "CARRITO DE COMPRAS",
+            "fontSize": "30"
+          },
+          "events": []
+        },
+        {
+          "type": "table",
+          "id": "68f9cbb6",
+          "name": "table",
+          "properties": {
+            "entity": "compra",
+            "attributes": [
+              {
+                "type": "association",
+                "id": "9d23f98b",
+                "name": "association",
+                "properties": {
+                  "nombre": "producto",
+                  "clase": "producto",
+                  "cardinalidad": "1",
+                  "checked": true
+                }
+              },
+              {
+                "type": "domain_attribute",
+                "id": "5041a94c",
+                "name": "domain_attribute",
+                "properties": {
+                  "nombre": "precio",
+                  "tipo": "Double",
+                  "checked": true
+                }
+              }
+            ],
+			"conditionalExpression": "",
+            "selectEvents": [
+              "eliminar"
+            ]
+          },
+          "events": []
+        }
+      ]
+    }
+  ],
+  "domain": [
+    {
+      "id": "ea6af123",
+      "type": "domain",
+      "name": "Domain Model",
+      "children": [
+        {
+          "type": "domain_class",
+          "id": "04987c8a",
+          "name": "producto",
+          "properties": {},
+          "children": [
+            {
+              "type": "domain_attribute",
+              "id": "cfd22e73",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "id",
+                "tipo": "Integer",
+                "checked": false
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "c7b90b53",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "nombre",
+                "tipo": "String",
+                "checked": true
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "6b6523a3",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "precio",
+                "tipo": "Double",
+                "checked": true
+              }
+            },
+            {
+              "type": "association",
+              "id": "9079e00a",
+              "name": "association",
+              "properties": {
+                "nombre": "categoria",
+                "clase": "categoria",
+                "cardinalidad": "1",
+                "checked": true
+              }
+            },
+            {
+              "type": "association",
+              "id": "242bb9d3",
+              "name": "association",
+              "properties": {
+                "nombre": "compras",
+                "clase": "compra",
+                "cardinalidad": "N",
+                "checked": "false"
+              }
+            },
+            {
+              "type": "association",
+              "id": "604a26a2",
+              "name": "association",
+              "properties": {
+                "nombre": "comentarios",
+                "clase": "comentario",
+                "cardinalidad": "N",
+                "checked": "false"
+              }
+            },
+            {
+              "type": "association",
+              "id": "dc6bfda2",
+              "name": "association",
+              "properties": {
+                "nombre": "ofertas",
+                "clase": "oferta",
+                "cardinalidad": "N",
+                "checked": "false"
+              }
+            },
+            {
+              "type": "method",
+              "id": "9a1a3ab1",
+              "name": "method",
+              "properties": {
+                "firma": "comprar",
+                "tipo": "Boolean",
+                "checked": false
+              }
+            }
+          ]
+        },
+        {
+          "type": "domain_class",
+          "id": "c5b178cc",
+          "name": "categoria",
+          "properties": {},
+          "children": [
+            {
+              "type": "domain_attribute",
+              "id": "7f46a39f",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "id",
+                "tipo": "Integer",
+                "checked": "false"
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "f378ad18",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "descripcion",
+                "tipo": "String",
+                "checked": "false"
+              }
+            },
+            {
+              "type": "association",
+              "id": "31539fa1",
+              "name": "association",
+              "properties": {
+                "nombre": "productos",
+                "clase": "producto",
+                "cardinalidad": "N",
+                "checked": "true"
+              }
+            }
+          ]
+        },
+        {
+          "type": "domain_class",
+          "id": "b9b61f2d",
+          "name": "usuario",
+          "properties": {},
+          "children": [
+            {
+              "type": "domain_attribute",
+              "id": "c51d57b0",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "id",
+                "tipo": "Integer",
+                "checked": false
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "533d69ae",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "login",
+                "tipo": "String",
+                "checked": true
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "502ef08f",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "password",
+                "tipo": "String",
+                "checked": true
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "c7a6d31b",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "confirmar password",
+                "tipo": "String",
+                "checked": true
+              }
+            },
+            {
+              "type": "association",
+              "id": "ed0b79d5",
+              "name": "association",
+              "properties": {
+                "nombre": "comentarios",
+                "clase": "comentario",
+                "cardinalidad": "N",
+                "checked": "false"
+              }
+            },
+            {
+              "type": "association",
+              "id": "10ee6b6d",
+              "name": "association",
+              "properties": {
+                "nombre": "categorias",
+                "clase": "compra",
+                "cardinalidad": "N",
+                "checked": "false"
+              }
+            }
+          ]
+        },
+        {
+          "type": "domain_class",
+          "id": "d6bd9434",
+          "name": "oferta",
+          "properties": {},
+          "children": [
+            {
+              "type": "domain_attribute",
+              "id": "f754f17a",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "id",
+                "tipo": "Integer",
+                "checked": "false"
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "f165aa51",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "descripcion",
+                "tipo": "String",
+                "checked": "false"
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "7505527a",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "fechaDesde",
+                "tipo": "Date",
+                "checked": "true"
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "c773e635",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "fechaHasta",
+                "tipo": "Date",
+                "checked": "true"
+              }
+            },
+            {
+              "type": "association",
+              "id": "236a56e4",
+              "name": "association",
+              "properties": {
+                "nombre": "producto",
+                "clase": "producto",
+                "cardinalidad": "1",
+                "checked": "true"
+              }
+            }
+          ]
+        },
+        {
+          "type": "domain_class",
+          "id": "162dba76",
+          "name": "compra",
+          "properties": {},
+          "children": [
+            {
+              "type": "domain_attribute",
+              "id": "c51d57b0",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "id",
+                "tipo": "Integer",
+                "checked": false
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "533d69ae",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "fecha",
+                "tipo": "String",
+                "checked": false
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "5041a94c",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "precio",
+                "tipo": "Double",
+                "checked": true
+              }
+            },
+            {
+              "type": "association",
+              "id": "9d23f98b",
+              "name": "association",
+              "properties": {
+                "nombre": "producto",
+                "clase": "producto",
+                "cardinalidad": "1",
+                "checked": true
+              }
+            },
+            {
+              "type": "association",
+              "id": "0496b0c1",
+              "name": "association",
+              "properties": {
+                "nombre": "comprador",
+                "clase": "usuario",
+                "cardinalidad": "1",
+                "checked": false
+              }
+            },
+            {
+              "type": "method",
+              "id": "cab56bb5",
+              "name": "method",
+              "properties": {
+                "firma": "eliminar",
+                "tipo": "Boolean",
+                "checked": false
+              }
+            }
+          ]
+        },
+        {
+          "type": "domain_class",
+          "id": "1bff3283",
+          "name": "comentario",
+          "properties": {},
+          "children": [
+            {
+              "type": "domain_attribute",
+              "id": "c51d57b0",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "id",
+                "tipo": "Integer",
+                "checked": false
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "533d69ae",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "texto",
+                "tipo": "String",
+                "checked": true
+              }
+            },
+            {
+              "type": "association",
+              "id": "cbb67bec",
+              "name": "association",
+              "properties": {
+                "nombre": "usuario",
+                "clase": "usuario",
+                "cardinalidad": "1",
+                "checked": true
+              }
+            },
+            {
+              "type": "association",
+              "id": "5cc75931",
+              "name": "association",
+              "properties": {
+                "nombre": "producto",
+                "clase": "producto",
+                "cardinalidad": "1",
+                "checked": false
+              }
+            },
+            {
+              "type": "domain_attribute",
+              "id": "234e0158",
+              "name": "domain_attribute",
+              "properties": {
+                "nombre": "fecha",
+                "tipo": "String",
+                "checked": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
