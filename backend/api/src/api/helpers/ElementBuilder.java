@@ -119,6 +119,10 @@ public class ElementBuilder {
 		list.setId(elem.getId());
 		list.setName(elem.getName());
 		
+		// Para cada propiedad selectEvent se crea el evento, el navigation flow
+		// que va al action asociado y el action con su dynamic beahviour.
+		// Se crean los parametros necesarios.
+		// Se crea el navigation flow para luego engancharlo con la pagina destino
 		ArrayList<String> selectEvents = (ArrayList<String>)elem.getProperties().get("selectEvents");
 		if(selectEvents != null) {
 			for(String e: selectEvents){
@@ -177,6 +181,8 @@ public class ElementBuilder {
 			}
 		}
 		
+		
+		// Se crean los system events
 		ArrayList<LinkedTreeMap<String, Object>> systemEvents = (ArrayList<LinkedTreeMap<String, Object>>)elem.getProperties().get("systemEvents");
 		if(systemEvents != null) {
 			LinkedTreeMap<String, Object> systemEventMap = systemEvents.get(0);
@@ -225,6 +231,7 @@ public class ElementBuilder {
 		
 		HashMap<String, Object> properties = elem.getProperties();
 		
+		// Se crean los databinding asoiados a la tabla
 		if (properties.containsKey("entity")) {
 				String entity = (String)properties.get("entity");
 				DataBinding db = f.createDataBinding();				
@@ -615,13 +622,12 @@ public class ElementBuilder {
 			umldc.setName(domainClass.getName());
 			umldc.setClassifier(c);
 			domainModel.getElements().add(umldc);
-		}
-		else
-		{
+		} else {
 			c = umldc.getClassifier();
 			umldc.setId(domainClass.getId());
 		}
-				
+		
+		// Se crean los atributos de la clase
 		for (DomainAttribute da: domainClass.getListAttribute()) {
 			PrimitiveType pt = tf.getPrimitiveType(da.getType());
 			StructuralFeature p = umlf.createStructuralFeature();
@@ -636,6 +642,7 @@ public class ElementBuilder {
 			mapAttributes.put(domainClass.getName() + "_" + da.getName(), umlsf);
 		}
 		
+		// Se crean las relaciones de la clase
 		for (DomainRelationshipEnd dr: domainClass.getListRelationships()){
 			Association a = umlf.createAssociation();
 			UMLDomainConcept dest = (UMLDomainConcept)(mapClass.get(dr.getNameClass()));
@@ -655,6 +662,7 @@ public class ElementBuilder {
 			c.getAssociations().add(a);
 		}
 				
+		// Se crean las operaciones de la clase
 		for (DomainOperation oper: domainClass.getListOperation()) {
 			BehavioralFeature bf = umlf.createBehavioralFeature();
 			bf.setNombre(oper.getName());
@@ -681,6 +689,8 @@ public class ElementBuilder {
 		HashMap<String, Object> properties = elem.getProperties();
 		ParameterBindingGroup paramBindGroup = f.createParameterBindingGroup();
 		
+		// Se crean las entradas del formulario, simpleField para los atributos, selectionField para asociaciones,
+		// ademas se crean los parametros asociados a cada una de esas entradas para luego utilizarlos en el action
 		if (properties.containsKey("attributes")) {
 			for (LinkedTreeMap<String, Object> a: (ArrayList<LinkedTreeMap<String, Object>>)properties.get("attributes")) {
 				if (((String)a.get("type")).equals("domain_attribute")) {
@@ -832,6 +842,8 @@ public class ElementBuilder {
 		DomainConcept dc = mapClass.get(entity); 
 		db.setDomainConcept(dc);
 		String conditionalExp = properties.get("conditionalExpression").toString();
+		
+		// Condicion sobre el details
 		if(conditionalExp != null && !conditionalExp.equals("")){
 			ConditionalExpression ce = f.createConditionalExpression();
 			ce.setId(java.util.UUID.randomUUID().toString().substring(0,8));
@@ -841,7 +853,8 @@ public class ElementBuilder {
 			db.getConditionalExpression().add(ce);
 			details.getViewComponentParts().add(ce);
 		}
-											
+									
+		// Artibutos mostrados
 		if (properties.containsKey("attributes")) {
 			for (LinkedTreeMap<String, Object> a: (ArrayList<LinkedTreeMap<String, Object>>)properties.get("attributes")) {						
 				if(a.get("type").equals("association")){														
