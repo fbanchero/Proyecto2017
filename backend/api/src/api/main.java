@@ -343,9 +343,6 @@ public class main {
 			Classifier c = eb.createClass(domainClass, domainModel);
 			mapClassifiers.put(c.getNombre(), c);
 		}
-//		for (DomainRelationship domainRelationship : model.getListRelationship()) {
-//			eb.createAssociation(domainRelationship, mapClassifiers);
-//		}
 		return domainModel;
 	}
 	
@@ -380,11 +377,6 @@ public class main {
 						oper.setId(e.getId());
 						oper.setName((String)e.getProperties().get("firma"));
 						oper.setRetorno((String)e.getProperties().get("tipo"));
-//						DomainGeneralElement t = element.getProperties().get("return_type");
-//						oper.setRetorno(t.getName());
-//						for (element.getProperties()) {
-//							
-//						}
 						c.getListOperation().add(oper);
 					}
 				}

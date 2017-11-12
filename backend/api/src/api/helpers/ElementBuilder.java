@@ -123,35 +123,35 @@ public class ElementBuilder {
 		if(selectEvents != null) {
 			for(String e: selectEvents){
 				SelectEvent se = ef.createSelectEvent();
-				se.setId(java.util.UUID.randomUUID().toString());
+				se.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 				se.setName(e);
 				
 				Action action = f.createAction();
-				action.setId(java.util.UUID.randomUUID().toString());
+				action.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 				action.setName(e + "_action");
 				DynamicBehavior db = f.createDynamicBehavior();
-				db.setId(java.util.UUID.randomUUID().toString());
+				db.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 				db.setName(e + "_dynamicBehaviour");
 				db.setBehavioralFeatureConcept(mapOperations.get(e));				
 				action.setDynamicBehavior(db);
 				list.getViewComponentParts().add(db);
 				
 				ParameterBindingGroup paramBindGroup = f.createParameterBindingGroup();
-				paramBindGroup.setId(java.util.UUID.randomUUID().toString());
+				paramBindGroup.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 				
 				ParameterBinding pb = f.createParameterBinding();
-				pb.setId(java.util.UUID.randomUUID().toString());
+				pb.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 				
 				ifml.core.Parameter sp = f.createParameter();			
-				sp.setId(java.util.UUID.randomUUID().toString());										
-				sp.setName(action.getName() + "_source_parameter");
+				sp.setId(java.util.UUID.randomUUID().toString().substring(0,8).substring(0,8));										
+				sp.setName(action.getName() + "_src");
 				sp.setKind(ParameterKind.INPUT);
 				pb.setSourceParameter(sp);
 				list.getParameters().add(sp);
 				
 				ifml.core.Parameter tp = f.createParameter();			
-				tp.setId(java.util.UUID.randomUUID().toString());										
-				tp.setName(action.getName() + "_target_parameter");
+				tp.setId(java.util.UUID.randomUUID().toString().substring(0,8));										
+				tp.setName(action.getName() + "_trg");
 				tp.setKind(ParameterKind.OUTPUT);
 				pb.setTargetParameter(tp);
 				action.getParameters().add(tp);
@@ -181,7 +181,7 @@ public class ElementBuilder {
 		if(systemEvents != null) {
 			LinkedTreeMap<String, Object> systemEventMap = systemEvents.get(0);
 			SystemEvent se = f.createSystemEvent();
-			se.setId(java.util.UUID.randomUUID().toString());
+			se.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 			se.setName((String)systemEventMap.get("event"));
 			ConditionalExpression exp = f.createConditionalExpression();
 			exp.setLanguage("OCL");
@@ -191,10 +191,10 @@ public class ElementBuilder {
 			listSystemEvent.add(se);
 			
 			Action action = f.createAction();
-			action.setId(java.util.UUID.randomUUID().toString());
+			action.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 			action.setName(se.getName() + "_action");
 			DynamicBehavior db = f.createDynamicBehavior();
-			db.setId(java.util.UUID.randomUUID().toString());
+			db.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 			db.setName(se.getName() + "_dynamicBehaviour");
 			db.setBehavioralFeatureConcept(mapOperations.get(se.getName()));				
 			action.setDynamicBehavior(db);
@@ -210,11 +210,11 @@ public class ElementBuilder {
 //			list.getSelectEvent().add(se);
 			
 			ActionEvent actionEvent = f.createActionEvent();
-			actionEvent.setId(java.util.UUID.randomUUID().toString());
+			actionEvent.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 			actionEvent.setName(elem.getName() + "_actionEvent");
 			
 			NavigationFlow nf2 = f.createNavigationFlow();
-			nf2.setId(java.util.UUID.randomUUID().toString());
+			nf2.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 			nf2.setSrcInteractionFlowElement(actionEvent);
 			nf2.setTrgtInteractionFlowElement(list);
 			action.getActionEvents().add(actionEvent);
@@ -237,7 +237,7 @@ public class ElementBuilder {
 							LinkedTreeMap<String, Object> props = (LinkedTreeMap<String, Object>)a.get("properties");
 							String clase = (String)(props.get("clase"));
 							DataBinding dba = f.createDataBinding();
-							dba.setName("dataBinding_"+ clase);
+							dba.setName(clase + "_db");
 							UMLDomainConcept dca = (UMLDomainConcept)mapClass.get(clase);
 							dba.setDomainConcept(dca);
 							for (StructuralFeature p: dca.getClassifier().getStructuralFeatures()) {
@@ -266,7 +266,7 @@ public class ElementBuilder {
 				if (conditionalExp != null) {
 					if(!conditionalExp.equals("")){
 						ConditionalExpression ce = f.createConditionalExpression();
-						ce.setId(java.util.UUID.randomUUID().toString());
+						ce.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 						ce.setName(entity + "_conditionalExpression"); 
 						ce.setLanguage("OCL");
 						ce.setBody(conditionalExp);
@@ -603,25 +603,6 @@ public class ElementBuilder {
 		
 	}
 	
-//	public DomainConcept createDomainConcept(DomainClass domainClass) {
-//
-//		UMLDomainConcept dc = f.createUMLDomainConcept();
-//		dc.setId(domainClass.getName() + "Id");
-//		dc.setName(domainClass.getName());
-//		org.eclipse.uml2.uml.Class c = umlf.createClass();
-//		c.setName(domainClass.getName());		
-//		for (DomainAttribute da : domainClass.getListAttribute()) {
-//			DomainProperty prop = da.getProperties();
-//			PrimitiveType pt = tf.getPrimitiveType(prop.getTipo());
-//			c.createOwnedAttribute(prop.getNombre(), pt);
-//		}
-//		dc.setClassifier(c);
-//		return dc;
-//	}
-	
-	
-
-	
 	public Classifier createClass(DomainClass domainClass, DomainModel domainModel) {
 		
 		UMLDomainConcept umldc = (UMLDomainConcept)mapClass.get(domainClass.getName());		
@@ -692,20 +673,6 @@ public class ElementBuilder {
 		return c;
 	}
 	
-//	public Association createAssociation(DomainRelationship domainRelationship, Map<String, org.eclipse.uml2.uml.Class> mapClassifiers) {
-//		Association a = umlf.createAssociation();
-//		for (DomainRelationshipEnd dre: domainRelationship.getRelationsEnd()) {
-//			org.eclipse.uml2.uml.Class c = mapClassifiers.get(dre.getNameClass());
-//			Property p = umlf.createProperty();
-//			p.setType(c);
-//			p.setUpper(dre.getCardUpper());
-//			p.setLower(dre.getCardLower());
-//			a.getMemberEnds().add(p);
-//			c.getAssociations().add(a);
-//		}
-//		return a;
-//	}
-	
 	public Form createForm(MockupGeneralElement elem, ArrayList<LinkElem> links) {
 		
 		Form form = ef.createForm();
@@ -720,48 +687,52 @@ public class ElementBuilder {
 					String nombre = (String)((LinkedTreeMap<String, Object>)a.get("properties")).get("nombre");
 					String tipo = (String)((LinkedTreeMap<String, Object>)a.get("properties")).get("tipo");
 					SimpleField sf = ef.createSimpleField();
-					sf.setId(java.util.UUID.randomUUID().toString()); // autogenerar uno
+					sf.setId(java.util.UUID.randomUUID().toString().substring(0,8)); // autogenerar uno
 					sf.setName(nombre);
 					form.getViewComponentParts().add(sf);
 					
 					ParameterBinding pb = f.createParameterBinding();					
-					pb.setId(java.util.UUID.randomUUID().toString());
+					pb.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 					ifml.core.Parameter sp = f.createParameter();
-					sp.setId(java.util.UUID.randomUUID().toString());										
-					sp.setName(sf.getName() + "_source_parameter");
+					sp.setId(java.util.UUID.randomUUID().toString().substring(0,8));										
+					sp.setName(sf.getName() + "_src");
 					sp.setKind(ParameterKind.INPUT);
 					pb.setSourceParameter(sp);
 					sf.getParameters().add(sp);
-					
+					ifml.core.Parameter tp = f.createParameter();
+					tp.setId(java.util.UUID.randomUUID().toString().substring(0,8));										
+					tp.setName(sf.getName() + "_trg");
+					tp.setKind(ParameterKind.OUTPUT);
+					pb.setTargetParameter(tp);
 					paramBindGroup.getParameterBindings().add(pb);
 					
 				} else if (((String)a.get("type")).equals("association")) {
 					String nombre = (String)((LinkedTreeMap<String, Object>)a.get("properties")).get("nombre");
 					String tipoClass = (String)((LinkedTreeMap<String, Object>)a.get("properties")).get("clase");
 					DataBinding db = f.createDataBinding();
-					db.setId(java.util.UUID.randomUUID().toString());
-					db.setName(tipoClass + "_Name");
+					db.setId(java.util.UUID.randomUUID().toString().substring(0,8));
+					db.setName(tipoClass + "_db");
 					db.setDomainConcept(mapClass.get(tipoClass));
 					
 					SelectionField sf = ef.createSelectionField();
 					sf.setIsMultiSelection(false);
-					sf.setId(java.util.UUID.randomUUID().toString()); // autogenerar uno
+					sf.setId(java.util.UUID.randomUUID().toString().substring(0,8)); // autogenerar uno
 					sf.setName(nombre);
 					sf.getSubViewComponentParts().add(sf);
 					form.getViewComponentParts().add(sf);
 					form.getViewComponentParts().add(db);
 					
 					ParameterBinding pb = f.createParameterBinding();					
-					pb.setId(java.util.UUID.randomUUID().toString());
+					pb.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 					ifml.core.Parameter sp = f.createParameter();
-					sp.setId(java.util.UUID.randomUUID().toString());										
-					sp.setName(sf.getName() + "_source_parameter");
+					sp.setId(java.util.UUID.randomUUID().toString().substring(0,8));										
+					sp.setName(sf.getName() + "_src");
 					sp.setKind(ParameterKind.INPUT);
 					pb.setSourceParameter(sp);
 					sf.getParameters().add(sp);
 					ifml.core.Parameter tp = f.createParameter();
-					tp.setId(java.util.UUID.randomUUID().toString());										
-					tp.setName(sf.getName() + "_target_parameter");
+					tp.setId(java.util.UUID.randomUUID().toString().substring(0,8));										
+					tp.setName(sf.getName() + "_trg");
 					tp.setKind(ParameterKind.OUTPUT);
 					pb.setTargetParameter(tp);
 					paramBindGroup.getParameterBindings().add(pb);
@@ -778,26 +749,22 @@ public class ElementBuilder {
 			
 			// Creo el action
 			Action action = f.createAction();
-			action.setId(java.util.UUID.randomUUID().toString());
-			action.setName(elem.getName() + "_action");
+			action.setId(java.util.UUID.randomUUID().toString().substring(0,8));
+			action.setName(elem.getName() + "_act");
 			listAction.add(action);
 			DynamicBehavior db = f.createDynamicBehavior();
-			db.setId(java.util.UUID.randomUUID().toString());
+			db.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 			db.setName(elem.getName() + "_dynamicBehaviour");
 			db.setBehavioralFeatureConcept(mapOperations.get(elem.getEvents().get(0).getBehaviour()));
 			action.setDynamicBehavior(db);
-//			form.getViewComponentParts().add(db);
+			form.getViewComponentParts().add(db);
 			for (ParameterBinding pb: paramBindGroup.getParameterBindings()) {
-				ifml.core.Parameter tp = f.createParameter();
-				tp.setId(java.util.UUID.randomUUID().toString());										
-				tp.setName(pb.getSourceParameter().getName() + "_target_parameter");
-				tp.setKind(ParameterKind.OUTPUT);
-				pb.setTargetParameter(tp);
+				ifml.core.Parameter tp = pb.getTargetParameter();
 				db.getParameters().add(tp);
 				form.getParameters().add(tp);
 			}
 			NavigationFlow nf = f.createNavigationFlow();
-			nf.setId(java.util.UUID.randomUUID().toString());
+			nf.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 			nf.setSrcInteractionFlowElement(se);
 			nf.setTrgtInteractionFlowElement(action);
 			nf.setParameterBindingGroup(paramBindGroup);
@@ -808,35 +775,33 @@ public class ElementBuilder {
 			//-----------------------------------------------
 								
 			ActionEvent actionEvent = f.createActionEvent();
-			actionEvent.setId(java.util.UUID.randomUUID().toString());
+			actionEvent.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 			actionEvent.setName(elem.getName() + "_actionEvent");
 			NavigationFlow nv_salida = f.createNavigationFlow();
-			nv_salida.setId(java.util.UUID.randomUUID().toString());
+			nv_salida.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 			nv_salida.setSrcInteractionFlowElement(actionEvent);
 						
 			ParameterBindingGroup pbg_salida = f.createParameterBindingGroup();
-			pbg_salida.setId(java.util.UUID.randomUUID().toString());			
+			pbg_salida.setId(java.util.UUID.randomUUID().toString().substring(0,8));			
 			
 			ParameterBinding pb_salida = f.createParameterBinding();
-			pb_salida.setId(java.util.UUID.randomUUID().toString());
+			pb_salida.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 			
 			ifml.core.Parameter sp_salida = f.createParameter();			
-			sp_salida.setId(java.util.UUID.randomUUID().toString());										
-			sp_salida.setName(action.getName() + "_source_parameter");
+			sp_salida.setId(java.util.UUID.randomUUID().toString().substring(0,8));										
+			sp_salida.setName(action.getName() + "_src");
 			sp_salida.setKind(ParameterKind.INPUT);
 			pb_salida.setSourceParameter(sp_salida);
 			db.getParameters().add(sp_salida);
 			actionEvent.getParameters().add(sp_salida);
 			
-			
-			
 			ifml.core.Parameter tp_salida = f.createParameter();			
-			tp_salida.setId(java.util.UUID.randomUUID().toString());										
-			tp_salida.setName(action.getName() + "_target_parameter");
+			tp_salida.setId(java.util.UUID.randomUUID().toString().substring(0,8));										
+			tp_salida.setName(action.getName() + "_trg");
 			tp_salida.setKind(ParameterKind.OUTPUT);
-			pb_salida.setTargetParameter(tp_salida);					
+			pb_salida.setTargetParameter(tp_salida);
 			
-			pbg_salida.getParameterBindings().add(pb_salida);			
+			pbg_salida.getParameterBindings().add(pb_salida);
 			nv_salida.setParameterBindingGroup(pbg_salida);
 			actionEvent.getNavigationFlows().add(nv_salida);
 						
@@ -862,14 +827,14 @@ public class ElementBuilder {
 		details.setName(elem.getName());
 		String entity = (String)properties.get("entity");
 		DataBinding db = f.createDataBinding();
-		db.setId(java.util.UUID.randomUUID().toString());
-		db.setName(entity + "_databinding");
+		db.setId(java.util.UUID.randomUUID().toString().substring(0,8));
+		db.setName(entity + "_db");
 		DomainConcept dc = mapClass.get(entity); 
 		db.setDomainConcept(dc);
 		String conditionalExp = properties.get("conditionalExpression").toString();
-		if(!conditionalExp.equals("")){
+		if(conditionalExp != null && !conditionalExp.equals("")){
 			ConditionalExpression ce = f.createConditionalExpression();
-			ce.setId(java.util.UUID.randomUUID().toString());
+			ce.setId(java.util.UUID.randomUUID().toString().substring(0,8));
 			ce.setName(entity + "_conditionalExpression"); 
 			ce.setLanguage("OCL");
 			ce.setBody(conditionalExp);
@@ -883,7 +848,7 @@ public class ElementBuilder {
 					LinkedTreeMap<String, Object> props = (LinkedTreeMap<String, Object>)a.get("properties");
 					String clase = (String)(props.get("clase"));
 					DataBinding dba = f.createDataBinding();
-					dba.setName(clase + "_dataBinding");
+					dba.setName(clase + "_db");
 					UMLDomainConcept dca = (UMLDomainConcept)mapClass.get(clase);
 					dba.setDomainConcept(dca);
 					for (BehavioralFeature p: dca.getClassifier().getBehavioralFeatures()) {
