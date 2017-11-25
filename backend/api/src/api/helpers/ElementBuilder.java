@@ -184,7 +184,7 @@ public class ElementBuilder {
 		
 		// Se crean los system events
 		ArrayList<LinkedTreeMap<String, Object>> systemEvents = (ArrayList<LinkedTreeMap<String, Object>>)elem.getProperties().get("systemEvents");
-		if(systemEvents != null) {
+		if(systemEvents != null && !systemEvents.isEmpty()) {
 			LinkedTreeMap<String, Object> systemEventMap = systemEvents.get(0);
 			SystemEvent se = f.createSystemEvent();
 			se.setId(java.util.UUID.randomUUID().toString().substring(0,8));

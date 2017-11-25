@@ -4,82 +4,110 @@
     <interactionFlowModel name="Pages">
       <interactionFlowModelElements xsi:type="core:ViewContainer" id="fbad580a" name="Page1">
         <viewElements xsi:type="ext:Form" id="33489003" name="form">
-          <viewComponentParts xsi:type="ext:SimpleField" id="fdc438fa" name="login">
-            <parameters id="68d2186d" name="login_src" kind="input"/>
+          <parameters id="cd64054a" name="login_trg" kind="output"/>
+          <parameters id="a8a7964e" name="password_trg" kind="output"/>
+          <parameters id="134cf511" name="confirmar password_trg" kind="output"/>
+          <viewComponentParts xsi:type="ext:SimpleField" id="8b08e08e" name="login">
+            <parameters id="9b0d36b7" name="login_src" kind="input"/>
           </viewComponentParts>
-          <viewComponentParts xsi:type="ext:SimpleField" id="7b983914" name="password">
-            <parameters id="0d586795" name="password_src" kind="input"/>
+          <viewComponentParts xsi:type="ext:SimpleField" id="eb2ec091" name="password">
+            <parameters id="8f937307" name="password_src" kind="input"/>
           </viewComponentParts>
-          <viewComponentParts xsi:type="ext:SimpleField" id="005c12fc" name="confirmar password">
-            <parameters id="0d8b07ec" name="confirmar password_src" kind="input"/>
+          <viewComponentParts xsi:type="ext:SimpleField" id="792196ff" name="confirmar password">
+            <parameters id="b9c55037" name="confirmar password_src" kind="input"/>
           </viewComponentParts>
+          <viewComponentParts xsi:type="core:DynamicBehavior" id="14301ccc" name="form_dynamicBehaviour" behavioralFeatureConcept="/0/@domainModel/@elements.17"/>
+          <submitEvent id="f9993aee" name="form">
+            <navigationFlows id="c0e2da42" srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@submitEvent.0" trgtInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.4">
+              <parameterBindingGroup>
+                <parameterBindings id="fa233903" sourceParameter="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.0/@parameters.0" targetParameter="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@parameters.0"/>
+                <parameterBindings id="b322e411" sourceParameter="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.1/@parameters.0" targetParameter="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@parameters.1"/>
+                <parameterBindings id="345270e0" sourceParameter="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.2/@parameters.0" targetParameter="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@parameters.2"/>
+              </parameterBindingGroup>
+            </navigationFlows>
+          </submitEvent>
         </viewElements>
       </interactionFlowModelElements>
-      <interactionFlowModelElements xsi:type="core:ViewContainer" id="f9993aee" name="Page2">
-        <viewElements xsi:type="ext:TextField" id="c8eb3687" name="text" FontSize="30" TextFieldText="Productos"/>
-        <viewElements xsi:type="ext:List" id="b053ae65" name="table">
-          <parameters id="4c78c0f6" name="comprar_action_src" kind="input"/>
-          <viewComponentParts xsi:type="core:DynamicBehavior" id="df8b09c1" name="comprar_dynamicBehaviour"/>
+      <interactionFlowModelElements xsi:type="core:ViewContainer" id="f9993aee" name="Page2" inInteractionFlows="/0/@interactionFlowModel/@interactionFlowModelElements.4/@actionEvents.0/@navigationFlows.0">
+        <parameters id="883e1a82" name="form_act_trg" kind="output"/>
+        <viewElements xsi:type="ext:TextField" id="c8eb3687" name="text" FontSize="30" TextFieldText="Listado de Productos"/>
+        <viewElements xsi:type="ext:List" id="a0908a42" name="table">
+          <parameters id="4a36867c" name="ver_action_src" kind="input"/>
+          <viewComponentParts xsi:type="core:DynamicBehavior" id="28c1876a" name="ver_dynamicBehaviour"/>
           <viewComponentParts xsi:type="core:VisualizationAttribute" id="c7b90b53" name="nombre" featureConcept="/0/@domainModel/@elements.2"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="7f46a39f" name="id" featureConcept="/0/@domainModel/@elements.9"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="f378ad18" name="descripcion" featureConcept="/0/@domainModel/@elements.10"/>
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="7f46a39f" name="id" featureConcept="/0/@domainModel/@elements.10"/>
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="f378ad18" name="descripcion" featureConcept="/0/@domainModel/@elements.11"/>
           <viewComponentParts xsi:type="core:DataBinding" name="categoria_db" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.1/@viewComponentParts.2 /0/@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.1/@viewComponentParts.3" domainConcept="/0/@domainModel/@elements.4"/>
           <viewComponentParts xsi:type="core:VisualizationAttribute" id="6b6523a3" name="precio" featureConcept="/0/@domainModel/@elements.3"/>
           <viewComponentParts xsi:type="core:DataBinding" name="dataBinding_producto" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.1/@viewComponentParts.1 /0/@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.1/@viewComponentParts.5" domainConcept="/0/@domainModel/@elements.0"/>
-          <selectEvent id="f0da167e" name="comprar">
-            <navigationFlows srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.1" trgtInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.4">
-              <parameterBindingGroup id="288be433">
-                <parameterBindings id="a901f858" sourceParameter="/0/@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.1/@parameters.0" targetParameter="/0/@interactionFlowModel/@interactionFlowModelElements.4/@parameters.0"/>
+          <selectEvent id="f175b91d" name="ver">
+            <navigationFlows srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.1" trgtInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.5">
+              <parameterBindingGroup id="f8a20552">
+                <parameterBindings id="16efbb01" sourceParameter="/0/@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.1/@parameters.0" targetParameter="/0/@interactionFlowModel/@interactionFlowModelElements.5/@parameters.0"/>
               </parameterBindingGroup>
             </navigationFlows>
           </selectEvent>
         </viewElements>
       </interactionFlowModelElements>
       <interactionFlowModelElements xsi:type="core:ViewContainer" id="a84c6c53" name="Page3">
-        <viewElements xsi:type="ext:Details" id="f4e0970c" name="details">
-          <viewComponentParts xsi:type="core:ConditionalExpression" id="b3566ab2" language="OCL" body="producto.id = 43" name="producto_conditionalExpression"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="c7b90b53" name="nombre" featureConcept="/0/@domainModel/@elements.2"/>
-          <viewComponentParts xsi:type="core:DataBinding" name="categoria_db" domainConcept="/0/@domainModel/@elements.4"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="6b6523a3" name="precio" featureConcept="/0/@domainModel/@elements.3"/>
-          <viewComponentParts xsi:type="core:DataBinding" id="83a7f99e" name="producto_db" conditionalExpression="/0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.0/@viewComponentParts.0" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.0/@viewComponentParts.1 /0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.0/@viewComponentParts.3" domainConcept="/0/@domainModel/@elements.0"/>
-        </viewElements>
         <viewElements xsi:type="ext:TextField" id="0adf7f55" name="text" FontSize="22" TextFieldText="Comentarios"/>
         <viewElements xsi:type="ext:List" id="9307e38d" name="table">
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="c51d57b0" name="id" featureConcept="/0/@domainModel/@elements.12"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="533d69ae" name="login" featureConcept="/0/@domainModel/@elements.13"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="502ef08f" name="password" featureConcept="/0/@domainModel/@elements.14"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="c7a6d31b" name="confirmar password" featureConcept="/0/@domainModel/@elements.15"/>
-          <viewComponentParts xsi:type="core:DataBinding" name="usuario_db" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.2/@viewComponentParts.0 /0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.2/@viewComponentParts.1 /0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.2/@viewComponentParts.2 /0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.2/@viewComponentParts.3" domainConcept="/0/@domainModel/@elements.11"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="533d69ae" name="texto" featureConcept="/0/@domainModel/@elements.25"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="234e0158" name="fecha" featureConcept="/0/@domainModel/@elements.26"/>
-          <viewComponentParts xsi:type="core:DataBinding" name="dataBinding_comentario" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.2/@viewComponentParts.5 /0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.2/@viewComponentParts.6" domainConcept="/0/@domainModel/@elements.6"/>
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="c51d57b0" name="id" featureConcept="/0/@domainModel/@elements.13"/>
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="533d69ae" name="login" featureConcept="/0/@domainModel/@elements.14"/>
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="502ef08f" name="password" featureConcept="/0/@domainModel/@elements.15"/>
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="c7a6d31b" name="confirmar password" featureConcept="/0/@domainModel/@elements.16"/>
+          <viewComponentParts xsi:type="core:DataBinding" name="usuario_db" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.1/@viewComponentParts.0 /0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.1/@viewComponentParts.1 /0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.1/@viewComponentParts.2 /0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.1/@viewComponentParts.3" domainConcept="/0/@domainModel/@elements.12"/>
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="533d69ae" name="texto" featureConcept="/0/@domainModel/@elements.27"/>
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="234e0158" name="fecha" featureConcept="/0/@domainModel/@elements.28"/>
+          <viewComponentParts xsi:type="core:DataBinding" name="dataBinding_comentario" conditionalExpression="/0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.1/@viewComponentParts.8" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.1/@viewComponentParts.5 /0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.1/@viewComponentParts.6" domainConcept="/0/@domainModel/@elements.6"/>
+          <viewComponentParts xsi:type="core:ConditionalExpression" id="c37d94ce" language="OCL" body="c.producto = p.id" name="comentario_conditionalExpression"/>
+        </viewElements>
+        <viewElements xsi:type="core:ViewContainer" id="0917fa8a" name="box">
+          <viewElements xsi:type="ext:Details" id="f4e0970c" name="details">
+            <viewComponentParts xsi:type="core:ConditionalExpression" id="1753cc8e" language="OCL" body="producto.id = idProducto" name="producto_conditionalExpression"/>
+            <viewComponentParts xsi:type="core:VisualizationAttribute" id="c7b90b53" name="nombre" featureConcept="/0/@domainModel/@elements.2"/>
+            <viewComponentParts xsi:type="core:DataBinding" name="categoria_db" domainConcept="/0/@domainModel/@elements.4"/>
+            <viewComponentParts xsi:type="core:VisualizationAttribute" id="6b6523a3" name="precio" featureConcept="/0/@domainModel/@elements.3"/>
+            <viewComponentParts xsi:type="core:DataBinding" id="edd0439b" name="producto_db" conditionalExpression="/0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.2/@viewElements.0/@viewComponentParts.0" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.2/@viewElements.0/@viewComponentParts.1 /0/@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.2/@viewElements.0/@viewComponentParts.3" domainConcept="/0/@domainModel/@elements.0"/>
+          </viewElements>
         </viewElements>
       </interactionFlowModelElements>
       <interactionFlowModelElements xsi:type="core:ViewContainer" id="c0f779aa" name="Page4">
         <viewElements xsi:type="ext:TextField" id="3c3bc4cd" name="text" FontSize="30" TextFieldText="CARRITO DE COMPRAS"/>
-        <viewElements xsi:type="ext:List" id="68f9cbb6" name="table">
-          <parameters id="998d8ba3" name="eliminar_action_src" kind="input"/>
-          <viewComponentParts xsi:type="core:DynamicBehavior" id="7186bdb5" name="eliminar_dynamicBehaviour"/>
+        <viewElements xsi:type="ext:List" id="77e22da5" name="table">
+          <parameters id="9219fce5" name="eliminar_action_src" kind="input"/>
+          <viewComponentParts xsi:type="core:DynamicBehavior" id="12059ed7" name="eliminar_dynamicBehaviour"/>
           <viewComponentParts xsi:type="core:VisualizationAttribute" id="cfd22e73" name="id" featureConcept="/0/@domainModel/@elements.1"/>
           <viewComponentParts xsi:type="core:VisualizationAttribute" id="c7b90b53" name="nombre" featureConcept="/0/@domainModel/@elements.2"/>
           <viewComponentParts xsi:type="core:VisualizationAttribute" id="6b6523a3" name="precio" featureConcept="/0/@domainModel/@elements.3"/>
           <viewComponentParts xsi:type="core:DataBinding" name="producto_db" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1/@viewComponentParts.1 /0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1/@viewComponentParts.2 /0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1/@viewComponentParts.3" domainConcept="/0/@domainModel/@elements.0"/>
-          <viewComponentParts xsi:type="core:VisualizationAttribute" id="5041a94c" name="precio" featureConcept="/0/@domainModel/@elements.22"/>
-          <viewComponentParts xsi:type="core:DataBinding" name="dataBinding_compra" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1/@viewComponentParts.5" domainConcept="/0/@domainModel/@elements.5"/>
-          <selectEvent id="a12e393f" name="eliminar">
-            <navigationFlows srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1" trgtInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.5">
-              <parameterBindingGroup id="aa6568f2">
-                <parameterBindings id="3cb114e7" sourceParameter="/0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1/@parameters.0" targetParameter="/0/@interactionFlowModel/@interactionFlowModelElements.5/@parameters.0"/>
+          <viewComponentParts xsi:type="core:VisualizationAttribute" id="5041a94c" name="precio" featureConcept="/0/@domainModel/@elements.24"/>
+          <viewComponentParts xsi:type="core:DataBinding" name="dataBinding_compra" conditionalExpression="/0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1/@viewComponentParts.7" visualizationAttributes="/0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1/@viewComponentParts.5" domainConcept="/0/@domainModel/@elements.5"/>
+          <viewComponentParts xsi:type="core:ConditionalExpression" id="db4b2909" language="OCL" body="c.comprador = usuario" name="compra_conditionalExpression"/>
+          <selectEvent id="5d985e58" name="eliminar">
+            <navigationFlows srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1" trgtInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.6">
+              <parameterBindingGroup id="6aeaa061">
+                <parameterBindings id="f528d32d" sourceParameter="/0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1/@parameters.0" targetParameter="/0/@interactionFlowModel/@interactionFlowModelElements.6/@parameters.0"/>
               </parameterBindingGroup>
             </navigationFlows>
           </selectEvent>
         </viewElements>
       </interactionFlowModelElements>
-      <interactionFlowModelElements xsi:type="core:Action" id="ee73a872" name="comprar_action" dynamicBehavior="/0/@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.1/@viewComponentParts.0">
-        <parameters id="671751ce" name="comprar_action_trg" kind="output"/>
+      <interactionFlowModelElements xsi:type="core:Action" id="4030e992" name="form_act" inInteractionFlows="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@submitEvent.0/@navigationFlows.0" dynamicBehavior="/0/@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.3">
+        <actionEvents id="a4b73a02" name="form_actionEvent">
+          <parameters id="6c54dddc" name="form_act_src" kind="input"/>
+          <navigationFlows id="9b98aa04" srcInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.4/@actionEvents.0" trgtInteractionFlowElement="/0/@interactionFlowModel/@interactionFlowModelElements.1">
+            <parameterBindingGroup id="b2d25103">
+              <parameterBindings id="68a7ce8c" sourceParameter="/0/@interactionFlowModel/@interactionFlowModelElements.4/@actionEvents.0/@parameters.0" targetParameter="/0/@interactionFlowModel/@interactionFlowModelElements.1/@parameters.0"/>
+            </parameterBindingGroup>
+          </navigationFlows>
+        </actionEvents>
       </interactionFlowModelElements>
-      <interactionFlowModelElements xsi:type="core:Action" id="69e9c67c" name="eliminar_action" dynamicBehavior="/0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1/@viewComponentParts.0">
-        <parameters id="6e696d21" name="eliminar_action_trg" kind="output"/>
+      <interactionFlowModelElements xsi:type="core:Action" id="6cef44cf" name="ver_action" dynamicBehavior="/0/@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.1/@viewComponentParts.0">
+        <parameters id="55076073" name="ver_action_trg" kind="output"/>
+      </interactionFlowModelElements>
+      <interactionFlowModelElements xsi:type="core:Action" id="c75fe2d3" name="eliminar_action" dynamicBehavior="/0/@interactionFlowModel/@interactionFlowModelElements.3/@viewElements.1/@viewComponentParts.0">
+        <parameters id="9da5c9fd" name="eliminar_action_trg" kind="output"/>
       </interactionFlowModelElements>
     </interactionFlowModel>
     <domainModel id="domainId" name="Domain Model">
@@ -91,7 +119,8 @@
       <elements xsi:type="core:UMLDomainConcept" id="162dba76" name="compra" classifier="/3"/>
       <elements xsi:type="core:UMLDomainConcept" id="1bff3283" name="comentario" classifier="/4"/>
       <elements xsi:type="core:UMLDomainConcept" id="d6bd9434" name="oferta" classifier="/5"/>
-      <elements xsi:type="core:UMLBehavioralFeature" id="9a1a3ab1" name="comprar" behavioralFeature="/1/@behavioralFeatures.0"/>
+      <elements xsi:type="core:UMLBehavioralFeature" id="2f1da513" name="ver" behavioralFeature="/1/@behavioralFeatures.0"/>
+      <elements xsi:type="core:UMLBehavioralFeature" id="9a1a3ab1" name="comprar" behavioralFeature="/1/@behavioralFeatures.1"/>
       <elements xsi:type="core:UMLStructuralFeature" id="7f46a39f" name="id" structuralFeature="/2/@structuralFeatures.0"/>
       <elements xsi:type="core:UMLStructuralFeature" id="f378ad18" name="descripcion" structuralFeature="/2/@structuralFeatures.1"/>
       <elements xsi:type="core:UMLDomainConcept" id="b9b61f2d" name="usuario" classifier="/6"/>
@@ -99,6 +128,7 @@
       <elements xsi:type="core:UMLStructuralFeature" id="533d69ae" name="login" structuralFeature="/6/@structuralFeatures.1"/>
       <elements xsi:type="core:UMLStructuralFeature" id="502ef08f" name="password" structuralFeature="/6/@structuralFeatures.2"/>
       <elements xsi:type="core:UMLStructuralFeature" id="c7a6d31b" name="confirmar password" structuralFeature="/6/@structuralFeatures.3"/>
+      <elements xsi:type="core:UMLBehavioralFeature" id="9aabecc2" name="registrar" behavioralFeature="/6/@behavioralFeatures.0"/>
       <elements xsi:type="core:UMLStructuralFeature" id="f754f17a" name="id" structuralFeature="/5/@structuralFeatures.0"/>
       <elements xsi:type="core:UMLStructuralFeature" id="f165aa51" name="descripcion" structuralFeature="/5/@structuralFeatures.1"/>
       <elements xsi:type="core:UMLStructuralFeature" id="7505527a" name="fechaDesde" structuralFeature="/5/@structuralFeatures.2"/>
@@ -116,6 +146,7 @@
     <structuralFeatures nombre="id" primitiveType="/7"/>
     <structuralFeatures nombre="nombre" primitiveType="/8"/>
     <structuralFeatures nombre="precio" primitiveType="/9"/>
+    <behavioralFeatures nombre="ver"/>
     <behavioralFeatures nombre="comprar"/>
     <associations nombre="categoria" memberEnd="/2" cardinality="1"/>
     <associations nombre="compras" memberEnd="/3" cardinality="-1"/>
@@ -154,8 +185,9 @@
     <structuralFeatures nombre="login" primitiveType="/8"/>
     <structuralFeatures nombre="password" primitiveType="/8"/>
     <structuralFeatures nombre="confirmar password" primitiveType="/8"/>
+    <behavioralFeatures nombre="registrar"/>
     <associations nombre="comentarios" memberEnd="/4" cardinality="-1"/>
-    <associations nombre="categorias" memberEnd="/3" cardinality="-1"/>
+    <associations nombre="compras" memberEnd="/3" cardinality="-1"/>
   </uml:Classifier>
   <uml:PrimitiveType nombre="Integer"/>
   <uml:PrimitiveType nombre="String"/>
